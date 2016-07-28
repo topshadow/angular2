@@ -1,38 +1,40 @@
-import {Injectable} from '@angular/core'
-import {Http,Response} from '@angular/http';
-import { Observable }     from 'rxjs/Observable';
-
-
-import 'rxjs/add/observable/throw';
-
-// Operators
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/toPromise';
+import {Component,Injectable} from "@angular/core";
+import {Http} from "@angular/http";
 
 @Injectable()
 export class DataService{
-    constructor(private http : Http){}
-    private   websiteUrl = 'data.json';
+    constructor() {}
 
-    getWebsiteData (){
-        return this.http.get(this.websiteUrl).map(function(res:Response){
-                let body = res.json();
-            return body.data ||{};
-        });
+    getJSON (url) {
+    var promise = new Promise(function(resolve, reject){
+        var client = new XMLHttpRequest();
+        client.open("GET", url);
+        client.onreadystatechange = handler;
+        client.responseType = "json";
+        client.setRequestHeader("Accept", "application/json");
+        client.send();
+        function handler() {
+            if (this.readyState !== 4) {
+                return;
+            }
+            if (this.status === 200) {
+                resolve(this.response);
+            } else {
+                reject(new Error(this.statusText));
+            }
+        };
+    });
+    return promise;
+};
+
+
+
+    async getWebsiteData(){
+
+
+        return  this.getJSON("website-data.json");
+
     }
 
-
-    private handleError (error: any) {
-        // In a real world app, we might use a remote logging infrastructure
-        // We'd also dig deeper into the error to get a better message
-        let errMsg = (error.message) ? error.message :
-            error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-        console.error(errMsg); // log to console instead
-        return Observable.throw(errMsg);
-    }
 
 }
