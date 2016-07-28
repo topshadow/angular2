@@ -7,7 +7,7 @@
     "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "typings": "typings install platform-browser"
+    "typings": "typings  "
   },
   "license": "ISC",
   "dependencies": {
