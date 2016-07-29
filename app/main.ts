@@ -14,6 +14,7 @@ var common =new CommonFunc();
 common.getJSON('website-data.json').then(data=> {
     window['websiteData']=data;
     window['route']  =common.parsePagesToRoute(data['pages']);
+    window['pages'] = data['pages'];
 
     bootstrap(App,[ [provideRouter(window['route'] )]  ])
         .catch(err => console.error(err));
@@ -50,9 +51,7 @@ export class App  implements  OnInit{
          this.navbarData = this.websiteData.navbar;
          this.footbarData = this.websiteData.footbar;
          this.pages = this.websiteData.pages;
-         this.route.params.subscribe(params => {
-             console.log(params); // (+) converts string 'id' to a number
-         });
+
          //获取当前页面数据,并注入到对应到视图中
 
 
