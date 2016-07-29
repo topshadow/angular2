@@ -1,6 +1,35 @@
-[
-  {
-    "path":"index",
-    "component":"./data.service"
-  }
-]
+{
+  "navbar":{
+    "name":"navbar name",
+  "menuList":[
+    {
+      "name":"主页",
+      "path":"index"
+    },
+    {
+      "name":"关于",
+      "path":"about"
+    }
+  ]
+  },
+
+  "footbar":{},
+
+  "pages":[
+    {
+      "path":"index",
+      "components":[
+        {
+          "componentType":"banner"
+        }
+      ]
+    },
+    {
+      "path":"about",
+      "components":[]
+    }
+  ]
+
+
+
+}

@@ -1,10 +1,12 @@
-import {Component} from '@angular/core';
+import {Component,Input} from '@angular/core';
 
 @Component({
     selector:'footbar',
-    template:`页脚`
+    template:`
+<h1>页脚</h1>`
     })
 export class Footbar{
-
+    @Input()
+    public data;
 
 }

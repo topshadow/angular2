@@ -12,10 +12,14 @@ var core_1 = require('@angular/core');
 var Footbar = (function () {
     function Footbar() {
     }
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], Footbar.prototype, "data", void 0);
     Footbar = __decorate([
         core_1.Component({
             selector: 'footbar',
-            template: "\u9875\u811A"
+            template: "\n<h1>\u9875\u811A</h1>"
         }), 
         __metadata('design:paramtypes', [])
     ], Footbar);

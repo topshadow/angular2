@@ -9,31 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var Navbar = (function () {
-    function Navbar() {
+var Page = (function () {
+    function Page() {
     }
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], Navbar.prototype, "menu", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], Navbar.prototype, "menuList", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], Navbar.prototype, "data", void 0);
-    Navbar = __decorate([
+    Page.prototype.ngOnInit = function () {
+        console.log(this.template);
+    };
+    Page = __decorate([
         core_1.Component({
-            selector: 'navbar',
-            template: "<h1>\u5BFC\u822A\u680F</h1>\n<ul>\n\n<li *ngFor=\"let menu of data.menuList\" >\n<a [routerLink]=\"[menu.path]\" routerLinkActive=\"active\">{{menu.name}}</a>\n \n</li>\n \n</ul>\n",
-            directives: [router_1.ROUTER_DIRECTIVES]
+            template: "\n    \u8FD9\u662F\u4E00\u4E2Aangular\u9875\u9762\n"
         }), 
         __metadata('design:paramtypes', [])
-    ], Navbar);
-    return Navbar;
+    ], Page);
+    return Page;
 }());
-exports.Navbar = Navbar;
-//# sourceMappingURL=navbar.js.map
+exports.Page = Page;
+//# sourceMappingURL=page.js.map
