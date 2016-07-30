@@ -7,6 +7,7 @@ import {Navbar} from './init/navbar';
 import {Footbar} from './init/footbar';
 import  {CommonFunc} from './core'
 import {Logger} from './logger';
+import  {TopBar}  from './init/topbar';
 
 var common =new CommonFunc();
 
@@ -14,28 +15,31 @@ common.getJSON('website-data.json').then(data=> {
     window['websiteData']=data;
     window['route']  =common.parsePagesToRoute(data['pages']);
     window['pages'] = data['pages'];
-
+    window['isEdit'] =true;
     bootstrap(App,[ [provideRouter(window['route'] )]  ])
         .catch(err => console.error(err));
 });
 @Component({
     selector: 'my-app',
     template: `
+<topbar></topbar>
  <navbar [data]="navbarData"></navbar>
  <router-outlet [data]="pages"></router-outlet>
  <footbar [data]="footbarData"></footbar> 
 `,
-    directives: [NgFor,Navbar,Footbar,ROUTER_DIRECTIVES],
+    directives: [NgFor,Navbar,Footbar,ROUTER_DIRECTIVES,TopBar],
     providers:[HTTP_PROVIDERS]
 })
 export class App  implements  OnInit{
     constructor(
         private route :ActivatedRoute,
         private router:Router){}
+
     public websiteData;
     public pages;
     public navbarData;
     public footbarData;
+    public com='topbar';
     // 初始化网站静态数据
       ngOnInit(){
          this.websiteData = window['websiteData'];
