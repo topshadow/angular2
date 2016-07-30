@@ -5,12 +5,9 @@ import {ROUTER_DIRECTIVES} from '@angular/router';
     selector:'navbar',
     template:`<h1>导航栏</h1>
 <ul>
-
 <li *ngFor="let menu of data.menuList" >
 <a [routerLink]="[menu.path]" routerLinkActive="active">{{menu.name}}</a>
- 
 </li>
- 
 </ul>
 `,
     directives:[ROUTER_DIRECTIVES]

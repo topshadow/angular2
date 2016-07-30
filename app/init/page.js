@@ -10,20 +10,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var page_component_1 = require('./page-component');
 var Page = (function () {
     function Page(router, route) {
         this.router = router;
         this.route = route;
     }
     Page.prototype.ngOnInit = function () {
-        console.log(this.router.url);
-        var currenPath = this.router.url.replace('/', '');
-        var pageData = window['pages'].find(function (page) { return page.path == currenPath; });
-        console.log(pageData);
+        var _this = this;
+        this.currentPath = this.router.url.replace('/', '');
+        console.log('current page route path', this.currentPath);
+        var currentPage = window['pages'].find(function (page) { return page.path == _this.currentPath; });
+        console.log(currentPage);
+        this.pageComponents = currentPage.components;
+        console.log(this.pageComponents);
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], Page.prototype, "data", void 0);
     Page = __decorate([
         core_1.Component({
-            template: "\n    \u8FD9\u662F\u4E00\u4E2Aangular\u9875\u9762\n"
+            template: "\n    \u8FD9\u662F\u4E00\u4E2Aangular\u9875\u9762\n    <pagecomponent [data]=\"pageComponent\" *ngFor=\"let pageComponent of pageComponents\"></pagecomponent> \n",
+            directives: [page_component_1.PageComponent]
         }), 
         __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute])
     ], Page);

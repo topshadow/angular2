@@ -28,7 +28,7 @@ var Navbar = (function () {
     Navbar = __decorate([
         core_1.Component({
             selector: 'navbar',
-            template: "<h1>\u5BFC\u822A\u680F</h1>\n<ul>\n\n<li *ngFor=\"let menu of data.menuList\" >\n<a [routerLink]=\"[menu.path]\" routerLinkActive=\"active\">{{menu.name}}</a>\n \n</li>\n \n</ul>\n",
+            template: "<h1>\u5BFC\u822A\u680F</h1>\n<ul>\n<li *ngFor=\"let menu of data.menuList\" >\n<a [routerLink]=\"[menu.path]\" routerLinkActive=\"active\">{{menu.name}}</a>\n</li>\n</ul>\n",
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])

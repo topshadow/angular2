@@ -14,13 +14,17 @@
   },
 
   "footbar":{},
-
   "pages":[
     {
       "path":"index",
       "components":[
         {
+          "name":"index page component1",
           "componentType":"banner"
+        },
+        {
+          "name":"index page comppnent2",
+          "componentType":"s"
         }
       ]
     },
@@ -29,7 +33,5 @@
       "components":[]
     }
   ]
-
-
 
 }

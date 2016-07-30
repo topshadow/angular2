@@ -5,10 +5,6 @@ import { provideRouter, RouterConfig }  from '@angular/router';
 import { Observable }     from 'rxjs/Observable';
 import {Page} from './init/page';
 import {App} from './main';
-
-
-
-
 @Injectable()
 export class CommonFunc{
     routes : RouterConfig =[
