@@ -19,10 +19,14 @@
       "path":"index",
       "components":[
         {
+          "component":"Banner1Component",
+          "selector":"Banner1",
           "name":"index page component1",
           "componentType":"banner"
         },
         {
+          "component":"Banner1Component",
+          "selector":"Banner1",
           "name":"index page comppnent2",
           "componentType":"s"
         }
