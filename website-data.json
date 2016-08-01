@@ -1,18 +1,29 @@
 {
   "navbar":{
-    "name":"navbar name",
-  "menuList":[
+    "component":"Navbar1Component",
+    "menuList":[
     {
       "name":"主页",
-      "path":"index"
+      "url":"index",
+      "secondaryMenu":[
+        {
+          "name":"send main",
+          "url":"about"
+        }
+      ]
     },
     {
       "name":"关于",
-      "path":"about"
+      "path":"about",
+      "secondaryMenu":[
+        {
+          "name":"send main",
+          "url":"about"
+        }
+      ]
     }
   ]
   },
-
   "footbar":{},
   "pages":[
     {

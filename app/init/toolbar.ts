@@ -1,13 +1,12 @@
 import {Component,Input} from '@angular/core';
 
 @Component({
-    selector:'topbar',
-    template:`<button (click)="editState()" >编辑</button> <button (click)="viewState()">预览</button>
- <button (click)="syncData()">同步</button><br>
-            
-`
+    selector:'toolbar',
+    templateUrl:`app/init/toolbar.html`
 })
-export class TopBar{
+export class ToolBar{
+    @Input()
+    public data;
 
     syncData(){
         console.log('同步数据');

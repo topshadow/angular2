@@ -9,32 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var index_1 = require('../pages/index');
-var Navbar = (function () {
-    function Navbar() {
+var ToolBar = (function () {
+    function ToolBar() {
     }
+    ToolBar.prototype.syncData = function () {
+        console.log('同步数据');
+    };
+    ToolBar.prototype.editState = function () {
+        window['isEdit'] = true;
+    };
+    ToolBar.prototype.viewState = function () {
+        window['isEdit'] = false;
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
-    ], Navbar.prototype, "data", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], Navbar.prototype, "menu", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], Navbar.prototype, "menuList", void 0);
-    Navbar = __decorate([
+    ], ToolBar.prototype, "data", void 0);
+    ToolBar = __decorate([
         core_1.Component({
-            selector: 'navbar',
-            template: "\n<div [ngSwitch]=\"data.component\">\n<navbar-1-component *ngSwitchCase=\"'Navbar1Component'\" [data]=\"data\"> </navbar-1-component>\n\n</div>\n",
-            directives: [router_1.ROUTER_DIRECTIVES, index_1.Navbar1Component]
+            selector: 'toolbar',
+            templateUrl: "app/init/toolbar.html"
         }), 
         __metadata('design:paramtypes', [])
-    ], Navbar);
-    return Navbar;
+    ], ToolBar);
+    return ToolBar;
 }());
-exports.Navbar = Navbar;
-//# sourceMappingURL=navbar.js.map
+exports.ToolBar = ToolBar;
+//# sourceMappingURL=toolbar.js.map

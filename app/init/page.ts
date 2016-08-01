@@ -1,6 +1,6 @@
-import {Component,Input,OnInit,TemplateRef} from '@angular/core';
+import {Component,Input,OnInit} from '@angular/core';
 import {ActivatedRoute,Router} from '@angular/router';
-import {PageComponent} from './page-component'
+
 import {NgFor,NgSwitch,NgSwitchCase,NgSwitchDefault} from '@angular/common';
 import {Banner1Component}  from '../pages/index';
 //根据components数据迭代生成页面对应的组件,对应对应的页面函数,对应的页面的编辑页面,对应的页面的编辑页面的函数
@@ -19,8 +19,8 @@ import {Banner1Component}  from '../pages/index';
  </div>
  </div>
 `,
-    directives:[PageComponent,NgFor,Banner1Component,NgSwitch,NgSwitchCase,NgSwitchDefault],
-    providers:[TemplateRef]
+    directives:[Banner1Component],
+    providers:[]
 })
 export class Page implements OnInit{
     @Input()
@@ -36,6 +36,7 @@ export class Page implements OnInit{
 
     @Input()
     public pageComponents;
+
     public currentPath;
     constructor(private router:Router,private route:ActivatedRoute){}
 

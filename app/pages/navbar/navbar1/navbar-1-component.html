@@ -1,0 +1,86 @@
+
+
+
+<div *ngIf="isEdit">
+    <div class="btn-group">
+        <!-- Large modal -->
+        <button class="btn btn-primary" (click)="addProject.show()">新增项目</button>
+        <!--<button class="btn btn-primary" (click)="lgModal.show()">管理栏目</button>-->
+        <button>设置样式</button>
+        <button>隐藏</button>
+        <button>恢复排版</button>
+    </div>
+</div>
+
+<div bsModal #addProject="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="addProject.hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">新增项目</h4>
+            </div>
+            <div class="modal-body">
+
+                <tabset [justified]="true">
+                    <tab heading="常规">
+                       栏目名称: <input type="text"><br>
+                        栏目类型:<select>
+                        <option>默认</option>
+                    </select><br>
+                        选择上级栏目(只能选择一级菜单):
+                        <select ngControl="currentMenu">
+                            <option *ngFor="let menu of menuList" [value]="menu"></option>
+                        </select>
+                    {{currentMenu || json }}
+            <button class="btn btn-primary" (click)="addtMenu()">保存</button><button class="btn btn-primary" (click)="addProject.hide()">取消</button>
+                    </tab>
+                    <tab heading="高级">Short Labeled Justified content</tab>
+                    <tab heading="百度优化">Long Labeled Justified content</tab>
+                </tabset>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ><img src="" /> </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown" *ngFor="let menu of data.menuList" >
+                    <a routerLink="{{menu.url}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    {{menu.name}}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let secondaryMenu of menu.secondaryMenu">
+                            <a routerLink="{{secondaryMenu.url}}">{{secondaryMenu.name}} </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>

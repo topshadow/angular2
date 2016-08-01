@@ -1,24 +1,25 @@
 import {Component,Input} from '@angular/core';
 import {ROUTER_DIRECTIVES} from '@angular/router';
+import {Navbar1Component}  from '../pages/index';
 
 @Component({
     selector:'navbar',
-    template:`<h1>导航栏</h1>
-<ul>
-<li *ngFor="let menu of data.menuList" >
-<a [routerLink]="[menu.path]" routerLinkActive="active">{{menu.name}}</a>
-</li>
-</ul>
+    template:`
+<div [ngSwitch]="data.component">
+<navbar-1-component *ngSwitchCase="'Navbar1Component'" [data]="data"> </navbar-1-component>
+
+</div>
 `,
-    directives:[ROUTER_DIRECTIVES]
+    directives:[ROUTER_DIRECTIVES,Navbar1Component]
 
 })
 export class Navbar{
     @Input()
+    public data;
+    @Input()
     public menu ;
     @Input()
     public menuList;
-    @Input()
-    public data :any;
+
 
 }

@@ -1,6 +1,7 @@
 import  {Component,OnInit,Input} from '@angular/core';
 import {PageComponent} from '../../../init/page-component';
 
+
 @Component({
     selector:'banner-1-component',
     templateUrl:`app/pages/component/banner/banner-1-component.html`
