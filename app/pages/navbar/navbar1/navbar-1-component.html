@@ -19,23 +19,33 @@
                 <button type="button" class="close" (click)="addProject.hide()" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+
                 <h4 class="modal-title">新增项目</h4>
             </div>
             <div class="modal-body">
 
                 <tabset [justified]="true">
+                    <tab heading="Logo">
+                        Logo链接:<input [(ngModel)]="data.logo" type="text"><br>
+                        上传图片<input type="file" #image (change)="uploadImage(image)" >
+                    </tab>
+
+
                     <tab heading="常规">
-                       栏目名称: <input type="text"><br>
-                        栏目类型:<select>
-                        <option>默认</option>
+                       栏目名称: <input type="text" #newMenuName><br>
+                        栏目类型:<select #currentComponent>
+                        <option >默认</option>
                     </select><br>
                         选择上级栏目(只能选择一级菜单):
-                        <select ngControl="currentMenu">
-                            <option *ngFor="let menu of menuList" [value]="menu"></option>
+                        <select   #currentMenu>
+
+                            <option *ngFor="let menu of firstMenuList" [value]="menu |json">{{menu.name}}</option>
                         </select>
-                    {{currentMenu || json }}
-            <button class="btn btn-primary" (click)="addtMenu()">保存</button><button class="btn btn-primary" (click)="addProject.hide()">取消</button>
+                    <!--{{currentMenu.value }}-->
+                        <br>
+            <button class="btn btn-primary" (click)="addMenu(currentMenu.value ,newMenuName.value)">保存</button><button class="btn btn-primary" (click)="addProject.hide()">取消</button>
                     </tab>
+
                     <tab heading="高级">Short Labeled Justified content</tab>
                     <tab heading="百度优化">Long Labeled Justified content</tab>
                 </tabset>
@@ -63,7 +73,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" ><img src="" /> </a>
+            <a class="navbar-brand" ><img src="{{data.logo}}" /> </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

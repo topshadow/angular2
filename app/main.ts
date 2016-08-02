@@ -7,13 +7,29 @@ import {provideRouter} from '@angular/router';
 
 
 var common =new CommonFunc();
-common.getJSON('website-data.json').then(data=> {
+
+
+
+
+var websiteData = localStorage.getItem('websiteData');
+var startApp = function(data){
     window['websiteData']=data;
     window['route']  =common.parsePagesToRoute(data['pages']);
     window['pages'] = data['pages'];
     window['isEdit'] =true;
     bootstrap(App,[ [provideRouter(window['route'])]  ])
         .catch(err => console.error(err));
-});
+};
+
+
+
+
+
+if(websiteData){
+startApp(JSON.parse(websiteData));
+}else{
+    common.getJSON('website-data.json').then(startApp);
+}
+
 
 

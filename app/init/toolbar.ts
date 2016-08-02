@@ -9,7 +9,7 @@ export class ToolBar{
     public data;
 
     syncData(){
-        console.log('同步数据');
+    localStorage.setItem('websiteData',JSON.stringify(window['websiteData']));
     }
 
     editState(){

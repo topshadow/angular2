@@ -1,6 +1,7 @@
 {
   "navbar":{
     "component":"Navbar1Component",
+    "logo":"http://www.alvye.cn/statics/images/2016/top_logo.png",
     "menuList":[
     {
       "name":"主页",

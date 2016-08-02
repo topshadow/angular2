@@ -22,6 +22,7 @@ export class Navbar1Component{
     @Input()
     public checkModel = {left: false, middle: true, right: false};
 
+    @Input()
     public currentMenu;
     public editState = false;
 
@@ -58,11 +59,44 @@ export class Navbar1Component{
 
     //新增一级菜单
 
-    addtMenu(){
+    addMenu(oldMenu,name,component){
+        oldMenu =JSON.parse(oldMenu);
 
+        if(!oldMenu){
+
+        }else {
+
+            console.log(oldMenu);
+            var menu = this.firstMenuList.find((menu)=> menu.name == oldMenu.name);
+            var url = Math.round(Math.random() * 10000) + name;
+            menu.secondaryMenu.push({name, component, url: url});
+
+            //添加页面的组件
+            window['pages'].push({
+                "path": url,
+                "components": [
+                    {
+                        "component": "Banner1Component",
+                        "selector": "Banner1",
+                        "name": "index page component1",
+                        "componentType": "banner"
+                    },
+                    {
+                        "component": "Banner1Component",
+                        "selector": "Banner1",
+                        "name": "index page comppnent2",
+                        "componentType": "s"
+                    }
+                ]
+            });
+            this.hideChildModal();
+        }
     }
 
-    con(log){
-    console.log(log);
-}
+    uploadImage(target) {
+        var reader = new FileReader();
+        reader.readAsDataURL(target.files[0]);
+        var data = this.data;
+    }
+
 }

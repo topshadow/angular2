@@ -57,10 +57,40 @@ var Navbar1Component = (function () {
         configurable: true
     });
     //新增一级菜单
-    Navbar1Component.prototype.addtMenu = function () {
+    Navbar1Component.prototype.addMenu = function (oldMenu, name, component) {
+        oldMenu = JSON.parse(oldMenu);
+        if (!oldMenu) {
+        }
+        else {
+            console.log(oldMenu);
+            var menu = this.firstMenuList.find(function (menu) { return menu.name == oldMenu.name; });
+            var url = Math.round(Math.random() * 10000) + name;
+            menu.secondaryMenu.push({ name: name, component: component, url: url });
+            //添加页面的组件
+            window['pages'].push({
+                "path": url,
+                "components": [
+                    {
+                        "component": "Banner1Component",
+                        "selector": "Banner1",
+                        "name": "index page component1",
+                        "componentType": "banner"
+                    },
+                    {
+                        "component": "Banner1Component",
+                        "selector": "Banner1",
+                        "name": "index page comppnent2",
+                        "componentType": "s"
+                    }
+                ]
+            });
+            this.hideChildModal();
+        }
     };
-    Navbar1Component.prototype.con = function (log) {
-        console.log(log);
+    Navbar1Component.prototype.uploadImage = function (target) {
+        var reader = new FileReader();
+        reader.readAsDataURL(target.files[0]);
+        var data = this.data;
     };
     __decorate([
         core_1.Input(), 
@@ -74,6 +104,10 @@ var Navbar1Component = (function () {
         core_1.Input(), 
         __metadata('design:type', Object)
     ], Navbar1Component.prototype, "checkModel", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], Navbar1Component.prototype, "currentMenu", void 0);
     __decorate([
         core_1.ViewChild('childModal'), 
         __metadata('design:type', modal_component_1.ModalDirective)

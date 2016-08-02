@@ -13,7 +13,7 @@ var ToolBar = (function () {
     function ToolBar() {
     }
     ToolBar.prototype.syncData = function () {
-        console.log('同步数据');
+        localStorage.setItem('websiteData', JSON.stringify(window['websiteData']));
     };
     ToolBar.prototype.editState = function () {
         window['isEdit'] = true;
