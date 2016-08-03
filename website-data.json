@@ -2,6 +2,7 @@
   "navbar":{
     "component":"Navbar1Component",
     "logo":"http://www.alvye.cn/statics/images/2016/top_logo.png",
+    "serverPhone":"13212780816",
     "menuList":[
     {
       "name":"主页",
@@ -32,15 +33,22 @@
       "components":[
         {
           "component":"Banner1Component",
-          "selector":"Banner1",
           "name":"index page component1",
           "componentType":"banner"
         },
         {
-          "component":"Banner1Component",
-          "selector":"Banner1",
-          "name":"index page comppnent2",
+          "component":"ProductList",
+          "name":"Product lust name",
           "componentType":"s"
+        },
+        {
+          "component":"ServiceContent",
+         "name":"Service component name"
+
+        },
+        {
+          "component":"ArticleShow",
+          "name":"ArticleShow"
         }
       ]
     },

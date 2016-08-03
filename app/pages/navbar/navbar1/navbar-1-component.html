@@ -1,6 +1,3 @@
-
-
-
 <div *ngIf="isEdit">
     <div class="btn-group">
         <!-- Large modal -->
@@ -25,6 +22,12 @@
             <div class="modal-body">
 
                 <tabset [justified]="true">
+                    <tab heading="客服电话" (deselect)="showWysiswyg=false" (select)="showWysiwyg=true">
+
+                        <textarea  ng-if="showWysiwyg" id="serverPhoneTextarea"  style="width:100%"  #serverPhonetemp>  </textarea>
+                        <button class="btn btn-primary" (click)="saveServerPhone(serverPhonetemp.value)" >保存</button>
+                        <button class="btn btn-default" (click)="addProject.hide()">取消</button>
+                    </tab>
                     <tab heading="Logo">
                         Logo链接:<input [(ngModel)]="data.logo" type="text"><br>
                         上传图片<input type="file" #image (change)="uploadImage(image)" >
@@ -43,11 +46,14 @@
                         </select>
                     <!--{{currentMenu.value }}-->
                         <br>
-            <button class="btn btn-primary" (click)="addMenu(currentMenu.value ,newMenuName.value)">保存</button><button class="btn btn-primary" (click)="addProject.hide()">取消</button>
+            <button class="btn btn-primary" (click)="addMenu(currentMenu.value ,newMenuName.value);addProject.hide()">保存</button>
+                        <button class="btn btn-primary" (click)="addProject.hide()">取消</button>
                     </tab>
 
-                    <tab heading="高级">Short Labeled Justified content</tab>
-                    <tab heading="百度优化">Long Labeled Justified content</tab>
+                    <tab heading="高级">
+                        客服电话:<input type="text" [(ngModel)]="data.serverPhone">
+                    </tab>
+                    <tab heading="百度优化"><h1><button (click)="changeH1Color()">改变按钮颜色</button></h1></tab>
                 </tabset>
 
             </div>
@@ -61,6 +67,15 @@
 
 
 
+
+<div>
+    <div class="btn-btn-primary" (click)="SetHome()">主页</div>
+    <button class="btn btn-primary" (click)="AddFavorite()"> 收藏</button>
+<a class="btn btn-default" href="tel:{{serverPhonetemp}}" >
+
+
+    客服热线:{{data.serverPhone}}</a>
+</div>
 
 
 <nav class="navbar navbar-default">

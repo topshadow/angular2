@@ -21,6 +21,9 @@ var ToolBar = (function () {
     ToolBar.prototype.viewState = function () {
         window['isEdit'] = false;
     };
+    ToolBar.prototype.clearData = function () {
+        localStorage.setItem('websiteData', '');
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)

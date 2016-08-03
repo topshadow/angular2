@@ -1,9 +1,11 @@
-import {Component,Input,ViewChild} from '@angular/core';
+import {Component,Input,ViewChild,ElementRef,Injector,OnInit} from '@angular/core';
+import {DomSanitizationService} from '@angular/platform-browser';
 import {MODAL_DIRECTIVES, BS_VIEW_PROVIDERS} from 'ng2-bootstrap/ng2-bootstrap';
 import {ModalDirective} from 'ng2-bootstrap/components/modal/modal.component';
 import {ROUTER_DIRECTIVES} from  '@angular/router';
 import {TAB_DIRECTIVES} from  'ng2-bootstrap/ng2-bootstrap';
 import {ControlContainer} from '@angular/common';
+
 
 @Component({
     selector:'navbar-1-component',
@@ -13,7 +15,36 @@ import {ControlContainer} from '@angular/common';
     directives:[MODAL_DIRECTIVES,ROUTER_DIRECTIVES,TAB_DIRECTIVES],
     providers:[ControlContainer]
 })
-export class Navbar1Component{
+export class Navbar1Component implements OnInit{
+
+    constructor(private el:ElementRef,private sanitizer: DomSanitizationService){}
+
+    ngOnInit() {
+        //编辑器
+        window['$'](this.el.nativeElement).find('#serverPhoneTextarea')
+       .wysihtml5({
+            "font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
+            "emphasis": true, //Italics, bold, etc. Default true
+            "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+            "html": false, //Button which allows you to edit the generated HTML. Default false
+            "link": true, //Button to insert a link. Default true
+             //Button to insert an image. Default true,
+            "color": true, //Button to change color of font
+            "blockquote": true, //Blockquote
+            "size": "24px" //default: none, other options are xs, sm, lg
+        });
+
+    }
+
+    closeWysiwyg(){
+
+        console.log('closeWysiswyg');
+    }
+    showWysiwyg=false;
+
+    @Input()
+    public serverPhone;
+
     @Input()
     public data;
     public singleModel:string = '1';
@@ -61,12 +92,6 @@ export class Navbar1Component{
 
     addMenu(oldMenu,name,component){
         oldMenu =JSON.parse(oldMenu);
-
-        if(!oldMenu){
-
-        }else {
-
-            console.log(oldMenu);
             var menu = this.firstMenuList.find((menu)=> menu.name == oldMenu.name);
             var url = Math.round(Math.random() * 10000) + name;
             menu.secondaryMenu.push({name, component, url: url});
@@ -89,8 +114,13 @@ export class Navbar1Component{
                     }
                 ]
             });
-            this.hideChildModal();
-        }
+        this.childModal.hide();
+
+    }
+
+    saveServerPhone(serverPhone){
+        this.data.serverPhone =this.sanitizer.bypassSecurityTrustHtml(serverPhone);
+        // this.data.serverPhone = serverPhone;
     }
 
     uploadImage(target) {
@@ -98,5 +128,11 @@ export class Navbar1Component{
         reader.readAsDataURL(target.files[0]);
         var data = this.data;
     }
+
+
+    changeH1Color(){
+        window['$'](this.el.nativeElement).find('h1').css('color','blue');
+    }
+
 
 }

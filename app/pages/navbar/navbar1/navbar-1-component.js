@@ -9,18 +9,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var platform_browser_1 = require('@angular/platform-browser');
 var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var modal_component_1 = require('ng2-bootstrap/components/modal/modal.component');
 var router_1 = require('@angular/router');
 var ng2_bootstrap_2 = require('ng2-bootstrap/ng2-bootstrap');
 var common_1 = require('@angular/common');
 var Navbar1Component = (function () {
-    function Navbar1Component() {
+    function Navbar1Component(el, sanitizer) {
+        this.el = el;
+        this.sanitizer = sanitizer;
+        this.showWysiwyg = false;
         this.singleModel = '1';
         this.radioModel = 'Middle';
         this.checkModel = { left: false, middle: true, right: false };
         this.editState = false;
     }
+    Navbar1Component.prototype.ngOnInit = function () {
+        //编辑器
+        window['$'](this.el.nativeElement).find('#serverPhoneTextarea')
+            .wysihtml5({
+            "font-styles": true,
+            "emphasis": true,
+            "lists": true,
+            "html": false,
+            "link": true,
+            //Button to insert an image. Default true,
+            "color": true,
+            "blockquote": true,
+            "size": "24px" //default: none, other options are xs, sm, lg
+        });
+    };
+    Navbar1Component.prototype.closeWysiwyg = function () {
+        console.log('closeWysiswyg');
+    };
     Navbar1Component.prototype.showChildModal = function () {
         this.childModal.show();
     };
@@ -59,39 +81,45 @@ var Navbar1Component = (function () {
     //新增一级菜单
     Navbar1Component.prototype.addMenu = function (oldMenu, name, component) {
         oldMenu = JSON.parse(oldMenu);
-        if (!oldMenu) {
-        }
-        else {
-            console.log(oldMenu);
-            var menu = this.firstMenuList.find(function (menu) { return menu.name == oldMenu.name; });
-            var url = Math.round(Math.random() * 10000) + name;
-            menu.secondaryMenu.push({ name: name, component: component, url: url });
-            //添加页面的组件
-            window['pages'].push({
-                "path": url,
-                "components": [
-                    {
-                        "component": "Banner1Component",
-                        "selector": "Banner1",
-                        "name": "index page component1",
-                        "componentType": "banner"
-                    },
-                    {
-                        "component": "Banner1Component",
-                        "selector": "Banner1",
-                        "name": "index page comppnent2",
-                        "componentType": "s"
-                    }
-                ]
-            });
-            this.hideChildModal();
-        }
+        var menu = this.firstMenuList.find(function (menu) { return menu.name == oldMenu.name; });
+        var url = Math.round(Math.random() * 10000) + name;
+        menu.secondaryMenu.push({ name: name, component: component, url: url });
+        //添加页面的组件
+        window['pages'].push({
+            "path": url,
+            "components": [
+                {
+                    "component": "Banner1Component",
+                    "selector": "Banner1",
+                    "name": "index page component1",
+                    "componentType": "banner"
+                },
+                {
+                    "component": "Banner1Component",
+                    "selector": "Banner1",
+                    "name": "index page comppnent2",
+                    "componentType": "s"
+                }
+            ]
+        });
+        this.childModal.hide();
+    };
+    Navbar1Component.prototype.saveServerPhone = function (serverPhone) {
+        this.data.serverPhone = this.sanitizer.bypassSecurityTrustHtml(serverPhone);
+        // this.data.serverPhone = serverPhone;
     };
     Navbar1Component.prototype.uploadImage = function (target) {
         var reader = new FileReader();
         reader.readAsDataURL(target.files[0]);
         var data = this.data;
     };
+    Navbar1Component.prototype.changeH1Color = function () {
+        window['$'](this.el.nativeElement).find('h1').css('color', 'blue');
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], Navbar1Component.prototype, "serverPhone", void 0);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
@@ -121,7 +149,7 @@ var Navbar1Component = (function () {
             directives: [ng2_bootstrap_1.MODAL_DIRECTIVES, router_1.ROUTER_DIRECTIVES, ng2_bootstrap_2.TAB_DIRECTIVES],
             providers: [common_1.ControlContainer]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [core_1.ElementRef, platform_browser_1.DomSanitizationService])
     ], Navbar1Component);
     return Navbar1Component;
 }());

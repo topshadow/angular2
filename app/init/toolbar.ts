@@ -9,6 +9,7 @@ export class ToolBar{
     public data;
 
     syncData(){
+
     localStorage.setItem('websiteData',JSON.stringify(window['websiteData']));
     }
 
@@ -17,5 +18,9 @@ export class ToolBar{
     }
     viewState(){
         window['isEdit'] = false;
+    }
+
+    clearData(){
+        localStorage.setItem('websiteData','');
     }
 }
