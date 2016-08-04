@@ -16,7 +16,7 @@
     },
     {
       "name":"关于",
-      "path":"about",
+      "url":"about",
       "secondaryMenu":[
         {
           "name":"send main",

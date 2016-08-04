@@ -1,9 +1,4 @@
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -14,38 +9,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var page_component_1 = require('../../../init/page-component');
-var Banner1Component = (function (_super) {
-    __extends(Banner1Component, _super);
+var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
+var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
+var Banner1Component = (function () {
     function Banner1Component() {
-        _super.apply(this, arguments);
+        this.myInterval = 5000;
+        this.noWrapSlides = false;
+        this.slides = [];
+        for (var i = 0; i < 4; i++) {
+            this.addSlide();
+        }
+        console.log('sides', this.slides);
     }
-    Banner1Component.prototype.sayHello = function () {
-        console.log('sayHello');
+    Banner1Component.prototype.addSlide = function () {
+        var newWidth = 600 + this.slides.length + 1;
+        this.slides.push({
+            image: "//placekitten.com/" + newWidth + "/300",
+            text: ['More', 'Extra', 'Lots of', 'Surplus'][this.slides.length % 4] + "\n      " + ['Cats', 'Kittys', 'Felines', 'Cutes'][this.slides.length % 4]
+        });
     };
-    // get data(){
-    //     return this.data;
-    // }
-    // set data(data){
-    //     this.data =data;
-    //     console.log(this.data);
-    // }
-    // constructor(){}
-    Banner1Component.prototype.ngOnInit = function () {
-        // console.log(this.data);
+    Banner1Component.prototype.removeSlide = function (index) {
+        this.slides.splice(index, 1);
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], Banner1Component.prototype, "data", void 0);
     Banner1Component = __decorate([
         core_1.Component({
             selector: 'banner-1-component',
-            templateUrl: "app/pages/component/banner/banner-1-component.html"
+            directives: [ng2_bootstrap_1.CAROUSEL_DIRECTIVES, common_1.CORE_DIRECTIVES, forms_1.FORM_DIRECTIVES],
+            templateUrl: 'app/pages/component/banner/banner-1-component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], Banner1Component);
     return Banner1Component;
-}(page_component_1.PageComponent));
+}());
 exports.Banner1Component = Banner1Component;
 //# sourceMappingURL=banner-1-component.js.map
