@@ -9,32 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var index_1 = require('../pages/index');
-var Navbar = (function () {
-    function Navbar() {
+var HotNews = (function () {
+    function HotNews() {
     }
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
-    ], Navbar.prototype, "data", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], Navbar.prototype, "menu", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], Navbar.prototype, "menuList", void 0);
-    Navbar = __decorate([
+    ], HotNews.prototype, "data", void 0);
+    HotNews = __decorate([
         core_1.Component({
-            selector: 'navbar',
-            template: "\n    <div [ngSwitch]=\"data.component\">\n      <navbar-1-component *ngSwitchCase=\"'Navbar1Component'\" [data]=\"data\"> </navbar-1-component>\n    </div>\n",
-            directives: [router_1.ROUTER_DIRECTIVES, index_1.Navbar1Component]
+            selector: 'hot-news',
+            templateUrl: "app/pages/component/hot-news/hot-news.html",
+            styleUrls: ["app/pages/component/hot-news/hot-news.css"]
         }), 
         __metadata('design:paramtypes', [])
-    ], Navbar);
-    return Navbar;
+    ], HotNews);
+    return HotNews;
 }());
-exports.Navbar = Navbar;
-//# sourceMappingURL=navbar.js.map
+exports.HotNews = HotNews;
+//# sourceMappingURL=hot-news.js.map

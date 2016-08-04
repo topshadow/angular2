@@ -5,10 +5,9 @@ import {Navbar1Component}  from '../pages/index';
 @Component({
     selector:'navbar',
     template:`
-<div [ngSwitch]="data.component">
-<navbar-1-component *ngSwitchCase="'Navbar1Component'" [data]="data"> </navbar-1-component>
-
-</div>
+    <div [ngSwitch]="data.component">
+      <navbar-1-component *ngSwitchCase="'Navbar1Component'" [data]="data"> </navbar-1-component>
+    </div>
 `,
     directives:[ROUTER_DIRECTIVES,Navbar1Component]
 
