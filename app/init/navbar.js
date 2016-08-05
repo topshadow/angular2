@@ -29,8 +29,8 @@ var Navbar = (function () {
     Navbar = __decorate([
         core_1.Component({
             selector: 'navbar',
-            template: "\n<div [ngSwitch]=\"data.component\">\n<navbar-1-component *ngSwitchCase=\"'Navbar1Component'\" [data]=\"data\"> </navbar-1-component>\n\n</div>\n",
-            directives: [router_1.ROUTER_DIRECTIVES, index_1.Navbar1Component]
+            template: "\n<div [ngSwitch]=\"data.component\">\n<nav-component *ngSwitchCase=\"'NavComponent'\" [data]=\"data\"> </nav-component>\n\n</div>\n",
+            directives: [router_1.ROUTER_DIRECTIVES, index_1.NavComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], Navbar);

@@ -1,16 +1,16 @@
 import {Component,Input} from '@angular/core';
 import {ROUTER_DIRECTIVES} from '@angular/router';
-import {Navbar1Component}  from '../pages/index';
+import {NavComponent}  from '../pages/index';
 
 @Component({
     selector:'navbar',
     template:`
 <div [ngSwitch]="data.component">
-<navbar-1-component *ngSwitchCase="'Navbar1Component'" [data]="data"> </navbar-1-component>
+<nav-component *ngSwitchCase="'NavComponent'" [data]="data"> </nav-component>
 
 </div>
 `,
-    directives:[ROUTER_DIRECTIVES,Navbar1Component]
+    directives:[ROUTER_DIRECTIVES,NavComponent]
 
 })
 export class Navbar{

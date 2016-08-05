@@ -1,6 +1,6 @@
 {
   "navbar":{
-    "component":"Navbar1Component",
+    "component":"NavComponent",
     "logo":"http://www.alvye.cn/statics/images/2016/top_logo.png",
     "serverPhone":"13212780816",
     "menuList":[
@@ -19,7 +19,7 @@
       "url":"about",
       "secondaryMenu":[
         {
-          "name":"send main",
+          "name":"二级菜单",
           "url":"about"
         }
       ]
