@@ -5,3 +5,15 @@ button.active{
 .clickBlue{
     background-color: blue;
 }
+
+.isEdit{
+    border:2px blue dotted;
+}
+
+.hide{
+    display: none;
+}
+
+*{
+    color:blue !important;
+}

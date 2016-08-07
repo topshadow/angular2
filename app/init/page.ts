@@ -8,12 +8,9 @@ import {Banner1Component,ProductList,ServiceContent,ArticleShow}  from '../pages
 
 @Component({
     template:`
-    这是一个angular页面
-
 <div *ngFor="let pageComponent of pageComponents" >
-{{pageComponent.component}}
+
  <div [ngSwitch]="pageComponent.component">
-  <button (click)="openEditComponent(pageComponent)">编辑</button>
 <banner-1-component  *ngSwitchCase="'Banner1Component'" [data]="pageComponent"></banner-1-component>
  <product-list *ngSwitchCase="'ProductList'" [data]="pageComponent" ></product-list>
  <service-content *ngSwitchCase="'ServiceContent'" [data]="pageComponent"></service-content>

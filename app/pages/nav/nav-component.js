@@ -19,6 +19,7 @@ var forms_1 = require('@angular/forms');
 var index_1 = require('../../directive/index');
 var custom_textarea_1 = require('../tool/custome-textarea/custom-textarea');
 var nav_service_1 = require('./nav-service');
+var nav_1 = require('./nav');
 var index_2 = require('../../pipe/index');
 var NavComponent = (function () {
     function NavComponent(navService, el, sanitizer) {
@@ -28,6 +29,15 @@ var NavComponent = (function () {
         this.showWysiwyg = false;
         this.editState = false;
     }
+    NavComponent.prototype.setCurrentEditMenu = function (menu) {
+        this.currentEditMenu = menu;
+    };
+    NavComponent.prototype.getCurrentEditMenu = function () {
+        return this.currentEditMenu;
+    };
+    NavComponent.prototype.saveCurrentEditMenu = function (menu) {
+        this.currentEditMenu = menu;
+    };
     Object.defineProperty(NavComponent.prototype, "isEdit", {
         get: function () {
             return window['isEdit'];
@@ -59,33 +69,14 @@ var NavComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    NavComponent.prototype.addFirstMenu = function (menu) {
-        this.navService.addFirstMenu(menu);
+    NavComponent.prototype.addFirstMenu = function (menu, isCustomeUrl, customerUrl) {
+        debugger;
+        this.navService.addFirstMenu(menu, isCustomeUrl, customerUrl);
     };
     //新增一级菜单
-    NavComponent.prototype.addSecondaryMenu = function (oldMenuStr, newMenu) {
-        var oldMenu = JSON.parse(oldMenuStr);
-        var menu = this.firstMenuList.find(function (menu) { return menu.name == oldMenu.name; });
-        newMenu.url = Math.round(Math.random() * 10000) + newMenu.name;
-        menu.secondaryMenu.push(newMenu);
-        //添加页面的组件
-        window['pages'].push({
-            "path": newMenu.url,
-            "components": [
-                {
-                    "component": "Banner1Component",
-                    "selector": "Banner1",
-                    "name": "index page component1",
-                    "componentType": "banner"
-                },
-                {
-                    "component": "Banner1Component",
-                    "selector": "Banner1",
-                    "name": "index page comppnent2",
-                    "componentType": "s"
-                }
-            ]
-        });
+    NavComponent.prototype.addSecondaryMenu = function (firstMenuStr, secondaryMenu, isCutomerUrl, customerUrl) {
+        var firstMenu = JSON.parse(firstMenuStr);
+        this.navService.addSecondaryMenu(firstMenu, secondaryMenu, isCutomerUrl, customerUrl);
     };
     NavComponent.prototype.saveServerPhone = function (serverPhone) {
         this.data.serverPhone = this.sanitizer.bypassSecurityTrustHtml(serverPhone);
@@ -95,6 +86,10 @@ var NavComponent = (function () {
         var reader = new FileReader();
         reader.readAsDataURL(target.files[0]);
         var data = this.data;
+    };
+    NavComponent.prototype.deleteMenu = function (menu) {
+        //如果是一级导航
+        this.navService.deleteMenu(menu);
     };
     NavComponent.prototype.changeH1Color = function () {
         window['$'](this.el.nativeElement).find('h1').css('color', 'blue');
@@ -119,6 +114,10 @@ var NavComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', Object)
     ], NavComponent.prototype, "currentMenu", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', nav_1.Menu)
+    ], NavComponent.prototype, "currentEditMenu", void 0);
     NavComponent = __decorate([
         core_1.Component({
             selector: 'nav-component',

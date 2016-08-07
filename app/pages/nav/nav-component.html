@@ -52,24 +52,32 @@
                         <tabset [justified]="true">
                             <tab heading="新增一级菜单">
                                 栏目名称:<input type="text" #firstMenuInput><br>
-                                菜单类型:<select   #currentMenu>
+                                <div [ngClass]="{'hide':isCustomeFirstMenuUrlCheckbox.checked}">菜单类型:<select    #currentMenu>
                                     <option *ngFor="let menu of firstMenuList" [value]="menu |json">{{menu.name}}</option>
                                 </select>
-                                自定义url:<input type="text" #customeUrlInput>
-                                <button class="btn btn-default" (click)="addFirstMenu( {name:firstMenuInput.value,url:customeUrlInput.value,secondaryMenu:[]});addProject.hide()">保存</button>
+                                    </div>
+                                是否自定义外链:<input type="checkbox" #isCustomeFirstMenuUrlCheckbox ><br>
+                                <div [ngClass]="{'hide':!isCustomeFirstMenuUrlCheckbox.checked}"> 外链:<input type="text" #customeFirstMenuUrlInput ></div>
+                                <button class="btn btn-primary"
+                                        (click)="addFirstMenu({name:firstMenuInput.value,url:'',secondaryMenu:[]},isCustomeFirstMenuUrlCheckbox.checked,customeFirstMenuUrlInput.value);
+                                       addProject.hide()">保存</button>
                                 <button (click)="addProject.hide()">取消</button>
                             </tab>
 
                             <tab heading="添加二级菜单">
 
                                 菜单名称: <input type="text" #newMenuNameInput><br>
-                                菜单类型:<select   #currentMenu>
+                                菜单类型:<select    #currentMenu>
                                     <option *ngFor="let menu of firstMenuList" [value]="menu |json">{{menu.name}}</option>
                              </select>
 
+                                是否自定义外链:<input  type="checkbox" #isCustomeSecondaryMenuUrlCheckbox><br>
+                                <div [ngClass]="{'hide': !isCustomeSecondaryMenuUrlCheckbox.checked}">外链:<input  type="text"  #secondaryMenuUrlInput><br></div>
+
+
 
                                 <button class="btn btn-primary" (click)="addSecondaryMenu( currentMenu.value,
-                                {name:newMenuNameInput.value,url:'',sencondaryMenu:[]});addProject.hide();">保存</button>
+                                {name:newMenuNameInput.value,url:'',sencondaryMenu:[]},isCustomeSecondaryMenuUrlCheckbox.value,secondaryMenuUrlInput.value);addProject.hide();">保存</button>
                                 <button class="btn btn-primary" (click)="addProject.hide()">取消</button>
 
                             </tab>
@@ -94,10 +102,11 @@
 
                             <tbody  *ngFor="let menu of navService.nav.menuList">
                             <tr  class="success"><td>{{menu.name}}</td> <td>{{menu.url}}</td>
-                                <td><i class="glyphicon glyphicon-ok"></i></td><td> <i (click)="editProject.show()">编辑</i>/<a href="{{menu.url}}">设计</a>/删除</td></tr>
+                                <td><i class="glyphicon glyphicon-ok"></i></td>
+                                <td> <i (click)="setCurrentEditMenu(menu);editProject.show()">编辑</i>/<a href="{{menu.url}}">设计</a>/<button class="btn btn-danger" (click)="deleteMenu(menu)">删除</button></td></tr>
                                 <tr class="warning" *ngFor="let subMenu of menu.secondaryMenu">
                                     <td><i class="glyphicon glyphicon-forward"></i> {{subMenu.name}}</td><td>{{subMenu.url}}</td>
-                                    <td><i class="glyphicon glyphicon-ok"></i></td><td>编辑/<a href="{{subMenu.url}}">设计</a>/删除</td></tr>
+                                    <td><i class="glyphicon glyphicon-ok"></i></td><td>编辑/<a href="{{subMenu.url}}">设计</a>/<button class="btn btn-danger" (click)="deleteMenu(subMenu)">删除</button></td></tr>
                             </tbody>
 
 
@@ -129,7 +138,13 @@
             <div class="modal-body">
 
                 <tabset [justified]="true">
-                    <tab heading="编辑导航" >
+                    <tab heading="编辑菜单" >
+                    <tbody *ngIf="currentEditMenu">
+                        修改菜单名称<input type="text" [(ngModel)]="currentEditMenu.name" #currentEditMenuNameInput>
+                        自定义菜单的链接:<input type="text" [(ngModel)]="currentEditMenu.url" #currentEditMenuUrlInput>
+                    <button class="btn btn-primary" (click)="saveCurrentEditMenu({name:currentEditMenuNameInput.value,url:currentEditMenuUrlInput.value});editProject.hide();">保存</button>
+                        <button class="btn btn-default" (click)="editProject.hide();">取消</button>
+                    </tbody>
                         </tab>
                     </tabset>
                 </div>
@@ -146,7 +161,7 @@
 
 
 
-
+<div [ngClass]="{'isEdit': isEdit}">
 <!--导航内容-->
 <div>
     <div class="btn btn-primary" (click)="SetHome()">主页</div>
@@ -178,7 +193,7 @@
                     <a *ngIf="menu.url.indexOf('/')==-1" routerLink="{{menu.url}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 
                     {{menu.name}}<span class="caret"></span></a>
-                    <a *ngIf="menu.url.indexOf('/')!=-1"  href="{{menu.url}}" >{{menu.name}}</a>
+                    <a *ngIf="menu.url.indexOf('/')!=-1"  href="{{menu.url}}" >{{menu.name}}:{{menu.url}}</a>
 
                     <ul class="dropdown-menu">
                         <li *ngFor="let secondaryMenu of menu.secondaryMenu">
@@ -195,4 +210,6 @@
     </div><!-- /.container-fluid -->
 </nav>
 
+
+</div>
 <!--导航内容-->

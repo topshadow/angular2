@@ -50,6 +50,15 @@ export class NavComponent implements OnInit{
     @Input()
     public data;
 
+    setCurrentEditMenu(menu:Menu){
+        this.currentEditMenu = menu;
+    }
+    getCurrentEditMenu(){
+        return this.currentEditMenu;
+    }
+    saveCurrentEditMenu(menu:Menu){
+        this.currentEditMenu=menu;
+    }
 
     @Input()
     public currentMenu;
@@ -59,7 +68,8 @@ export class NavComponent implements OnInit{
         return window['isEdit'];
     }
 
-
+    @Input()
+    public currentEditMenu:Menu;
 
     ngOnInit() {
         //编辑器
@@ -90,36 +100,16 @@ export class NavComponent implements OnInit{
     }
 
 
-    addFirstMenu(menu:Menu){
-        this.navService.addFirstMenu(menu);
+    addFirstMenu(menu:Menu,isCustomeUrl:boolean,customerUrl){
+        debugger;
+        this.navService.addFirstMenu(menu,isCustomeUrl,customerUrl);
     }
 
     //新增一级菜单
 
-    addSecondaryMenu(oldMenuStr:string,newMenu:Menu){
-            let oldMenu:Menu = JSON.parse(oldMenuStr);
-            var menu = this.firstMenuList.find((menu)=> menu.name == oldMenu.name);
-            newMenu.url = Math.round(Math.random() * 10000) + newMenu.name;
-            menu.secondaryMenu.push(newMenu);
-
-            //添加页面的组件
-            window['pages'].push({
-                "path": newMenu.url,
-                "components": [
-                    {
-                        "component": "Banner1Component",
-                        "selector": "Banner1",
-                        "name": "index page component1",
-                        "componentType": "banner"
-                    },
-                    {
-                        "component": "Banner1Component",
-                        "selector": "Banner1",
-                        "name": "index page comppnent2",
-                        "componentType": "s"
-                    }
-                ]
-            });
+    addSecondaryMenu(firstMenuStr:string,secondaryMenu:Menu,isCutomerUrl,customerUrl){
+            let firstMenu:Menu = JSON.parse(firstMenuStr);
+           this.navService.addSecondaryMenu(firstMenu,secondaryMenu,isCutomerUrl,customerUrl);
 
     }
 
@@ -132,6 +122,12 @@ export class NavComponent implements OnInit{
         var reader = new FileReader();
         reader.readAsDataURL(target.files[0]);
         var data = this.data;
+    }
+
+    deleteMenu(menu:Menu){
+        //如果是一级导航
+      this.navService.deleteMenu(menu);
+
     }
 
 
