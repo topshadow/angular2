@@ -1,11 +1,12 @@
-import {Component,Input,ViewChild,ElementRef,Injector,OnInit} from '@angular/core';
-import {DomSanitizationService} from '@angular/platform-browser';
-import {MODAL_DIRECTIVES, BS_VIEW_PROVIDERS} from 'ng2-bootstrap/ng2-bootstrap';
-import {ModalDirective} from 'ng2-bootstrap/components/modal/modal.component';
-import {ROUTER_DIRECTIVES} from  '@angular/router';
-import {TAB_DIRECTIVES,BUTTON_DIRECTIVES, ButtonRadioDirective, ButtonCheckboxDirective} from  'ng2-bootstrap/ng2-bootstrap';
+import {Component,Input,ViewChild,ElementRef,OnInit} from '@angular/core';
 import {ControlContainer,CORE_DIRECTIVES} from '@angular/common';
 import {FORM_DIRECTIVES} from '@angular/forms';
+import {DomSanitizationService} from '@angular/platform-browser';
+import {ROUTER_DIRECTIVES} from  '@angular/router';
+
+import {BUTTON_DIRECTIVES, ButtonRadioDirective,
+    ButtonCheckboxDirective,MODAL_DIRECTIVES, BS_VIEW_PROVIDERS,ModalDirective,TAB_DIRECTIVES} from  'ng2-bootstrap/ng2-bootstrap';
+
 import {RadioDirective} from '../../directive/index';
 import {CustomTextarea} from '../tool/custome-textarea/custom-textarea';
 import {NavService} from './nav-service';

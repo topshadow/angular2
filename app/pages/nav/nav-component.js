@@ -9,13 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
-var modal_component_1 = require('ng2-bootstrap/components/modal/modal.component');
-var router_1 = require('@angular/router');
-var ng2_bootstrap_2 = require('ng2-bootstrap/ng2-bootstrap');
 var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
+var platform_browser_1 = require('@angular/platform-browser');
+var router_1 = require('@angular/router');
+var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var index_1 = require('../../directive/index');
 var custom_textarea_1 = require('../tool/custome-textarea/custom-textarea');
 var nav_service_1 = require('./nav-service');
@@ -96,7 +94,7 @@ var NavComponent = (function () {
     };
     __decorate([
         core_1.ViewChild('childModal'), 
-        __metadata('design:type', modal_component_1.ModalDirective)
+        __metadata('design:type', ng2_bootstrap_1.ModalDirective)
     ], NavComponent.prototype, "childModal", void 0);
     __decorate([
         core_1.Input(), 
@@ -125,8 +123,8 @@ var NavComponent = (function () {
             viewProviders: [ng2_bootstrap_1.BS_VIEW_PROVIDERS],
             styleUrls: ["app/pages/nav/nav-component.css"],
             directives: [ng2_bootstrap_1.MODAL_DIRECTIVES, common_1.CORE_DIRECTIVES,
-                router_1.ROUTER_DIRECTIVES, ng2_bootstrap_2.TAB_DIRECTIVES, custom_textarea_1.CustomTextarea, ng2_bootstrap_2.BUTTON_DIRECTIVES, forms_1.FORM_DIRECTIVES,
-                ng2_bootstrap_2.ButtonRadioDirective, ng2_bootstrap_2.ButtonCheckboxDirective,
+                router_1.ROUTER_DIRECTIVES, ng2_bootstrap_1.TAB_DIRECTIVES, custom_textarea_1.CustomTextarea, ng2_bootstrap_1.BUTTON_DIRECTIVES, forms_1.FORM_DIRECTIVES,
+                ng2_bootstrap_1.ButtonRadioDirective, ng2_bootstrap_1.ButtonCheckboxDirective,
                 index_1.RadioDirective
             ],
             providers: [common_1.ControlContainer, nav_service_1.NavService],
