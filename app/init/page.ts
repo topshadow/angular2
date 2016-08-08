@@ -12,7 +12,7 @@ import {Dragula,DragulaService}  from 'ng2-dragula/ng2-dragula';
 @Component({
     template:`
 
-<div *ngFor="let pageComponent of pageComponents" [dragula]="'drag-component'"  >
+<div *ngFor="let pageComponent of pageComponents" [dragula]="'drag-component'"   >
 <div [ngSwitch]="pageComponent.component">
 <banner-1-component  *ngSwitchCase="'Banner1Component'" [data]="pageComponent"  ></banner-1-component>
 <product-list *ngSwitchCase="'ProductList'" [data]="pageComponent"  ></product-list>

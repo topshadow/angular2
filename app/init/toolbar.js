@@ -9,12 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
-var page_component_1 = require('./page-component/page-component');
 var ToolBar = (function () {
-    function ToolBar(el) {
+    function ToolBar(el, router) {
         this.el = el;
+        this.router = router;
     }
+    ToolBar.prototype.ngOnInit = function () {
+        var currentPath = this.router.url.replace('/', '');
+        console.log('current page route path:', currentPath);
+        var currentPage = window['pages'].find(function (page) { return page.path == currentPath; });
+        console.log(currentPage);
+        this.pageComponents = currentPage.components;
+        console.log(this.pageComponents);
+    };
     ToolBar.prototype.syncData = function () {
         localStorage.setItem('websiteData', JSON.stringify(window['websiteData']));
     };
@@ -43,10 +52,10 @@ var ToolBar = (function () {
             selector: 'toolbar',
             templateUrl: "app/init/toolbar.html",
             viewProviders: [ng2_bootstrap_1.BS_VIEW_PROVIDERS],
-            directives: [ng2_bootstrap_1.MODAL_DIRECTIVES, page_component_1.PageComponent],
+            directives: [ng2_bootstrap_1.MODAL_DIRECTIVES],
             styleUrls: ['app/init/toolbar.css']
         }), 
-        __metadata('design:paramtypes', [core_1.ElementRef])
+        __metadata('design:paramtypes', [core_1.ElementRef, router_1.Router])
     ], ToolBar);
     return ToolBar;
 }());

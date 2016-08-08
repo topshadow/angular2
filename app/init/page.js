@@ -99,7 +99,7 @@ var Page = (function () {
     ], Page.prototype, "pageComponents", void 0);
     Page = __decorate([
         core_1.Component({
-            template: "\n\n<div *ngFor=\"let pageComponent of pageComponents\" [dragula]=\"'drag-component'\"  >\n<div [ngSwitch]=\"pageComponent.component\">\n<banner-1-component  *ngSwitchCase=\"'Banner1Component'\" [data]=\"pageComponent\"  ></banner-1-component>\n<product-list *ngSwitchCase=\"'ProductList'\" [data]=\"pageComponent\"  ></product-list>\n<service-content *ngSwitchCase=\"'ServiceContent'\" [data]=\"pageComponent\"  ></service-content>\n<article-show  *ngSwitchCase=\"'ArticleShow'\" [data]=\"pageComponent\"  ></article-show>\n </div>\n </div>\n",
+            template: "\n\n<div *ngFor=\"let pageComponent of pageComponents\" [dragula]=\"'drag-component'\"   >\n<div [ngSwitch]=\"pageComponent.component\">\n<banner-1-component  *ngSwitchCase=\"'Banner1Component'\" [data]=\"pageComponent\"  ></banner-1-component>\n<product-list *ngSwitchCase=\"'ProductList'\" [data]=\"pageComponent\"  ></product-list>\n<service-content *ngSwitchCase=\"'ServiceContent'\" [data]=\"pageComponent\"  ></service-content>\n<article-show  *ngSwitchCase=\"'ArticleShow'\" [data]=\"pageComponent\"  ></article-show>\n </div>\n </div>\n",
             directives: [index_1.Banner1Component,
                 index_1.ProductList, index_1.ServiceContent,
                 index_1.ArticleShow,
