@@ -7,4 +7,5 @@ __export(require('./option-component/option-component'));
 __export(require('./nav'));
 __export(require('./foot'));
 __export(require('./toolbar'));
+__export(require('./option-component/component-type'));
 //# sourceMappingURL=index.js.map
