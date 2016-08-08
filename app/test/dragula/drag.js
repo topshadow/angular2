@@ -11,22 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ng2_dragula_1 = require('ng2-dragula/ng2-dragula');
 var TestDrag = (function () {
-    function TestDrag(dragService) {
-        this.dragService = dragService;
-        this.items = ['a', 'b'];
-        dragService.setOptions('third-bag', {
-            removeOnSpill: true
-        });
+    function TestDrag() {
+        this.items = ['a', 'b', 'c', 'd'];
     }
     TestDrag = __decorate([
         core_1.Component({
             selector: 'test-drag',
             directives: [ng2_dragula_1.Dragula],
             viewProviders: [ng2_dragula_1.DragulaService],
-            template: "\n  <div><h1>\u5DE6\u8FB9\u7684</h1> \n  <div class=\"\" [dragula]=\"'left'\" ></div>\n  \n  </div>\n  <div><h1>\u53F3\u8FB9\u7684</h1>\n  <div  [dragula]=\"'right'\">\n   <li *ngFor=\"let item of items\" [dragula]='\"bag-one\"' [dragulaModel]='items'>\n   {{item}}\n</li>\n</div>\n  </div>\n  \n  ",
+            template: "\n <div>\n    <div class='wrapper'>\n      <div class='container' [dragula]='\"first-bag\"'>\n        <div>You can move these elements between these two containers</div>\n        <div>Moving them anywhere else isn't quite possible</div>\n        <div>There's also the possibility of moving elements around in the same container, changing their position</div>\n      </div>\n      <div class='container' [dragula]='\"first-bag\"'>\n        <div>This is the default use case. You only need to specify the containers you want to use</div>\n        <div>More interactive use cases lie ahead</div>\n        <div>Make sure to check out the <a href='https://github.com/bevacqua/dragula#readme'>documentation on GitHub!</a></div>\n      </div>\n    </div>\n  </div> \n\n\n\n  ",
             styleUrls: ['app/test/dragula/drag.css']
         }), 
-        __metadata('design:paramtypes', [ng2_dragula_1.DragulaService])
+        __metadata('design:paramtypes', [])
     ], TestDrag);
     return TestDrag;
 }());
