@@ -12,12 +12,12 @@ import {Dragula,DragulaService}  from 'ng2-dragula/ng2-dragula';
 @Component({
     template:`
 
-<div *ngFor="let pageComponent of pageComponents" [dragula]="'drag-component'"  [dragulaModel]="pageComponents">
+<div *ngFor="let pageComponent of pageComponents" [dragula]="'drag-component'"  >
 <div [ngSwitch]="pageComponent.component">
 <banner-1-component  *ngSwitchCase="'Banner1Component'" [data]="pageComponent"  ></banner-1-component>
 <product-list *ngSwitchCase="'ProductList'" [data]="pageComponent"  ></product-list>
 <service-content *ngSwitchCase="'ServiceContent'" [data]="pageComponent"  ></service-content>
-<article-show *ngSwitchCase="'ArticleShow'"  [data]="pageComponent"  ></article-show>
+<article-show  *ngSwitchCase="'ArticleShow'" [data]="pageComponent"  ></article-show>
  </div>
  </div>
 `,
@@ -50,9 +50,10 @@ export class Page implements OnInit{
     constructor(private router:Router,private route:ActivatedRoute,private dragulaService:DragulaService,private el:ElementRef){
         dragulaService.setOptions('drag-component',
             {
-                copy:true,
-                direction: 'horizon',
-                copySortSource:true
+
+                direction: 'horizontal',
+                copySortSource:true,
+                removeOnSpill: false,
             });
         // dragulaService.drag.subscribe((value) => {
         //     this.onDrag(value.slice(1));

@@ -24,6 +24,6 @@ export class  PrimeOrderList{
     ]
 
     consoleCars(){
-            console.log(this.cars); 
+            console.log(this.cars);
     }
 }
