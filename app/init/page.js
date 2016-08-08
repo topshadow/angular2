@@ -11,9 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var index_1 = require('../pages/index');
-var page_component_1 = require('./page-component/page-component');
 var ng2_dragula_1 = require('ng2-dragula/ng2-dragula');
 //根据components数据迭代生成页面对应的组件,对应对应的页面函数,对应的页面的编辑页面,对应的页面的编辑页面的函数
+var index_2 = require('./index');
 var Page = (function () {
     function Page(router, route, dragulaService, el) {
         this.router = router;
@@ -99,11 +99,11 @@ var Page = (function () {
     ], Page.prototype, "pageComponents", void 0);
     Page = __decorate([
         core_1.Component({
-            template: "\n\n<div *ngFor=\"let pageComponent of pageComponents\" [dragula]=\"'drag-component'\"   >\n<div [ngSwitch]=\"pageComponent.component\">\n<banner-1-component  *ngSwitchCase=\"'Banner1Component'\" [data]=\"pageComponent\"  ></banner-1-component>\n<product-list *ngSwitchCase=\"'ProductList'\" [data]=\"pageComponent\"  ></product-list>\n<service-content *ngSwitchCase=\"'ServiceContent'\" [data]=\"pageComponent\"  ></service-content>\n<article-show  *ngSwitchCase=\"'ArticleShow'\" [data]=\"pageComponent\"  ></article-show>\n </div>\n </div>\n",
+            templateUrl: "app/init/page.html",
             directives: [index_1.Banner1Component,
                 index_1.ProductList, index_1.ServiceContent,
                 index_1.ArticleShow,
-                page_component_1.PageComponent,
+                index_2.OptionComponent,
                 ng2_dragula_1.Dragula
             ],
             providers: [],

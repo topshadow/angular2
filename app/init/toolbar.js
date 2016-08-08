@@ -12,17 +12,12 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var ToolBar = (function () {
-    function ToolBar(el, router) {
+    function ToolBar(el, router, route) {
         this.el = el;
         this.router = router;
+        this.route = route;
     }
     ToolBar.prototype.ngOnInit = function () {
-        var currentPath = this.router.url.replace('/', '');
-        console.log('current page route path:', currentPath);
-        var currentPage = window['pages'].find(function (page) { return page.path == currentPath; });
-        console.log(currentPage);
-        this.pageComponents = currentPage.components;
-        console.log(this.pageComponents);
     };
     ToolBar.prototype.syncData = function () {
         localStorage.setItem('websiteData', JSON.stringify(window['websiteData']));
@@ -55,7 +50,7 @@ var ToolBar = (function () {
             directives: [ng2_bootstrap_1.MODAL_DIRECTIVES],
             styleUrls: ['app/init/toolbar.css']
         }), 
-        __metadata('design:paramtypes', [core_1.ElementRef, router_1.Router])
+        __metadata('design:paramtypes', [core_1.ElementRef, router_1.Router, router_1.ActivatedRoute])
     ], ToolBar);
     return ToolBar;
 }());
