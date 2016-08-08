@@ -1,3 +1,15 @@
 .hide{
     display: none !important;
 }
+.top-edit{
+    background: #ccc;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #000000;
+}
+.top-toolbar{
+    padding:20px 0;
+}
+.top-toolbar div{
+    float: left;
+    margin-right: 10px;
+}

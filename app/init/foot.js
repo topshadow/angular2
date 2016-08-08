@@ -19,7 +19,8 @@ var Foot = (function () {
     Foot = __decorate([
         core_1.Component({
             selector: 'foot',
-            template: "\n<h1>\u9875\u811A</h1>"
+            template: "<div class=\"footerBar\">\n          <p>\u7248\u6743\u6240\u6709 \u00A9 2011-2016 \u4E0A\u6D77\u65C5\u70E8\u7F51\u7EDC\u79D1\u6280\u6709\u9650\u516C\u53F8\uFF0C\u4E25\u7981\u6284\u88AD\u590D\u5236</p>\n          <p>ICP\u5907\u6848\u53F7\uFF1A\u6CAAICP\u590715011558\u53F7</p>\n     </div>",
+            styles: [' .footerBar{ background:#000; color: #fff; text-align: center; padding: 30px;}']
         }), 
         __metadata('design:paramtypes', [])
     ], Foot);

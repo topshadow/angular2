@@ -164,10 +164,10 @@
 
 
 
-<div [ngClass]="{'isEdit': isEdit}">
+<div [ngClass]="{'isEdit': isEdit}" class="top-navbar">
 <!--导航内容-->
     <div class="container">
-        <div>
+        <div class="top-home">
             <div class="btn btn-primary" (click)="SetHome()">主页</div>
             <button class="btn btn-primary" (click)="AddFavorite()"> 收藏</button>
             <a class="btn btn-default" href="tel:{{serverPhonetemp}}" >

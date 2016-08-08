@@ -26,3 +26,8 @@ button.active{
     display: block;
     margin: 30px  ;
 }
+
+.top-navbar{ padding: 30px 0;}
+.top-home{
+    margin-bottom: 20px ;
+}
