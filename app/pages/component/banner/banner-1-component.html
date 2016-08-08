@@ -77,7 +77,7 @@
         <carousel [interval]="myInterval" [noWrap]="noWrapSlides" >
             <slide *ngFor="let slidez of slides; let index=index"
                    [active]="slidez.active" class="banner-bg">
-                <img [src]="slidez.image" style="margin:auto;">
+                       <img [src]="slidez.image" style="margin:auto;" class="img-responsive">
 
                 <div class="carousel-caption">
                     <h4>Slide {{index}}</h4>
