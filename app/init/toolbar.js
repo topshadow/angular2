@@ -9,6 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
+var page_component_1 = require('./page-component/page-component');
 var ToolBar = (function () {
     function ToolBar() {
     }
@@ -25,13 +27,19 @@ var ToolBar = (function () {
         localStorage.setItem('websiteData', '');
     };
     __decorate([
+        core_1.ViewChild('childModal'), 
+        __metadata('design:type', ng2_bootstrap_1.ModalDirective)
+    ], ToolBar.prototype, "childModal", void 0);
+    __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
     ], ToolBar.prototype, "data", void 0);
     ToolBar = __decorate([
         core_1.Component({
             selector: 'toolbar',
-            templateUrl: "app/init/toolbar.html"
+            templateUrl: "app/init/toolbar.html",
+            viewProviders: [ng2_bootstrap_1.BS_VIEW_PROVIDERS],
+            directives: [ng2_bootstrap_1.MODAL_DIRECTIVES, page_component_1.PageComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], ToolBar);

@@ -12,6 +12,11 @@ var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
 var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
+var Image = (function () {
+    function Image() {
+    }
+    return Image;
+}());
 var Banner1Component = (function () {
     function Banner1Component() {
         this.myInterval = 5000;
@@ -20,8 +25,14 @@ var Banner1Component = (function () {
         for (var i = 0; i < 4; i++) {
             this.addSlide();
         }
-        console.log('sides', this.slides);
     }
+    Object.defineProperty(Banner1Component.prototype, "isEdit", {
+        get: function () {
+            return window['isEdit'];
+        },
+        enumerable: true,
+        configurable: true
+    });
     Banner1Component.prototype.addSlide = function () {
         var newWidth = 600 + this.slides.length + 1;
         this.slides.push({
@@ -29,14 +40,33 @@ var Banner1Component = (function () {
             text: ['More', 'Extra', 'Lots of', 'Surplus'][this.slides.length % 4] + "\n      " + ['Cats', 'Kittys', 'Felines', 'Cutes'][this.slides.length % 4]
         });
     };
+    Banner1Component.prototype.addOneSlide = function (image) {
+        this.slides.push(image);
+    };
+    Banner1Component.prototype.deleteOneSlide = function (image) {
+        var index = this.slides.indexOf(image);
+        var after = this.slides.slice(index + 1);
+        this.slides = this.slides.slice(0, index).concat(after);
+    };
+    Banner1Component.prototype.editSlide = function (image) {
+    };
+    Banner1Component.prototype.setCurrentEditMenu = function (image) {
+        this.currentEditImage = image;
+    };
     Banner1Component.prototype.removeSlide = function (index) {
         this.slides.splice(index, 1);
     };
+    __decorate([
+        core_1.ViewChild('childModal'), 
+        __metadata('design:type', ng2_bootstrap_1.ModalDirective)
+    ], Banner1Component.prototype, "childModal", void 0);
     Banner1Component = __decorate([
         core_1.Component({
             selector: 'banner-1-component',
-            directives: [ng2_bootstrap_1.CAROUSEL_DIRECTIVES, common_1.CORE_DIRECTIVES, forms_1.FORM_DIRECTIVES],
-            templateUrl: 'app/pages/component/banner/banner-1-component.html'
+            directives: [ng2_bootstrap_1.CAROUSEL_DIRECTIVES, common_1.CORE_DIRECTIVES, forms_1.FORM_DIRECTIVES, ng2_bootstrap_1.MODAL_DIRECTIVES, ng2_bootstrap_1.TAB_DIRECTIVES],
+            templateUrl: 'app/pages/component/banner/banner-1-component.html',
+            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+            viewProviders: [ng2_bootstrap_1.BS_VIEW_PROVIDERS]
         }), 
         __metadata('design:paramtypes', [])
     ], Banner1Component);

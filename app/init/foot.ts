@@ -1,11 +1,11 @@
 import {Component,Input} from '@angular/core';
 
 @Component({
-    selector:'footbar',
+    selector:'foot',
     template:`
 <h1>页脚</h1>`
     })
-export class Footbar{
+export class Foot{
     @Input()
     public data;
 

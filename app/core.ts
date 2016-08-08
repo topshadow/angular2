@@ -1,8 +1,7 @@
 import {Injectable} from  '@angular/core';
-// import {Headers,Http,Response} from '@angular/http';
-import { provideRouter, RouterConfig }  from '@angular/router';
-// import { Observable }     from 'rxjs/Observable';
+import {RouterConfig }  from '@angular/router';
 import {Page} from './init/page';
+import {TestApp}  from './test/test';
 
 @Injectable()
 export class CommonFunc{
@@ -11,6 +10,10 @@ export class CommonFunc{
             path: '',
             redirectTo: '/index',
             pathMatch: 'full'
+        },
+        {
+            path:'test',
+            component:TestApp
         }
     ];
 

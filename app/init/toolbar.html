@@ -2,5 +2,32 @@
     <div class="col-xs-3"><button (click)="editState()"  class="btn btn-primary btn-block ">编辑</button></div>
 <div class="col-xs-3"><button (click)="viewState()" class="btn btn-info btn-block ">预览</button></div>
 <div class="col-xs-3"><button (click)="syncData()" class="btn btn-danger btn-block ">同步</button><br></div>
-    <div class="col-xs-3"><button class="btn btn-info btn-block" (click)="clearData()">清除缓存</button></div>
+    <div class="col-xs-3"><button class="btn btn-info btn-block" (click)="clearData()">清除缓存</button>
 </div>
+    </div>
+<div class="row"><button class="btn btn-block" (click)="optionComponent.show()">添加组件</button>  </div>
+
+
+
+<!--End 编辑页面-->
+<!--编辑页面-->
+<div bsModal #optionComponent="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="optionComponent.hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+                <h4 class="modal-title">新增模块</h4>
+            </div>
+            <div class="modal-body">
+
+                <page-component></page-component>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -9,13 +9,20 @@
         '@angular':                   'node_modules/@angular',
         'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
         'rxjs':                       'node_modules/rxjs',
-        "moment": 'node_modules/moment/moment.js'
+        "moment": 'node_modules/moment/moment.js',
+        'primeng':                    'node_modules/primeng',
+        'ng2-dragula': 'node_modules/ng2-dragula',
+        'dragula': 'node_modules/dragula/dist/dragula.js',
+
     };
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {
         'app':                        { main: 'main.js',  defaultExtension: 'js' },
         'rxjs':                       { defaultExtension: 'js' },
         'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
+        'primeng':                    { defaultExtension: 'js' },
+        'ng2-dragula': { defaultExtension: 'js' },
+        'dragula': { defaultExtension: 'js' }
     };
     var ngPackageNames = [
         'common',

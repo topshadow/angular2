@@ -1,0 +1,19 @@
+button.active{
+    background-color: red;
+}
+
+.clickBlue{
+    background-color: blue;
+}
+
+.isEdit{
+    border:2px blue dotted;
+}
+
+.hide{
+    display: none;
+}
+
+*{
+    color:blue !important;
+}

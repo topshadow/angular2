@@ -1,0 +1,215 @@
+<!--编辑按钮-->
+<div *ngIf="isEdit">
+    <div class="btn-group">
+        <!-- Large modal -->
+        <button class="btn btn-danger" (click)="addProject.show()">编辑</button>
+
+    </div>
+</div>
+
+
+<!--编辑页面-->
+<div bsModal #addProject="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="addProject.hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+                <h4 class="modal-title">编辑页头</h4>
+            </div>
+            <div class="modal-body">
+
+                <tabset [justified]="true">
+                    <tab heading="客服电话" >
+
+                        <textarea  id="serverPhoneTextarea"  style="width:100%" value="{{navService.getServerPhone()}}" #serverPhonetemp>  </textarea>
+                        <button class="btn btn-primary" (click)="saveServerPhone(serverPhonetemp.value);addProject.hide()" >保存</button>
+                        <button class="btn btn-default" (click)="addProject.hide()">取消</button>
+                    </tab>
+
+
+                    <tab heading="Logo">
+                        <div class="row">
+                            <div class="col-xs-6">
+                        Logo链接:<input #logoTemp  value="{{data.logo}}" type="text"><br>
+                        上传图片:<input type="file" #image (change)="uploadImage(image)" ><br>
+                            </div>
+
+                            <div class="col-xs-6">
+                                <img src="{{logoTemp.value}}">
+                            </div>
+                            </div>
+
+                        <button class="btn btn-primary" (click)="data.logo=logoTemp.value;addProject.hide()">确定</button>
+                        <button class="btn btn-default" (click)="addProject.hide()">取消</button>
+
+                    </tab>
+
+
+                    <tab heading="新增菜单">
+                        <tabset [justified]="true">
+                            <tab heading="新增一级菜单">
+                                栏目名称:<input type="text" #firstMenuInput><br>
+                                <div [ngClass]="{'hide':isCustomeFirstMenuUrlCheckbox.checked}">菜单类型:<select    #currentMenu>
+                                    <option *ngFor="let menu of firstMenuList" [value]="menu |json">{{menu.name}}</option>
+                                </select>
+                                    </div>
+                                是否自定义外链:<input type="checkbox" #isCustomeFirstMenuUrlCheckbox ><br>
+                                <div [ngClass]="{'hide':!isCustomeFirstMenuUrlCheckbox.checked}"> 外链:<input type="text" #customeFirstMenuUrlInput ></div>
+                                <button class="btn btn-primary"
+                                        (click)="addFirstMenu({name:firstMenuInput.value,url:'',secondaryMenu:[]},isCustomeFirstMenuUrlCheckbox.checked,customeFirstMenuUrlInput.value);
+                                       addProject.hide()">保存</button>
+                                <button (click)="addProject.hide()">取消</button>
+                            </tab>
+
+                            <tab heading="添加二级菜单">
+
+                                菜单名称: <input type="text" #newMenuNameInput><br>
+                                菜单类型:<select    #currentMenu>
+                                    <option *ngFor="let menu of firstMenuList" [value]="menu |json">{{menu.name}}</option>
+                             </select>
+
+                                是否自定义外链:<input  type="checkbox" #isCustomeSecondaryMenuUrlCheckbox><br>
+                                <div [ngClass]="{'hide': !isCustomeSecondaryMenuUrlCheckbox.checked}">外链:<input  type="text"  #secondaryMenuUrlInput><br></div>
+
+
+
+                                <button class="btn btn-primary" (click)="addSecondaryMenu( currentMenu.value,
+                                {name:newMenuNameInput.value,url:'',sencondaryMenu:[]},isCustomeSecondaryMenuUrlCheckbox.value,secondaryMenuUrlInput.value);addProject.hide();">保存</button>
+                                <button class="btn btn-primary" (click)="addProject.hide()">取消</button>
+
+                            </tab>
+                        </tabset>
+
+                        <br>
+                </tab>
+
+                    <!--管理菜单-->
+                    <tab heading="管理菜单">
+                        客服电话:<input type="text" [(ngModel)]="data.serverPhone">
+                        <table class="table table-hover">
+
+                            <!-- On cells (`td` or `th`) -->
+                            <tr>
+                                <td class="active">一级导航</td>
+                                <td class="success">二级导航</td>
+                                <td class="warning">开启栏目</td>
+                                <td class="danger">操作</td>
+
+                            </tr>
+
+                            <tbody  *ngFor="let menu of navService.nav.menuList">
+                            <tr  class="success"><td>{{menu.name}}</td> <td>{{menu.url}}</td>
+                                <td><i class="glyphicon glyphicon-ok"></i></td>
+                                <td> <i (click)="setCurrentEditMenu(menu);editProject.show()">编辑</i>/<a href="{{menu.url}}">设计</a>/<button class="btn btn-danger" (click)="deleteMenu(menu)">删除</button></td></tr>
+                                <tr class="warning" *ngFor="let subMenu of menu.secondaryMenu">
+                                    <td><i class="glyphicon glyphicon-forward"></i> {{subMenu.name}}</td><td>{{subMenu.url}}</td>
+                                    <td><i class="glyphicon glyphicon-ok"></i></td><td>编辑/<a href="{{subMenu.url}}">设计</a>/<button class="btn btn-danger" (click)="deleteMenu(subMenu)">删除</button></td></tr>
+                            </tbody>
+
+
+                        </table>
+
+
+                    </tab>
+                    <tab heading="百度优化"><h1><button (click)="changeH1Color()">改变按钮颜色</button></h1></tab>
+                </tabset>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--End 编辑页面-->
+<!--编辑页面-->
+<div bsModal #editProject="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="editProject.hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+                <h4 class="modal-title">编辑导航</h4>
+            </div>
+            <div class="modal-body">
+
+                <tabset [justified]="true">
+                    <tab heading="编辑菜单" >
+                    <tbody *ngIf="currentEditMenu">
+                        修改菜单名称<input type="text" [(ngModel)]="currentEditMenu.name" #currentEditMenuNameInput>
+                        自定义菜单的链接:<input type="text" [(ngModel)]="currentEditMenu.url" #currentEditMenuUrlInput>
+                    <button class="btn btn-primary" (click)="saveCurrentEditMenu({name:currentEditMenuNameInput.value,url:currentEditMenuUrlInput.value});editProject.hide();">保存</button>
+                        <button class="btn btn-default" (click)="editProject.hide();">取消</button>
+                    </tbody>
+                        </tab>
+                    </tabset>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+<div [ngClass]="{'isEdit': isEdit}">
+<!--导航内容-->
+<div>
+    <div class="btn btn-primary" (click)="SetHome()">主页</div>
+    <button class="btn btn-primary" (click)="AddFavorite()"> 收藏</button>
+<a class="btn btn-default" href="tel:{{serverPhonetemp}}" >
+
+    客服热线:<custom-textarea [innerHtml]="data.serverPhone"></custom-textarea>
+</a>
+</div>
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ><img src="{{data.logo}}" /> </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown" *ngFor="let menu of data.menuList" >
+                    <a *ngIf="menu.url.indexOf('/')==-1" routerLink="{{menu.url}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+
+                    {{menu.name}}<span class="caret"></span></a>
+                    <a *ngIf="menu.url.indexOf('/')!=-1"  href="{{menu.url}}" >{{menu.name}}:{{menu.url}}</a>
+
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let secondaryMenu of menu.secondaryMenu">
+
+                            <a *ngIf="secondaryMenu.url.indexOf('/')!=-1" href="{{secondaryMenu.url}}" >{{secondaryMenu.name}}</a>
+                            <a *ngIf="secondaryMenu.url.indexOf('/')==-1" routerLink="{{secondaryMenu.url}}">{{secondaryMenu.name}} </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+</div>
+<!--导航内容-->

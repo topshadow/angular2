@@ -9,21 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var Footbar = (function () {
-    function Footbar() {
+var index_1 = require('./index');
+var TestApp = (function () {
+    function TestApp() {
     }
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], Footbar.prototype, "data", void 0);
-    Footbar = __decorate([
+    TestApp = __decorate([
         core_1.Component({
-            selector: 'footbar',
-            template: "\n<h1>\u9875\u811A</h1>"
+            selector: 'test-app',
+            template: "<test-drag></test-drag>",
+            directives: [
+                index_1.TestDrag
+            ],
         }), 
         __metadata('design:paramtypes', [])
-    ], Footbar);
-    return Footbar;
+    ], TestApp);
+    return TestApp;
 }());
-exports.Footbar = Footbar;
-//# sourceMappingURL=footbar.js.map
+exports.TestApp = TestApp;
+//# sourceMappingURL=test.js.map

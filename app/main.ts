@@ -1,9 +1,8 @@
 import {bootstrap} from '@angular/platform-browser-dynamic';
-import {CommonFunc} from './core';
-import  {App} from './app'
 import {provideRouter} from '@angular/router';
 
-
+import {CommonFunc} from './core';
+import  {App} from './app'
 
 
 var common =new CommonFunc();
