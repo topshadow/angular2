@@ -31,8 +31,6 @@ import {Json2Object}  from '../../pipe/index';
 export class NavComponent implements OnInit{
     nav:Nav;
 
-
-
     @ViewChild('childModal') public childModal: ModalDirective;
 
     constructor(private navService:NavService,

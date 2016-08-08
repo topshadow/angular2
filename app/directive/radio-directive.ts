@@ -10,6 +10,8 @@ export class   RadioDirective{
 
 
     @Input()
+
+
     activeClass;
 
     @HostListener('click', ['$event'])

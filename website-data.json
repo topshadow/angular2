@@ -49,6 +49,10 @@
         {
           "component":"ArticleShow",
           "name":"ArticleShow"
+        },
+        {
+          "component":"HotNews",
+          "name":"HotNews"
         }
       ]
     },

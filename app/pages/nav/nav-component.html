@@ -9,6 +9,7 @@
 
 
 <!--编辑页面-->
+
 <div bsModal #addProject="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -124,7 +125,9 @@
 
 
 <!--End 编辑页面-->
-<!--编辑页面-->
+
+
+
 <div bsModal #editProject="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -163,18 +166,18 @@
 
 <div [ngClass]="{'isEdit': isEdit}">
 <!--导航内容-->
-<div>
-    <div class="btn btn-primary" (click)="SetHome()">主页</div>
-    <button class="btn btn-primary" (click)="AddFavorite()"> 收藏</button>
-<a class="btn btn-default" href="tel:{{serverPhonetemp}}" >
-
-    客服热线:<custom-textarea [innerHtml]="data.serverPhone"></custom-textarea>
-</a>
-</div>
-
+    <div class="container">
+        <div>
+            <div class="btn btn-primary" (click)="SetHome()">主页</div>
+            <button class="btn btn-primary" (click)="AddFavorite()"> 收藏</button>
+            <a class="btn btn-default" href="tel:{{serverPhonetemp}}" >
+            客服热线:<custom-textarea [innerHtml]="data.serverPhone"></custom-textarea>
+        </a>
+        </div>
+    </div>
 
 <nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -183,12 +186,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" ><img src="{{data.logo}}" /> </a>
+            <a class="top-logo" ><img src="{{data.logo}}" /> </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav top-nav">
                 <li class="dropdown" *ngFor="let menu of data.menuList" >
                     <a *ngIf="menu.url.indexOf('/')==-1" routerLink="{{menu.url}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 

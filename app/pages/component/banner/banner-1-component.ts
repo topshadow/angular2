@@ -13,12 +13,12 @@ class Image{
     selector: 'banner-1-component',
     directives: [CAROUSEL_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES,MODAL_DIRECTIVES,TAB_DIRECTIVES],
     templateUrl: 'app/pages/component/banner/banner-1-component.html',
+    styleUrls:['app/pages/component/banner/banner-1-component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     viewProviders:[BS_VIEW_PROVIDERS]
 })
 export class Banner1Component {
     @ViewChild('childModal') public childModal: ModalDirective;
-
 
     public currentEditImage:Image;
 
@@ -37,14 +37,12 @@ export class Banner1Component {
     }
 
 
-
-
     public addSlide():void {
         let newWidth = 600 + this.slides.length + 1;
         this.slides.push({
             image: `//placekitten.com/${newWidth}/300`,
             text: `${['More', 'Extra', 'Lots of', 'Surplus'][this.slides.length % 4]}
-      ${['Cats', 'Kittys', 'Felines', 'Cutes'][this.slides.length % 4]}`
+         ${['Cats', 'Kittys', 'Felines', 'Cutes'][this.slides.length % 4]}`
         });
     }
 

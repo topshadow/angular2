@@ -37,7 +37,7 @@ var Banner1Component = (function () {
         var newWidth = 600 + this.slides.length + 1;
         this.slides.push({
             image: "//placekitten.com/" + newWidth + "/300",
-            text: ['More', 'Extra', 'Lots of', 'Surplus'][this.slides.length % 4] + "\n      " + ['Cats', 'Kittys', 'Felines', 'Cutes'][this.slides.length % 4]
+            text: ['More', 'Extra', 'Lots of', 'Surplus'][this.slides.length % 4] + "\n         " + ['Cats', 'Kittys', 'Felines', 'Cutes'][this.slides.length % 4]
         });
     };
     Banner1Component.prototype.addOneSlide = function (image) {
@@ -65,6 +65,7 @@ var Banner1Component = (function () {
             selector: 'banner-1-component',
             directives: [ng2_bootstrap_1.CAROUSEL_DIRECTIVES, common_1.CORE_DIRECTIVES, forms_1.FORM_DIRECTIVES, ng2_bootstrap_1.MODAL_DIRECTIVES, ng2_bootstrap_1.TAB_DIRECTIVES],
             templateUrl: 'app/pages/component/banner/banner-1-component.html',
+            styleUrls: ['app/pages/component/banner/banner-1-component.css'],
             changeDetection: core_1.ChangeDetectionStrategy.OnPush,
             viewProviders: [ng2_bootstrap_1.BS_VIEW_PROVIDERS]
         }), 
