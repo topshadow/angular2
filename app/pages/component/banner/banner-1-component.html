@@ -1,4 +1,4 @@
-<button class="btn btn-primary" *ngIf="isEdit" (click)="editBanner.show()" >编辑</button>
+<button class="btn btn-danger" *ngIf="isEdit"  (click)="editBanner.show()" >编辑</button>
 
 <!--编辑banner模态框-->
 <div bsModal #editBanner="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -73,10 +73,10 @@
 
 
 <div class="row">
-    <div class="col-md-6">
-        <carousel [interval]="myInterval" [noWrap]="noWrapSlides">
+    <div class="col-xs-12">
+        <carousel [interval]="myInterval" [noWrap]="noWrapSlides" >
             <slide *ngFor="let slidez of slides; let index=index"
-                   [active]="slidez.active">
+                   [active]="slidez.active" class="banner-bg">
                 <img [src]="slidez.image" style="margin:auto;">
 
                 <div class="carousel-caption">
@@ -88,24 +88,24 @@
         </carousel>
     </div>
 
-    <div class="col-md-6">
-        <button type="button" class="btn btn-info"
-                (click)="addSlide()">Add Slide
-        </button>
-        <!-- issue: removing currently active slide should not lead to white screen? -->
+    <!--<div class="col-xs-12">-->
+        <!--<button type="button" class="btn btn-info"-->
+                <!--(click)="addSlide()">Add Slide-->
+        <!--</button>-->
+         <!--issue: removing currently active slide should not lead to white screen?-->
         <!--<button type="button" class="btn btn-info"-->
         <!--(click)="removeSlide(2)">Remove Slide#3-->
         <!--</button>-->
-        <br>
+        <!--<br>-->
 
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" [(ngModel)]="noWrapSlides">
-                Disable Slide Looping
-            </label>
-        </div>
+        <!--<div class="checkbox">-->
+            <!--<label>-->
+                <!--<input type="checkbox" [(ngModel)]="noWrapSlides">-->
+                <!--Disable Slide Looping-->
+            <!--</label>-->
+        <!--</div>-->
 
-        Interval, in milliseconds: <input type="number" class="form-control" [(ngModel)]="myInterval">
-        <br/>Enter a negative number or 0 to stop the interval.
-    </div>
+        <!--Interval, in milliseconds: <input type="number" class="form-control" [(ngModel)]="myInterval">-->
+        <!--<br/>Enter a negative number or 0 to stop the interval.-->
+    <!--</div>-->
 </div>

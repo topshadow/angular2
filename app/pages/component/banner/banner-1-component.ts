@@ -42,7 +42,7 @@ export class Banner1Component {
         this.slides.push({
             image: `//placekitten.com/${newWidth}/300`,
             text: `${['More', 'Extra', 'Lots of', 'Surplus'][this.slides.length % 4]}
-      ${['Cats', 'Kittys', 'Felines', 'Cutes'][this.slides.length % 4]}`
+         ${['Cats', 'Kittys', 'Felines', 'Cutes'][this.slides.length % 4]}`
         });
     }
 

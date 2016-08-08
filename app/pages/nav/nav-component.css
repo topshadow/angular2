@@ -7,7 +7,8 @@ button.active{
 }
 
 .isEdit{
-    border:2px blue dotted;
+    border:1px #5bc0de dashed;
+
 }
 
 .hide{
@@ -15,5 +16,13 @@ button.active{
 }
 
 *{
-    color:blue !important;
+
+}
+.top-logo{
+    padding: 20px 0;
+    display: block;
+}
+.top-nav{
+    display: block;
+    margin: 30px  ;
 }
