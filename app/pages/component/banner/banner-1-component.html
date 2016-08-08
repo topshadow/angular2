@@ -1,6 +1,6 @@
 <button class="btn btn-primary" *ngIf="isEdit" (click)="editBanner.show()" >编辑</button>
 
-
+<!--编辑banner模态框-->
 <div bsModal #editBanner="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -10,8 +10,9 @@
                 </button>
                 <h4 class="modal-title">编辑Banner</h4>
             </div>
-            <div class="modal-body">
 
+            <!--tabs选项卡-->
+            <div class="modal-body">
                 <tabset>
                     <tab heading="新增图片">
                         图片名称:<input type="text" #imageNameInput>
@@ -19,25 +20,30 @@
                         <button class="btn btn-primary" (click)="addOneSlide({image:imageUrlInput.value,text:imageNameInput.value});editBanner.hide()">保存</button><button (click)="editBanner.hide()">取消</button>
                     </tab>
                     <tab heading="编辑图片">
-                <table class="table-striped">
-                    <tr><th>图片名称</th><th>图片链接</th><th>图片操作</th></tr>
-                    <tbody *ngFor="let slide of slides">
-                    <tr><td>{{slide.text}}</td><td>{{slide.image}}</td><td><button class="btn btn-default" (click)="deleteOneSlide(slide)">删除</button>/<button (click)="setCurrentEditMenu(slide);editImage.show()">编辑</button></td></tr>
-
-                    </tbody>
-                </table>
+                       <table class="table-striped">
+                          <tr><th>图片名称</th><th>图片链接</th><th>图片操作</th></tr>
+                          <tbody *ngFor="let slide of slides">
+                               <tr>
+                                   <td>{{slide.text}}</td>
+                                   <td>{{slide.image}}</td>
+                                   <td><button class="btn btn-default" (click)="deleteOneSlide(slide)">删除</button>/<button (click)="setCurrentEditMenu(slide);editImage.show()">编辑</button></td>
+                               </tr>
+                           </tbody>
+                       </table>
                     </tab>
                 </tabset>
             </div>
+            <!--tabs选项卡-->
+
         </div>
     </div>
 </div>
+<!--编辑banner模态框-->
 
 
 
 
-
-<!--编辑图片莫太框-->
+<!--编辑图片模态框-->
 <div  bsModal #editImage="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -51,7 +57,7 @@
            <div class="row">
            <div class="col-xs-6">
             编辑的图片名称:<input type="text" value="{{currentEditImage.text}}">
-                编辑的图片链接:<input #editImageUrlInput type="text" value="{{currentEditImage.image}}" >
+               编辑的图片链接:<input #editImageUrlInput type="text" value="{{currentEditImage.image}}" >
            </div>
                <div class="col-xs-6">
                    图片预览:<img class="img-responsive" src="{{editImageUrlInput.value}}">
@@ -62,7 +68,6 @@
             </div>
         </div>
     </div>
-
 <!---->
 
 
