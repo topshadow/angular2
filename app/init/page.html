@@ -1,39 +1,16 @@
 <div class="row"><button class="btn btn-block" (click)="toggleOptionComponent()">添加组件</button>  </div>
-<div class="row" class="hide"  id="optionPanel">
-    <!--组件列表-->
-    <div class="col-xs-6">
-<h1>组件列表</h1>
-<div class="ui-grid ui-grid-pad ui-grid-responsive" >
-    <div class="ui-grid-row">
-        <div class="ui-grid-col-6 ui-widget-content" style="border-right:0 none">
-            <ul style="margin:0;padding:0">
-                <li *ngFor="let componentType of optionComponents" class="ui-state-default ui-helper-clearfix"
-                    pDraggable="componentTypes" (onDragStart)="dragStart($event,componentType)"  (onDragEnd)="dragEnd($event,componentType)" >
-                    <i class="fa fa-arrows fa-2x" style="float:right;margin-top:8px"></i>
-                    <img src="" draggable="false">
-                    <div style="margin:8px 0 0;float:left">{{componentType.component}}-{{componentType.name}}</div>
-                </li>
-            </ul>
+
+<p-pickList [source]="availableComponentType" [target]="selectedComponentType" sourceHeader="可选组件" targetHeader="当前页面组件"
+            [responsive]="true" [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}"
+            >
+    <template let-com2>
+        <div class="ui-helper-clearfix">
+            <img src="showcase/resources/demo/images/car/lectedComponentType.component.gif"
+                 style="display:inline-block;margin:2px 0 2px 2px"/>
+            <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{com2.component}} - {{com2.name}} - {{com2.component}}</div>
         </div>
-    </div>
-</div>
-    </div>
-
-    <div class="col-xs-6">
-        <h1>页面组件</h1>
-        <div class="ui-grid-col-6 ui-widget-content" pDroppable="componentTypes" (onDrop)="drop($event)" [ngClass]="{}"></div>
-        <p-dataTable [value]="selectedComponentTypes">
-<!--<p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header"></p-column>-->
-            <p-column field="component" header="component"></p-column>
-            <p-column field="name" header="name"></p-column>
-        </p-dataTable>
-    </div>
-
-
-    <!--当前页面组件列表-->
-
-
-</div>
+    </template>
+</p-pickList>
 
 <hr>
 

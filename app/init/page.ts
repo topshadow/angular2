@@ -7,9 +7,21 @@ import {Dragula,DragulaService}  from 'ng2-dragula/ng2-dragula';
 //根据components数据迭代生成页面对应的组件,对应对应的页面函数,对应的页面的编辑页面,对应的页面的编辑页面的函数
 
 
-import {DataTable,Draggable,Droppable,Column} from 'primeng/primeng';
+import {DataTable,Draggable,Droppable,Column,OrderList,PickList} from 'primeng/primeng';
 
 import {OptionComponent,OPTIONCOMPONENTS,ComponentType}  from './index';
+
+
+
+interface Car{
+    component:string;
+    name:string;
+}
+
+const CARS=[
+    {"component":"ProductList", "name":"Product lust name"},
+    {"component":"ProductList", "name":"Product lust name"}
+];
 
 @Component({
     templateUrl:`app/init/page.html`,
@@ -18,7 +30,8 @@ import {OptionComponent,OPTIONCOMPONENTS,ComponentType}  from './index';
         ArticleShow,
         OptionComponent,
         Dragula,
-        DataTable,Draggable,Droppable,Column
+        DataTable,Draggable,Droppable,Column,
+        OrderList,PickList
     ],
     providers:[],
     viewProviders:[DragulaService],
@@ -26,13 +39,24 @@ import {OptionComponent,OPTIONCOMPONENTS,ComponentType}  from './index';
 .hide{
 display: none;
 }`]
-
 })
 export class Page implements OnInit{
-    optionComponents:ComponentType[]=OPTIONCOMPONENTS;
-    dragedComponentType:ComponentType;
-    selectedComponentTypes: ComponentType[];
-    availableComponentTypes:ComponentType[];
+
+    availableComponentType: ComponentType[]=OPTIONCOMPONENTS;
+
+    // set availableComponentType(componentTypes:ComponentType[]){
+    //     console.log('change ');
+    //     this._availableComponentType = componentTypes;
+    // }
+    //
+    // get availableComponentType(){
+    //     return this._availableComponentType;
+    // }
+
+    selectedComponentType: ComponentType[];
+
+    draggedComponentType: ComponentType;
+
     @Input()
     public data;
 
@@ -48,9 +72,7 @@ export class Page implements OnInit{
     public pageComponents;
 
     public currentPath;
-    constructor(private router:Router,private route:ActivatedRoute,private dragulaService:DragulaService,private el:ElementRef){
-
-    }
+    constructor(private router:Router,private route:ActivatedRoute,private dragulaService:DragulaService,private el:ElementRef){}
 
     ngOnInit(){
         this.currentPath =  this.router.url.replace('/','');
@@ -59,39 +81,15 @@ export class Page implements OnInit{
         console.log(currentPage);
         this.pageComponents = currentPage.components;
         console.log(this.pageComponents);
+        this.selectedComponentType = this.pageComponents;
+        this.availableComponentType=OPTIONCOMPONENTS;
     }
+
 
 
 
     toggleOptionComponent(){
-        window['$'](this.el.nativeElement).find('#optionPanel').toggleClass('hide');
+        window['$'](this.el.nativeElement).find('#optionPageComponent').toggleClass('hide');
     }
-
-    dragStart(event,componentType:ComponentType){
-            this.dragedComponentType = componentType;
-    }
-    // drop(event){
-        // if(this.dragedComponentType){
-        //     this.selectedComponentTypes.push(this.dragedComponentType);
-        //     this.availableComponentTypes.splice( this.findIndex(this.dragedComponentType),1);
-        //     this.dragedComponentType=null;
-        // }
-    // }
-    // dragEnd(event){
-    //
-    // }
-
-
-    findIndex(componentType:ComponentType){
-        let index= -1;
-        for(let i=0;i<this.availableComponentTypes.length;i++){
-            if(componentType.name==this.availableComponentTypes[i].name){
-                index=i;
-                break;
-            }
-        }
-        return index;
-    }
-
 
 }

@@ -19,15 +19,10 @@ import {Dragula,DragulaService} from 'ng2-dragula/ng2-dragula';
         <div>Make sure to check out the <a href='https://github.com/bevacqua/dragula#readme'>documentation on GitHub!</a></div>
       </div>
     </div>
-  </div> 
-
-
-
-  `,
+  </div>`,
     styleUrls:['app/test/dragula/drag.css']
 })
 export class TestDrag {
     items=['a','b','c','d'];
-
 
 }

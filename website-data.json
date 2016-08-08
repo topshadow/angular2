@@ -33,18 +33,15 @@
       "components":[
         {
           "component":"Banner1Component",
-          "name":"index page component1",
-          "componentType":"banner"
+          "name":"index page component1"
         },
         {
           "component":"ProductList",
-          "name":"Product lust name",
-          "componentType":"s"
+          "name":"Product lust name"
         },
         {
           "component":"ServiceContent",
-         "name":"Service component name"
-
+          "name":"Service component name"
         },
         {
           "component":"ArticleShow",

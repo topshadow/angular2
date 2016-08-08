@@ -1,0 +1,12 @@
+<div class="row">
+<ul class="col-xs-6" [dragula]='"third-bag"' [dragulaModel]='items' >
+    <li *ngFor="let item of items"  >
+        <button class="btn btn-block" >{{item}}</button>
+    </li>
+</ul>
+<ul class="col-xs-6" [dragula]='"third-bag"' [dragulaModel]='items2' >
+    <li *ngFor="let item of items2"   >
+        <button class="btn btn-block" >{{item}}</button>
+    </li>
+</ul>
+</div>

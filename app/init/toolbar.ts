@@ -51,8 +51,6 @@ export class ToolBar implements  OnInit{
     }
 
 
-    toggleOptionComponent(){
-        window['$'](this.el.nativeElement).find('#optionPageComponent').toggleClass('hide');
-    }
+
 
 }

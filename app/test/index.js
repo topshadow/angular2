@@ -6,4 +6,5 @@ __export(require('./dragula/drag'));
 __export(require('./primeng/prime-drag'));
 __export(require('./primeng/data-table/data-table'));
 __export(require('./primeng/order-list/order-list'));
+__export(require('./dragula/sample'));
 //# sourceMappingURL=index.js.map

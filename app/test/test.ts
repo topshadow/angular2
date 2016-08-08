@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-import {TestDrag,DragDropDemo,PrimeOrderList}  from './index';
+import {TestDrag,DragDropDemo,PrimeOrderList,DragulaSample}  from './index';
 
 
 @Component({
@@ -9,10 +9,12 @@ import {TestDrag,DragDropDemo,PrimeOrderList}  from './index';
     <drag-drop-demo></drag-drop-demo>
     <primeng-data-table></primeng-data-table>
     <test-order-list></test-order-list>
+    <draula-sample></draula-sample>
 `,
     directives:[
     TestDrag,DragDropDemo,
-        PrimeOrderList
+        PrimeOrderList,
+        DragulaSample
     ],
 })
 export class TestApp{

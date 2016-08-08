@@ -31,9 +31,6 @@ var ToolBar = (function () {
     ToolBar.prototype.clearData = function () {
         localStorage.setItem('websiteData', '');
     };
-    ToolBar.prototype.toggleOptionComponent = function () {
-        window['$'](this.el.nativeElement).find('#optionPageComponent').toggleClass('hide');
-    };
     __decorate([
         core_1.ViewChild('childModal'), 
         __metadata('design:type', ng2_bootstrap_1.ModalDirective)
