@@ -12,11 +12,31 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var index_1 = require('../pages/index');
 var page_component_1 = require('./page-component/page-component');
+var ng2_dragula_1 = require('ng2-dragula/ng2-dragula');
 //根据components数据迭代生成页面对应的组件,对应对应的页面函数,对应的页面的编辑页面,对应的页面的编辑页面的函数
 var Page = (function () {
-    function Page(router, route) {
+    function Page(router, route, dragulaService, el) {
         this.router = router;
         this.route = route;
+        this.dragulaService = dragulaService;
+        this.el = el;
+        dragulaService.setOptions('drag-component', {
+            copy: true,
+            direction: 'horizon',
+            copySortSource: true
+        });
+        // dragulaService.drag.subscribe((value) => {
+        //     this.onDrag(value.slice(1));
+        // });
+        // dragulaService.drop.subscribe((value) => {
+        //     this.onDrop(value.slice(1));
+        // });
+        // dragulaService.over.subscribe((value) => {
+        //     this.onOver(value.slice(1));
+        // });
+        // dragulaService.out.subscribe((value) => {
+        //     this.onOut(value.slice(1));
+        // });
     }
     Page.prototype.openEditComponent = function () { };
     Page.prototype.ngOnInit = function () {
@@ -27,6 +47,39 @@ var Page = (function () {
         console.log(currentPage);
         this.pageComponents = currentPage.components;
         console.log(this.pageComponents);
+    };
+    Page.prototype.hasClass = function (el, name) {
+        return new RegExp('(?:^|\s+)' + name + '(?:\s+|$)').test(el.className);
+    };
+    Page.prototype.addClass = function (el, name) {
+        if (!this.hasClass(el, name)) {
+            el.className = el.className ? [el.className, name].join(' ') : name;
+        }
+    };
+    Page.prototype.removeClass = function (el, name) {
+        if (this.hasClass(el, name)) {
+            el.className = el.className.replace(new RegExp('(?:^|\s+)' + name + '(?:\s+|$)', 'g'), '');
+        }
+    };
+    Page.prototype.onDrag = function (args) {
+        var e = args[0], el = args[1];
+        console.log('drag', e, el);
+        this.removeClass(e, 'ex-moved');
+    };
+    Page.prototype.onDrop = function (args) {
+        var e = args[0], el = args[1];
+        console.log('drop', e, el);
+        this.addClass(e, 'ex-moved');
+    };
+    Page.prototype.onOver = function (args) {
+        var e = args[0], el = args[1], container = args[2];
+        console.log('over', e, el);
+        this.addClass(el, 'ex-over');
+    };
+    Page.prototype.onOut = function (args) {
+        var e = args[0], el = args[1], container = args[2];
+        console.log('onOut', e, el);
+        this.removeClass(el, 'ex-over');
     };
     __decorate([
         core_1.Input(), 
@@ -46,15 +99,17 @@ var Page = (function () {
     ], Page.prototype, "pageComponents", void 0);
     Page = __decorate([
         core_1.Component({
-            template: "\n\n<div *ngFor=\"let pageComponent of pageComponents\" >\n<div [ngSwitch]=\"pageComponent.component\">\n<banner-1-component  *ngSwitchCase=\"'Banner1Component'\" [data]=\"pageComponent\"></banner-1-component>\n <product-list *ngSwitchCase=\"'ProductList'\" [data]=\"pageComponent\" ></product-list>\n <service-content *ngSwitchCase=\"'ServiceContent'\" [data]=\"pageComponent\"></service-content>\n <article-show *ngSwitchCase=\"'ArticleShow'\"  [data]=\"pageComponent\" ></article-show>\n </div>\n </div>\n",
+            template: "\n\n<div *ngFor=\"let pageComponent of pageComponents\" [dragula]=\"'drag-component'\"  [dragulaModel]=\"pageComponents\">\n<div [ngSwitch]=\"pageComponent.component\">\n<banner-1-component  *ngSwitchCase=\"'Banner1Component'\" [data]=\"pageComponent\"  ></banner-1-component>\n<product-list *ngSwitchCase=\"'ProductList'\" [data]=\"pageComponent\"  ></product-list>\n<service-content *ngSwitchCase=\"'ServiceContent'\" [data]=\"pageComponent\"  ></service-content>\n<article-show *ngSwitchCase=\"'ArticleShow'\"  [data]=\"pageComponent\"  ></article-show>\n </div>\n </div>\n",
             directives: [index_1.Banner1Component,
                 index_1.ProductList, index_1.ServiceContent,
                 index_1.ArticleShow,
-                page_component_1.PageComponent
+                page_component_1.PageComponent,
+                ng2_dragula_1.Dragula
             ],
-            providers: []
+            providers: [],
+            viewProviders: [ng2_dragula_1.DragulaService]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, ng2_dragula_1.DragulaService, core_1.ElementRef])
     ], Page);
     return Page;
 }());

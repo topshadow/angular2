@@ -16,9 +16,10 @@ var TestApp = (function () {
     TestApp = __decorate([
         core_1.Component({
             selector: 'test-app',
-            template: "<test-drag></test-drag>",
+            template: "<test-drag></test-drag>\n    <drag-drop-demo></drag-drop-demo>\n    <primeng-data-table></primeng-data-table>\n    <test-order-list></test-order-list>\n",
             directives: [
-                index_1.TestDrag
+                index_1.TestDrag, index_1.DragDropDemo,
+                index_1.PrimeOrderList
             ],
         }), 
         __metadata('design:paramtypes', [])

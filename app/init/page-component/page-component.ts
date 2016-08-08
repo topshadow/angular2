@@ -15,7 +15,6 @@ export interface Car {
     selector:'page-component',
     templateUrl:'app/init/page-component/page-component.html',
     directives:[DataGrid,Header,Footer],
-    
 })
 export class PageComponent implements  OnInit{
 

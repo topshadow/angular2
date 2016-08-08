@@ -12,7 +12,8 @@ var core_1 = require('@angular/core');
 var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var page_component_1 = require('./page-component/page-component');
 var ToolBar = (function () {
-    function ToolBar() {
+    function ToolBar(el) {
+        this.el = el;
     }
     ToolBar.prototype.syncData = function () {
         localStorage.setItem('websiteData', JSON.stringify(window['websiteData']));
@@ -25,6 +26,9 @@ var ToolBar = (function () {
     };
     ToolBar.prototype.clearData = function () {
         localStorage.setItem('websiteData', '');
+    };
+    ToolBar.prototype.toggleOptionComponent = function () {
+        window['$'](this.el.nativeElement).find('#optionPageComponent').toggleClass('hide');
     };
     __decorate([
         core_1.ViewChild('childModal'), 
@@ -39,9 +43,10 @@ var ToolBar = (function () {
             selector: 'toolbar',
             templateUrl: "app/init/toolbar.html",
             viewProviders: [ng2_bootstrap_1.BS_VIEW_PROVIDERS],
-            directives: [ng2_bootstrap_1.MODAL_DIRECTIVES, page_component_1.PageComponent]
+            directives: [ng2_bootstrap_1.MODAL_DIRECTIVES, page_component_1.PageComponent],
+            styleUrls: ['app/init/toolbar.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [core_1.ElementRef])
     ], ToolBar);
     return ToolBar;
 }());
