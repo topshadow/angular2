@@ -15,10 +15,6 @@ var ng2_dragula_1 = require('ng2-dragula/ng2-dragula');
 //根据components数据迭代生成页面对应的组件,对应对应的页面函数,对应的页面的编辑页面,对应的页面的编辑页面的函数
 var primeng_1 = require('primeng/primeng');
 var index_2 = require('./index');
-var CARS = [
-    { "component": "ProductList", "name": "Product lust name" },
-    { "component": "ProductList", "name": "Product lust name" }
-];
 var Page = (function () {
     function Page(router, route, dragulaService, el) {
         this.router = router;
@@ -67,7 +63,7 @@ var Page = (function () {
                 index_2.OptionComponent,
                 ng2_dragula_1.Dragula,
                 primeng_1.DataTable, primeng_1.Draggable, primeng_1.Droppable, primeng_1.Column,
-                primeng_1.OrderList, primeng_1.PickList
+                primeng_1.OrderList, primeng_1.PickList, index_1.HotNews
             ],
             providers: [],
             viewProviders: [ng2_dragula_1.DragulaService],

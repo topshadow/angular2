@@ -33,23 +33,23 @@
       "components":[
         {
           "component":"Banner1Component",
-          "name":"index page component1"
+          "name":"产品展示"
         },
         {
           "component":"ProductList",
-          "name":"Product lust name"
+          "name":"产品列表"
         },
         {
           "component":"ServiceContent",
-          "name":"Service component name"
+          "name":"服务内容"
         },
         {
           "component":"ArticleShow",
-          "name":"ArticleShow"
+          "name":"文章列表"
         },
         {
           "component":"HotNews",
-          "name":"HotNews"
+          "name":"热点新闻"
         }
       ]
     },

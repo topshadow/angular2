@@ -19,7 +19,7 @@ gulp.task('ts:app', function () {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('dev', function () {
+gulp.task('dev', function () {  
     gulp.watch('app/**/*.ts', function () {
         gulp.start('ts:app');
     });
