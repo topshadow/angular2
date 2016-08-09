@@ -10,7 +10,6 @@ import {NavComponent}  from '../pages/index';
 </div>
 `,
     directives:[ROUTER_DIRECTIVES,NavComponent]
-
 })
 export class Nav{
     @Input()
