@@ -1,7 +1,7 @@
 import {Component,Input,OnInit,ElementRef} from '@angular/core';
 import {ActivatedRoute,Router} from '@angular/router';
 
-import {Banner1Component,ProductList,ServiceContent,ArticleShow}  from '../pages/index';
+import {Banner1Component,ProductList,ServiceContent,ArticleShow,HotNews}  from '../pages/index';
 
 import {Dragula,DragulaService}  from 'ng2-dragula/ng2-dragula';
 //根据components数据迭代生成页面对应的组件,对应对应的页面函数,对应的页面的编辑页面,对应的页面的编辑页面的函数
@@ -23,7 +23,7 @@ import {OptionComponent,OPTIONCOMPONENTS,ComponentType}  from './index';
         OptionComponent,
         Dragula,
         DataTable,Draggable,Droppable,Column,
-        OrderList,PickList
+        OrderList,PickList,HotNews
     ],
     providers:[],
     viewProviders:[DragulaService],

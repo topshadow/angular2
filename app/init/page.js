@@ -63,7 +63,7 @@ var Page = (function () {
                 index_2.OptionComponent,
                 ng2_dragula_1.Dragula,
                 primeng_1.DataTable, primeng_1.Draggable, primeng_1.Droppable, primeng_1.Column,
-                primeng_1.OrderList, primeng_1.PickList
+                primeng_1.OrderList, primeng_1.PickList, index_1.HotNews
             ],
             providers: [],
             viewProviders: [ng2_dragula_1.DragulaService],
