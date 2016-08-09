@@ -13,15 +13,7 @@ import {OptionComponent,OPTIONCOMPONENTS,ComponentType}  from './index';
 
 
 
-interface Car{
-    component:string;
-    name:string;
-}
 
-const CARS=[
-    {"component":"ProductList", "name":"Product lust name"},
-    {"component":"ProductList", "name":"Product lust name"}
-];
 
 @Component({
     templateUrl:`app/init/page.html`,

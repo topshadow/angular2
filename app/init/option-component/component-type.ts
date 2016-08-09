@@ -8,8 +8,24 @@ export interface ComponentType{
 
 
 export const  OPTIONCOMPONENTS :ComponentType[]=[
-    {"component":"ProductList", "name":"Product lust name"},
-    {"component":"ProductList", "name":"Product lust name"},
-    {"component":"Banner1Component", "name":"index page component1"}
-
+    {
+        "component":"Banner1Component",
+        "name":"产品展示"
+    },
+    {
+        "component":"ProductList",
+        "name":"产品列表"
+    },
+    {
+        "component":"ServiceContent",
+        "name":"服务内容"
+    },
+    {
+        "component":"ArticleShow",
+        "name":"文章列表"
+    },
+    {
+        "component":"HotNews",
+        "name":"热点新闻"
+    }
 ];
