@@ -1,2 +1,7 @@
 
 .productList-title{background: #0f7595; color:#ffffff; padding: 10px 20px;}
+.productList{ margin: 10px 100px;}
+.productList>div{min-height: 386px; margin-bottom: 20px}
+.productList>div h1{min-height: 230px;}
+.productList>div img{ display: block;}
+.productList>div>p{ text-align: justify; padding: 10px;}

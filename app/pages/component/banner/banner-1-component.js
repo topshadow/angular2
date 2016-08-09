@@ -37,7 +37,7 @@ var Banner1Component = (function () {
         var newWidth = 600 + this.slides.length + 1;
         this.slides.push({
             image: "//placekitten.com/" + newWidth + "/300",
-            text: ['More', 'Extra', 'Lots of', 'Surplus'][this.slides.length % 4] + "\n         " + ['Cats', 'Kittys', 'Felines', 'Cutes'][this.slides.length % 4]
+            text: ['More', 'Extra', 'Lots of', 'Surplus'][this.slides.length % 4] + "\n             " + ['Cats', 'Kittys', 'Felines', 'Cutes'][this.slides.length % 4]
         });
     };
     Banner1Component.prototype.addOneSlide = function (image) {
