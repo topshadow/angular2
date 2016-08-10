@@ -5,14 +5,13 @@ import {Menu} from './nav';
 @Injectable()
 export class NavService{
     public nav:Nav;
-
     constructor(){
 
     }
 
     setNav(nav : Nav){
         this.nav =nav;
-    console.log('nav:',this.nav);
+        console.log('nav:',this.nav);
     }
 
     addFirstMenu(menu:Menu,isCustomerMenuUrl:boolean,customerUrl){

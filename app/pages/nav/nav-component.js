@@ -122,11 +122,8 @@ var NavComponent = (function () {
             templateUrl: 'app/pages/nav/nav-component.html',
             viewProviders: [ng2_bootstrap_1.BS_VIEW_PROVIDERS],
             styleUrls: ["app/pages/nav/nav-component.css"],
-            directives: [ng2_bootstrap_1.MODAL_DIRECTIVES, common_1.CORE_DIRECTIVES,
-                router_1.ROUTER_DIRECTIVES, ng2_bootstrap_1.TAB_DIRECTIVES, custom_textarea_1.CustomTextarea, ng2_bootstrap_1.BUTTON_DIRECTIVES, forms_1.FORM_DIRECTIVES,
-                ng2_bootstrap_1.ButtonRadioDirective, ng2_bootstrap_1.ButtonCheckboxDirective,
-                index_1.RadioDirective
-            ],
+            directives: [ng2_bootstrap_1.MODAL_DIRECTIVES, common_1.CORE_DIRECTIVES, router_1.ROUTER_DIRECTIVES, ng2_bootstrap_1.TAB_DIRECTIVES, custom_textarea_1.CustomTextarea, ng2_bootstrap_1.BUTTON_DIRECTIVES, forms_1.FORM_DIRECTIVES,
+                ng2_bootstrap_1.ButtonRadioDirective, ng2_bootstrap_1.ButtonCheckboxDirective, index_1.RadioDirective],
             providers: [common_1.ControlContainer, nav_service_1.NavService],
             pipes: [index_2.Json2Object]
         }), 

@@ -21,10 +21,14 @@ var Banner1Component = (function () {
     function Banner1Component() {
         this.myInterval = 5000;
         this.noWrapSlides = false;
-        this.slides = [];
-        for (var i = 0; i < 4; i++) {
-            this.addSlide();
-        }
+        this.slides = [
+            { "image": "http://img2.niutuku.com/desk/1208/1533/ntk-1533-42694.jpg",
+                "text": "这是对第一张图片的介绍" },
+            { "image": "http://img.tuku.cn/file_big/201502/6c1298bc8e044515bf48a2e277fe0ebe.jpg",
+                "text": "这是图片2" },
+            { "image": "http://img.tuku.cn/file_big/201502/89448ed96e524552a46abce14fab2eb8.jpg",
+                "text": "这是图片3" }
+        ];
     }
     Object.defineProperty(Banner1Component.prototype, "isEdit", {
         get: function () {
@@ -33,13 +37,21 @@ var Banner1Component = (function () {
         enumerable: true,
         configurable: true
     });
-    Banner1Component.prototype.addSlide = function () {
-        var newWidth = 600 + this.slides.length + 1;
-        this.slides.push({
-            image: "//placekitten.com/" + newWidth + "/300",
-            text: ['More', 'Extra', 'Lots of', 'Surplus'][this.slides.length % 4] + "\n             " + ['Cats', 'Kittys', 'Felines', 'Cutes'][this.slides.length % 4]
-        });
-    };
+    // public constructor() {
+    //     for (let i = 0; i < 4; i++)
+    //         this.addSlide();
+    //     }
+    // }
+    //
+    //
+    // public addSlide():void {
+    //     let newWidth = 600 + this.slides.length + 1;
+    //     this.slides.push({
+    //         image: `//placekitten.com/${newWidth}`,
+    //         text: `${['More', 'Extra', 'Lots of', 'Surplus'][this.slides.length % 4]}
+    //          ${['Cats', 'Kittys', 'Felines', 'Cutes'][this.slides.length % 4]}`
+    //     });
+    // }
     Banner1Component.prototype.addOneSlide = function (image) {
         this.slides.push(image);
     };

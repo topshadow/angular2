@@ -9,4 +9,7 @@ export class  ServiceContent{
     @Input()
     data
 
+    get isEdit(){
+        return window['isEdit'];
+    }
 }
