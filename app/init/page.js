@@ -15,6 +15,8 @@ var ng2_dragula_1 = require('ng2-dragula/ng2-dragula');
 //根据components数据迭代生成页面对应的组件,对应对应的页面函数,对应的页面的编辑页面,对应的页面的编辑页面的函数
 var primeng_1 = require('primeng/primeng');
 var part_service_1 = require('../part-service');
+var common_1 = require('@angular/common');
+var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var Page = (function () {
     function Page(router, route, dragulaService, el, partService) {
         var _this = this;
@@ -23,6 +25,11 @@ var Page = (function () {
         this.dragulaService = dragulaService;
         this.el = el;
         this.partService = partService;
+        this.tabs = [
+            { title: 'Dynamic Title 1', content: 'Dynamic content 1' },
+            { title: 'Dynamic Title 2', content: 'Dynamic content 2', disabled: true },
+            { title: 'Dynamic Title 3', content: 'Dynamic content 3', removable: true }
+        ];
         this.showOptionPartsPanel = false;
         dragulaService.setOptions('canDrag', {
             removeOnSpill: true
@@ -44,6 +51,20 @@ var Page = (function () {
             _this.onOut(value.slice(1));
         });
     }
+    Page.prototype.alertMe = function () {
+        setTimeout(function () {
+            alert('You\'ve selected the alert tab!');
+        });
+    };
+    ;
+    Page.prototype.setActiveTab = function (index) {
+        this.tabs[index].active = true;
+    };
+    ;
+    Page.prototype.removeTabHandler = function () {
+        console.log('Remove Tab handler');
+    };
+    ;
     Page.prototype.ngOnInit = function () {
         var currentPath = this.router.url.replace('/', '');
         this.pageParts = this.partService.getCurrentPageParts(currentPath);
@@ -95,8 +116,9 @@ var Page = (function () {
                 index_1.ArticleShow,
                 ng2_dragula_1.Dragula,
                 primeng_1.DataTable, primeng_1.Draggable, primeng_1.Droppable, primeng_1.Column,
-                primeng_1.OrderList, primeng_1.PickList, index_1.HotNews
+                primeng_1.OrderList, primeng_1.PickList, index_1.HotNews, ng2_bootstrap_1.TAB_DIRECTIVES, common_1.CORE_DIRECTIVES
             ],
+            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
             providers: [part_service_1.PartService],
             viewProviders: [ng2_dragula_1.DragulaService],
             styleUrls: ["app/init/page.css"]

@@ -1,7 +1,4 @@
-export interface ComponentType{
-    component:string;
-    name:string;
-}
+export interface ComponentType{component:string;name:string;}
 
 
 

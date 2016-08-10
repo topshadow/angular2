@@ -1,5 +1,4 @@
-<div class="row"><button class="btn btn-block" (click)="toggleOptionPartsPanel                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ()">添加组件</button>  </div>
-
+<div style=" position: fixed;top:160px; left: 50%; z-index: 1000"><button class="btn btn-danger" (click)="toggleOptionPartsPanel()">添加组件</button>  </div>
 <!--<p-pickList [source]="availableComponentType" [target]="selectedComponentType" sourceHeader="可选组件" targetHeader="当前页面组件"-->
             <!--[responsive]="true" [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}"-->
             <!--&gt;-->
@@ -12,23 +11,42 @@
     <!--</template>-->
 <!--</p-pickList>-->
 
-<!--<hr>-->
-
-
 
 <div class="container-fluid" [ngClass]="{'hide': !showOptionPartsPanel}"  >
-    <h3>可选组件列表</h3>
     <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar" >
-                <ul *ngFor="let optionGroup of optionGroups" [dragula]="'canDrag'" [dragulaModel]="optionGroup.groupParts">
-                    <h3>{{optionGroup.groupName}}</h3>
-                    <li *ngFor="let option of optionGroup.groupParts"> {{option.name}}-{{option.component}}</li>
+        <div class="sidebar" style="width:360px;">
+            <div class="modal-body">
+                <tabset>
+                    <tab heading="添加">
 
-                </ul>
+                        <ul class="nav nav-sidebar " >
+                            <span *ngFor="let optionGroup of optionGroups">
+                                <span>{{optionGroup.groupName}}</span>
+
+                            </span>
+                        </ul>
+
+                        <ul class="nav nav-sidebar" >
+
+                            <ul *ngFor="let optionGroup of optionGroups" [dragula]="'canDrag'" [dragulaModel]="optionGroup.groupParts">
+                                <h3>{{optionGroup.groupName}}</h3>
+                                <li *ngFor="let option of optionGroup.groupParts"> {{option.name}}-{{option.component}}</li>
+
+                            </ul>
 
 
-            </ul>
+                        </ul>
+                    </tab>
+                    <tab heading="栏目">
+                         <h2>fjdfjffff</h2>
+                    </tab>
+                    <tab heading="样式">
+                        <h2>hahahaahah</h2>
+                    </tab>
+                    <span style="display: block; position: absolute; top:0; right:0; cursor: pointer;" (click)="toggleOptionPartsPanel()" >close</span>
+                </tabset>
+            </div>
+
         </div>
     </div>
 </div>
