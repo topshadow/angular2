@@ -68,7 +68,6 @@ var NavComponent = (function () {
         configurable: true
     });
     NavComponent.prototype.addFirstMenu = function (menu, isCustomeUrl, customerUrl) {
-        debugger;
         this.navService.addFirstMenu(menu, isCustomeUrl, customerUrl);
     };
     //新增一级菜单

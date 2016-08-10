@@ -30,8 +30,8 @@
                         <ul class="nav nav-sidebar" >
 
                             <ul *ngFor="let optionGroup of optionGroups" [dragula]="'canDrag'" [dragulaModel]="optionGroup.groupParts">
-                                <h3>{{optionGroup.groupName}}</h3>
-                                <li *ngFor="let option of optionGroup.groupParts"> {{option.name}}-{{option.component}}</li>
+                                <h3  class="col-sm-12">{{optionGroup.groupName}}</h3>
+                                <li *ngFor="let option of optionGroup.groupParts" class="col-sm-4"> {{option.name}}</li>
 
                             </ul>
 

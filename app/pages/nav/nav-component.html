@@ -9,7 +9,6 @@
 
 
 <!--编辑页面-->
-
 <div bsModal #addProject="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -53,7 +52,7 @@
                         <tabset [justified]="true">
                             <tab heading="新增一级菜单">
                                 栏目名称:<input type="text" #firstMenuInput><br>
-                                <div [ngClass]="{'hide':isCustomeFirstMenuUrlCheckbox.checked}">菜单类型:<select    #currentMenu>
+                                <div [ngClass]="{'hide':isCustomeFirstMenuUrlCheckbox.checked}">菜单类型:<select  #currentMenu>
                                     <option *ngFor="let menu of firstMenuList" [value]="menu |json">{{menu.name}}</option>
                                 </select>
                                     </div>

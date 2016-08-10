@@ -83,17 +83,12 @@ export class NavComponent implements OnInit{
 
 
 
-
-
-
     //获取菜单列表
     get  firstMenuList(){
         return this.data.menuList;
     }
 
-
     addFirstMenu(menu:Menu,isCustomeUrl:boolean,customerUrl){
-        debugger;
         this.navService.addFirstMenu(menu,isCustomeUrl,customerUrl);
     }
 
