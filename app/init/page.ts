@@ -9,11 +9,17 @@ import {Dragula,DragulaService}  from 'ng2-dragula/ng2-dragula';
 
 import {DataTable,Draggable,Droppable,Column,OrderList,PickList} from 'primeng/primeng';
 
-import {OptionComponent,OPTIONCOMPONENTS,ComponentType}  from './index';
+import {OptionComponent,ComponentType}  from './index';
+
+import {PartService}  from '../part-service';
 
 
 
 
+interface Part{
+    component:string;
+    name:string;
+}
 
 @Component({
     templateUrl:`app/init/page.html`,
@@ -25,60 +31,91 @@ import {OptionComponent,OPTIONCOMPONENTS,ComponentType}  from './index';
         DataTable,Draggable,Droppable,Column,
         OrderList,PickList,HotNews
     ],
-    providers:[],
+    providers:[PartService],
     viewProviders:[DragulaService],
-    styles:[`
-.hide{
-display: none;
-}`]
+    styleUrls:[`app/init/page.css`]
 })
 export class Page implements OnInit{
 
-    availableComponentType: ComponentType[]=OPTIONCOMPONENTS;
 
-    // set availableComponentType(componentTypes:ComponentType[]){
-    //     console.log('change ');
-    //     this._availableComponentType = componentTypes;
-    // }
-    //
-    // get availableComponentType(){
-    //     return this._availableComponentType;
-    // }
+    optionParts:Part[];
+    pageParts:Part[];
 
-    selectedComponentType: ComponentType[];
-
-    draggedComponentType: ComponentType;
 
     @Input()
     public data;
 
-    @Input()
-    public pageComponent;
 
     @Input()
     public componentType;
 
-    openEditComponent(){}
 
-    @Input()
-    public pageComponents;
 
-    public currentPath;
-    constructor(private router:Router,private route:ActivatedRoute,private dragulaService:DragulaService,private el:ElementRef){}
+    constructor(private router:Router,private route:ActivatedRoute,private dragulaService:DragulaService,private el:ElementRef,public partService:PartService){
+        dragulaService.setOptions('canDrag', {
+            removeOnSpill: true
+
+        });
+        dragulaService.drag.subscribe((value) => {
+            console.log(`drag: ${value[0]}`);
+            this.onDrag(value.slice(1));
+        });
+        dragulaService.drop.subscribe((value) => {
+            console.log(`drop: ${value[0]}`);
+            this.onDrop(value.slice(1));
+        });
+        dragulaService.over.subscribe((value) => {
+            console.log(`over: ${value[0]}`);
+            this.onOver(value.slice(1));
+        });
+        dragulaService.out.subscribe((value) => {
+            console.log(`out: ${value[0]}`);
+            this.onOut(value.slice(1));
+        });
+    }
 
     ngOnInit(){
-        this.currentPath =  this.router.url.replace('/','');
-        console.log('current page route path:',this.currentPath);
-        var currentPage = window['pages'].find(page=>page.path==this.currentPath);
-        console.log(currentPage);
-        this.pageComponents = currentPage.components;
-        console.log(this.pageComponents);
-        this.selectedComponentType = this.pageComponents;
-        this.availableComponentType=OPTIONCOMPONENTS;
+        var currentPath =  this.router.url.replace('/','');
+        this.pageParts = this.partService.getCurrentPageParts(currentPath);
+        this.optionParts = this.partService.getStaticOptionParts();
     }
 
 
+    onDrag(args) {
+        let [e, el] = args;
+        console.log('onDrag->  e:',e,'el:',el);
 
+        // do something
+    }
+
+    onDrop(args) {
+        let [e, el] = args;
+        console.log('onDrop->e:',e,'el:',el);
+
+        // do something
+    }
+
+    onOver(args) {
+        let [e, el, container] = args;
+        console.log('onOver->e:',e,'el:',el,'container:',container);
+
+        // do something
+    }
+
+    onOut(args) {
+        let [e, el, container] = args;
+        console.log('onOut->e:',e,'el:',el,container);
+        // do something
+        this.optionParts =this.partService.getStaticOptionParts();
+    }
+
+
+    viewOptionParts(){
+        console.log(this.optionParts);
+    }
+    viewPageParts(){
+        console.log(this.pageParts);
+    }
 
     toggleOptionComponent(){
         window['$'](this.el.nativeElement).find('#optionPageComponent').toggleClass('hide');

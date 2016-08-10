@@ -15,25 +15,66 @@ var ng2_dragula_1 = require('ng2-dragula/ng2-dragula');
 //根据components数据迭代生成页面对应的组件,对应对应的页面函数,对应的页面的编辑页面,对应的页面的编辑页面的函数
 var primeng_1 = require('primeng/primeng');
 var index_2 = require('./index');
+var part_service_1 = require('../part-service');
 var Page = (function () {
-    function Page(router, route, dragulaService, el) {
+    function Page(router, route, dragulaService, el, partService) {
+        var _this = this;
         this.router = router;
         this.route = route;
         this.dragulaService = dragulaService;
         this.el = el;
-        this.availableComponentType = index_2.OPTIONCOMPONENTS;
+        this.partService = partService;
+        dragulaService.setOptions('canDrag', {
+            removeOnSpill: true
+        });
+        dragulaService.drag.subscribe(function (value) {
+            console.log("drag: " + value[0]);
+            _this.onDrag(value.slice(1));
+        });
+        dragulaService.drop.subscribe(function (value) {
+            console.log("drop: " + value[0]);
+            _this.onDrop(value.slice(1));
+        });
+        dragulaService.over.subscribe(function (value) {
+            console.log("over: " + value[0]);
+            _this.onOver(value.slice(1));
+        });
+        dragulaService.out.subscribe(function (value) {
+            console.log("out: " + value[0]);
+            _this.onOut(value.slice(1));
+        });
     }
-    Page.prototype.openEditComponent = function () { };
     Page.prototype.ngOnInit = function () {
-        var _this = this;
-        this.currentPath = this.router.url.replace('/', '');
-        console.log('current page route path:', this.currentPath);
-        var currentPage = window['pages'].find(function (page) { return page.path == _this.currentPath; });
-        console.log(currentPage);
-        this.pageComponents = currentPage.components;
-        console.log(this.pageComponents);
-        this.selectedComponentType = this.pageComponents;
-        this.availableComponentType = index_2.OPTIONCOMPONENTS;
+        var currentPath = this.router.url.replace('/', '');
+        this.pageParts = this.partService.getCurrentPageParts(currentPath);
+        this.optionParts = this.partService.getStaticOptionParts();
+    };
+    Page.prototype.onDrag = function (args) {
+        var e = args[0], el = args[1];
+        console.log('onDrag->  e:', e, 'el:', el);
+        // do something
+    };
+    Page.prototype.onDrop = function (args) {
+        var e = args[0], el = args[1];
+        console.log('onDrop->e:', e, 'el:', el);
+        // do something
+    };
+    Page.prototype.onOver = function (args) {
+        var e = args[0], el = args[1], container = args[2];
+        console.log('onOver->e:', e, 'el:', el, 'container:', container);
+        // do something
+    };
+    Page.prototype.onOut = function (args) {
+        var e = args[0], el = args[1], container = args[2];
+        console.log('onOut->e:', e, 'el:', el, container);
+        // do something
+        this.optionParts = this.partService.getStaticOptionParts();
+    };
+    Page.prototype.viewOptionParts = function () {
+        console.log(this.optionParts);
+    };
+    Page.prototype.viewPageParts = function () {
+        console.log(this.pageParts);
     };
     Page.prototype.toggleOptionComponent = function () {
         window['$'](this.el.nativeElement).find('#optionPageComponent').toggleClass('hide');
@@ -45,15 +86,7 @@ var Page = (function () {
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
-    ], Page.prototype, "pageComponent", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
     ], Page.prototype, "componentType", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], Page.prototype, "pageComponents", void 0);
     Page = __decorate([
         core_1.Component({
             templateUrl: "app/init/page.html",
@@ -65,11 +98,11 @@ var Page = (function () {
                 primeng_1.DataTable, primeng_1.Draggable, primeng_1.Droppable, primeng_1.Column,
                 primeng_1.OrderList, primeng_1.PickList, index_1.HotNews
             ],
-            providers: [],
+            providers: [part_service_1.PartService],
             viewProviders: [ng2_dragula_1.DragulaService],
-            styles: ["\n.hide{\ndisplay: none;\n}"]
+            styleUrls: ["app/init/page.css"]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, ng2_dragula_1.DragulaService, core_1.ElementRef])
+        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, ng2_dragula_1.DragulaService, core_1.ElementRef, part_service_1.PartService])
     ], Page);
     return Page;
 }());
