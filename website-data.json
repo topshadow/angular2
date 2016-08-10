@@ -52,6 +52,10 @@
       "path":"index",
       "components":[
         {
+        "component":"PictureArticleShow",
+          "name":"图文展示"
+      },
+        {
           "component":"Banner1Component",
           "name":"产品展示"
         },

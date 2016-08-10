@@ -5,3 +5,4 @@ export * from './component/service-content/service-content';
 export * from  './component/article-show/article-show';
 export * from  './tool/custome-textarea/custom-textarea';
 export * from  './component/hot-news/hot-news';
+export * from  './basic/picture-article-show';

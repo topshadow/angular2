@@ -23,7 +23,6 @@
 
                 <tabset [justified]="true">
                     <tab heading="客服电话" >
-
                         <textarea  id="serverPhoneTextarea"  style="width:100%" value="{{navService.getServerPhone()}}" #serverPhonetemp>  </textarea>
                         <button class="btn btn-primary" (click)="saveServerPhone(serverPhonetemp.value);addProject.hide()" >保存</button>
                         <button class="btn btn-default" (click)="addProject.hide()">取消</button>
@@ -44,7 +43,6 @@
 
                         <button class="btn btn-primary" (click)="data.logo=logoTemp.value;addProject.hide()">确定</button>
                         <button class="btn btn-default" (click)="addProject.hide()">取消</button>
-
                     </tab>
 
 
@@ -73,9 +71,6 @@
 
                                 是否自定义外链:<input  type="checkbox" #isCustomeSecondaryMenuUrlCheckbox><br>
                                 <div [ngClass]="{'hide': !isCustomeSecondaryMenuUrlCheckbox.checked}">外链:<input  type="text"  #secondaryMenuUrlInput><br></div>
-
-
-
                                 <button class="btn btn-primary" (click)="addSecondaryMenu( currentMenu.value,
                                 {name:newMenuNameInput.value,url:'',sencondaryMenu:[]},isCustomeSecondaryMenuUrlCheckbox.value,secondaryMenuUrlInput.value);addProject.hide();">保存</button>
                                 <button class="btn btn-primary" (click)="addProject.hide()">取消</button>
