@@ -3,7 +3,6 @@ import {CORE_DIRECTIVES} from '@angular/common';
 import {FORM_DIRECTIVES} from '@angular/forms';
 import {CAROUSEL_DIRECTIVES,MODAL_DIRECTIVES, BS_VIEW_PROVIDERS,ModalDirective,TAB_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 
-
 class Image{
     image:string;
     text:string;
@@ -19,32 +18,37 @@ class Image{
 })
 export class Banner1Component {
     @ViewChild('childModal') public childModal: ModalDirective;
-
     public currentEditImage:Image;
-
     get isEdit(){
         return window['isEdit'];
     }
 
     public myInterval:number = 5000;
     public noWrapSlides:boolean = false;
-    public slides:Array<Image> = [ ];
+    public slides:Array<Image> = [
+        {"image":"http://img2.niutuku.com/desk/1208/1533/ntk-1533-42694.jpg",
+          "text":"这是对第一张图片的介绍"},
+        {"image":"http://img.tuku.cn/file_big/201502/6c1298bc8e044515bf48a2e277fe0ebe.jpg",
+            "text":"这是图片2"},
+        {"image":"http://img.tuku.cn/file_big/201502/89448ed96e524552a46abce14fab2eb8.jpg",
+            "text":"这是图片3"}
+        ];
 
-    public constructor() {
-        for (let i = 0; i < 4; i++) {
-            this.addSlide();
-        }
-    }
-
-
-    public addSlide():void {
-        let newWidth = 600 + this.slides.length + 1;
-        this.slides.push({
-            image: `//placekitten.com/${newWidth}/300`,
-            text: `${['More', 'Extra', 'Lots of', 'Surplus'][this.slides.length % 4]}
-             ${['Cats', 'Kittys', 'Felines', 'Cutes'][this.slides.length % 4]}`
-        });
-    }
+    // public constructor() {
+    //     for (let i = 0; i < 4; i++)
+    //         this.addSlide();
+    //     }
+    // }
+    //
+    //
+    // public addSlide():void {
+    //     let newWidth = 600 + this.slides.length + 1;
+    //     this.slides.push({
+    //         image: `//placekitten.com/${newWidth}`,
+    //         text: `${['More', 'Extra', 'Lots of', 'Surplus'][this.slides.length % 4]}
+    //          ${['Cats', 'Kittys', 'Felines', 'Cutes'][this.slides.length % 4]}`
+    //     });
+    // }
 
     addOneSlide(image:Image){
         this.slides.push(image);

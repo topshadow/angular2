@@ -3,10 +3,7 @@ import {ControlContainer,CORE_DIRECTIVES} from '@angular/common';
 import {FORM_DIRECTIVES} from '@angular/forms';
 import {DomSanitizationService} from '@angular/platform-browser';
 import {ROUTER_DIRECTIVES} from  '@angular/router';
-
-import {BUTTON_DIRECTIVES, ButtonRadioDirective,
-    ButtonCheckboxDirective,MODAL_DIRECTIVES, BS_VIEW_PROVIDERS,ModalDirective,TAB_DIRECTIVES} from  'ng2-bootstrap/ng2-bootstrap';
-
+import {BUTTON_DIRECTIVES, ButtonRadioDirective, ButtonCheckboxDirective,MODAL_DIRECTIVES, BS_VIEW_PROVIDERS,ModalDirective,TAB_DIRECTIVES} from  'ng2-bootstrap/ng2-bootstrap';
 import {RadioDirective} from '../../directive/index';
 import {CustomTextarea} from '../tool/custome-textarea/custom-textarea';
 import {NavService} from './nav-service';
@@ -20,17 +17,13 @@ import {Json2Object}  from '../../pipe/index';
     templateUrl:'app/pages/nav/nav-component.html',
     viewProviders:[BS_VIEW_PROVIDERS],
     styleUrls:[`app/pages/nav/nav-component.css`],
-    directives:[MODAL_DIRECTIVES,CORE_DIRECTIVES,
-        ROUTER_DIRECTIVES,TAB_DIRECTIVES,CustomTextarea,BUTTON_DIRECTIVES,FORM_DIRECTIVES,
-        ButtonRadioDirective, ButtonCheckboxDirective,
-        RadioDirective
-    ],
+    directives:[MODAL_DIRECTIVES,CORE_DIRECTIVES, ROUTER_DIRECTIVES,TAB_DIRECTIVES,CustomTextarea,BUTTON_DIRECTIVES,FORM_DIRECTIVES,
+        ButtonRadioDirective, ButtonCheckboxDirective, RadioDirective],
     providers:[ControlContainer,NavService],
     pipes:[Json2Object]
 })
 export class NavComponent implements OnInit{
     nav:Nav;
-
     @ViewChild('childModal') public childModal: ModalDirective;
 
     constructor(private navService:NavService,
@@ -128,7 +121,6 @@ export class NavComponent implements OnInit{
       this.navService.deleteMenu(menu);
 
     }
-
 
     changeH1Color(){
         window['$'](this.el.nativeElement).find('h1').css('color','blue');
