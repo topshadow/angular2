@@ -9,24 +9,17 @@ import {Dragula,DragulaService}  from 'ng2-dragula/ng2-dragula';
 
 import {DataTable,Draggable,Droppable,Column,OrderList,PickList} from 'primeng/primeng';
 
-import {OptionComponent,ComponentType}  from './index';
 
-import {PartService}  from '../part-service';
-
+import {PartService,Part,OptionGroup}  from '../part-service';
 
 
 
-interface Part{
-    component:string;
-    name:string;
-}
 
 @Component({
     templateUrl:`app/init/page.html`,
     directives:[Banner1Component,
         ProductList,ServiceContent,
         ArticleShow,
-        OptionComponent,
         Dragula,
         DataTable,Draggable,Droppable,Column,
         OrderList,PickList,HotNews
@@ -38,9 +31,10 @@ interface Part{
 export class Page implements OnInit{
 
 
-    optionParts:Part[];
+    optionGroups:OptionGroup[];
     pageParts:Part[];
 
+    showOptionPartsPanel:boolean=false;
 
     @Input()
     public data;
@@ -54,7 +48,6 @@ export class Page implements OnInit{
     constructor(private router:Router,private route:ActivatedRoute,private dragulaService:DragulaService,private el:ElementRef,public partService:PartService){
         dragulaService.setOptions('canDrag', {
             removeOnSpill: true
-
         });
         dragulaService.drag.subscribe((value) => {
             console.log(`drag: ${value[0]}`);
@@ -77,7 +70,7 @@ export class Page implements OnInit{
     ngOnInit(){
         var currentPath =  this.router.url.replace('/','');
         this.pageParts = this.partService.getCurrentPageParts(currentPath);
-        this.optionParts = this.partService.getStaticOptionParts();
+        this.optionGroups = this.partService.getStaticOptionGroups();
     }
 
 
@@ -106,19 +99,19 @@ export class Page implements OnInit{
         let [e, el, container] = args;
         console.log('onOut->e:',e,'el:',el,container);
         // do something
-        this.optionParts =this.partService.getStaticOptionParts();
+        this.optionGroups =this.partService.getStaticOptionGroups();
     }
 
 
     viewOptionParts(){
-        console.log(this.optionParts);
+        console.log(this.optionGroups);
     }
     viewPageParts(){
         console.log(this.pageParts);
     }
 
-    toggleOptionComponent(){
-        window['$'](this.el.nativeElement).find('#optionPageComponent').toggleClass('hide');
+    toggleOptionPartsPanel(){
+        this.showOptionPartsPanel=!this.showOptionPartsPanel;
     }
 
 }
