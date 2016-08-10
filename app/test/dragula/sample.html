@@ -1,12 +1,18 @@
 <div class="row">
-<ul class="col-xs-6" [dragula]='"third-bag"' [dragulaModel]='items' >
-    <li *ngFor="let item of items"  >
-        <button class="btn btn-block" >{{item}}</button>
-    </li>
-</ul>
-<ul class="col-xs-6" [dragula]='"third-bag"' [dragulaModel]='items2' >
-    <li *ngFor="let item of items2"   >
-        <button class="btn btn-block" >{{item}}</button>
+    <div class="col-xs-6">
+<ul [dragula]="'my-dragula'" [dragulaModel]="optionParts" >
+    <li *ngFor='let optionPart of optionParts'>
+        <button>{{optionPart.name}}</button><button >{{optionPart.component}}</button>
     </li>
 </ul>
 </div>
+
+<div class="col-xs-6" style="border: 2px solid black">
+<ul [dragula]='"my-dragula"' [dragulaModel]='pageParts' >
+    <li *ngFor="let pagePart of pageParts"  ><button class="btn">{{pagePart.name}}</button><button>{{pagePart.component}}</button></li>
+</ul>
+</div>
+</div>
+
+<button class="btn btn-block" (click)="viewOptionParts()">view OptionParts</button>
+<button class="btn btn-block" (click)="viewPageParts()">view pageParts</button>

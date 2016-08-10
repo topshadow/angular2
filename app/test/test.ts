@@ -9,7 +9,7 @@ import {TestDrag,DragDropDemo,PrimeOrderList,DragulaSample}  from './index';
     <drag-drop-demo></drag-drop-demo>
     <primeng-data-table></primeng-data-table>
     <test-order-list></test-order-list>
-    <draula-sample></draula-sample>
+    <dragula-sample></dragula-sample>
 `,
     directives:[
     TestDrag,DragDropDemo,
