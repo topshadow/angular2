@@ -14,7 +14,6 @@ var index_1 = require('../pages/index');
 var ng2_dragula_1 = require('ng2-dragula/ng2-dragula');
 //根据components数据迭代生成页面对应的组件,对应对应的页面函数,对应的页面的编辑页面,对应的页面的编辑页面的函数
 var primeng_1 = require('primeng/primeng');
-var index_2 = require('./index');
 var part_service_1 = require('../part-service');
 var Page = (function () {
     function Page(router, route, dragulaService, el, partService) {
@@ -24,6 +23,7 @@ var Page = (function () {
         this.dragulaService = dragulaService;
         this.el = el;
         this.partService = partService;
+        this.showOptionPartsPanel = false;
         dragulaService.setOptions('canDrag', {
             removeOnSpill: true
         });
@@ -47,7 +47,7 @@ var Page = (function () {
     Page.prototype.ngOnInit = function () {
         var currentPath = this.router.url.replace('/', '');
         this.pageParts = this.partService.getCurrentPageParts(currentPath);
-        this.optionParts = this.partService.getStaticOptionParts();
+        this.optionGroups = this.partService.getStaticOptionGroups();
     };
     Page.prototype.onDrag = function (args) {
         var e = args[0], el = args[1];
@@ -68,16 +68,16 @@ var Page = (function () {
         var e = args[0], el = args[1], container = args[2];
         console.log('onOut->e:', e, 'el:', el, container);
         // do something
-        this.optionParts = this.partService.getStaticOptionParts();
+        this.optionGroups = this.partService.getStaticOptionGroups();
     };
     Page.prototype.viewOptionParts = function () {
-        console.log(this.optionParts);
+        console.log(this.optionGroups);
     };
     Page.prototype.viewPageParts = function () {
         console.log(this.pageParts);
     };
-    Page.prototype.toggleOptionComponent = function () {
-        window['$'](this.el.nativeElement).find('#optionPageComponent').toggleClass('hide');
+    Page.prototype.toggleOptionPartsPanel = function () {
+        this.showOptionPartsPanel = !this.showOptionPartsPanel;
     };
     __decorate([
         core_1.Input(), 
@@ -93,7 +93,6 @@ var Page = (function () {
             directives: [index_1.Banner1Component,
                 index_1.ProductList, index_1.ServiceContent,
                 index_1.ArticleShow,
-                index_2.OptionComponent,
                 ng2_dragula_1.Dragula,
                 primeng_1.DataTable, primeng_1.Draggable, primeng_1.Droppable, primeng_1.Column,
                 primeng_1.OrderList, primeng_1.PickList, index_1.HotNews

@@ -12,28 +12,121 @@ var core_1 = require('@angular/core');
 var PartService = (function () {
     function PartService() {
     }
-    PartService.prototype.getStaticOptionParts = function () {
-        return [
-            {
-                "component": "Banner1Component",
-                "name": "产品展示"
+    PartService.prototype.getStaticOptionGroups = function () {
+        return [{
+                groupName: '基础',
+                groupParts: [{
+                        name: '图文展示',
+                        component: 'Banner1Component'
+                    },
+                    {
+                        "component": "ProductList",
+                        "name": "产品列表"
+                    },
+                    {
+                        "component": "ServiceContent",
+                        "name": "服务内容"
+                    },
+                    {
+                        "component": "ArticleShow",
+                        "name": "文章列表"
+                    },
+                    {
+                        "component": "HotNews",
+                        "name": "热点新闻"
+                    }]
+            }, {
+                groupName: '排版',
+                groupParts: [{
+                        name: '图文展示',
+                        component: 'Banner1Component'
+                    },
+                    {
+                        "component": "ProductList",
+                        "name": "产品列表"
+                    },
+                    {
+                        "component": "ServiceContent",
+                        "name": "服务内容"
+                    },
+                    {
+                        "component": "ArticleShow",
+                        "name": "文章列表"
+                    },
+                    {
+                        "component": "HotNews",
+                        "name": "热点新闻"
+                    }]
             },
             {
-                "component": "ProductList",
-                "name": "产品列表"
+                groupName: '产品',
+                groupParts: [{
+                        name: '图文展示',
+                        component: 'Banner1Component'
+                    },
+                    {
+                        "component": "ProductList",
+                        "name": "产品列表"
+                    },
+                    {
+                        "component": "ServiceContent",
+                        "name": "服务内容"
+                    },
+                    {
+                        "component": "ArticleShow",
+                        "name": "文章列表"
+                    },
+                    {
+                        "component": "HotNews",
+                        "name": "热点新闻"
+                    }]
             },
             {
-                "component": "ServiceContent",
-                "name": "服务内容"
+                groupName: '互动',
+                groupParts: [{
+                        name: '图文展示',
+                        component: 'Banner1Component'
+                    },
+                    {
+                        "component": "ProductList",
+                        "name": "产品列表"
+                    },
+                    {
+                        "component": "ServiceContent",
+                        "name": "服务内容"
+                    },
+                    {
+                        "component": "ArticleShow",
+                        "name": "文章列表"
+                    },
+                    {
+                        "component": "HotNews",
+                        "name": "热点新闻"
+                    }]
             },
             {
-                "component": "ArticleShow",
-                "name": "文章列表"
+                groupName: '高级',
+                groupParts: [{
+                        name: '图文展示',
+                        component: 'Banner1Component'
+                    },
+                    {
+                        "component": "ProductList",
+                        "name": "产品列表"
+                    },
+                    {
+                        "component": "ServiceContent",
+                        "name": "服务内容"
+                    },
+                    {
+                        "component": "ArticleShow",
+                        "name": "文章列表"
+                    },
+                    {
+                        "component": "HotNews",
+                        "name": "热点新闻"
+                    }]
             },
-            {
-                "component": "HotNews",
-                "name": "热点新闻"
-            }
         ];
     };
     PartService.prototype.getCurrentPageParts = function (currentPath) {
