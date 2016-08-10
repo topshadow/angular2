@@ -1,6 +1,6 @@
 
 <div class="container-fluid">
-    <button class="btn btn-danger" *ngIf="isEdit"  >编辑</button>
+    <button class="btn btn-danger" *ngIf="isEdit"  (click)="textModal.show()" >编辑</button>
     <div class="service-content">
         <div class=" container">
             <div class="row">
@@ -28,10 +28,20 @@
        </div>
 
     </div>
+</div>
 
-
-
-
-
-
+<div bsModal #textModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="textModal.hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Large modal</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+        </div>
+    </div>
 </div>
