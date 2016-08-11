@@ -35,11 +35,19 @@
     <!-- index.html -->
     <script src="node_modules/ng2-bootstrap/bundles/ng2-bootstrap.min.js"></script>
 
-    <!-- Include the Quill library -->
-    <script src="http://cdn.quilljs.com/1.0.0-beta.2/quill.js"></script>
+
 
     <!--wysiwyg-->
     <script src="bower_components/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.all.js"></script>
+
+    <script src="./ueditor/ueditor.config.js"></script>
+    <script src="./ueditor/_examples/editor_api.js"></script>
+
+
+    <!-- Include stylesheet -->
+    <link href="https://cdn.quilljs.com/1.0.0-beta.11/quill.snow.css" rel="stylesheet">
+
+
     <link rel="stylesheet" href="bower_components/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.css" >
     <link rel="stylesheet" href="node_modules/primeui/themes/omega/theme.css">
 
@@ -48,18 +56,45 @@
     <link rel="stylesheet" href="node_modules/dragula/dist/dragula.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
+
     <!-- 2. Configure SystemJS -->
     <script src="system.config.js"></script>
     <script>
         System.import('app').catch(function(err){ console.error(err); });
     </script>
 
-    <!--<script src="build/app.js"></script>-->
+
 
 </head>
 <!-- 3. Display the application -->
 <body>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">编辑文章</h4>
+            </div>
+            <div class="modal-body">
+                <!--style给定宽度可以影响编辑器的最终宽度-->
+                <script type="text/plain" id="myEditor"  style="margin-bottom:150px;" ></script>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">完成</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <my-app>Loading...</my-app>
+
 
 
 

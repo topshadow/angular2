@@ -23,6 +23,11 @@ export class Banner1Component {
         return window['isEdit'];
     }
 
+    isShow=false;
+    toggleIsShow(){
+        this.isShow=!this.isShow;
+    }
+
     public myInterval:number = 5000;
     public noWrapSlides:boolean = false;
     public slides:Array<Image> = [
@@ -67,5 +72,9 @@ export class Banner1Component {
     }
     public removeSlide(index:number):void {
         this.slides.splice(index, 1);
+    }
+
+    hideModel(){
+        console.log('hideModel');
     }
 }

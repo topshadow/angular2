@@ -4,8 +4,10 @@ interface Picture{
     name:string;
 }
 export interface  PictureArticle{
-
     pictures:Picture[];
-    article:string;
+    article:any;
 }
+
+
+
 

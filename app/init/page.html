@@ -1,5 +1,7 @@
 <div style="display: block; position: fixed; z-index: 1000; top:35%;left: 35%;" ><button class="btn btn-danger" (click)="toggleOptionPartsPanel()">添加组件</button>  </div>
 
+
+
 <!--<p-pickList [source]="availableComponentType" [target]="selectedComponentType" sourceHeader="可选组件" targetHeader="当前页面组件"-->
             <!--[responsive]="true" [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}"-->
             <!--&gt;-->
@@ -71,6 +73,7 @@
         <service-content *ngSwitchCase="'ServiceContent'" [data]="pagePart"></service-content>
         <article-show  *ngSwitchCase="'ArticleShow'" [data]="pagePart"></article-show>
         <hot-news *ngSwitchCase="'HotNews'" [data]="pagePart"></hot-news>
+        <picture-article-show *ngSwitchCase="'PictureArticleShow'" [data]="pagePart"></picture-article-show>
     </div>
 </li>
 </ul>

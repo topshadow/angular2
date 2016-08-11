@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
-import {PictureArticleShow} from "./picture-article-show";
-
 import {PictureArticle} from './picture-article';
+
 
 @Injectable()
 export  class PictureArticleShowService{
@@ -17,6 +16,13 @@ export  class PictureArticleShowService{
 
     deletePicture(){
     this.pictureArticle.pictures=[];
+    }
+
+    getStaticArticlePicture(){
+        return {
+            article:'this is picture article',
+            pictures:[]
+        };
     }
 
 }

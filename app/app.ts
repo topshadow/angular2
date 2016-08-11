@@ -32,6 +32,9 @@ import {InputText,OrderList} from  'primeng/primeng';
     viewProviders:[BS_VIEW_PROVIDERS]
 })
 export class App  implements  OnInit{
+    get isEdit(){
+        return window['isEdit'];
+    }
     constructor(
         public route :ActivatedRoute,
         private router:Router,

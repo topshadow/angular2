@@ -19,6 +19,7 @@ var Image = (function () {
 }());
 var Banner1Component = (function () {
     function Banner1Component() {
+        this.isShow = false;
         this.myInterval = 5000;
         this.noWrapSlides = false;
         this.slides = [
@@ -37,6 +38,9 @@ var Banner1Component = (function () {
         enumerable: true,
         configurable: true
     });
+    Banner1Component.prototype.toggleIsShow = function () {
+        this.isShow = !this.isShow;
+    };
     // public constructor() {
     //     for (let i = 0; i < 4; i++)
     //         this.addSlide();
@@ -67,6 +71,9 @@ var Banner1Component = (function () {
     };
     Banner1Component.prototype.removeSlide = function (index) {
         this.slides.splice(index, 1);
+    };
+    Banner1Component.prototype.hideModel = function () {
+        console.log('hideModel');
     };
     __decorate([
         core_1.ViewChild('childModal'), 

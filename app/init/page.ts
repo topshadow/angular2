@@ -1,6 +1,6 @@
 import {Component,Input,OnInit,ElementRef,ChangeDetectionStrategy} from '@angular/core';
 import {ActivatedRoute,Router} from '@angular/router';
-import {Banner1Component,ProductList,ServiceContent,ArticleShow,HotNews}  from '../pages/index';
+
 import {Dragula,DragulaService}  from 'ng2-dragula/ng2-dragula';
 //根据components数据迭代生成页面对应的组件,对应对应的页面函数,对应的页面的编辑页面,对应的页面的编辑页面的函数
 import {DataTable,Draggable,Droppable,Column,OrderList,PickList} from 'primeng/primeng';
@@ -8,7 +8,7 @@ import {PartService,Part,OptionGroup}  from '../part-service';
 import {CORE_DIRECTIVES} from '@angular/common';
 import {TAB_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 
-
+import {Banner1Component,ProductList,ServiceContent,ArticleShow,HotNews,PictureArticleShow}  from '../pages/index';
 
 @Component({
     templateUrl:`app/init/page.html`,
@@ -17,7 +17,8 @@ import {TAB_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
         ArticleShow,
         Dragula,
         DataTable,Draggable,Droppable,Column,
-        OrderList,PickList,HotNews,TAB_DIRECTIVES, CORE_DIRECTIVES
+        OrderList,PickList,HotNews,TAB_DIRECTIVES, CORE_DIRECTIVES,
+        PictureArticleShow
     ],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers:[PartService],

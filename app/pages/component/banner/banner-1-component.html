@@ -1,7 +1,9 @@
 <button class="btn btn-danger" *ngIf="isEdit"  (click)="editBanner.show()" >编辑</button>
+<button class="btn btn-danger" (click)="editBanner.show()">show</button>
+<button class="btn btn-danger" (click)="editBanner.hide()">hide</button>
 
 <!--编辑banner模态框-->
-<div bsModal #editBanner="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div bsModal #editBanner="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" (onHide)="hideModel()">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">

@@ -1,16 +1,21 @@
 import {Component,OnInit,Input,ElementRef} from '@angular/core';
-
+import {DomSanitizationService} from '@angular/platform-browser';
 
 import {Base} from '../../base';
 
 import {PictureArticleShowService} from './picture-article-show.service';
-import {EditPictureArticleShow}  from './edit-picture-article-show';
+import {PictureArticle} from './picture-article';
 
+
+import {Editor} from 'primeng/primeng';
+import {Header} from 'primeng/primeng';
+
+var html =`app/pages/basic/picture-article-show.html`;
 @Component({
     selector:'picture-article-show',
-    templateUrl:`app/pages/basic/picture-article-show.html`,
+    templateUrl:html,
     styleUrls:[`app/pages/basic/picture-article-show.css`],
-    directives:[EditPictureArticleShow],
+    directives:[Editor,Header],
     providers:[PictureArticleShowService]
 })
 export class PictureArticleShow extends Base implements OnInit  {
@@ -18,20 +23,49 @@ export class PictureArticleShow extends Base implements OnInit  {
     @Input()
     data;
 
-    isShowOptionPanel:boolean=false;
+    text:string;
 
-     text:string='<h1>a</h1>';
+    pictureArticle:PictureArticle=this.pictureArticleService.getStaticArticlePicture();
+
+
     ngOnInit(){
-        this.pictureArticleService.setPictureArticle(this.data);
+        window['$'](this.el.nativeElement).find('#articleEdit')
+            .wysihtml5({
+                "font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
+                "emphasis": true, //Italics, bold, etc. Default true
+                "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+                "html": false, //Button which allows you to edit the generated HTML. Default false
+                "link": true, //Button to insert a link. Default true
+                //Button to insert an image. Default true,
+                "color": true, //Button to change color of font
+                "blockquote": true, //Blockquote
+                "size": "24px" //default: none, other options are xs, sm, lg
+            });
+
+
     }
 
-    constructor(private el:ElementRef,private pictureArticleService:PictureArticleShowService){
+        constructor(private el:ElementRef,private pictureArticleService:PictureArticleShowService,private sanitizer:DomSanitizationService){
         super();
-        window['$'](el).find('#test').css('background-color','blue');
+        this.pictureArticle.article = sanitizer.bypassSecurityTrustHtml(this.pictureArticle.article);
+    }
+    saveArticle(article:string){
+        this.pictureArticle.article=article;
+        console.log(window['markdown']);
+         var markdownValue= window['markdown'].toHTML( this.pictureArticle.article);
+        console.log(markdownValue);
     }
 
     clickToDeletePicture(){
         this.pictureArticleService.deletePicture();
+    }
+
+   public getContent(){
+        alert(window['editor'].getContent());
+    }
+
+    use(){
+        this.pictureArticle.article=window['editor'].getContent();
     }
 
 }
