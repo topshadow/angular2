@@ -5,5 +5,8 @@
 
 
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">编辑文章</button><button class="btn btn-primary" (click)="use()">应用</button>
+<button type="button" class="btn btn-primary" (click)="toggleEditorPanel()">编辑文章</button><button class="btn btn-primary" (click)="use()">应用</button>
+
+<button class="btn btn-danger" (click)="toggleStyle()">toggle style1</button>
+
 <span id="article"  style="width:100%" [innerHTML]="pictureArticle.article"></span>

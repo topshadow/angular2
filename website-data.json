@@ -26,21 +26,21 @@
     },
       {
         "name":"产品展示",
-        "url":"index",
+        "url":"product-show",
         "secondaryMenu":[
           {
             "name":"send main",
-            "url":"about"
+            "url":"product-show"
           }
         ]
       },
       {
         "name":"团队",
-        "url":"about",
+        "url":"team",
         "secondaryMenu":[
           {
             "name":"二级菜单",
-            "url":"about"
+            "url":"team"
           }
         ]
       }
@@ -80,6 +80,31 @@
     {
       "path":"about",
       "components":[]
+    },{
+      "path":"product-show",
+      "components":[
+        {
+          "component":"ArticleShow",
+          "name":"文章列表"
+        },
+        {
+          "component":"HotNews",
+          "name":"热点新闻"
+        }
+      ]
+    },
+    {
+      "path":"team",
+      "components":[
+        {
+          "component":"HotNews",
+          "name":"热点新闻"
+        },
+        {
+          "component":"ArticleShow",
+          "name":"文章列表"
+        }
+      ]
     }
   ]
 

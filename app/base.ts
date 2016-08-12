@@ -4,8 +4,8 @@ export class Base{
    }
 
    public isShowEditPanel=false;
-   public toggleEditPanel(){
-        this.isShowEditPanel=!this.isShowEditPanel;
+   public toggleEditorPanel(){
+        window['$']('#editorPanel').toggleClass('hide');
     }
     public    get $(){
         return window['$'];
@@ -17,6 +17,7 @@ export class Base{
     constructor(){
       this.editor = window['UE'].getEditor('myEditor', {});
         window['editor']=this.editor;
+        // window['$']('#editorPanel').addClass('hide');
     }
 
 

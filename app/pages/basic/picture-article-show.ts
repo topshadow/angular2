@@ -10,7 +10,10 @@ import {PictureArticle} from './picture-article';
 import {Editor} from 'primeng/primeng';
 import {Header} from 'primeng/primeng';
 
+
+
 var html =`app/pages/basic/picture-article-show.html`;
+var html2 = 'app/pages/basic/picture-article-show2.html';
 @Component({
     selector:'picture-article-show',
     templateUrl:html,
@@ -41,12 +44,11 @@ export class PictureArticleShow extends Base implements OnInit  {
                 "blockquote": true, //Blockquote
                 "size": "24px" //default: none, other options are xs, sm, lg
             });
-
-
     }
 
         constructor(private el:ElementRef,private pictureArticleService:PictureArticleShowService,private sanitizer:DomSanitizationService){
         super();
+            // templateRef.createEmbeddedView()
         this.pictureArticle.article = sanitizer.bypassSecurityTrustHtml(this.pictureArticle.article);
     }
     saveArticle(article:string){
@@ -66,6 +68,12 @@ export class PictureArticleShow extends Base implements OnInit  {
 
     use(){
         this.pictureArticle.article=window['editor'].getContent();
+        // window['editor'].render('#testRender');
+    }
+    toggleStyle(){
+        html='app/pages/basic/picture-article-show2.html';
+        console.log(html);
+
     }
 
 }

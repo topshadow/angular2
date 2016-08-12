@@ -12,6 +12,9 @@ import {AlertComponent,BUTTON_DIRECTIVES,ButtonCheckboxDirective,
 import {FORM_DIRECTIVES} from '@angular/forms';
 import {InputText,OrderList} from  'primeng/primeng';
 
+import {Base}  from './base';
+import { CollapseDirective}  from 'ng2-bootstrap/ng2-bootstrap';
+
 @Component({
     selector: 'my-app',
     template: `
@@ -26,12 +29,13 @@ import {InputText,OrderList} from  'primeng/primeng';
         MODAL_DIRECTIVES,FORM_DIRECTIVES,
         DROPDOWN_DIRECTIVES,TAB_DIRECTIVES,
         ButtonCheckboxDirective,ButtonRadioDirective,
-        InputText,OrderList
+        InputText,OrderList,
+        CollapseDirective
     ],
     providers:[HTTP_PROVIDERS,ControlContainer],
     viewProviders:[BS_VIEW_PROVIDERS]
 })
-export class App  implements  OnInit{
+export class App extends Base implements  OnInit{
     get isEdit(){
         return window['isEdit'];
     }
@@ -39,6 +43,7 @@ export class App  implements  OnInit{
         public route :ActivatedRoute,
         private router:Router,
         public viewContainerRef:ViewContainerRef){
+        super();
         this.viewContainerRef = viewContainerRef;
     }
 
