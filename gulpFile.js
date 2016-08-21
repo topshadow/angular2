@@ -1,26 +1,25 @@
-var gulp = require('gulp'),
-    tsc = require('gulp-typescript'),
-    sourcemaps = require('gulp-sourcemaps');
+var gulp = require("gulp");
+var browserify = require("browserify");
+var source = require('vinyl-source-stream');
+var tsify = require("tsify");
+var paths = {
+    pages: ['src/*.html']
+};
 
-gulp.task('ts:app', function () {
-    var tsResult = gulp.src('app/**/*.ts')
-        .pipe(sourcemaps.init())
-        .pipe(tsc({
-            "target": "es5",
-            "module": "system",
-            "moduleResolution": "node",
-            "sourceMap": true,
-            "emitDecoratorMetadata": true,
-            "experimentalDecorators": true,
-            "removeComments": false,
-            "noImplicitAny": false
-        }));
-    return tsResult.js.pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('dist'));
+gulp.task("copy-html", function () {
+    return gulp.src(paths.pages)
+        .pipe(gulp.dest("dist"));
 });
 
-gulp.task('dev', function () {  
-    gulp.watch('app/**/*.ts', function () {
-        gulp.start('ts:app');
-    });
-})
+gulp.task("default", ["copy-html"], function () {
+    return browserify({
+        basedir: '.',
+        debug: true,
+        entries: ['app/main.ts'],
+        cache: {},
+        packageCache: {}
+    })
+    .plugin(tsify)
+    .bundle()
+    .pipe(gulp.dest("app"));
+});

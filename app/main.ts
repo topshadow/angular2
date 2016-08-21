@@ -1,34 +1,59 @@
-import {bootstrap} from '@angular/platform-browser-dynamic';
-import {provideRouter} from '@angular/router';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {AppModule} from './app.module';
 
-import {CommonFunc} from './core';
-import  {App} from './app'
+import {CommonTool,myHttp}  from './my.core';
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
+import {HttpModule,Http} from '@angular/http';
+import {RouterModule} from '@angular/router';
 
-
-var common =new CommonFunc();
-
-
-
-
-var websiteData = localStorage.getItem('websiteData');
-var startApp = function(data){
-    window['websiteData']=data;
-    window['route']  =common.parsePagesToRoute(data['pages']);
-    window['pages'] = data['pages'];
-    window['isEdit'] =true;
-    bootstrap(App,[ [provideRouter(window['route'])]  ])
-        .catch(err => console.error(err));
-};
+import { AppComponent }  from './app.component';
+//import {routing} from './app.routing';
 
 
+function parsePageDatatoRoute(pages){
+
+			let routes:Routes[]=[];
+	    routes.push(
+                {
+                    path:'',
+                    redirect:'/index'
+                    component:PageComponent
+                }
+            );
+   
+        return routes;
+   }
 
 
 
-if(websiteData){
-startApp(JSON.parse(websiteData));
-}else{
-    common.getJSON('website-data.json').then(startApp);
+
+
+ function start(websiteData){
+ console.log(websiteData);
+	window['websiteData'] = websiteData;
+	window['pages'] = websiteData.pages;
+	window['nav'] = websiteData.nav;
+	window['foot'] = websiteData.foot;/	platformBrowserDynamic().bootstrapModule(AppModule);
 }
 
 
+@NgModule({
+  imports:      [ BrowserModule,
+  FormsModule,HttpModule,
+  RouterModule 
+  
+  ],
+  declarations: [ AppComponent ],
+  bootstrap:    [ AppComponent ]
+})
+export class AppModule {
+
+
+ }
+
+
+
+myHttp('web-site.json').success(start);
 

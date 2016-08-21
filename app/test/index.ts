@@ -1,6 +1,0 @@
-export * from './dragula/drag';
-export *  from  './primeng/prime-drag';
-export * from './primeng/data-table/data-table';
-export * from './primeng/order-list/order-list';
-export * from './dragula/sample';
-export * from  './a2/class-selected/class-selected';

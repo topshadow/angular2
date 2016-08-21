@@ -1,9 +1,0 @@
-body{overflow-x: hidden; font-family:微软雅黑}
-ul{padding: 0; margin: 0;}
-ul li{ list-style-type: none; padding: 0; margin: 0;}
-.model-title{ text-align: center;color: #EF7F05;font-size: 36px; margin-top: 50px; line-height: 40px;}
-.model-title2{ text-align: center;color: #8B99A7; font-size: 24px;margin-bottom: 20px;}
-
-.hide{
-    display: none;
-}
