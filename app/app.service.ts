@@ -54,4 +54,8 @@ export class AppService {
         window['nav'].menuList[index+1] = menu;
     }
 
+    saveNavStyle(style:string){
+        window['nav'].selectedStyle=style;
+    }
+
 }

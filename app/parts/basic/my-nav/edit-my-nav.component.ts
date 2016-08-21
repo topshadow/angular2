@@ -18,7 +18,16 @@ export class EditMyNavComponent {
     @Input()
     nav;
 
-    constructor(private appService: AppService) {
+    public styles=['style1','style2'];
+    selectedStyle='style1';
+
+    constructor(private appService: AppService) {}
+
+
+    selectStyle(style:string){
+        this.selectedStyle=style;
+    //保存样式
+        this.appService.saveNavStyle(style);
 
     }
 

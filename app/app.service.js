@@ -53,6 +53,9 @@ var AppService = (function () {
         window['nav'].menuList[index] = afterElement;
         window['nav'].menuList[index + 1] = menu;
     };
+    AppService.prototype.saveNavStyle = function (style) {
+        window['nav'].selectedStyle = style;
+    };
     AppService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

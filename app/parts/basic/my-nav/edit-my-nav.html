@@ -46,18 +46,24 @@
         <!--编辑导航-->
         <div role="tabpanel" class="tab-pane" id="editNav">
             <table class="table table-hover">
-                  <tr *ngFor="let menu of nav.menuList">
+                <tr *ngFor="let menu of nav.menuList">
                     <td>菜单名称:<input [(ngModel)]="menu.title"></td>
-                       <td (click)="upPage(menu)">上移</td>
+                    <td (click)="upPage(menu)">上移</td>
                     <td (click)="downPage(menu)">下移</td>
                     <td class="btn btn-danger" (click)="deletePage(menu)">销毁页面</td>
-                 
-                     </tr>
+
+                </tr>
             </table>
 
         </div>
         <!--切换导航样式-->
-        <div role="tabpanel" class="tab-pane" id="navStyle">...</div>
+        <div role="tabpanel" class="tab-pane" id="navStyle">
+            <ul>
+
+                <li *ngFor="let style of styles" (click)="selectStyle(style)">{{style}} </li>
+            </ul>
+
+        </div>
 
     </div>
 

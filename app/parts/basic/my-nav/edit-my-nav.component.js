@@ -13,7 +13,14 @@ var app_service_1 = require('../../../app.service');
 var EditMyNavComponent = (function () {
     function EditMyNavComponent(appService) {
         this.appService = appService;
+        this.styles = ['style1', 'style2'];
+        this.selectedStyle = 'style1';
     }
+    EditMyNavComponent.prototype.selectStyle = function (style) {
+        this.selectedStyle = style;
+        //保存样式
+        this.appService.saveNavStyle(style);
+    };
     EditMyNavComponent.prototype.addPage = function (page) {
         this.appService.addPage(page);
     };

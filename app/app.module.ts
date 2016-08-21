@@ -18,7 +18,7 @@ import {AppService} from './app.service';
 
 
 import {MyShowDirective} from './directive/my-show';
-
+import {EditorDirective}  from './directive/editor.directive';
 
 @NgModule({
     imports:[BrowserModule,RouterModule,routing,CommonModule,FormsModule],
@@ -28,7 +28,8 @@ import {MyShowDirective} from './directive/my-show';
     BannerComponent,EditBannerComponent,
     ShowcaseComponent,EditShowCaseComponent,
     CustomComponent,TopBar,DynamicComponent,
-    MyShowDirective,PageComponent
+    MyShowDirective,PageComponent,
+    EditorDirective
     ],
     bootstrap:[AppComponent],
     

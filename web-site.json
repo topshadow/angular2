@@ -2,6 +2,7 @@
     "nav": {
         "title": "导航栏标题",
         "logo": "images/CMS_03.png",
+        "selctedStyle":"style2",
         "menuList": [
             {
                 "path": "index",

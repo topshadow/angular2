@@ -21,4 +21,5 @@ else {
         }
     });
 }
+console.log(window['tinymce']);
 //# sourceMappingURL=main.js.map

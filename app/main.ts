@@ -19,6 +19,6 @@ if (websiteData) {
             platformBrowserDynamic().bootstrapModule(AppModule);
         }
     })
-
-
 }
+
+console.log(window['tinymce']);
