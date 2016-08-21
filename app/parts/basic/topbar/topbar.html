@@ -1,0 +1,60 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editpage">
+  编辑页面
+</button>
+<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editNav">修改导航</button>
+<button class="btn  btn-primary" (click)="saveWebsiteData()">保存页面</button>
+<button class="btn btn-info" (click)="clearWebsiteData()">还原页面</button>
+
+<!-- Modal -->
+<div class="modal fade" id="editpage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">编辑页面 </h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover">
+                    <tr>
+                        <td>导航</td>
+                        <td><a class="btn btn-success" href="#my-nav" aria-controls="home" role="tab" data-toggle="tab"> 编辑</a></td>
+                        
+                    </tr>
+                    <tr *ngFor="let part of page.parts">
+                        <td>{{part.title}}</td>
+                        <td><a class="btn btn-success" href="#{{part.part}}" aria-controls="home" role="tab" data-toggle="tab">编辑</a></td>
+                        <td><button class="btn btn-info" (click)="upPart(part)">上移</button></td>
+                        <td><button class="btn btn-primary" (click)="downPart(part)">下移</button></td>
+                        <td><button class="btn btn-danger" (click)="deletePart(part)">删除</button></td>
+                    </tr>
+                </table>
+                <div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation">
+                            <a href="#my-nav" aria-controls="home" role="tab" data-toggle="tab">导航</a>
+                        </li>
+                        <li *ngFor="let part of page.parts" role="presentation">
+                            <a href="#{{part.part}}" aria-controls="home" role="tab" data-toggle="tab">{{part.title}}</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane" id="my-nav">
+                            <edit-my-nav [nav]="nav"> </edit-my-nav>
+                        </div>
+                        <div *ngFor="let part of page.parts" role="tabpanel" class="tab-pane " id="{{part.part}}">
+
+                            <div [ngSwitch]="part.part">
+                                <edit-banner *ngSwitchCase="'banner'" [banner]="part"></edit-banner>
+                                <edit-showcase *ngSwitchCase="'showcase'" [showcase]="part"></edit-showcase>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

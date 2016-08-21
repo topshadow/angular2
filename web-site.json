@@ -1,19 +1,86 @@
 {
-	"username":"topshadow",
-	"password":"shadow2016",
-	"nav":[],
-	"foot":[],
-	"pages":[
-		{
-			"path":"index",
-			"components":[
-				{
-					"component":"Banner",
-					"title":"轮播"
-				}
-			]
-
-		}
-	]
-	
+    "nav": {
+        "title": "导航栏标题",
+        "logo": "images/CMS_03.png",
+        "menuList": [
+            {
+                "path": "index",
+                "title": "主页",
+                "subMenu": []
+            },
+            {
+                "path": "download",
+                "title": "下载",
+                "subMenu": []
+            },
+            {
+                "path": "showcase",
+                "title": "案例",
+                "subMenu": []
+            },
+            {
+                "path": "template",
+                "title": "模板",
+                "subMenu": []
+            },
+            {
+                "path": "help",
+                "title": "帮助",
+                "subMenu": []
+            }
+        ]
+    },
+    "foot": {},
+    "pages": [
+        {
+            "path": "index",
+            "parts": [
+                {
+                    "part": "banner",
+                    "title": "横幅",
+                    "images": [
+                        {
+                            "src": "http://10500322.s21i-10.faiusr.com/2/ABUIABACGAAg3sWuuwUo4620pgIwgA84vAU.jpg",
+                            "title": "<div class='carousel-captionbannerText'><h3 class='text-left'>旅烨帮助民族企业与世界互联</h3><p class='text-left'>为您提供更好的网站后台管理系统</p><button class='btnbtn-primary'><i class='iconglyphiconglyphicon-arrow-down'></i>正式下载</button></div>"
+                        },
+                        {
+                            "src": "images/banner2.png",
+                            "title": "<div class='carousel-captionbannerText'><h3 class='text-left'>旅烨帮助民族企业与世界互联</h3><p class='text-left'>为您提供更好的网站后台管理系统</p><button class='btnbtn-primary'><i class='iconglyphiconglyphicon-arrow-down'></i>正式下载</button></div>"
+                        },
+                        {
+                            "src": "images/CMS_06.png",
+                            "title": "<div class='carousel-captionbannerText'><h3 class='text-left'>旅烨帮助民族企业与世界互联</h3><p class='text-left'>为您提供更好的网站后台管理系统</p><button class='btnbtn-primary'><i class='iconglyphiconglyphicon-arrow-down'></i>正式下载</button></div>"
+                        }
+                    ]
+                },
+                {
+                    "part": "showcase",
+                    "title": "案例展示"
+                },
+                {
+                    "part": "dynamic",
+                    "title": "动态"
+                }
+            ]
+        },
+        {
+            "path": "download",
+            "parts": [
+                {
+                    "part": "banner"
+                }
+            ]
+        },
+        {
+            "path": "showcase"
+        },
+        {
+            "path": "template",
+            "parts": []
+        },
+        {
+            "path": "help",
+            "parts": []
+        }
+    ]
 }

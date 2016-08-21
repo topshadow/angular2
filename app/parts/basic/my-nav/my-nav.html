@@ -1,0 +1,32 @@
+<!-- header -->
+<div class="container-fluid main-container">
+	<div class="row">
+		<nav class="navbar  navbar-default">
+			<div class="container main">
+				<div class="navbar-header nav-headLeft">
+					<a class="nav-icon" href="#"><img src="images/CMS_03.png" alt="" /></a>
+				</div>
+				<button type="button" class="navbar-toggle collapsed nav-mybutton" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+					aria-expanded="false">
+		            <span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+      			</button>
+
+				<div class="collapse navbar-collapse nav-headRight" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+					
+						<li  *ngFor="let menu of nav.menuList"><a routerLink="/{{menu.path}}" class="navLi" >{{menu.title}}</a> </li>
+					</ul>
+					<div class="sign">
+						<button class="btn btn-success" type="button">未登录</button>
+						<!--<button class="btn btn-primary" type="button">登录</button>-->
+					</div>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+</div>
+<!-- /header -->

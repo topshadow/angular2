@@ -1,59 +1,24 @@
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {AppModule} from './app.module';
+var websiteData = localStorage.getItem('websiteData') ? JSON.parse(localStorage.getItem('websiteData')) : false;
+console.log(websiteData);
+if (websiteData) {
+    window['websiteData'] = websiteData;
+    window['nav'] = websiteData.nav;
+    window['pages'] = websiteData.pages;
 
-import {CommonTool,myHttp}  from './my.core';
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms';
-import {HttpModule,Http} from '@angular/http';
-import {RouterModule} from '@angular/router';
-
-import { AppComponent }  from './app.component';
-//import {routing} from './app.routing';
-
-
-function parsePageDatatoRoute(pages){
-
-			let routes:Routes[]=[];
-	    routes.push(
-                {
-                    path:'',
-                    redirect:'/index'
-                    component:PageComponent
-                }
-            );
-   
-        return routes;
-   }
+    platformBrowserDynamic().bootstrapModule(AppModule);
+} else {
+    window['$'].ajax({
+        methon: 'GET',
+        url: 'web-site.json',
+        success: function (data) {
+            window['websiteData'] = data;
+            window['nav'] = data.nav;
+            window['pages'] = data.pages;
+            platformBrowserDynamic().bootstrapModule(AppModule);
+        }
+    })
 
 
-
-
-
- function start(websiteData){
- console.log(websiteData);
-	window['websiteData'] = websiteData;
-	window['pages'] = websiteData.pages;
-	window['nav'] = websiteData.nav;
-	window['foot'] = websiteData.foot;/	platformBrowserDynamic().bootstrapModule(AppModule);
 }
-
-
-@NgModule({
-  imports:      [ BrowserModule,
-  FormsModule,HttpModule,
-  RouterModule 
-  
-  ],
-  declarations: [ AppComponent ],
-  bootstrap:    [ AppComponent ]
-})
-export class AppModule {
-
-
- }
-
-
-
-myHttp('web-site.json').success(start);
-

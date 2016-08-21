@@ -12,10 +12,13 @@ var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.title = window['nav'].title;
+    };
     AppComponent = __decorate([
         core_1.Component({
-            selector: "my-app",
-            template: "this is my app\n\t<a routerLink=\"/index\">index page</a>\n\t<router-outlet></router-outlet>\n\t"
+            selector: 'my-app',
+            template: "\n    <sample></sample>\n    <router-outlet></router-outlet>\n\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
