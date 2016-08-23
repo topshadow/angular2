@@ -5,7 +5,7 @@ var page_component_1 = require('./page.component');
 var appRoutes = [
     {
         path: "",
-        redirectTo: "/sign-in",
+        redirectTo: "/index",
         pathMatch: 'full'
     },
     {

@@ -5,7 +5,7 @@ import {PageComponent} from './page.component';
 const appRoutes: Routes = [
     {
         path: "",
-        redirectTo: "/sign-in",
+        redirectTo: "/index",
         pathMatch: 'full'
     },
     {

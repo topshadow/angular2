@@ -15,7 +15,7 @@ var EditShowCaseComponent = (function () {
     }
     EditShowCaseComponent.prototype.ngOnInit = function () {
         window['tinymce'].init({
-            selector: "textarea",
+            selector: "#test",
             height: 500,
             plugins: [
                 "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",

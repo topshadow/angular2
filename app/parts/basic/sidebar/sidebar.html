@@ -14,8 +14,8 @@
 </button>
 		<div class="panel-collapse collapse in" id="collapseExample">
 			<div class="well">
-				<div class="col-xs-12">
-					<h3>文本框<i class="glyphicon glyphicon-plus-sign" (click)="addInput()"></i></h3>
+				<div class="col-xs-12" my-drag ondragestart="dragstart">
+					<h3>{{text}}<i class="glyphicon glyphicon-plus-sign" (click)="addInput()"></i></h3>
 				</div>
 			</div>
 		</div>
@@ -23,6 +23,3 @@
 
 </section>
 
-<textarea id="test" my-drag editor resizable>
-
-</textarea>

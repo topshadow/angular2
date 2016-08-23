@@ -10,15 +10,15 @@ import {SignInComponent,
     MyNavComponent,EditMyNavComponent,
     BannerComponent,EditBannerComponent
     ,ShowcaseComponent,EditShowCaseComponent,
-    CustomComponent,TopBar,DynamicComponent
+    CustomComponent,TopBar,DynamicComponent,SideBarComponent,MyInputComponent
 } from './parts/index';
 import {PageComponent} from './page.component';
 
 import {AppService} from './app.service';
 
-
+import {ResizableDirective,MyDragDirective,EditorDirective,AccordionDirective} from './directive/index';
 import {MyShowDirective} from './directive/my-show';
-import {EditorDirective}  from './directive/editor.directive';
+
 
 @NgModule({
     imports:[BrowserModule,RouterModule,routing,CommonModule,FormsModule],
@@ -28,8 +28,9 @@ import {EditorDirective}  from './directive/editor.directive';
     BannerComponent,EditBannerComponent,
     ShowcaseComponent,EditShowCaseComponent,
     CustomComponent,TopBar,DynamicComponent,
-    MyShowDirective,PageComponent,
-    EditorDirective
+    MyShowDirective,PageComponent,SideBarComponent,
+    EditorDirective,ResizableDirective,MyDragDirective,
+    AccordionDirective,MyInputComponent
     ],
     bootstrap:[AppComponent],
     

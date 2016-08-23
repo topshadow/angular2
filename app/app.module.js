@@ -18,8 +18,8 @@ var app_routing_1 = require('./app.routing');
 var index_1 = require('./parts/index');
 var page_component_1 = require('./page.component');
 var app_service_1 = require('./app.service');
+var index_2 = require('./directive/index');
 var my_show_1 = require('./directive/my-show');
-var editor_directive_1 = require('./directive/editor.directive');
 var AppModule = (function () {
     function AppModule(viewContainerRef) {
     }
@@ -32,8 +32,9 @@ var AppModule = (function () {
                 index_1.BannerComponent, index_1.EditBannerComponent,
                 index_1.ShowcaseComponent, index_1.EditShowCaseComponent,
                 index_1.CustomComponent, index_1.TopBar, index_1.DynamicComponent,
-                my_show_1.MyShowDirective, page_component_1.PageComponent,
-                editor_directive_1.EditorDirective
+                my_show_1.MyShowDirective, page_component_1.PageComponent, index_1.SideBarComponent,
+                index_2.EditorDirective, index_2.ResizableDirective, index_2.MyDragDirective,
+                index_2.AccordionDirective, index_1.MyInputComponent
             ],
             bootstrap: [app_component_1.AppComponent],
             providers: [app_service_1.AppService, core_1.ViewContainerRef],

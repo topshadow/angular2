@@ -9,23 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var MySelectDirective = (function () {
+    function MySelectDirective() {
+        this.selecred = false;
     }
-    AppComponent.prototype.ngOnInit = function () {
-        this.title = window['nav'].title;
-    };
-    AppComponent.prototype.alertVotedResult = function (agree) {
-        alert(agree);
-    };
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "\n\n    \n    <router-outlet></router-outlet>\n\n    "
+    MySelectDirective.prototype.ngOnInit = function () { };
+    MySelectDirective = __decorate([
+        core_1.Directive({
+            selector: '[my-select]'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], MySelectDirective);
+    return MySelectDirective;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.MySelectDirective = MySelectDirective;
+//# sourceMappingURL=select.directive.js.map

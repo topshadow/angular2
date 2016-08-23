@@ -33,7 +33,7 @@ var PageComponent = (function () {
     PageComponent = __decorate([
         core_1.Component({
             selector: 'page',
-            template: "    \n      <topbar></topbar>\n        <my-nav [nav]=\"nav\" ></my-nav>\n    <ul>\n    <li *ngFor=\"let part of page.parts\">\n     \n        <div [ngSwitch]=\"part.part\">\n            <banner *ngSwitchCase=\"'banner'\"  [banner]=\"part\" ></banner>\n            <showcase *ngSwitchCase=\" 'showcase' \" [showcase]=\"part\"></showcase>\n            <dynamic *ngSwitchCase=\"'dynamic'\" [dynamic]=\"part\"></dynamic>\n        </div>\n\n    </li>\n  </ul>\n    "
+            template: "    \n      <topbar ></topbar>\n        <my-nav [nav]=\"nav\" ></my-nav>\n        <sidebar [parts]=\"page.parts\"></sidebar>\n    <ul>\n    <li *ngFor=\"let part of page.parts\">\n     \n        <div [ngSwitch]=\"part.part\">\n            <my-input *ngSwitchCase=\"'input'\" [myInput]=\"part\"></my-input>\n            <banner *ngSwitchCase=\"'banner'\"  [banner]=\"part\" ></banner>\n            <showcase *ngSwitchCase=\" 'showcase' \" [showcase]=\"part\"></showcase>\n            <dynamic *ngSwitchCase=\"'dynamic'\" [dynamic]=\"part\"></dynamic>\n        </div>\n\n    </li>\n  </ul>\n    "
         }), 
         __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, app_service_1.AppService])
     ], PageComponent);

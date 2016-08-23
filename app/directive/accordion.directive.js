@@ -9,23 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var AccordionDirective = (function () {
+    function AccordionDirective(el) {
+        this.el = el;
     }
-    AppComponent.prototype.ngOnInit = function () {
-        this.title = window['nav'].title;
+    AccordionDirective.prototype.ngOnInit = function () {
+        window['$'](this.el.nativeElement).accordion(this.option);
     };
-    AppComponent.prototype.alertVotedResult = function (agree) {
-        alert(agree);
-    };
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "\n\n    \n    <router-outlet></router-outlet>\n\n    "
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], AccordionDirective.prototype, "option", void 0);
+    AccordionDirective = __decorate([
+        core_1.Directive({ selector: '[accordion]' }), 
+        __metadata('design:paramtypes', [core_1.ElementRef])
+    ], AccordionDirective);
+    return AccordionDirective;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.AccordionDirective = AccordionDirective;
+//# sourceMappingURL=accordion.directive.js.map

@@ -2,7 +2,7 @@
     "nav": {
         "title": "导航栏标题",
         "logo": "images/CMS_03.png",
-        "selctedStyle":"style2",
+        "selctedStyle": "style2",
         "menuList": [
             {
                 "path": "index",
@@ -36,6 +36,10 @@
         {
             "path": "index",
             "parts": [
+                {
+                    "part": "input",
+                    "title": "文本框"
+                },
                 {
                     "part": "banner",
                     "title": "横幅",

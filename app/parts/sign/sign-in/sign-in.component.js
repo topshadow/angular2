@@ -9,20 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var child_1 = require('./child');
+var app_service_1 = require('../../../app.service');
 var SignInComponent = (function () {
-    function SignInComponent(loader, injector) {
-        this.loader = loader;
-        loader.loadAsRoot(child_1.ChildComponent, '#child', injector);
+    function SignInComponent(el, appService) {
+        this.el = el;
     }
+    SignInComponent.prototype.ngOnInit = function () { };
+    SignInComponent.prototype.addTitle = function (title) {
+        // this.appService
+    };
+    SignInComponent.prototype.hidePanel = function (panel) {
+        window['$'](panel).hide();
+        window['$'](this.el).find('.showPanelButton').click(function () {
+            window['$'](panel).show();
+        });
+    };
     SignInComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'sign-in',
             templateUrl: './sign-in.html',
-            viewProviders: []
+            viewProviders: [],
+            styleUrls: ['./sign-in.css']
         }), 
-        __metadata('design:paramtypes', [core_1.DynamicComponentLoader, core_1.Injector])
+        __metadata('design:paramtypes', [core_1.ElementRef, app_service_1.AppService])
     ], SignInComponent);
     return SignInComponent;
 }());
