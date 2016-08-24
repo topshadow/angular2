@@ -6,7 +6,7 @@ import {Directive,OnInit} from '@angular/core';
 export class MySelectDirective implements OnInit{
     selecred:boolean=false;
     
-    @HostListen()
+    
     
     constructor(){}
     

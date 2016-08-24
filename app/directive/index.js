@@ -7,4 +7,5 @@ __export(require('./resizable.directive'));
 __export(require('./editor.directive'));
 __export(require('./my-drag.directive'));
 __export(require('./accordion.directive'));
+__export(require('./hover-toolbar.directive'));
 //# sourceMappingURL=index.js.map

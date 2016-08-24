@@ -1,4 +1,4 @@
-import {Component, Input,OnInit} from '@angular/core';
+import {Component, Input,OnInit,HostListener} from '@angular/core';
 
 
 @Component({
@@ -35,10 +35,8 @@ export class MyInputComponent implements OnInit{
         this.myInput.height= e.target.style.height;
     }
 
-    focus(){
-        console.log('my-input focus');
-    }
-    blur(){
-        console.log('my-input blur');
-    }
+    
+    
+
+
 }

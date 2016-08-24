@@ -31,12 +31,6 @@ var MyInputComponent = (function () {
         this.myInput.width = e.target.style.width;
         this.myInput.height = e.target.style.height;
     };
-    MyInputComponent.prototype.focus = function () {
-        console.log('my-input focus');
-    };
-    MyInputComponent.prototype.blur = function () {
-        console.log('my-input blur');
-    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)

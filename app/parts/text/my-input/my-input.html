@@ -1,5 +1,5 @@
-<div my-drag (onMyDragStart)="dragStart($event)" resizable (onMyDragStop)="changePostion($event)" 
-(onResizeStop)="resizeStop($event)"
+<div my-drag hover-toolbar [toolbar]="toolbar" (onMyDragStart)="dragStart($event)" resizable (onMyDragStop)="changePostion($event)" 
+(onResizeStop)="resizeStop($event)" 
 [style.left]="myInput.left" 
 [style.right]="myInput.right" 
 [style.postion]="myInput.postion" 
@@ -8,7 +8,7 @@
 (focus)="focus()" 
 (blur)="blur()" 
 >
-<div class="toolbar"><button>工具条</button></div>
+<div><h1 #toolbar>this is toolbar</h1>
 
 <h1>this is input text</h1>
 

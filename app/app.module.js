@@ -34,7 +34,7 @@ var AppModule = (function () {
                 index_1.CustomComponent, index_1.TopBar, index_1.DynamicComponent,
                 my_show_1.MyShowDirective, page_component_1.PageComponent, index_1.SideBarComponent,
                 index_2.EditorDirective, index_2.ResizableDirective, index_2.MyDragDirective,
-                index_2.AccordionDirective, index_1.MyInputComponent
+                index_2.AccordionDirective, index_1.MyInputComponent, index_2.HoverToolbarDirective
             ],
             bootstrap: [app_component_1.AppComponent],
             providers: [app_service_1.AppService, core_1.ViewContainerRef],

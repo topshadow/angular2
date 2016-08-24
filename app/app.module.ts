@@ -16,7 +16,10 @@ import {PageComponent} from './page.component';
 
 import {AppService} from './app.service';
 
-import {ResizableDirective,MyDragDirective,EditorDirective,AccordionDirective} from './directive/index';
+import {ResizableDirective,MyDragDirective,EditorDirective,AccordionDirective,
+    HoverToolbarDirective
+    
+} from './directive/index';
 import {MyShowDirective} from './directive/my-show';
 
 
@@ -30,7 +33,7 @@ import {MyShowDirective} from './directive/my-show';
     CustomComponent,TopBar,DynamicComponent,
     MyShowDirective,PageComponent,SideBarComponent,
     EditorDirective,ResizableDirective,MyDragDirective,
-    AccordionDirective,MyInputComponent
+    AccordionDirective,MyInputComponent,HoverToolbarDirective
     ],
     bootstrap:[AppComponent],
     
