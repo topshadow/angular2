@@ -3,6 +3,7 @@ import {CORE_DIRECTIVES} from '@angular/common';
 import {Router, ActivatedRoute} from '@angular/router';
 
 import {AppService} from '../../../app.service';
+import {Base} from '../../../base';
 
 @Component({
   moduleId: module.id,
@@ -10,11 +11,12 @@ import {AppService} from '../../../app.service';
   templateUrl: './topbar.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TopBar {
+export class TopBar extends Base{
   page: any;
   nav: any;
 
   public constructor(viewContainerRef: ViewContainerRef,private appService: AppService, private route: ActivatedRoute) {
+    super();
     this.route.params.subscribe(params => {
       let path = params['path'];
       this.page = appService.getPage(path);

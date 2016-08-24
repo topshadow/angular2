@@ -8,4 +8,5 @@ __export(require('./editor.directive'));
 __export(require('./my-drag.directive'));
 __export(require('./accordion.directive'));
 __export(require('./hover-toolbar.directive'));
+__export(require('./click-refersh.directive'));
 //# sourceMappingURL=index.js.map

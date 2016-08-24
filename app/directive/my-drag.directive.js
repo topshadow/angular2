@@ -8,41 +8,39 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var MyDragDirective = (function () {
-    function MyDragDirective(el) {
+const core_1 = require('@angular/core');
+let MyDragDirective = class MyDragDirective {
+    constructor(el) {
         this.el = el;
         this.onMyDragStart = new core_1.EventEmitter();
         this.onMyDragHover = new core_1.EventEmitter();
         this.onMyDragStop = new core_1.EventEmitter();
     }
-    MyDragDirective.prototype.ngOnInit = function () {
-        var _this = this;
+    ngOnInit() {
         window['$'](this.el.nativeElement).draggable({
-            start: function (e) { _this.onMyDragStart.emit(e); },
-            drag: function (e) { _this.onMyDragHover.emit(e); },
-            stop: function (e) { _this.onMyDragStop.emit(e); }
+            start: (e) => { this.onMyDragStart.emit(e); },
+            drag: (e) => { this.onMyDragHover.emit(e); },
+            stop: (e) => { this.onMyDragStop.emit(e); }
         });
-    };
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], MyDragDirective.prototype, "onMyDragStart", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], MyDragDirective.prototype, "onMyDragHover", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], MyDragDirective.prototype, "onMyDragStop", void 0);
-    MyDragDirective = __decorate([
-        core_1.Directive({
-            selector: '[my-drag]'
-        }), 
-        __metadata('design:paramtypes', [core_1.ElementRef])
-    ], MyDragDirective);
-    return MyDragDirective;
-}());
+    }
+};
+__decorate([
+    core_1.Output(), 
+    __metadata('design:type', Object)
+], MyDragDirective.prototype, "onMyDragStart", void 0);
+__decorate([
+    core_1.Output(), 
+    __metadata('design:type', Object)
+], MyDragDirective.prototype, "onMyDragHover", void 0);
+__decorate([
+    core_1.Output(), 
+    __metadata('design:type', Object)
+], MyDragDirective.prototype, "onMyDragStop", void 0);
+MyDragDirective = __decorate([
+    core_1.Directive({
+        selector: '[my-drag]'
+    }), 
+    __metadata('design:paramtypes', [core_1.ElementRef])
+], MyDragDirective);
 exports.MyDragDirective = MyDragDirective;
 //# sourceMappingURL=my-drag.directive.js.map

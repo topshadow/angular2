@@ -1,4 +1,4 @@
-import {Directive,OnInit} from '@angular/core';
+import {Directive,OnInit,ElementRef} from '@angular/core';
 
 @Directive({
     selector:'[my-select]'
@@ -8,9 +8,12 @@ export class MySelectDirective implements OnInit{
     
     
     
-    constructor(){}
+    constructor(private el:ElementRef){}
     
-    ngOnInit(){}
+    ngOnInit(){
+        // window['$']
+
+    }
 
 
 

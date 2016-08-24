@@ -8,30 +8,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var MyNavComponent = (function () {
-    function MyNavComponent() {
+const core_1 = require('@angular/core');
+let MyNavComponent = class MyNavComponent {
+    constructor() {
         this.styles = ['style1', 'style2'];
         this.count = 0;
     }
-    MyNavComponent.prototype.addCount = function () {
+    addCount() {
         this.count++;
         console.log(this.count);
-    };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], MyNavComponent.prototype, "nav", void 0);
-    MyNavComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'my-nav',
-            templateUrl: './my-nav.html',
-            styleUrls: ['./style1.css', './style2.css']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], MyNavComponent);
-    return MyNavComponent;
-}());
+    }
+};
+__decorate([
+    core_1.Input(), 
+    __metadata('design:type', Object)
+], MyNavComponent.prototype, "nav", void 0);
+MyNavComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'my-nav',
+        templateUrl: './my-nav.html',
+        styleUrls: ['./style1.css', './style2.css']
+    }), 
+    __metadata('design:paramtypes', [])
+], MyNavComponent);
 exports.MyNavComponent = MyNavComponent;
 //# sourceMappingURL=my-nav.component.js.map

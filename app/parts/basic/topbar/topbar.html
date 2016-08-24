@@ -1,3 +1,4 @@
+<div *ngIf="isEdit">
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editpage">
   编辑页面
@@ -5,7 +6,7 @@
 <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editNav">修改导航</button>
 <button class="btn  btn-primary" (click)="saveWebsiteData()">保存页面</button>
 <button class="btn btn-info" (click)="clearWebsiteData()">还原页面</button>
-
+</div>
 <!-- Modal -->
 <div class="modal fade" id="editpage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg" role="document">

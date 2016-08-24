@@ -8,44 +8,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var app_service_1 = require('../../../app.service');
-var EditMyNavComponent = (function () {
-    function EditMyNavComponent(appService) {
+const core_1 = require('@angular/core');
+const app_service_1 = require('../../../app.service');
+let EditMyNavComponent = class EditMyNavComponent {
+    constructor(appService) {
         this.appService = appService;
         this.styles = ['style1', 'style2'];
         this.selectedStyle = 'style1';
     }
-    EditMyNavComponent.prototype.selectStyle = function (style) {
+    selectStyle(style) {
         this.selectedStyle = style;
         //保存样式
         this.appService.saveNavStyle(style);
-    };
-    EditMyNavComponent.prototype.addPage = function (page) {
+    }
+    addPage(page) {
         this.appService.addPage(page);
-    };
-    EditMyNavComponent.prototype.deletePage = function (menu) {
+    }
+    deletePage(menu) {
         this.appService.deletePage(menu.path);
-    };
-    EditMyNavComponent.prototype.upPage = function (menu) {
+    }
+    upPage(menu) {
         this.appService.upPage(menu.path);
-    };
-    EditMyNavComponent.prototype.downPage = function (menu) {
+    }
+    downPage(menu) {
         this.appService.downPage(menu.path);
-    };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], EditMyNavComponent.prototype, "nav", void 0);
-    EditMyNavComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'edit-my-nav',
-            templateUrl: './edit-my-nav.html'
-        }), 
-        __metadata('design:paramtypes', [app_service_1.AppService])
-    ], EditMyNavComponent);
-    return EditMyNavComponent;
-}());
+    }
+};
+__decorate([
+    core_1.Input(), 
+    __metadata('design:type', Object)
+], EditMyNavComponent.prototype, "nav", void 0);
+EditMyNavComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'edit-my-nav',
+        templateUrl: './edit-my-nav.html'
+    }), 
+    __metadata('design:paramtypes', [app_service_1.AppService])
+], EditMyNavComponent);
 exports.EditMyNavComponent = EditMyNavComponent;
 //# sourceMappingURL=edit-my-nav.component.js.map

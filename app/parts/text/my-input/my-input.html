@@ -1,4 +1,4 @@
-<div my-drag hover-toolbar [toolbar]="toolbar" (onMyDragStart)="dragStart($event)" resizable (onMyDragStop)="changePostion($event)" 
+<div  my-drag hover-toolbar [toolbar]="toolbar" (onMyDragStart)="dragStart($event)" resizable (onMyDragStop)="changePostion($event)" 
 (onResizeStop)="resizeStop($event)" 
 [style.left]="myInput.left" 
 [style.right]="myInput.right" 
@@ -8,8 +8,16 @@
 (focus)="focus()" 
 (blur)="blur()" 
 >
-<div><h1 #toolbar>this is toolbar</h1>
+<div #toolbar hidden>
+    <button  class="btn btn-primary ">编辑</button>
+    <button class="btn btn-primary">层级</button>
+    <button class="btn btn-primary">删除</button>
+    <button class="">动画</button>
+    <button class="btn">帮助</button>
+</div>
 
-<h1>this is input text</h1>
+<h1 >this is input text</h1>
 
 </div>
+
+

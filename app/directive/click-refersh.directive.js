@@ -10,28 +10,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const core_2 = require('@angular/core');
-let MyShowDirective = class MyShowDirective {
+let ClickRefershDirective = class ClickRefershDirective {
     constructor(templateRef, viewContainer) {
         this.templateRef = templateRef;
         this.viewContainer = viewContainer;
+        this.viewContainer.createEmbeddedView(this.templateRef);
+        window['viewContainer'] = this.viewContainer;
+        window['templateRef'] = this.templateRef;
     }
-    set myShow(condition) {
-        if (condition) {
-            this.viewContainer.createEmbeddedView(this.templateRef);
-        }
-        else {
-            this.viewContainer.clear();
-        }
+    refersh() {
+        console.log(this.templateRef, this.viewContainer);
+        this.viewContainer.clear();
+        this.viewContainer.createEmbeddedView(this.templateRef);
     }
 };
 __decorate([
-    core_1.Input(), 
-    __metadata('design:type', Boolean), 
-    __metadata('design:paramtypes', [Boolean])
-], MyShowDirective.prototype, "myShow", null);
-MyShowDirective = __decorate([
-    core_1.Directive({ selector: '[my-show]' }), 
+    core_1.HostListener('click', []), 
+    __metadata('design:type', Function), 
+    __metadata('design:paramtypes', []), 
+    __metadata('design:returntype', void 0)
+], ClickRefershDirective.prototype, "refersh", null);
+ClickRefershDirective = __decorate([
+    core_1.Directive({
+        selector: '[click-refersh]'
+    }), 
     __metadata('design:paramtypes', [core_2.TemplateRef, core_2.ViewContainerRef])
-], MyShowDirective);
-exports.MyShowDirective = MyShowDirective;
-//# sourceMappingURL=my-show.js.map
+], ClickRefershDirective);
+exports.ClickRefershDirective = ClickRefershDirective;
+//# sourceMappingURL=click-refersh.directive.js.map

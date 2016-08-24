@@ -7,9 +7,9 @@ import {AppService} from './app.service';
     template: `    
       <topbar ></topbar>
         <my-nav [nav]="nav" ></my-nav>
-         <!--<sidebar [parts]="page.parts"></sidebar>-->
-    <ul id="selectable">
-    <li *ngFor="let part of page.parts">
+         <sidebar [parts]="page.parts"></sidebar>
+    <ul  [dragula]='"dragpart"' [dragulaModel]="page.parts">
+    <li *ngFor="let part of page.parts"  >
         <div [ngSwitch]="part.part"> 
         <my-input *ngSwitchCase="'input'" [myInput]="part"></my-input>
             <banner *ngSwitchCase="'banner'"  [banner]="part" ></banner>
@@ -35,9 +35,11 @@ export class PageComponent implements OnInit, OnDestroy {
             this.path = params['path']; // (+) converts string 'id' to a number
             this.page = this.appService.getPagesData().find(page => page.path == this.path);
             this.nav = this.appService.getNavData();
-            console.log(this.page);
+            console.log(params);
         });
-        
+        this.route.queryParams.subscribe(params=>{
+            window['isEdit']=params['isEdit']||params['isEdit']=='true' ? true : false;
+        })
       
 
     }

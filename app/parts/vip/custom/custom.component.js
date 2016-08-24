@@ -8,21 +8,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var CustomComponent = (function () {
-    function CustomComponent() {
+const core_1 = require('@angular/core');
+let CustomComponent = class CustomComponent {
+    constructor() {
         this.html = "";
         this.css = "";
     }
-    CustomComponent = __decorate([
-        core_1.Component({
-            selector: 'custom',
-            templateUrl: 'app/parts/vip/custom/custom.html',
-            styles: ["\n    textarea{\n        width:100%;\n        height:300px;\n    }\n    "]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], CustomComponent);
-    return CustomComponent;
-}());
+};
+CustomComponent = __decorate([
+    core_1.Component({
+        selector: 'custom',
+        templateUrl: 'app/parts/vip/custom/custom.html',
+        styles: [`
+    textarea{
+        width:100%;
+        height:300px;
+    }
+    `]
+    }), 
+    __metadata('design:paramtypes', [])
+], CustomComponent);
 exports.CustomComponent = CustomComponent;
 //# sourceMappingURL=custom.component.js.map

@@ -8,18 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var ChildComponent = (function () {
-    function ChildComponent() {
-    }
-    ChildComponent = __decorate([
-        core_1.Component({
-            selector: 'child',
-            template: 'this is child component  dynamic loaded by Sign-in html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ChildComponent);
-    return ChildComponent;
-}());
+const core_1 = require('@angular/core');
+let ChildComponent = class ChildComponent {
+};
+ChildComponent = __decorate([
+    core_1.Component({
+        selector: 'child',
+        template: 'this is child component  dynamic loaded by Sign-in html'
+    }), 
+    __metadata('design:paramtypes', [])
+], ChildComponent);
 exports.ChildComponent = ChildComponent;
 //# sourceMappingURL=child.js.map

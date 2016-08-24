@@ -1,11 +1,11 @@
+<section id="wqdpageLeft"  *ngIf="isEdit">
+	<div id="wqdpLeftD" *click-refersh>
 
-<section id="wqdpageLeft">
-	<div id="wqdpLeftD">
-
-		<div>
+		<div >
 			添加部件<a class="btn btn-primary pull-right" role="button" data-toggle="collapse" href="#wqdpageLeft" aria-expanded="false"
 				aria-controls="collapseExample">x
 </a>
+
 		</div>
 
 		<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
@@ -14,12 +14,11 @@
 </button>
 		<div class="panel-collapse collapse in" id="collapseExample">
 			<div class="well">
-				<div class="col-xs-12" my-drag ondragestart="dragstart">
-					<h3>{{text}}<i class="glyphicon glyphicon-plus-sign" (click)="addInput()"></i></h3>
-				</div>
+				<ul>
+					<li my-drag (onMyDragStop)="dropPart($evnent)" *ngFor="let part of optionGroups">{{part.part}}</li>
+				</ul>
 			</div>
 		</div>
 	</div>
 
 </section>
-

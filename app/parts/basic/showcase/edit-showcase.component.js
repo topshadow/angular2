@@ -8,12 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var editor_directive_1 = require('../../../directive/editor.directive');
-var EditShowCaseComponent = (function () {
-    function EditShowCaseComponent() {
+const core_1 = require('@angular/core');
+const editor_directive_1 = require('../../../directive/editor.directive');
+let EditShowCaseComponent = class EditShowCaseComponent {
+    constructor() {
     }
-    EditShowCaseComponent.prototype.ngOnInit = function () {
+    ngOnInit() {
         window['tinymce'].init({
             selector: "#test",
             height: 500,
@@ -69,21 +69,20 @@ var EditShowCaseComponent = (function () {
                 '//www.tinymce.com/css/codepen.min.css'
             ]
         });
-    };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], EditShowCaseComponent.prototype, "showcase", void 0);
-    EditShowCaseComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'edit-showcase',
-            templateUrl: './edit-showcase.html',
-            directives: [editor_directive_1.EditorDirective]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], EditShowCaseComponent);
-    return EditShowCaseComponent;
-}());
+    }
+};
+__decorate([
+    core_1.Input(), 
+    __metadata('design:type', Object)
+], EditShowCaseComponent.prototype, "showcase", void 0);
+EditShowCaseComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'edit-showcase',
+        templateUrl: './edit-showcase.html',
+        directives: [editor_directive_1.EditorDirective]
+    }), 
+    __metadata('design:paramtypes', [])
+], EditShowCaseComponent);
 exports.EditShowCaseComponent = EditShowCaseComponent;
 //# sourceMappingURL=edit-showcase.component.js.map

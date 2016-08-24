@@ -8,23 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var ShowcaseComponent = (function () {
-    function ShowcaseComponent() {
-    }
-    ShowcaseComponent.prototype.ngOnInit = function () { };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], ShowcaseComponent.prototype, "showcase", void 0);
-    ShowcaseComponent = __decorate([
-        core_1.Component({
-            selector: 'showcase',
-            templateUrl: 'app/parts/basic/showcase/showcase.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ShowcaseComponent);
-    return ShowcaseComponent;
-}());
+const core_1 = require('@angular/core');
+let ShowcaseComponent = class ShowcaseComponent {
+    ngOnInit() { }
+};
+__decorate([
+    core_1.Input(), 
+    __metadata('design:type', Object)
+], ShowcaseComponent.prototype, "showcase", void 0);
+ShowcaseComponent = __decorate([
+    core_1.Component({
+        selector: 'showcase',
+        templateUrl: 'app/parts/basic/showcase/showcase.html'
+    }), 
+    __metadata('design:paramtypes', [])
+], ShowcaseComponent);
 exports.ShowcaseComponent = ShowcaseComponent;
 //# sourceMappingURL=showcase.component.js.map

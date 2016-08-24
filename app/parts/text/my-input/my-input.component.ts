@@ -1,6 +1,4 @@
 import {Component, Input,OnInit,HostListener} from '@angular/core';
-
-
 @Component({
     moduleId: module.id,
     selector: 'my-input',

@@ -8,25 +8,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var DynamicComponent = (function () {
-    function DynamicComponent() {
+const core_1 = require('@angular/core');
+let DynamicComponent = class DynamicComponent {
+    ngOnInit() {
     }
-    DynamicComponent.prototype.ngOnInit = function () {
-    };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], DynamicComponent.prototype, "dynamic", void 0);
-    DynamicComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'dynamic',
-            templateUrl: './dynamic.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], DynamicComponent);
-    return DynamicComponent;
-}());
+};
+__decorate([
+    core_1.Input(), 
+    __metadata('design:type', Object)
+], DynamicComponent.prototype, "dynamic", void 0);
+DynamicComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'dynamic',
+        templateUrl: './dynamic.html'
+    }), 
+    __metadata('design:paramtypes', [])
+], DynamicComponent);
 exports.DynamicComponent = DynamicComponent;
 //# sourceMappingURL=dynamic.component.js.map
