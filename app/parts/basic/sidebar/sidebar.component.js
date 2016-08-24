@@ -1,4 +1,9 @@
 "use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,11 +13,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const router_1 = require('@angular/router');
-const app_service_1 = require('../../../app.service');
-const ng2_dragula_1 = require('ng2-dragula/ng2-dragula');
-const base_1 = require('../../../base');
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var app_service_1 = require('../../../app.service');
+var ng2_dragula_1 = require('ng2-dragula/ng2-dragula');
+var base_1 = require('../../../base');
 function getOption() {
     return [
         {
@@ -47,80 +52,83 @@ function getOption() {
         }
     ];
 }
-let SideBarComponent = class SideBarComponent extends base_1.Base {
-    constructor(appService, route, dragulaService) {
-        super();
+var SideBarComponent = (function (_super) {
+    __extends(SideBarComponent, _super);
+    function SideBarComponent(appService, route, dragulaService) {
+        _super.call(this);
         this.appService = appService;
         this.route = route;
         this.dragulaService = dragulaService;
         this.text = "文本框";
         this.optionGroups = getOption();
     }
-    ngOnInit() {
+    SideBarComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.dragulaService.setOptions('canDrag', {
             removeOnSpill: true
         });
-        this.dragulaService.drag.subscribe((value) => {
-            console.log(`drag: ${value[0]}`);
-            this.onDrag(value.slice(1));
+        this.dragulaService.drag.subscribe(function (value) {
+            console.log("drag: " + value[0]);
+            _this.onDrag(value.slice(1));
         });
-        this.dragulaService.drop.subscribe((value) => {
-            console.log(`drop: ${value[0]}`);
-            this.onDrop(value.slice(1));
+        this.dragulaService.drop.subscribe(function (value) {
+            console.log("drop: " + value[0]);
+            _this.onDrop(value.slice(1));
         });
-        this.dragulaService.over.subscribe((value) => {
-            console.log(`over: ${value[0]}`);
-            this.onOver(value.slice(1));
+        this.dragulaService.over.subscribe(function (value) {
+            console.log("over: " + value[0]);
+            _this.onOver(value.slice(1));
         });
-        this.dragulaService.out.subscribe((value) => {
-            console.log(`out: ${value[0]}`);
-            this.onOut(value.slice(1));
+        this.dragulaService.out.subscribe(function (value) {
+            console.log("out: " + value[0]);
+            _this.onOut(value.slice(1));
         });
-        this.route.params.subscribe(params => {
+        this.route.params.subscribe(function (params) {
             var path = params['path'];
-            this.page = this.appService.getPage(path);
+            _this.page = _this.appService.getPage(path);
         });
-    }
-    onDrag(args) {
-        let [e, el] = args;
+    };
+    SideBarComponent.prototype.onDrag = function (args) {
+        var e = args[0], el = args[1];
         console.log('onDrag->  e:', e, 'el:', el);
         // do something
-    }
-    onDrop(args) {
-        let [e, el] = args;
+    };
+    SideBarComponent.prototype.onDrop = function (args) {
+        var e = args[0], el = args[1];
         console.log('onDrop->e:', e, 'el:', el);
         // do something
-    }
-    onOver(args) {
-        let [e, el, container] = args;
+    };
+    SideBarComponent.prototype.onOver = function (args) {
+        var e = args[0], el = args[1], container = args[2];
         console.log('onOver->e:', e, 'el:', el, 'container:', container);
         // do something
-    }
-    onOut(args) {
-        let [e, el, container] = args;
+    };
+    SideBarComponent.prototype.onOut = function (args) {
+        var e = args[0], el = args[1], container = args[2];
         console.log('onOut->e:', e, 'el:', el, container);
         // do something
         this.optionGroups = getOption();
-    }
-    dropPart(e) {
+    };
+    SideBarComponent.prototype.dropPart = function (e) {
         e.target.style.postion = "relative";
         e.target.style.left = e.clientX;
         e.target.style.top = e.clientY;
         this.optionGroups = getOption();
-    }
-};
-__decorate([
-    core_1.Input(), 
-    __metadata('design:type', Object)
-], SideBarComponent.prototype, "parts", void 0);
-SideBarComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'sidebar',
-        templateUrl: `./sidebar.html`,
-        styleUrls: ['./sidebar.css'],
-    }), 
-    __metadata('design:paramtypes', [app_service_1.AppService, router_1.ActivatedRoute, ng2_dragula_1.DragulaService])
-], SideBarComponent);
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], SideBarComponent.prototype, "parts", void 0);
+    SideBarComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'sidebar',
+            templateUrl: "./sidebar.html",
+            styleUrls: ['./sidebar.css'],
+        }), 
+        __metadata('design:paramtypes', [app_service_1.AppService, router_1.ActivatedRoute, ng2_dragula_1.DragulaService])
+    ], SideBarComponent);
+    return SideBarComponent;
+}(base_1.Base));
 exports.SideBarComponent = SideBarComponent;
 //# sourceMappingURL=sidebar.component.js.map

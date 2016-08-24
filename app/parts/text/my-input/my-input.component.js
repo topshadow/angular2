@@ -8,15 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-let MyInputComponent = class MyInputComponent {
-    constructor() {
+var core_1 = require('@angular/core');
+var MyInputComponent = (function () {
+    function MyInputComponent() {
         this.selectd = false;
     }
-    ngOnInit() {
+    MyInputComponent.prototype.ngOnInit = function () {
         console.log('my-input', this.myInput);
-    }
-    changePostion(e) {
+    };
+    MyInputComponent.prototype.changePostion = function (e) {
         var left = window['$'](e.target).css('left');
         var right = window['$'](e.target).css('top');
         var position = window['$'](e.target).css('position');
@@ -24,25 +24,26 @@ let MyInputComponent = class MyInputComponent {
         this.myInput.left = left;
         this.myInput.right = right;
         this.myInput.position = position;
-    }
-    dragStart(e) {
-    }
-    resizeStop(e) {
+    };
+    MyInputComponent.prototype.dragStart = function (e) {
+    };
+    MyInputComponent.prototype.resizeStop = function (e) {
         this.myInput.width = e.target.style.width;
         this.myInput.height = e.target.style.height;
-    }
-};
-__decorate([
-    core_1.Input(), 
-    __metadata('design:type', Object)
-], MyInputComponent.prototype, "myInput", void 0);
-MyInputComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'my-input',
-        templateUrl: `./my-input.html`
-    }), 
-    __metadata('design:paramtypes', [])
-], MyInputComponent);
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], MyInputComponent.prototype, "myInput", void 0);
+    MyInputComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'my-input',
+            templateUrl: "./my-input.html"
+        }), 
+        __metadata('design:paramtypes', [])
+    ], MyInputComponent);
+    return MyInputComponent;
+}());
 exports.MyInputComponent = MyInputComponent;
 //# sourceMappingURL=my-input.component.js.map

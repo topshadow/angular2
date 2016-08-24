@@ -1,8 +1,8 @@
 "use strict";
-const router_1 = require('@angular/router');
-const index_1 = require('./parts/index');
-const page_component_1 = require('./page.component');
-const appRoutes = [
+var router_1 = require('@angular/router');
+var index_1 = require('./parts/index');
+var page_component_1 = require('./page.component');
+var appRoutes = [
     {
         path: "",
         redirectTo: "/index",

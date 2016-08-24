@@ -8,21 +8,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-let MySelectDirective = class MySelectDirective {
-    constructor(el) {
+var core_1 = require('@angular/core');
+var MySelectDirective = (function () {
+    function MySelectDirective(el) {
         this.el = el;
         this.selecred = false;
     }
-    ngOnInit() {
+    MySelectDirective.prototype.ngOnInit = function () {
         // window['$']
-    }
-};
-MySelectDirective = __decorate([
-    core_1.Directive({
-        selector: '[my-select]'
-    }), 
-    __metadata('design:paramtypes', [core_1.ElementRef])
-], MySelectDirective);
+    };
+    MySelectDirective = __decorate([
+        core_1.Directive({
+            selector: '[my-select]'
+        }), 
+        __metadata('design:paramtypes', [core_1.ElementRef])
+    ], MySelectDirective);
+    return MySelectDirective;
+}());
 exports.MySelectDirective = MySelectDirective;
 //# sourceMappingURL=select.directive.js.map

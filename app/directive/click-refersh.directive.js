@@ -8,33 +8,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const core_2 = require('@angular/core');
-let ClickRefershDirective = class ClickRefershDirective {
-    constructor(templateRef, viewContainer) {
+var core_1 = require('@angular/core');
+var core_2 = require('@angular/core');
+var ClickRefershDirective = (function () {
+    function ClickRefershDirective(templateRef, viewContainer) {
         this.templateRef = templateRef;
         this.viewContainer = viewContainer;
         this.viewContainer.createEmbeddedView(this.templateRef);
         window['viewContainer'] = this.viewContainer;
         window['templateRef'] = this.templateRef;
     }
-    refersh() {
+    ClickRefershDirective.prototype.refersh = function () {
         console.log(this.templateRef, this.viewContainer);
         this.viewContainer.clear();
         this.viewContainer.createEmbeddedView(this.templateRef);
-    }
-};
-__decorate([
-    core_1.HostListener('click', []), 
-    __metadata('design:type', Function), 
-    __metadata('design:paramtypes', []), 
-    __metadata('design:returntype', void 0)
-], ClickRefershDirective.prototype, "refersh", null);
-ClickRefershDirective = __decorate([
-    core_1.Directive({
-        selector: '[click-refersh]'
-    }), 
-    __metadata('design:paramtypes', [core_2.TemplateRef, core_2.ViewContainerRef])
-], ClickRefershDirective);
+    };
+    __decorate([
+        core_1.HostListener('click', []), 
+        __metadata('design:type', Function), 
+        __metadata('design:paramtypes', []), 
+        __metadata('design:returntype', void 0)
+    ], ClickRefershDirective.prototype, "refersh", null);
+    ClickRefershDirective = __decorate([
+        core_1.Directive({
+            selector: '[click-refersh]'
+        }), 
+        __metadata('design:paramtypes', [core_2.TemplateRef, core_2.ViewContainerRef])
+    ], ClickRefershDirective);
+    return ClickRefershDirective;
+}());
 exports.ClickRefershDirective = ClickRefershDirective;
 //# sourceMappingURL=click-refersh.directive.js.map

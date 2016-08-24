@@ -8,30 +8,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const core_2 = require('@angular/core');
-let MyShowDirective = class MyShowDirective {
-    constructor(templateRef, viewContainer) {
+var core_1 = require('@angular/core');
+var core_2 = require('@angular/core');
+var MyShowDirective = (function () {
+    function MyShowDirective(templateRef, viewContainer) {
         this.templateRef = templateRef;
         this.viewContainer = viewContainer;
     }
-    set myShow(condition) {
-        if (condition) {
-            this.viewContainer.createEmbeddedView(this.templateRef);
-        }
-        else {
-            this.viewContainer.clear();
-        }
-    }
-};
-__decorate([
-    core_1.Input(), 
-    __metadata('design:type', Boolean), 
-    __metadata('design:paramtypes', [Boolean])
-], MyShowDirective.prototype, "myShow", null);
-MyShowDirective = __decorate([
-    core_1.Directive({ selector: '[my-show]' }), 
-    __metadata('design:paramtypes', [core_2.TemplateRef, core_2.ViewContainerRef])
-], MyShowDirective);
+    Object.defineProperty(MyShowDirective.prototype, "myShow", {
+        set: function (condition) {
+            if (condition) {
+                this.viewContainer.createEmbeddedView(this.templateRef);
+            }
+            else {
+                this.viewContainer.clear();
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Boolean), 
+        __metadata('design:paramtypes', [Boolean])
+    ], MyShowDirective.prototype, "myShow", null);
+    MyShowDirective = __decorate([
+        core_1.Directive({ selector: '[my-show]' }), 
+        __metadata('design:paramtypes', [core_2.TemplateRef, core_2.ViewContainerRef])
+    ], MyShowDirective);
+    return MyShowDirective;
+}());
 exports.MyShowDirective = MyShowDirective;
 //# sourceMappingURL=my-show.js.map

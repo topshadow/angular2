@@ -8,12 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-let EditorDirective = class EditorDirective {
-    constructor(el) {
+var core_1 = require('@angular/core');
+var EditorDirective = (function () {
+    function EditorDirective(el) {
         this.el = el;
     }
-    ngOnInit() {
+    EditorDirective.prototype.ngOnInit = function () {
         var id = window['$'](this.el.nativeElement).attr('id');
         this.edit = window['tinymce'].init({
             selector: "#" + id,
@@ -70,17 +70,18 @@ let EditorDirective = class EditorDirective {
                 '//www.tinymce.com/css/codepen.min.css'
             ]
         });
-    }
-};
-__decorate([
-    core_1.Input('editorId'), 
-    __metadata('design:type', String)
-], EditorDirective.prototype, "editorId", void 0);
-EditorDirective = __decorate([
-    core_1.Directive({
-        selector: '[editor]'
-    }), 
-    __metadata('design:paramtypes', [core_1.ElementRef])
-], EditorDirective);
+    };
+    __decorate([
+        core_1.Input('editorId'), 
+        __metadata('design:type', String)
+    ], EditorDirective.prototype, "editorId", void 0);
+    EditorDirective = __decorate([
+        core_1.Directive({
+            selector: '[editor]'
+        }), 
+        __metadata('design:paramtypes', [core_1.ElementRef])
+    ], EditorDirective);
+    return EditorDirective;
+}());
 exports.EditorDirective = EditorDirective;
 //# sourceMappingURL=editor.directive.js.map

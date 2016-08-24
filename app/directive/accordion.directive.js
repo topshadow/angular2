@@ -8,22 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-let AccordionDirective = class AccordionDirective {
-    constructor(el) {
+var core_1 = require('@angular/core');
+var AccordionDirective = (function () {
+    function AccordionDirective(el) {
         this.el = el;
     }
-    ngOnInit() {
+    AccordionDirective.prototype.ngOnInit = function () {
         window['$'](this.el.nativeElement).accordion(this.option);
-    }
-};
-__decorate([
-    core_1.Input(), 
-    __metadata('design:type', Object)
-], AccordionDirective.prototype, "option", void 0);
-AccordionDirective = __decorate([
-    core_1.Directive({ selector: '[accordion]' }), 
-    __metadata('design:paramtypes', [core_1.ElementRef])
-], AccordionDirective);
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], AccordionDirective.prototype, "option", void 0);
+    AccordionDirective = __decorate([
+        core_1.Directive({ selector: '[accordion]' }), 
+        __metadata('design:paramtypes', [core_1.ElementRef])
+    ], AccordionDirective);
+    return AccordionDirective;
+}());
 exports.AccordionDirective = AccordionDirective;
 //# sourceMappingURL=accordion.directive.js.map

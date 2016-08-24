@@ -8,11 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const router_1 = require('@angular/router');
-const app_service_1 = require('../../../app.service');
-let EditBannerComponent = class EditBannerComponent {
-    constructor(router, appService) {
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var app_service_1 = require('../../../app.service');
+var EditBannerComponent = (function () {
+    function EditBannerComponent(router, appService) {
         this.router = router;
         this.appService = appService;
         this.optionBannerImage = [
@@ -27,30 +27,31 @@ let EditBannerComponent = class EditBannerComponent {
             }
         ];
     }
-    addBanner(image) {
+    EditBannerComponent.prototype.addBanner = function (image) {
         this.banner.images.push(image);
-    }
-    deleteImage(image) {
+    };
+    EditBannerComponent.prototype.deleteImage = function (image) {
         var index = this.banner.images.indexOf(image);
         var before = this.banner.images.slice(0, index);
         var after = this.banner.images.slice(index + 1);
         this.banner.images = before.concat(after);
-    }
-    deleteThisComponent() {
+    };
+    EditBannerComponent.prototype.deleteThisComponent = function () {
         this.banner = null;
-    }
-};
-__decorate([
-    core_1.Input(), 
-    __metadata('design:type', Object)
-], EditBannerComponent.prototype, "banner", void 0);
-EditBannerComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'edit-banner',
-        templateUrl: './edit-banner.html'
-    }), 
-    __metadata('design:paramtypes', [router_1.Router, app_service_1.AppService])
-], EditBannerComponent);
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], EditBannerComponent.prototype, "banner", void 0);
+    EditBannerComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'edit-banner',
+            templateUrl: './edit-banner.html'
+        }), 
+        __metadata('design:paramtypes', [router_1.Router, app_service_1.AppService])
+    ], EditBannerComponent);
+    return EditBannerComponent;
+}());
 exports.EditBannerComponent = EditBannerComponent;
 //# sourceMappingURL=edit-banner.component.js.map

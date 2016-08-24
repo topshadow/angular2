@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input,ElementRef} from '@angular/core';
 import {AppService} from '../../../app.service';
 import {Page} from '../../../model/index';
 
@@ -21,7 +21,7 @@ export class EditMyNavComponent {
     public styles=['style1','style2'];
     selectedStyle='style1';
 
-    constructor(private appService: AppService) {}
+    constructor(private appService: AppService,public el:ElementRef) {}
 
 
     selectStyle(style:string){

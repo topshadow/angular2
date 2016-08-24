@@ -8,27 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-let Sample = class Sample {
-    constructor() {
-        this.ckeditorContent = `<p>My HTML</p>`;
+var core_1 = require('@angular/core');
+var Sample = (function () {
+    function Sample() {
+        this.ckeditorContent = "<p>My HTML</p>";
     }
-};
-Sample = __decorate([
-    core_1.Component({
-        selector: 'sample',
-        directives: [],
-        template: `
-  <ckeditor
-    [(ngModel)]="ckeditorContent"
-    [config]="{uiColor: '#99000'}"
-    (change)="onChange($event)"
-    (ready)="onReady($event)"
-    debounce="500">
-  </ckeditor>
-  `
-    }), 
-    __metadata('design:paramtypes', [])
-], Sample);
+    Sample = __decorate([
+        core_1.Component({
+            selector: 'sample',
+            directives: [],
+            template: "\n  <ckeditor\n    [(ngModel)]=\"ckeditorContent\"\n    [config]=\"{uiColor: '#99000'}\"\n    (change)=\"onChange($event)\"\n    (ready)=\"onReady($event)\"\n    debounce=\"500\">\n  </ckeditor>\n  "
+        }), 
+        __metadata('design:paramtypes', [])
+    ], Sample);
+    return Sample;
+}());
 exports.Sample = Sample;
 //# sourceMappingURL=ckeditor.js.map

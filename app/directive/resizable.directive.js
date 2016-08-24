@@ -8,28 +8,30 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
+var core_1 = require('@angular/core');
 // Tinymce directive
-let ResizableDirective = class ResizableDirective {
-    constructor(el) {
+var ResizableDirective = (function () {
+    function ResizableDirective(el) {
         this.el = el;
         this.onResizeStop = new core_1.EventEmitter();
     }
-    ngOnInit() {
+    ResizableDirective.prototype.ngOnInit = function () {
+        var _this = this;
         window['$'](this.el.nativeElement).resizable({
-            stop: (e) => { this.onResizeStop.emit(e); }
+            stop: function (e) { _this.onResizeStop.emit(e); }
         });
-    }
-};
-__decorate([
-    core_1.Output(), 
-    __metadata('design:type', Object)
-], ResizableDirective.prototype, "onResizeStop", void 0);
-ResizableDirective = __decorate([
-    core_1.Directive({
-        selector: '[resizable]'
-    }), 
-    __metadata('design:paramtypes', [core_1.ElementRef])
-], ResizableDirective);
+    };
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], ResizableDirective.prototype, "onResizeStop", void 0);
+    ResizableDirective = __decorate([
+        core_1.Directive({
+            selector: '[resizable]'
+        }), 
+        __metadata('design:paramtypes', [core_1.ElementRef])
+    ], ResizableDirective);
+    return ResizableDirective;
+}());
 exports.ResizableDirective = ResizableDirective;
 //# sourceMappingURL=resizable.directive.js.map
