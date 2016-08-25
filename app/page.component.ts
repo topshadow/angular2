@@ -28,9 +28,7 @@ export class PageComponent implements OnInit, OnDestroy {
     constructor(private router: Router, private route: ActivatedRoute, private appService: AppService) { }
 
     ngOnInit() {
-
         this.path = this.router.url.replace('/', '');
-
         this.route.params.subscribe(params => {
             this.path = params['path']; // (+) converts string 'id' to a number
             this.page = this.appService.getPagesData().find(page => page.path == this.path);
@@ -40,8 +38,6 @@ export class PageComponent implements OnInit, OnDestroy {
         this.route.queryParams.subscribe(params => {
             window['isEdit'] = params['isEdit'] || params['isEdit'] == 'true' ? true : false;
         })
-
-
     }
     ngOnDestroy() {
         console.log('page component is destory');
