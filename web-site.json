@@ -37,8 +37,14 @@
             "path": "index",
             "parts": [
                 {
+                    "part":"my-image",
+                    "title":"图片",
+                    "src":"http://img2.imgtn.bdimg.com/it/u=395920684,863299018&fm=21&gp=0.jpg"
+                },
+                {
                     "part": "input",
-                    "title": "文本框"
+                    "title": "文本框",
+                    "text":"text"
                 },
                 {
                     "part": "banner",

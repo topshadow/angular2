@@ -9,30 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-// Tinymce directive
-var ResizableDirective = (function () {
-    function ResizableDirective(el) {
-        this.el = el;
-        this.onResizeStop = new core_1.EventEmitter();
+var EditMyImageComponent = (function () {
+    function EditMyImageComponent() {
     }
-    ResizableDirective.prototype.ngOnInit = function () {
-        var _this = this;
-        window['$'](this.el.nativeElement).resizable({
-            animate: true,
-            stop: function (e) { _this.onResizeStop.emit(e); }
-        });
-    };
     __decorate([
-        core_1.Output(), 
+        core_1.Input(), 
         __metadata('design:type', Object)
-    ], ResizableDirective.prototype, "onResizeStop", void 0);
-    ResizableDirective = __decorate([
-        core_1.Directive({
-            selector: '[resizable]'
+    ], EditMyImageComponent.prototype, "myImage", void 0);
+    EditMyImageComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'edit-my-image',
+            templateUrl: './edit-image.html'
         }), 
-        __metadata('design:paramtypes', [core_1.ElementRef])
-    ], ResizableDirective);
-    return ResizableDirective;
+        __metadata('design:paramtypes', [])
+    ], EditMyImageComponent);
+    return EditMyImageComponent;
 }());
-exports.ResizableDirective = ResizableDirective;
-//# sourceMappingURL=resizable.directive.js.map
+exports.EditMyImageComponent = EditMyImageComponent;
+//# sourceMappingURL=edit-my-image.component.js.map

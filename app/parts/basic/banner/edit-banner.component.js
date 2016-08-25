@@ -15,17 +15,7 @@ var EditBannerComponent = (function () {
     function EditBannerComponent(router, appService) {
         this.router = router;
         this.appService = appService;
-        this.optionBannerImage = [
-            {
-                src: "images/banner2.png"
-            },
-            {
-                src: "http://10500322.s21i-10.faiusr.com/2/ABUIABACGAAg3sWuuwUo4620pgIwgA84vAU.jpg"
-            },
-            {
-                src: "images/CMS_06.png"
-            }
-        ];
+        this.optionBannerImage = [];
     }
     EditBannerComponent.prototype.addBanner = function (image) {
         this.banner.images.push(image);

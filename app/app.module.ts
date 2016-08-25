@@ -4,6 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 
 import {Dragula,DragulaService} from 'ng2-dragula/ng2-dragula';
 
@@ -13,7 +14,9 @@ import {SignInComponent,
     MyNavComponent,EditMyNavComponent,
     BannerComponent,EditBannerComponent
     ,ShowcaseComponent,EditShowCaseComponent,
-    CustomComponent,TopBar,DynamicComponent,SideBarComponent,MyInputComponent
+    CustomComponent,TopBar,DynamicComponent,SideBarComponent,
+    MyInputComponent,EditMyInputComponent,
+    MyImageComponent ,EditMyImageComponent,ImageChooseComponent
 } from './parts/index';
 import {PageComponent} from './page.component';
 
@@ -28,7 +31,7 @@ import {MyShowDirective} from './directive/my-show';
 
 
 @NgModule({
-    imports:[BrowserModule,RouterModule,routing,CommonModule,FormsModule],
+    imports:[BrowserModule,RouterModule,routing,CommonModule,FormsModule,HttpModule],
     declarations:[
     AppComponent,SignInComponent,
     MyNavComponent,EditMyNavComponent,
@@ -38,7 +41,10 @@ import {MyShowDirective} from './directive/my-show';
     MyShowDirective,PageComponent,SideBarComponent,
     EditorDirective,ResizableDirective,MyDragDirective,
     AccordionDirective,MyInputComponent,HoverToolbarDirective,
-    Dragula,ClickRefershDirective
+    EditMyInputComponent,
+    Dragula,ClickRefershDirective,
+    MyImageComponent,EditMyImageComponent,
+    ImageChooseComponent
     ],
     bootstrap:[AppComponent],
     

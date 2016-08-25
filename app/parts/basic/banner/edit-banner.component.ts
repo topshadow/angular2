@@ -12,15 +12,7 @@ export class EditBannerComponent {
     banner;
 
     optionBannerImage= [
-        {
-            src: "images/banner2.png"
-        },
-        {
-            src: "http://10500322.s21i-10.faiusr.com/2/ABUIABACGAAg3sWuuwUo4620pgIwgA84vAU.jpg"
-        },
-        {
-            src: "images/CMS_06.png"
-        }
+      
         
     ]
 

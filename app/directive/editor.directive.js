@@ -14,9 +14,10 @@ var EditorDirective = (function () {
         this.el = el;
     }
     EditorDirective.prototype.ngOnInit = function () {
-        var id = window['$'](this.el.nativeElement).attr('id');
+        this.id = Math.random();
+        window['$'](this.el.nativeElement).attr('id', this.id);
         this.edit = window['tinymce'].init({
-            selector: "#" + id,
+            selector: "#" + this.id,
             height: 500,
             plugins: [
                 "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
@@ -71,10 +72,6 @@ var EditorDirective = (function () {
             ]
         });
     };
-    __decorate([
-        core_1.Input('editorId'), 
-        __metadata('design:type', String)
-    ], EditorDirective.prototype, "editorId", void 0);
     EditorDirective = __decorate([
         core_1.Directive({
             selector: '[editor]'

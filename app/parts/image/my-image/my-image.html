@@ -1,0 +1,15 @@
+<div  my-drag hover-toolbar [toolbar]="toolbar" (onMyDragStart)="dragStart($event)" resizable (onMyDragStop)="changePostion($event)" 
+(onResizeStop)="resizeStop($event)" 
+[style.left]="myImage.left" 
+[style.top]="myImage.top" 
+[style.postion]="myImage.postion" 
+[style.width]="myImage.width" 
+[style.height]="myImage.height" 
+[class.editBorder]="isEdit"
+>
+
+<img src="{{myImage.src}}" class="img-responsive" [style.width]="'100%'">
+
+</div>
+
+

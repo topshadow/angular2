@@ -1,40 +1,45 @@
-import {Component, Input,OnInit,HostListener} from '@angular/core';
+import {Component, Input, OnInit, HostListener} from '@angular/core';
+import {AppService} from '../../../app.service';
+import {Base} from '../../../base';
+
 @Component({
     moduleId: module.id,
     selector: 'my-input',
     templateUrl: `./my-input.html`
 })
-export class MyInputComponent implements OnInit{
-    selectd:boolean=false;
+export class MyInputComponent extends Base implements OnInit {
+    selectd: boolean = false;
+    editTextareaId = Math.random();
 
     @Input()
     public myInput;
-    constructor() { }
+    constructor(private appService: AppService) {super() }
 
-    ngOnInit(){
-        console.log('my-input',this.myInput);
+    ngOnInit() {
+        console.log('my-input', this.myInput);
     }
     changePostion(e) {
         var left = window['$'](e.target).css('left');
-        var right =window['$'](e.target).css('top');
+        var top = window['$'](e.target).css('top');
         var position = window['$'](e.target).css('position');
-        console.log(left,right,position,this.myInput);
+        console.log(left, top, position, this.myInput);
         this.myInput.left = left;
-        this.myInput.right = right;
+        this.myInput.top = top;
         this.myInput.position = position;
     }
 
-    dragStart(e){
-    
-    }
-    
-    resizeStop(e){
-        this.myInput.width = e.target.style.width;
-        this.myInput.height= e.target.style.height;
+    dragStart(e) {
+
     }
 
-    
-    
+    resizeStop(e) {
+        this.myInput.width = e.target.style.width;
+        this.myInput.height = e.target.style.height;
+    }
+
+
+
+
 
 
 }
