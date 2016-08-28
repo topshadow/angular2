@@ -9,4 +9,6 @@ __export(require('./my-drag.directive'));
 __export(require('./accordion.directive'));
 __export(require('./hover-toolbar.directive'));
 __export(require('./click-refersh.directive'));
+__export(require('./click-alert.directive'));
+__export(require('./fade-in.directive'));
 //# sourceMappingURL=index.js.map

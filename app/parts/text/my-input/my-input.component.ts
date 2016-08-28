@@ -25,6 +25,7 @@ export class MyInputComponent implements OnInit{
     }
 
     dragStart(e){
+    console.log(e);
     
     }
     

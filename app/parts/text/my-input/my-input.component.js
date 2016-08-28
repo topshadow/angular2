@@ -26,6 +26,7 @@ var MyInputComponent = (function () {
         this.myInput.position = position;
     };
     MyInputComponent.prototype.dragStart = function (e) {
+        console.log(e);
     };
     MyInputComponent.prototype.resizeStop = function (e) {
         this.myInput.width = e.target.style.width;

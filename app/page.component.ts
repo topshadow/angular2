@@ -39,6 +39,7 @@ export class PageComponent implements OnInit, OnDestroy {
             window['isEdit'] = params['isEdit'] || params['isEdit'] == 'true' ? true : false;
         })
     }
+    
     ngOnDestroy() {
         console.log('page component is destory');
     }

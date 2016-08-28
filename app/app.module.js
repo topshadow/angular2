@@ -38,7 +38,8 @@ var AppModule = (function () {
                 my_show_1.MyShowDirective, page_component_1.PageComponent, index_1.SideBarComponent,
                 index_2.EditorDirective, index_2.ResizableDirective, index_2.MyDragDirective,
                 index_2.AccordionDirective, index_1.MyInputComponent, index_2.HoverToolbarDirective,
-                ng2_dragula_1.Dragula, index_2.ClickRefershDirective
+                ng2_dragula_1.Dragula, index_2.ClickRefershDirective, index_2.ClickAlertDirective,
+                index_2.FadeInDirective
             ],
             bootstrap: [app_component_1.AppComponent],
             providers: [app_service_1.AppService, core_1.ViewContainerRef, core_1.TemplateRef, ng2_dragula_1.DragulaService],

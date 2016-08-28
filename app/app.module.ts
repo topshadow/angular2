@@ -20,8 +20,8 @@ import {PageComponent} from './page.component';
 import {AppService} from './app.service';
 
 import {ResizableDirective,MyDragDirective,EditorDirective,AccordionDirective,
-    HoverToolbarDirective,ClickRefershDirective
-    
+    HoverToolbarDirective,ClickRefershDirective,
+    ClickAlertDirective,FadeInDirective
 } from './directive/index';
 import {MyShowDirective} from './directive/my-show';
 
@@ -38,7 +38,8 @@ import {MyShowDirective} from './directive/my-show';
     MyShowDirective,PageComponent,SideBarComponent,
     EditorDirective,ResizableDirective,MyDragDirective,
     AccordionDirective,MyInputComponent,HoverToolbarDirective,
-    Dragula,ClickRefershDirective
+    Dragula,ClickRefershDirective,ClickAlertDirective,
+    FadeInDirective
     ],
     bootstrap:[AppComponent],
     

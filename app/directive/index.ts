@@ -5,3 +5,5 @@ export * from './my-drag.directive';
 export * from './accordion.directive';
 export * from './hover-toolbar.directive';
 export * from './click-refersh.directive';
+export * from './click-alert.directive';
+export * from './fade-in.directive';
