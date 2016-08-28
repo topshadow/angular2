@@ -50,6 +50,8 @@
                             <div [ngSwitch]="part.part">
                                 <edit-banner *ngSwitchCase="'banner'" [banner]="part"></edit-banner>
                                 <edit-showcase *ngSwitchCase="'showcase'" [showcase]="part"></edit-showcase>
+                                <edit-my-input *ngSwitchCase=" 'input' " [myInput]="part"></edit-my-input>
+                                <edit-my-image *ngSwitchCase=" 'my-image' " [myImage]="part"></edit-my-image>
                             </div>
                         </div>
                     </div>

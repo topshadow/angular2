@@ -15,8 +15,13 @@ __export(require('./basic/showcase/showcase.component'));
 __export(require('./basic/showcase/edit-showcase.component'));
 __export(require('./basic/dynamic/dynamic.component'));
 __export(require('./basic/topbar/topbar.component'));
+__export(require('./basic/image-choose/image-choose.component'));
 //vip
 __export(require('./vip/custom/custom.component'));
 //text
 __export(require('./text/my-input/my-input.component'));
+__export(require('./text/my-input/edit-my-input.component'));
+//image
+__export(require('./image/my-image/my-image.component'));
+__export(require('./image/my-image/edit-my-image.component'));
 //# sourceMappingURL=index.js.map

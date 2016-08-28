@@ -13,6 +13,7 @@ export class ResizableDirective implements OnInit {
 
     ngOnInit() {
         window['$'](this.el.nativeElement).resizable({
+            animate:true,
             stop: (e) => { this.onResizeStop.emit(e) }
         });
     }

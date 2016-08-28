@@ -14,48 +14,43 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var app_service_1 = require('../../../app.service');
 var base_1 = require('../../../base');
-var MyInputComponent = (function (_super) {
-    __extends(MyInputComponent, _super);
-    function MyInputComponent(appService) {
-        _super.call(this);
-        this.appService = appService;
-        this.selectd = false;
-        this.editTextareaId = Math.random();
+var MyImageComponent = (function (_super) {
+    __extends(MyImageComponent, _super);
+    function MyImageComponent() {
+        _super.apply(this, arguments);
     }
-    MyInputComponent.prototype.ngOnInit = function () {
-        console.log('my-input', this.myInput);
+    MyImageComponent.prototype.ngOnInit = function () {
+        console.log('my-input', this.myImage);
     };
-    MyInputComponent.prototype.changePostion = function (e) {
+    MyImageComponent.prototype.changePostion = function (e) {
         var left = window['$'](e.target).css('left');
         var top = window['$'](e.target).css('top');
         var position = window['$'](e.target).css('position');
-        console.log(left, top, position, this.myInput);
-        this.myInput.left = left;
-        this.myInput.top = top;
-        this.myInput.position = position;
+        console.log(left, top, position, this.myImage);
+        this.myImage.left = left;
+        this.myImage.top = top;
+        this.myImage.position = position;
     };
-    MyInputComponent.prototype.dragStart = function (e) {
-        console.log(e);
+    MyImageComponent.prototype.dragStart = function (e) {
     };
-    MyInputComponent.prototype.resizeStop = function (e) {
-        this.myInput.width = e.target.style.width;
-        this.myInput.height = e.target.style.height;
+    MyImageComponent.prototype.resizeStop = function (e) {
+        this.myImage.width = e.target.style.width;
+        this.myImage.height = e.target.style.height;
     };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
-    ], MyInputComponent.prototype, "myInput", void 0);
-    MyInputComponent = __decorate([
+    ], MyImageComponent.prototype, "myImage", void 0);
+    MyImageComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'my-input',
-            templateUrl: "./my-input.html"
+            selector: 'my-image',
+            templateUrl: './my-image.html'
         }), 
-        __metadata('design:paramtypes', [app_service_1.AppService])
-    ], MyInputComponent);
-    return MyInputComponent;
+        __metadata('design:paramtypes', [])
+    ], MyImageComponent);
+    return MyImageComponent;
 }(base_1.Base));
-exports.MyInputComponent = MyInputComponent;
-//# sourceMappingURL=my-input.component.js.map
+exports.MyImageComponent = MyImageComponent;
+//# sourceMappingURL=my-image.component.js.map

@@ -9,30 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-// Tinymce directive
-var ResizableDirective = (function () {
-    function ResizableDirective(el) {
-        this.el = el;
-        this.onResizeStop = new core_1.EventEmitter();
+var EditMyInputComponent = (function () {
+    function EditMyInputComponent() {
     }
-    ResizableDirective.prototype.ngOnInit = function () {
-        var _this = this;
-        window['$'](this.el.nativeElement).resizable({
-            animate: true,
-            stop: function (e) { _this.onResizeStop.emit(e); }
-        });
+    EditMyInputComponent.prototype.getBody = function () {
+        console.log(this.editTextareaId);
+        alert(window['tinymce'].get(this.editTextareaId).getBody().innerHTML);
     };
     __decorate([
-        core_1.Output(), 
+        core_1.Input(), 
         __metadata('design:type', Object)
-    ], ResizableDirective.prototype, "onResizeStop", void 0);
-    ResizableDirective = __decorate([
-        core_1.Directive({
-            selector: '[resizable]'
+    ], EditMyInputComponent.prototype, "myInput", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], EditMyInputComponent.prototype, "editTextareaId", void 0);
+    EditMyInputComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'edit-my-input',
+            templateUrl: './edit-my-input.html'
         }), 
-        __metadata('design:paramtypes', [core_1.ElementRef])
-    ], ResizableDirective);
-    return ResizableDirective;
+        __metadata('design:paramtypes', [])
+    ], EditMyInputComponent);
+    return EditMyInputComponent;
 }());
-exports.ResizableDirective = ResizableDirective;
-//# sourceMappingURL=resizable.directive.js.map
+exports.EditMyInputComponent = EditMyInputComponent;
+//# sourceMappingURL=edit-my-input.component.js.map

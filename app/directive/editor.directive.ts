@@ -7,15 +7,16 @@ declare var tinymce: any;
 })
 export class EditorDirective implements OnInit {
 
-    @Input('editorId') editorId: string;
-    
-    edit:any;
 
+
+    edit: any;
+    id;
     constructor(private el: ElementRef) { }
     ngOnInit() {
-        var id = window['$'](this.el.nativeElement).attr('id');
-      this.edit=  window['tinymce'].init({
-            selector: "#"+id,
+        this.id = Math.random();
+        window['$'](this.el.nativeElement).attr('id', this.id);
+        this.edit = window['tinymce'].init({
+            selector: "#" + this.id,
             height: 500,
             plugins: [
                 "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
@@ -73,5 +74,8 @@ export class EditorDirective implements OnInit {
                 '//www.tinymce.com/css/codepen.min.css'
             ]
         });
+
     }
+
+
 }

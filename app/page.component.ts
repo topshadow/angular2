@@ -5,13 +5,15 @@ import {AppService} from './app.service';
 @Component({
     selector: 'page',
     template: `    
+    <image-choose></image-choose>
       <topbar ></topbar>
         <my-nav [nav]="nav" ></my-nav>
-         <sidebar [parts]="page.parts"></sidebar>
+        
     <ul  [dragula]='"dragpart"' [dragulaModel]="page.parts">
     <li *ngFor="let part of page.parts"  >
         <div [ngSwitch]="part.part"> 
-        <my-input *ngSwitchCase="'input'" [myInput]="part"></my-input>
+            <my-image *ngSwitchCase="'my-image'" [myImage]="part"></my-image>
+            <my-input *ngSwitchCase="'input'" [myInput]="part"></my-input>
             <banner *ngSwitchCase="'banner'"  [banner]="part" ></banner>
             <showcase *ngSwitchCase=" 'showcase' " [showcase]="part"></showcase>
             <dynamic *ngSwitchCase="'dynamic'" [dynamic]="part"></dynamic>
