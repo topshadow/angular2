@@ -1,6 +1,6 @@
 import {NgModule,ViewContainerRef,TemplateRef} from '@angular/core';
 import {AppComponent} from './app.component'
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule,Title} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
@@ -16,7 +16,8 @@ import {SignInComponent,
     ,ShowcaseComponent,EditShowCaseComponent,
     CustomComponent,TopBar,DynamicComponent,SideBarComponent,
     MyInputComponent,EditMyInputComponent,
-    MyImageComponent ,EditMyImageComponent,ImageChooseComponent
+    MyImageComponent ,EditMyImageComponent,ImageChooseComponent,VersionParentComponent,VersionChildComponent,
+    LocalVariablePranetComponent,LocalVariableChildComponent,ViewChildChildComponent,ViewChildParentComponent
 } from './parts/index';
 import {PageComponent} from './page.component';
 
@@ -44,11 +45,13 @@ import {MyShowDirective} from './directive/my-show';
     EditMyInputComponent,
     Dragula,ClickRefershDirective,
     MyImageComponent,EditMyImageComponent,
-    ImageChooseComponent
+    ImageChooseComponent,VersionParentComponent,VersionChildComponent,
+     LocalVariablePranetComponent,LocalVariableChildComponent,
+     ViewChildChildComponent,ViewChildParentComponent
     ],
     bootstrap:[AppComponent],
     
-    providers:[AppService,ViewContainerRef,TemplateRef,DragulaService],
+    providers:[AppService,ViewContainerRef,TemplateRef,DragulaService,Title],
       
 })
 export class AppModule{

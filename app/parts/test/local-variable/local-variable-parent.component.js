@@ -9,25 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var AppComponent = (function () {
-    function AppComponent(titleService) {
-        this.titleService = titleService;
+var LocalVariablePranetComponent = (function () {
+    function LocalVariablePranetComponent() {
     }
-    AppComponent.prototype.ngOnInit = function () {
-        this.titleService.setTitle('旅烨建站');
-    };
-    AppComponent.prototype.alertVotedResult = function (agree) {
-        alert(agree);
-    };
-    AppComponent = __decorate([
+    LocalVariablePranetComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "\n    <view-child-parent></view-child-parent>\n    <local-variable-parent></local-variable-parent>\n    <version-parent></version-parent>\n    <router-outlet></router-outlet>\n    "
+            selector: 'local-variable-parent',
+            template: "\n    <local-variable-child #timercount></local-variable-child>\n    \n    <a class=\"btn btn-default\" (click)=\"timercount.start()\">\u5F00\u59CB\u8BA1\u65F6</a>\n    <a class=\"btn btn-default\" (click)=\"timercount.stop()\">\u7ED3\u675F\u8BA1\u65F6</a>\n    <h1>{{timercount.message}}</h1>\n    "
         }), 
-        __metadata('design:paramtypes', [platform_browser_1.Title])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [])
+    ], LocalVariablePranetComponent);
+    return LocalVariablePranetComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.LocalVariablePranetComponent = LocalVariablePranetComponent;
+//# sourceMappingURL=local-variable-parent.component.js.map

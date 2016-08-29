@@ -42,10 +42,12 @@ var AppModule = (function () {
                 index_1.EditMyInputComponent,
                 ng2_dragula_1.Dragula, index_2.ClickRefershDirective,
                 index_1.MyImageComponent, index_1.EditMyImageComponent,
-                index_1.ImageChooseComponent
+                index_1.ImageChooseComponent, index_1.VersionParentComponent, index_1.VersionChildComponent,
+                index_1.LocalVariablePranetComponent, index_1.LocalVariableChildComponent,
+                index_1.ViewChildChildComponent, index_1.ViewChildParentComponent
             ],
             bootstrap: [app_component_1.AppComponent],
-            providers: [app_service_1.AppService, core_1.ViewContainerRef, core_1.TemplateRef, ng2_dragula_1.DragulaService],
+            providers: [app_service_1.AppService, core_1.ViewContainerRef, core_1.TemplateRef, ng2_dragula_1.DragulaService, platform_browser_1.Title],
         }), 
         __metadata('design:paramtypes', [core_1.ViewContainerRef, core_1.TemplateRef])
     ], AppModule);

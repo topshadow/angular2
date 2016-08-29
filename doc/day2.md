@@ -24,7 +24,7 @@ RouterModule-> @angular/router;
 FormsModule-> @angular/forms;
 routing-> './app.routing';
 
-```java
+```javascript
 //people.ts
 interface People{
     name:stringl;

@@ -24,4 +24,11 @@ __export(require('./text/my-input/edit-my-input.component'));
 //image
 __export(require('./image/my-image/my-image.component'));
 __export(require('./image/my-image/edit-my-image.component'));
+//test
+__export(require('./test/onChanges/version-child.component'));
+__export(require('./test/onChanges/version-parent.component'));
+__export(require('./test/local-variable/local-variable-child.component'));
+__export(require('./test/local-variable/local-variable-parent.component'));
+__export(require('./test/view-child/view-child-child.component'));
+__export(require('./test/view-child/view-child-parent.component'));
 //# sourceMappingURL=index.js.map

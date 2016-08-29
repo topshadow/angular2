@@ -28,3 +28,16 @@ export * from './text/my-input/edit-my-input.component';
 //image
 export * from './image/my-image/my-image.component';
 export * from './image/my-image/edit-my-image.component';
+
+
+
+//test
+export * from './test/onChanges/version-child.component';
+export * from './test/onChanges/version-parent.component';
+
+export * from './test/local-variable/local-variable-child.component';
+export * from './test/local-variable/local-variable-parent.component';
+
+export * from './test/view-child/view-child-child.component';
+export * from './test/view-child/view-child-parent.component';
+

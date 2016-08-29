@@ -9,25 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var AppComponent = (function () {
-    function AppComponent(titleService) {
-        this.titleService = titleService;
+var MissionControlComponent = (function () {
+    function MissionControlComponent() {
     }
-    AppComponent.prototype.ngOnInit = function () {
-        this.titleService.setTitle('旅烨建站');
-    };
-    AppComponent.prototype.alertVotedResult = function (agree) {
-        alert(agree);
-    };
-    AppComponent = __decorate([
+    MissionControlComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "\n    <view-child-parent></view-child-parent>\n    <local-variable-parent></local-variable-parent>\n    <version-parent></version-parent>\n    <router-outlet></router-outlet>\n    "
+            selector: 'mission-control'
         }), 
-        __metadata('design:paramtypes', [platform_browser_1.Title])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [])
+    ], MissionControlComponent);
+    return MissionControlComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.MissionControlComponent = MissionControlComponent;
+//# sourceMappingURL=mission-control.component.js.map
