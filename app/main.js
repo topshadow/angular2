@@ -2,7 +2,6 @@
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
 var app_module_1 = require('./app.module');
 var websiteData = localStorage.getItem('websiteData') ? JSON.parse(localStorage.getItem('websiteData')) : false;
-console.log(websiteData);
 if (websiteData) {
     window['websiteData'] = websiteData;
     window['nav'] = websiteData.nav;
@@ -21,5 +20,4 @@ else {
         }
     });
 }
-console.log(window['tinymce']);
 //# sourceMappingURL=main.js.map

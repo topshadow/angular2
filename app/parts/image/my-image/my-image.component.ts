@@ -1,3 +1,4 @@
+import {LoggerService} from '../../../logger.service';
 import {Component,Input} from '@angular/core';
 import {Base} from '../../../base';
 
@@ -9,8 +10,17 @@ import {Base} from '../../../base';
 export class MyImageComponent extends Base {
     @Input()
     myImage;
+
+    constructor(public logger:LoggerService){
+        super();
+        window['logger']=logger;
+    }
+
     ngOnInit() {
-        console.log('my-input', this.myImage);
+        this.logger.addLog({
+            key:'my-input', 
+            value:this.myImage
+        });
     }
     changePostion(e) {
         var left = window['$'](e.target).css('left');

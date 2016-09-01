@@ -20,6 +20,7 @@ var app_routing_1 = require('./app.routing');
 var index_1 = require('./parts/index');
 var page_component_1 = require('./page.component');
 var app_service_1 = require('./app.service');
+var logger_service_1 = require('./logger.service');
 var index_2 = require('./directive/index');
 var my_show_1 = require('./directive/my-show');
 var AppModule = (function () {
@@ -47,7 +48,7 @@ var AppModule = (function () {
                 index_1.ViewChildChildComponent, index_1.ViewChildParentComponent
             ],
             bootstrap: [app_component_1.AppComponent],
-            providers: [app_service_1.AppService, core_1.ViewContainerRef, core_1.TemplateRef, ng2_dragula_1.DragulaService, platform_browser_1.Title],
+            providers: [app_service_1.AppService, core_1.ViewContainerRef, core_1.TemplateRef, ng2_dragula_1.DragulaService, platform_browser_1.Title, logger_service_1.LoggerService],
         }), 
         __metadata('design:paramtypes', [core_1.ViewContainerRef, core_1.TemplateRef])
     ], AppModule);

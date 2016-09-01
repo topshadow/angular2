@@ -30,6 +30,7 @@ export class PageComponent implements OnInit, OnDestroy {
     constructor(private router: Router, private route: ActivatedRoute, private appService: AppService) { }
 
     ngOnInit() {
+               console.log('snapshot',this.route.snapshot.queryParams);
 
         this.path = this.router.url.replace('/', '');
 
@@ -42,8 +43,6 @@ export class PageComponent implements OnInit, OnDestroy {
         this.route.queryParams.subscribe(params => {
             window['isEdit'] = params['isEdit'] || params['isEdit'] == 'true' ? true : false;
         })
-
-
     }
     ngOnDestroy() {
         console.log('page component is destory');

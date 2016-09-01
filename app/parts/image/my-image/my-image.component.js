@@ -13,15 +13,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var logger_service_1 = require('../../../logger.service');
 var core_1 = require('@angular/core');
 var base_1 = require('../../../base');
 var MyImageComponent = (function (_super) {
     __extends(MyImageComponent, _super);
-    function MyImageComponent() {
-        _super.apply(this, arguments);
+    function MyImageComponent(logger) {
+        _super.call(this);
+        this.logger = logger;
+        window['logger'] = logger;
     }
     MyImageComponent.prototype.ngOnInit = function () {
-        console.log('my-input', this.myImage);
+        this.logger.addLog({
+            key: 'my-input',
+            value: this.myImage
+        });
     };
     MyImageComponent.prototype.changePostion = function (e) {
         var left = window['$'](e.target).css('left');
@@ -48,7 +54,7 @@ var MyImageComponent = (function (_super) {
             selector: 'my-image',
             templateUrl: './my-image.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [logger_service_1.LoggerService])
     ], MyImageComponent);
     return MyImageComponent;
 }(base_1.Base));

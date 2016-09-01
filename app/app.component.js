@@ -10,22 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var router_1 = require('@angular/router');
 var AppComponent = (function () {
-    function AppComponent(titleService) {
+    function AppComponent(titleService, router, route) {
         this.titleService = titleService;
+        this.router = router;
+        this.route = route;
     }
     AppComponent.prototype.ngOnInit = function () {
+        //网站标题
         this.titleService.setTitle('旅烨建站');
-    };
-    AppComponent.prototype.alertVotedResult = function (agree) {
-        alert(agree);
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
             template: "\n    <view-child-parent></view-child-parent>\n    <local-variable-parent></local-variable-parent>\n    <version-parent></version-parent>\n    <router-outlet></router-outlet>\n    "
         }), 
-        __metadata('design:paramtypes', [platform_browser_1.Title])
+        __metadata('design:paramtypes', [platform_browser_1.Title, router_1.Router, router_1.ActivatedRoute])
     ], AppComponent);
     return AppComponent;
 }());

@@ -44,8 +44,8 @@ export class AppService {
         var beforeElement = window['nav'].menuList[index - 1];
         window['nav'].menuList[index] = beforeElement;
         window['nav'].menuList[index - 1] = menu;
-
     }
+
     downPage(path: string) {
         var menu = window['nav'].menuList.find(menu => menu.path == path);
         var index = window['nav'].menuList.indexOf(menu);

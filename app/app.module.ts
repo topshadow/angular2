@@ -22,6 +22,7 @@ import {SignInComponent,
 import {PageComponent} from './page.component';
 
 import {AppService} from './app.service';
+import {LoggerService} from './logger.service';
 
 import {ResizableDirective,MyDragDirective,EditorDirective,AccordionDirective,
     HoverToolbarDirective,ClickRefershDirective
@@ -51,7 +52,7 @@ import {MyShowDirective} from './directive/my-show';
     ],
     bootstrap:[AppComponent],
     
-    providers:[AppService,ViewContainerRef,TemplateRef,DragulaService,Title],
+    providers:[AppService,ViewContainerRef,TemplateRef,DragulaService,Title,LoggerService],
       
 })
 export class AppModule{

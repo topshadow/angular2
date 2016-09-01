@@ -10,8 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 //http://image.baidu.com/data/imgs?col=%E7%BE%8E%E5%A5%B3&tag=%E5%B0%8F%E6%B8%85%E6%96%B0&sort=0&pn=10&rn=10&p=channel&from=1
 var core_1 = require('@angular/core');
+var logger_service_1 = require('../../../logger.service');
 var ImageChooseComponent = (function () {
-    function ImageChooseComponent() {
+    function ImageChooseComponent(logger) {
+        this.logger = logger;
     }
     ImageChooseComponent.prototype.ngOnInit = function () {
         var chooser = this;
@@ -19,8 +21,10 @@ var ImageChooseComponent = (function () {
             methond: 'GET',
             url: 'data/images.json',
             success: function (rtn) {
-                console.log(rtn);
-                console.log('image choose:', rtn.images);
+                chooser.logger.addLog({
+                    key: 'image choose value',
+                    value: rtn
+                });
                 chooser.images = rtn.images;
             }
         });
@@ -31,7 +35,7 @@ var ImageChooseComponent = (function () {
             selector: 'image-choose',
             templateUrl: './image-choose.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [logger_service_1.LoggerService])
     ], ImageChooseComponent);
     return ImageChooseComponent;
 }());

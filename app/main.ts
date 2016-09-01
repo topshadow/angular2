@@ -1,7 +1,7 @@
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {AppModule} from './app.module';
 var websiteData = localStorage.getItem('websiteData') ? JSON.parse(localStorage.getItem('websiteData')) : false;
-console.log(websiteData);
+
 if (websiteData) {
     window['websiteData'] = websiteData;
     window['nav'] = websiteData.nav;
@@ -21,4 +21,3 @@ if (websiteData) {
     })
 }
 
-console.log(window['tinymce']);
