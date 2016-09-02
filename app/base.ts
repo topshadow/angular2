@@ -29,11 +29,10 @@ export class Base {
     }
 
     get path() {
-        return this.router.url.indexOf('?') == -1?
+        return this.router.url.indexOf('?') == -1?    
         this.router.url.slice(this.router.url.indexOf('/') + 1):
         this.router.url.slice(this.router.url.indexOf('/'), this.router.url.indexOf('?'));
         }
 
-    }
-
 }
+

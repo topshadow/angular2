@@ -44,7 +44,8 @@
                 {
                     "part": "input",
                     "title": "文本框",
-                    "text":"text"
+                    "text":"text",
+                    "animates":[]
                 },
                 {
                     "part": "banner",

@@ -1,10 +1,10 @@
 /// <reference path="./my-input.d.ts" />
-import {Component, Input, OnInit, HostListener} from '@angular/core';
+import {Component, Input, OnInit, HostListener, ElementRef} from '@angular/core';
 import {Router} from '@angular/router';
-import * as  $  from 'jquery';
 
 import {AppService} from '../../../app.service';
 import {Base} from '../../../base';
+import {} from '../'
 
 @Component({
     moduleId: module.id,
@@ -14,11 +14,22 @@ import {Base} from '../../../base';
 export class MyInputComponent extends Base implements OnInit {
     @Input()
     public myInput;
-    constructor(private appService: AppService, public router: Router) { super(router); }
+    animates;
+    optionAnimates = {
+        touchEvents: [{ name: "元素出现", value: "display" },
+            { name: "元素点击", value: 'click' },
+            { name: "鼠标悬浮", value: 'mouse-hover' }],
+        animates: [{ name: "无效果", value: "none" },
+            { name: "弹出", value: "popup" }
+        ]
+    };
+    constructor(private appService: AppService, public router: Router, public el: ElementRef) { super(router); }
 
     ngOnInit() {
-        console.log('my-input', this.myInput);
+        console.log(this.myInput);
+        this.animates = this.myInput.animates;
     }
+
     changePostion(e) {
         var left = window['$'](e.target).css('left');
         var top = window['$'](e.target).css('top');
@@ -57,5 +68,23 @@ export class MyInputComponent extends Base implements OnInit {
         this.appService.deletePart(this.path, this.myInput);
     }
 
+    addAnimate() {
+        this.myInput.animates.push({
+            touchEvent: 'click',
+            type: 'center-big',
+            time: 1,
+            times: 1,
+            delayeTime: 1
+        });
+    }
+
+    playAnimates() { }
+
+    playAniamte(animate: Animate) {
+        switch (animate.type) {
+            case "center-big":
+            // this
+        }
+    }
 
 }

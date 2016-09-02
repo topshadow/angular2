@@ -1,0 +1,9 @@
+<!-- Small button group -->
+<div class="btn-group">
+    <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+    {{selectedItemName || items[0].name}} <span class="caret"></span>
+  </button>
+    <ul class="dropdown-menu list-group" role="menu">
+        <li *ngFor="let item of items" class="list-group-item" (click)="select(item)" >{{item.name}}</li>
+    </ul>
+</div>

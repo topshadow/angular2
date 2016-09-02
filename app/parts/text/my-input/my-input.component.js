@@ -20,13 +20,23 @@ var app_service_1 = require('../../../app.service');
 var base_1 = require('../../../base');
 var MyInputComponent = (function (_super) {
     __extends(MyInputComponent, _super);
-    function MyInputComponent(appService, router) {
+    function MyInputComponent(appService, router, el) {
         _super.call(this, router);
         this.appService = appService;
         this.router = router;
+        this.el = el;
+        this.optionAnimates = {
+            touchEvents: [{ name: "元素出现", value: "display" },
+                { name: "元素点击", value: 'click' },
+                { name: "鼠标悬浮", value: 'mouse-hover' }],
+            animates: [{ name: "无效果", value: "none" },
+                { name: "弹出", value: "popup" }
+            ]
+        };
     }
     MyInputComponent.prototype.ngOnInit = function () {
-        console.log('my-input', this.myInput);
+        console.log(this.myInput);
+        this.animates = this.myInput.animates;
     };
     MyInputComponent.prototype.changePostion = function (e) {
         var left = window['$'](e.target).css('left');
@@ -59,6 +69,21 @@ var MyInputComponent = (function (_super) {
     MyInputComponent.prototype.deleteMe = function () {
         this.appService.deletePart(this.path, this.myInput);
     };
+    MyInputComponent.prototype.addAnimate = function () {
+        this.myInput.animates.push({
+            touchEvent: 'click',
+            type: 'center-big',
+            time: 1,
+            times: 1,
+            delayeTime: 1
+        });
+    };
+    MyInputComponent.prototype.playAnimates = function () { };
+    MyInputComponent.prototype.playAniamte = function (animate) {
+        switch (animate.type) {
+            case "center-big":
+        }
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
@@ -69,7 +94,7 @@ var MyInputComponent = (function (_super) {
             selector: 'my-input',
             templateUrl: "./my-input.html"
         }), 
-        __metadata('design:paramtypes', [app_service_1.AppService, router_1.Router])
+        __metadata('design:paramtypes', [app_service_1.AppService, router_1.Router, core_1.ElementRef])
     ], MyInputComponent);
     return MyInputComponent;
 }(base_1.Base));

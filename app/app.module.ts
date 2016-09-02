@@ -19,6 +19,7 @@ import {SignInComponent,
     MyImageComponent, EditMyImageComponent, ImageChooseComponent
 } from './parts/index';
 import {PageComponent} from './page.component';
+import CommonDirectives from './common/index';
 
 import {AppService} from './app.service';
 
@@ -46,7 +47,8 @@ import {MyShowDirective} from './directive/my-show';
 
         Dragula, ClickRefershDirective,
         MyImageComponent, EditMyImageComponent,
-        ImageChooseComponent
+        ImageChooseComponent,
+        CommonDirectives
     ],
     bootstrap: [AppComponent],
 
