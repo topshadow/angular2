@@ -1,4 +1,6 @@
 import {Component, Input, OnInit, HostListener} from '@angular/core';
+import {Router} from '@angular/router';
+
 import {AppService} from '../../../app.service';
 import {Base} from '../../../base';
 
@@ -13,7 +15,7 @@ export class MyInputComponent extends Base implements OnInit {
 
     @Input()
     public myInput;
-    constructor(private appService: AppService) {super() }
+    constructor(private appService: AppService,public router:Router) {super(router); }
 
     ngOnInit() {
         console.log('my-input', this.myInput);
@@ -28,14 +30,10 @@ export class MyInputComponent extends Base implements OnInit {
         this.myInput.position = position;
     }
 
-<<<<<<< HEAD
+
     dragStart(e){
     console.log(e);
-    
-=======
-    dragStart(e) {
 
->>>>>>> 7bb5ef3957c84453b54036aeaaf2d5abc21f4ac5
     }
 
     resizeStop(e) {

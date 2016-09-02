@@ -1,7 +1,8 @@
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {AppModule} from './app.module';
 var websiteData = localStorage.getItem('websiteData') ? JSON.parse(localStorage.getItem('websiteData')) : false;
-console.log(websiteData);
+import * as $ from 'jquery';
+
 if (websiteData) {
     window['websiteData'] = websiteData;
     window['nav'] = websiteData.nav;
@@ -9,10 +10,10 @@ if (websiteData) {
 
     platformBrowserDynamic().bootstrapModule(AppModule);
 } else {
-    window['$'].ajax({
-        methon: 'GET',
+    $.ajax({
         url: 'web-site.json',
-        success: function (data) {
+        method:"GET",
+        success: function (data): void {
             window['websiteData'] = data;
             window['nav'] = data.nav;
             window['pages'] = data.pages;
@@ -21,4 +22,3 @@ if (websiteData) {
     })
 }
 
-console.log(window['tinymce']);

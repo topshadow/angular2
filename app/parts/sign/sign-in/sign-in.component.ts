@@ -1,5 +1,4 @@
 import {Component, OnInit, ElementRef} from '@angular/core';
-
 import {AppService} from '../../../app.service';
 
 @Component({
@@ -10,9 +9,7 @@ import {AppService} from '../../../app.service';
     styleUrls: ['./sign-in.css']
 })
 export class SignInComponent implements OnInit {
-    constructor(private el: ElementRef, appService: AppService) {}
-
-    
+    constructor(private el: ElementRef, appService: AppService) {}    
     ngOnInit() {}
 
     addTitle(title) {

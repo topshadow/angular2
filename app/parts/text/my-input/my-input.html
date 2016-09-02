@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-<div fade-in click-alert  my-drag hover-toolbar [toolbar]="toolbar" (onMyDragStart)="dragStart($event)" resizable (onMyDragStop)="changePostion($event)" 
-=======
+
 <div   my-drag hover-toolbar [toolbar]="toolbar" (onMyDragStart)="dragStart($event)" resizable (onMyDragStop)="changePostion($event)" 
->>>>>>> 7bb5ef3957c84453b54036aeaaf2d5abc21f4ac5
+
 (onResizeStop)="resizeStop($event)" 
 [style.left]="myInput.left" 
 [style.top]="myInput.top" 
@@ -14,9 +12,16 @@
 (blur)="blur()" 
 [style.color]="myInput.color" 
 [class.editBorder]="isEdit" 
-
-
 >
+<div #toolbar>
+    <a class="btn btn-default btn-xs">设置</a>
+    <a  class="btn btn-default btn-xs">层级</a>
+    <a  class="btn btn-default btn-xs">删除</a>
+    <a  class="btn btn-default btn-xs">动画</a>
+    <a  class="btn btn-default btn-xs">复制</a>
+    <a  class="btn btn-default btn-xs">帮助</a>
+</div>
+
 <h1 class="{{myInput.textLayout}} {{myInput.title}}">{{myInput.text}}</h1>
 </div>
 

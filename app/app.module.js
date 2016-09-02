@@ -39,15 +39,12 @@ var AppModule = (function () {
                 my_show_1.MyShowDirective, page_component_1.PageComponent, index_1.SideBarComponent,
                 index_2.EditorDirective, index_2.ResizableDirective, index_2.MyDragDirective,
                 index_2.AccordionDirective, index_1.MyInputComponent, index_2.HoverToolbarDirective,
-<<<<<<< HEAD
                 ng2_dragula_1.Dragula, index_2.ClickRefershDirective, index_2.ClickAlertDirective,
-                index_2.FadeInDirective
-=======
+                index_2.FadeInDirective,
                 index_1.EditMyInputComponent,
                 ng2_dragula_1.Dragula, index_2.ClickRefershDirective,
                 index_1.MyImageComponent, index_1.EditMyImageComponent,
                 index_1.ImageChooseComponent
->>>>>>> 7bb5ef3957c84453b54036aeaaf2d5abc21f4ac5
             ],
             bootstrap: [app_component_1.AppComponent],
             providers: [app_service_1.AppService, core_1.ViewContainerRef, core_1.TemplateRef, ng2_dragula_1.DragulaService],
