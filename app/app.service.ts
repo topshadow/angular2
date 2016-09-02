@@ -1,8 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Page} from './model/page.model';
 
+import {Base} from './base';
+
 @Injectable()
-export class AppService {
+export class AppService extends Base{
     getWebsiteData() {
         return window['websiteData'];
     }
@@ -56,6 +58,11 @@ export class AppService {
 
     saveNavStyle(style:string){
         window['nav'].selectedStyle=style;
+    }
+
+    deletePart(path:string,part:Object){
+        console.log(path);
+            this.getPage(path).parts.remove(part);
     }
 
 }

@@ -15,6 +15,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var router_2 = require('@angular/router');
 var app_service_1 = require('../../../app.service');
 var ng2_dragula_1 = require('ng2-dragula/ng2-dragula');
 var base_1 = require('../../../base');
@@ -54,10 +55,11 @@ function getOption() {
 }
 var SideBarComponent = (function (_super) {
     __extends(SideBarComponent, _super);
-    function SideBarComponent(appService, route, dragulaService) {
-        _super.call(this);
+    function SideBarComponent(appService, route, router, dragulaService) {
+        _super.call(this, router);
         this.appService = appService;
         this.route = route;
+        this.router = router;
         this.dragulaService = dragulaService;
         this.text = "文本框";
         this.optionGroups = getOption();
@@ -126,7 +128,7 @@ var SideBarComponent = (function (_super) {
             templateUrl: "./sidebar.html",
             styleUrls: ['./sidebar.css'],
         }), 
-        __metadata('design:paramtypes', [app_service_1.AppService, router_1.ActivatedRoute, ng2_dragula_1.DragulaService])
+        __metadata('design:paramtypes', [app_service_1.AppService, router_2.ActivatedRoute, router_1.Router, ng2_dragula_1.DragulaService])
     ], SideBarComponent);
     return SideBarComponent;
 }(base_1.Base));

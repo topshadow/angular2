@@ -2,7 +2,6 @@
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
 var app_module_1 = require('./app.module');
 var websiteData = localStorage.getItem('websiteData') ? JSON.parse(localStorage.getItem('websiteData')) : false;
-console.log(websiteData);
 if (websiteData) {
     window['websiteData'] = websiteData;
     window['nav'] = websiteData.nav;
@@ -11,8 +10,8 @@ if (websiteData) {
 }
 else {
     window['$'].ajax({
-        methon: 'GET',
         url: 'web-site.json',
+        method: "GET",
         success: function (data) {
             window['websiteData'] = data;
             window['nav'] = data.nav;
@@ -21,5 +20,4 @@ else {
         }
     });
 }
-console.log(window['tinymce']);
 //# sourceMappingURL=main.js.map

@@ -41,7 +41,6 @@ var AppModule = (function () {
                 index_2.AccordionDirective, index_1.MyInputComponent, index_2.HoverToolbarDirective,
                 ng2_dragula_1.Dragula, index_2.ClickRefershDirective, index_2.ClickAlertDirective,
                 index_2.FadeInDirective,
-                index_1.EditMyInputComponent,
                 ng2_dragula_1.Dragula, index_2.ClickRefershDirective,
                 index_1.MyImageComponent, index_1.EditMyImageComponent,
                 index_1.ImageChooseComponent

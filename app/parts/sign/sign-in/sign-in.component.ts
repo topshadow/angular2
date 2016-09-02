@@ -1,5 +1,6 @@
 import {Component, OnInit, ElementRef} from '@angular/core';
 import {AppService} from '../../../app.service';
+import * as jquery from 'jquery';
 
 @Component({
     moduleId: module.id,
@@ -9,17 +10,17 @@ import {AppService} from '../../../app.service';
     styleUrls: ['./sign-in.css']
 })
 export class SignInComponent implements OnInit {
-    constructor(private el: ElementRef, appService: AppService) {}    
-    ngOnInit() {}
+    constructor(private el: ElementRef, appService: AppService) { }
+    ngOnInit() { }
 
     addTitle(title) {
-        // this.appService
+        
     }
 
     hidePanel(panel) {
-        window['$'](panel).hide();
-        window['$'](this.el).find('.showPanelButton').click(() => {
-            window['$'](panel).show();
+        $(panel).hide();
+        $(this.el.nativeElement).find('.showPanelButton').click(() => {
+            $(panel).show();
         });
     }
 }

@@ -15,7 +15,7 @@ import {SignInComponent,
     BannerComponent, EditBannerComponent
     , ShowcaseComponent, EditShowCaseComponent,
     CustomComponent, TopBar, DynamicComponent, SideBarComponent,
-    MyInputComponent, EditMyInputComponent,
+    MyInputComponent,
     MyImageComponent, EditMyImageComponent, ImageChooseComponent
 } from './parts/index';
 import {PageComponent} from './page.component';
@@ -44,7 +44,6 @@ import {MyShowDirective} from './directive/my-show';
         Dragula, ClickRefershDirective, ClickAlertDirective,
         FadeInDirective,
 
-        EditMyInputComponent,
         Dragula, ClickRefershDirective,
         MyImageComponent, EditMyImageComponent,
         ImageChooseComponent

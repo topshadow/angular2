@@ -1,5 +1,5 @@
 import {Directive, ElementRef, OnInit, Output,EventEmitter} from '@angular/core';
-declare var tinymce: any;
+
 // Tinymce directive
 @Directive({
     selector: '[resizable]'

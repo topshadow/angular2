@@ -19,9 +19,10 @@ var app_service_1 = require('../../../app.service');
 var base_1 = require('../../../base');
 var TopBar = (function (_super) {
     __extends(TopBar, _super);
-    function TopBar(viewContainerRef, appService, route) {
+    function TopBar(router, appService, route) {
         var _this = this;
-        _super.call(this);
+        _super.call(this, router);
+        this.router = router;
         this.appService = appService;
         this.route = route;
         this.route.params.subscribe(function (params) {
@@ -65,7 +66,7 @@ var TopBar = (function (_super) {
             templateUrl: './topbar.html',
             changeDetection: core_1.ChangeDetectionStrategy.OnPush
         }), 
-        __metadata('design:paramtypes', [core_1.ViewContainerRef, app_service_1.AppService, router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [router_1.Router, app_service_1.AppService, router_1.ActivatedRoute])
     ], TopBar);
     return TopBar;
 }(base_1.Base));

@@ -15,8 +15,8 @@ export class TopBar extends Base{
   page: any;
   nav: any;
 
-  public constructor(viewContainerRef: ViewContainerRef,private appService: AppService, private route: ActivatedRoute) {
-    super();
+  public constructor(public router:Router,private appService: AppService, private route: ActivatedRoute) {
+    super(router);
     this.route.params.subscribe(params => {
       let path = params['path'];
       this.page = appService.getPage(path);

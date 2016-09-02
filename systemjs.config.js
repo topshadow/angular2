@@ -11,7 +11,7 @@
     'rxjs': 'node_modules/rxjs',
     'dragula': 'node_modules/dragula/dist/dragula.js',
     'ng2-dragula': 'node_modules/ng2-dragula',
-    'jquery':'node_modules/jquery'
+
   };
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
@@ -19,7 +19,7 @@
     'rxjs': { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
     'ng2-dragula':{defaultExtension:'js'},
-    'jquery':{main:'src/jquery.js',defaultExtension:'js'}
+  
   };
   var ngPackageNames = [
     'common',

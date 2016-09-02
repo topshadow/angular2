@@ -13,16 +13,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+/// <reference path="./my-input.d.ts" />
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var app_service_1 = require('../../../app.service');
 var base_1 = require('../../../base');
 var MyInputComponent = (function (_super) {
     __extends(MyInputComponent, _super);
-    function MyInputComponent(appService) {
-        _super.call(this);
+    function MyInputComponent(appService, router) {
+        _super.call(this, router);
         this.appService = appService;
-        this.selectd = false;
-        this.editTextareaId = Math.random();
+        this.router = router;
     }
     MyInputComponent.prototype.ngOnInit = function () {
         console.log('my-input', this.myInput);
@@ -43,6 +44,21 @@ var MyInputComponent = (function (_super) {
         this.myInput.width = e.target.style.width;
         this.myInput.height = e.target.style.height;
     };
+    MyInputComponent.prototype.upZIndex = function () {
+        this.myInput.zIndex++;
+    };
+    MyInputComponent.prototype.downZIndex = function () {
+        this.myInput.zIndex--;
+    };
+    MyInputComponent.prototype.TopZIndex = function () {
+        this.myInput.zIndex = 9999;
+    };
+    MyInputComponent.prototype.bottomZIndex = function () {
+        this.myInput.zIndex = 0;
+    };
+    MyInputComponent.prototype.deleteMe = function () {
+        this.appService.deletePart(this.path, this.myInput);
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
@@ -53,7 +69,7 @@ var MyInputComponent = (function (_super) {
             selector: 'my-input',
             templateUrl: "./my-input.html"
         }), 
-        __metadata('design:paramtypes', [app_service_1.AppService])
+        __metadata('design:paramtypes', [app_service_1.AppService, router_1.Router])
     ], MyInputComponent);
     return MyInputComponent;
 }(base_1.Base));

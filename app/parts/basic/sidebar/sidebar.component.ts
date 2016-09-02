@@ -1,4 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
+import {Router} from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
 import {AppService} from '../../../app.service';
 import {DragulaService} from 'ng2-dragula/ng2-dragula';
@@ -56,9 +57,10 @@ export class SideBarComponent extends Base implements OnInit {
     constructor(
         private appService: AppService,
         private route: ActivatedRoute,
+        public router:Router,
         private dragulaService: DragulaService 
     ) {
-         super();
+         super(router);
        
      }
     ngOnInit() {

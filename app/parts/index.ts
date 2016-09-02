@@ -23,7 +23,7 @@ export * from './vip/custom/custom.component';
 
 //text
 export * from './text/my-input/my-input.component';
-export * from './text/my-input/edit-my-input.component';
+
 
 //image
 export * from './image/my-image/my-image.component';

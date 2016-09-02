@@ -15,7 +15,5 @@ export class AppComponent implements OnInit{
        this.title= window['nav'].title;
     }
 
-    alertVotedResult(agree:boolean){
-        alert(agree);
-    }
+    
 }

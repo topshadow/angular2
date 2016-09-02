@@ -1,5 +1,7 @@
+/// <reference path="./my-input.d.ts" />
 import {Component, Input, OnInit, HostListener} from '@angular/core';
 import {Router} from '@angular/router';
+import * as  $  from 'jquery';
 
 import {AppService} from '../../../app.service';
 import {Base} from '../../../base';
@@ -10,12 +12,9 @@ import {Base} from '../../../base';
     templateUrl: `./my-input.html`
 })
 export class MyInputComponent extends Base implements OnInit {
-    selectd: boolean = false;
-    editTextareaId = Math.random();
-
     @Input()
     public myInput;
-    constructor(private appService: AppService,public router:Router) {super(router); }
+    constructor(private appService: AppService, public router: Router) { super(router); }
 
     ngOnInit() {
         console.log('my-input', this.myInput);
@@ -31,9 +30,8 @@ export class MyInputComponent extends Base implements OnInit {
     }
 
 
-    dragStart(e){
-    console.log(e);
-
+    dragStart(e) {
+        console.log(e);
     }
 
     resizeStop(e) {
@@ -41,9 +39,23 @@ export class MyInputComponent extends Base implements OnInit {
         this.myInput.height = e.target.style.height;
     }
 
+    upZIndex() {
+        this.myInput.zIndex++;
+    }
 
+    downZIndex() {
+        this.myInput.zIndex--;
+    }
 
-
+    TopZIndex() {
+        this.myInput.zIndex = 9999;
+    }
+    bottomZIndex() {
+        this.myInput.zIndex = 0;
+    }
+    deleteMe() {
+        this.appService.deletePart(this.path, this.myInput);
+    }
 
 
 }

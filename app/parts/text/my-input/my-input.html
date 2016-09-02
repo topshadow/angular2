@@ -1,28 +1,50 @@
+<div my-drag hover-toolbar [toolbar]="toolbar" (onMyDragStart)="dragStart($event)" resizable (onMyDragStop)="changePostion($event)"
+    (onResizeStop)="resizeStop($event)" [style.left]="myInput.left" [style.top]="myInput.top" [style.postion]="myInput.postion"
+    [style.width]="myInput.width || '300px'" [style.height]="myInput.height || '50px'" [style.color]="myInput.color" [class.editBorder]="isEdit">
+    <div #toolbar style="position:absolute;">
+        <a class="btn btn-default btn-xs" (click)="$(editMyInput).show();$(myInput).hide()">设置</a>
+      
+            <button class="btn btn-default btn-xs dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    层级
+   <span class="caret"></span>
+  </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li class="btn btn-default btn-xs btn-block" (click)="upZIndex()">向上一层</li>
+                <li class="btn btn-default btn-xs btn-block" (click)="downZIndex()">向下一层</li>
+                <li class="btn btn-default btn-xs btn-block" (click)="upZIndex()">顶层</li>
+                <li class="btn btn-default btn-xs btn-block" (click)="downZIndex()">底层</li>
+            </ul>
+        
 
-<div   my-drag hover-toolbar [toolbar]="toolbar" (onMyDragStart)="dragStart($event)" resizable (onMyDragStop)="changePostion($event)" 
+        <a class="btn btn-default btn-xs" (click)="deleteMe()">删除</a>
+        <a class="btn btn-default btn-xs" (click)="$(animateModal).modal('show')">动画</a>
+        <a class="btn btn-default btn-xs" (click)="copy()"> 复制</a>
+        <a class="btn btn-default btn-xs" (click)="help()">帮助</a>
+    </div>
 
-(onResizeStop)="resizeStop($event)" 
-[style.left]="myInput.left" 
-[style.top]="myInput.top" 
-[style.postion]="myInput.postion" 
-[style.width]="myInput.width || '200px'" 
-[style.height]="myInput.height" 
-[style.position]="myInput.position" 
-(focus)="focus()" 
-(blur)="blur()" 
-[style.color]="myInput.color" 
-[class.editBorder]="isEdit" 
->
-<div #toolbar>
-    <a class="btn btn-default btn-xs">设置</a>
-    <a  class="btn btn-default btn-xs">层级</a>
-    <a  class="btn btn-default btn-xs">删除</a>
-    <a  class="btn btn-default btn-xs">动画</a>
-    <a  class="btn btn-default btn-xs">复制</a>
-    <a  class="btn btn-default btn-xs">帮助</a>
+    <div #editMyInput hidden style="position:absolute;">
+        <button class="btn btn-default btn-xs" (click)="$(editMyInput).hide();$(myInput).show()">完成</button>
+        <textarea [(ngModel)]="myInput.text" style="width:100%;height:30px"></textarea>
+    </div>
+    <h1 style="position:absolute;" #myInput [style.zIndex]="myInput.zIndex">{{myInput.text || '请输入文字'}}</h1>
 </div>
 
-<h1 class="{{myInput.textLayout}} {{myInput.title}}">{{myInput.text}}</h1>
+
+<!-- Modal -->
+<div #animateModal class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">动画</h4>
+      </div>
+      <div class="modal-body">
+        <ul>
+            <li>添加图片</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
 </div>
-
-

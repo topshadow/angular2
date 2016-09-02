@@ -16,12 +16,11 @@ var SignInComponent = (function () {
     }
     SignInComponent.prototype.ngOnInit = function () { };
     SignInComponent.prototype.addTitle = function (title) {
-        // this.appService
     };
     SignInComponent.prototype.hidePanel = function (panel) {
-        window['$'](panel).hide();
-        window['$'](this.el).find('.showPanelButton').click(function () {
-            window['$'](panel).show();
+        $(panel).hide();
+        $(this.el.nativeElement).find('.showPanelButton').click(function () {
+            $(panel).show();
         });
     };
     SignInComponent = __decorate([

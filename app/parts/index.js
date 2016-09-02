@@ -20,7 +20,6 @@ __export(require('./basic/image-choose/image-choose.component'));
 __export(require('./vip/custom/custom.component'));
 //text
 __export(require('./text/my-input/my-input.component'));
-__export(require('./text/my-input/edit-my-input.component'));
 //image
 __export(require('./image/my-image/my-image.component'));
 __export(require('./image/my-image/edit-my-image.component'));

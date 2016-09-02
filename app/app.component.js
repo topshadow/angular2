@@ -15,9 +15,6 @@ var AppComponent = (function () {
     AppComponent.prototype.ngOnInit = function () {
         this.title = window['nav'].title;
     };
-    AppComponent.prototype.alertVotedResult = function (agree) {
-        alert(agree);
-    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
