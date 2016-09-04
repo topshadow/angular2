@@ -2,8 +2,8 @@
     (onResizeStop)="resizeStop($event)" [style.left]="myInput.left" [style.top]="myInput.top" [style.postion]="myInput.postion"
     [style.width]="myInput.width || '300px'" [style.height]="myInput.height || '50px'" [style.color]="myInput.color" [class.editBorder]="isEdit">
     <div #toolbar style="position:absolute;">
-        <a class="btn btn-default btn-xs" (click)="$(editMyInput).show();$(myInput).hide()">设置</a>
-
+        <a class="btn btn-default btn-xs" (click)="$(editMyInput).show();$(myInput).hide()">设置内容</a>
+            
         <button class="btn btn-default btn-xs dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     层级
    <span class="caret"></span>
@@ -16,53 +16,60 @@
         </ul>
         <a class="btn btn-default btn-xs" (click)="deleteMe()">删除</a>
 
-        <button (click)="addAnimate()">添加动画</button>
+        <button (click)="$(myModal).modal('show')">添加动画</button>
         <a class="btn btn-default btn-xs" (click)="copy()"> 复制</a>
         <a class="btn btn-default btn-xs" (click)="help()">帮助</a>
     </div>
 
     <div #editMyInput hidden style="position:absolute;">
-        <button class="btn btn-default btn-xs" (click)="$(editMyInput).hide();$(myInput).show()">完成</button>
+        <button class="btn btn-default btn-xs" (click)="$(editMyInput).hide();$(myInputText).show()">完成</button>
         <textarea [(ngModel)]="myInput.text" style="width:100%;height:30px"></textarea>
     </div>
-    <h1 style="position:absolute;" #myInput [style.zIndex]="myInput.zIndex">{{myInput.text || '请输入文字'}}</h1>
+    <!--文字-->
+    <h1 [class]="myInput.type" style="position:absolute;" #myInputText [style.zIndex]="myInput.zIndex">{{myInput.text || '请输入文字'}}</h1>
 </div>
 
 
 
 
-
-
-<div class="panel panel-success">
-    <div class="panel-heading">
-        <h3 class="panel-title">动画</h3>
-    </div>
-    <div class="panel-body">
-
-        <ul>
-            <div *ngFor="let animate of animates" class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" (click)="$(collapse).collapse('toggle')"> 
-               动画- {{animates.indexOf(animate)}}
+<!-- Modal -->
+<div #myModal class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">动画</h4>
+            </div>
+            <div class="modal-body">
+                <!--动画控制面板-->
+                <ul>
+                    <div *ngFor="let animate of animates" class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" (click)="$(collapse).collapse('toggle')"> 
+               动画-
                 </a>
-                    </h4>
-                </div>
-                <div #collapse class="panel-collapse collapse in">
-                    <div class="panel-body">
-                       <!-- Single button -->
-                  触发事件
-<my-select [items]="optionAnimates.touchEvents" [selectedItemValue]="animate.touchEvent" ></my-select>
-                    </div>
-                </div>
-            </div><br>
-            动画效果 <my-select [items]="optionAnimates.animates" [selectedItemValue]="animate.animate"></my-select>
-            
-        </ul>
-
-        <button class="btn btn-primary btn-xs" (click)="addAnimate()">添加动画</button>
-        <button class="btn btn-primary btn-xs" (click)="playAnimates()">播放动画</button>
+                            </h4>
+                        </div>
+                        <div #collapse class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <!-- Single button -->
+                                触发事件
+                                <my-select [items]="optionAnimates.touchEvents" [selectedItemValue]="animate.touchEvent" (onSelected)="selectAnimateTouchEvent(animate,$event)"></my-select>
+                                动画效果
 
 
+                            </div>
+                        </div>
+                    </div><br>
+                </ul>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="addAnimate()">添加动画</button>
+                <button type="button" class="btn btn-primary">播放动画</button>
+                <button class="btn btn-danger" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
     </div>
 </div>

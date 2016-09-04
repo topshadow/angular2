@@ -1,10 +1,9 @@
 /// <reference path="./my-input.d.ts" />
 import {Component, Input, OnInit, HostListener, ElementRef} from '@angular/core';
 import {Router} from '@angular/router';
-
 import {AppService} from '../../../app.service';
 import {Base} from '../../../base';
-import {} from '../'
+
 
 @Component({
     moduleId: module.id,
@@ -12,18 +11,19 @@ import {} from '../'
     templateUrl: `./my-input.html`
 })
 export class MyInputComponent extends Base implements OnInit {
-    @Input()
-    public myInput;
+    @Input() myInput;
     animates;
     optionAnimates = {
         touchEvents: [{ name: "元素出现", value: "display" },
             { name: "元素点击", value: 'click' },
             { name: "鼠标悬浮", value: 'mouse-hover' }],
-        animates: [{ name: "无效果", value: "none" },
-            { name: "弹出", value: "popup" }
+        types: [{ name: "无效果", value: "none" },
+            { name: "弹出", value: "popup" },
+            { name: "中心放大", value: "center-big" }
         ]
     };
-    constructor(private appService: AppService, public router: Router, public el: ElementRef) { super(router); }
+    constructor(private appService: AppService, public router: Router, public el: ElementRef) { super(router); 
+    }
 
     ngOnInit() {
         console.log(this.myInput);
@@ -74,17 +74,66 @@ export class MyInputComponent extends Base implements OnInit {
             type: 'center-big',
             time: 1,
             times: 1,
-            delayeTime: 1
+            delayeTime: 1,
         });
     }
 
-    playAnimates() { }
+    useAnimates() {
+        for (var animate of this.animates) {
+            this.useAnimate(animate);
+        }
+    }
+
+    useAnimate(animate: Animate) {
+        var oldEventObj = animate.eventObj;
+        switch (animate.touchEvent) {
+            case "click":
+                this.$(this.el.nativeElement).find('.myInput').click(() => { this.playAniamte(animate) });
+                break;
+            case "display":
+                this.playAniamte(animate);
+                break;
+            case "mouse-hover":
+                this.$(this.el.nativeElement).find('.myInput').hover(() => { this.playAniamte(animate) });
+                break;
+        }
+        return oldEventObj;
+    }
+
+    playAnimates() {
+        for (var animate of this.animates) {
+            this.playAniamte(animate);
+        }
+    }
 
     playAniamte(animate: Animate) {
         switch (animate.type) {
             case "center-big":
-            // this
+                //中心放大
+                this.$(this.el.nativeElement).find('.myInput').animate({
+                    opacity: 0.25,
+                    left: "+=50",
+                    height: "toggle"
+                }, 5000, function () {
+                    // Animation complete.
+                });
+                break;
+            case "popup":
+                //弹出
+                this.$(this.el.nativeElement).find('.myInput').animate();
+                break;
         }
+    }
+
+    selectAnimateTouchEvent(animate: Animate, event) {
+        animate.touchEvent = event;
+        console.log(event)
+        var oldEventObj = this.useAnimate(animate);
+        this.cancelEvent(oldEventObj);
+    }    
+
+    cancelEvent(eventObj){
+        this.$(this.el.nativeElement).find('.myInput').unbind(eventObj);
     }
 
 }

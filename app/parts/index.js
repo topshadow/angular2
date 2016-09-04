@@ -22,5 +22,4 @@ __export(require('./vip/custom/custom.component'));
 __export(require('./text/my-input/my-input.component'));
 //image
 __export(require('./image/my-image/my-image.component'));
-__export(require('./image/my-image/edit-my-image.component'));
 //# sourceMappingURL=index.js.map

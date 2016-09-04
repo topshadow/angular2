@@ -45,3 +45,8 @@ padding: 5px; float: left;
  }
   .ui-widget-header p, .ui-widget-content p { margin: 0; }
   #snaptarget { height: 140px; }
+
+
+  .col-xs-6{
+      height:60px;
+  }

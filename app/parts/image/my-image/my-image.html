@@ -1,15 +1,46 @@
-<div  my-drag hover-toolbar [toolbar]="toolbar" (onMyDragStart)="dragStart($event)" resizable (onMyDragStop)="changePostion($event)" 
+<div  my-drag hover-toolbar [toolbar]="toolbar" (onMyDragStart)="dragStart($event)" resizable 
+(onMyDragStop)="changePostion($event)" 
 (onResizeStop)="resizeStop($event)" 
-[style.left]="myImage.left" 
-[style.top]="myImage.top" 
+[style.left]="myImage.left || '200px'" 
+[style.top]="myImage.top || '200px'" 
 [style.postion]="myImage.postion" 
-[style.width]="myImage.width" 
-[style.height]="myImage.height" 
-[class.editBorder]="isEdit"
->
-
+[style.width]="myImage.width || '100%'" 
+[style.height]="myImage.height || '300px'"  
+[class.editBorder]="isEdit" 
+ >
+<div #toolbar hidden>
+    <button class="btn btn-default btn-xs" (click)="$(myImageSettingModal).modal('toggle')">设置</button>
+    <button class="btn btn-default btn-xs">层级</button>
+    <button class="btn btn-default btn-xs">动画</button>
+    <button class="btn btn-default btn-xs">删除</button>
+    <button class="btn btn-default btn-xs">帮助</button>
+</div>
 <img src="{{myImage.src}}" class="img-responsive" [style.width]="'100%'">
 
 </div>
 
+
+
+
+<!-- Modal -->
+<div #myImageSettingModal class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">图片编辑</h4>
+      </div>
+      <div class="modal-body">
+        <button class="btn btn-default btn-lg">我的图片</button>
+        <button class="btn btn-default btn-lg">平台图片</button>
+        <button class="btn btn-default btn-lg">图片编辑</button>
+        <button class="btn btn-default btn-lg">图片设置 </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 

@@ -5,8 +5,8 @@ import {AppService} from './app.service';
 @Component({
     selector: 'page',
     template: `    
-    <image-choose></image-choose>
-      <topbar ></topbar>
+    <sidebar></sidebar>
+    
         <my-nav [nav]="nav" ></my-nav>
         
     <ul  [dragula]='"dragpart"' [dragulaModel]="page.parts">

@@ -65,4 +65,9 @@ export class AppService extends Base{
             this.getPage(path).parts.remove(part);
     }
 
+    addPart(path:string,part:Object){
+        console.log(path);
+        this.getPage(path).parts.unshift(part);
+    }
+
 }

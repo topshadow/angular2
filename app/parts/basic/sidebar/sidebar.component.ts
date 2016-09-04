@@ -5,40 +5,7 @@ import {AppService} from '../../../app.service';
 import {DragulaService} from 'ng2-dragula/ng2-dragula';
 import {Base} from '../../../base';
 
-function getOption() {
-    return [
-        {
-            "part": "input",
-            "title": "文本框"
-        },
-        {
-            "part": "banner",
-            "title": "横幅",
-            "images": [
-                {
-                    "src": "http://10500322.s21i-10.faiusr.com/2/ABUIABACGAAg3sWuuwUo4620pgIwgA84vAU.jpg",
-                    "title": "<div class='carousel-captionbannerText'><h3 class='text-left'>旅烨帮助民族企业与世界互联</h3><p class='text-left'>为您提供更好的网站后台管理系统</p><button class='btnbtn-primary'><i class='iconglyphiconglyphicon-arrow-down'></i>正式下载</button></div>"
-                },
-                {
-                    "src": "images/banner2.png",
-                    "title": "<div class='carousel-captionbannerText'><h3 class='text-left'>旅烨帮助民族企业与世界互联</h3><p class='text-left'>为您提供更好的网站后台管理系统</p><button class='btnbtn-primary'><i class='iconglyphiconglyphicon-arrow-down'></i>正式下载</button></div>"
-                },
-                {
-                    "src": "images/CMS_06.png",
-                    "title": "<div class='carousel-captionbannerText'><h3 class='text-left'>旅烨帮助民族企业与世界互联</h3><p class='text-left'>为您提供更好的网站后台管理系统</p><button class='btnbtn-primary'><i class='iconglyphiconglyphicon-arrow-down'></i>正式下载</button></div>"
-                }
-            ]
-        },
-        {
-            "part": "showcase",
-            "title": "案例展示"
-        },
-        {
-            "part": "dynamic",
-            "title": "动态"
-        }
-    ];
-}
+
 
 @Component({
     moduleId: module.id,
@@ -52,17 +19,17 @@ export class SideBarComponent extends Base implements OnInit {
     parts;
     page;
     text = "文本框";
-    optionGroups = getOption();
+
 
     constructor(
         private appService: AppService,
         private route: ActivatedRoute,
-        public router:Router,
-        private dragulaService: DragulaService 
+        public router: Router,
+        private dragulaService: DragulaService
     ) {
-         super(router);
-       
-     }
+        super(router);
+
+    }
     ngOnInit() {
         this.dragulaService.setOptions('canDrag', {
             removeOnSpill: true
@@ -83,9 +50,6 @@ export class SideBarComponent extends Base implements OnInit {
             console.log(`out: ${value[0]}`);
             this.onOut(value.slice(1));
         });
-
-
-
         this.route.params.subscribe(params => {
             var path = params['path'];
             this.page = this.appService.getPage(path);
@@ -114,8 +78,6 @@ export class SideBarComponent extends Base implements OnInit {
     onOut(args) {
         let [e, el, container] = args;
         console.log('onOut->e:', e, 'el:', el, container);
-        // do something
-        this.optionGroups = getOption();
     }
 
 
@@ -124,8 +86,24 @@ export class SideBarComponent extends Base implements OnInit {
         e.target.style.postion = "relative";
         e.target.style.left = e.clientX;
         e.target.style.top = e.clientY;
-        this.optionGroups = getOption();
-  
+    }
+
+    addMyInput(type: string) {
+        console.log('add myInput:', type);
+        this.appService.addPart(this.path, {
+            type: type,
+            part: 'input', name: '文本框', text: '文本框1', height: "46px", left: "275px",
+            position: "relative", title: "文本框", top: "-229px", width: "375px"
+        });
+    }
+
+    addMyImage(style: string) {
+        this.appService.addPart(this.path, {
+            part: 'my-image',
+            style: style,
+            title: "图片",
+            src: "http://img2.imgtn.bdimg.com/it/u=395920684,863299018&fm=21&gp=0.jpg"
+        })
     }
 }
 

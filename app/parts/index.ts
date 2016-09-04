@@ -27,4 +27,3 @@ export * from './text/my-input/my-input.component';
 
 //image
 export * from './image/my-image/my-image.component';
-export * from './image/my-image/edit-my-image.component';

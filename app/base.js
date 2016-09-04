@@ -41,7 +41,7 @@ var Base = (function () {
         get: function () {
             return this.router.url.indexOf('?') == -1 ?
                 this.router.url.slice(this.router.url.indexOf('/') + 1) :
-                this.router.url.slice(this.router.url.indexOf('/'), this.router.url.indexOf('?'));
+                this.router.url.slice(this.router.url.indexOf('/') + 1, this.router.url.indexOf('?'));
         },
         enumerable: true,
         configurable: true

@@ -19,40 +19,6 @@ var router_2 = require('@angular/router');
 var app_service_1 = require('../../../app.service');
 var ng2_dragula_1 = require('ng2-dragula/ng2-dragula');
 var base_1 = require('../../../base');
-function getOption() {
-    return [
-        {
-            "part": "input",
-            "title": "文本框"
-        },
-        {
-            "part": "banner",
-            "title": "横幅",
-            "images": [
-                {
-                    "src": "http://10500322.s21i-10.faiusr.com/2/ABUIABACGAAg3sWuuwUo4620pgIwgA84vAU.jpg",
-                    "title": "<div class='carousel-captionbannerText'><h3 class='text-left'>旅烨帮助民族企业与世界互联</h3><p class='text-left'>为您提供更好的网站后台管理系统</p><button class='btnbtn-primary'><i class='iconglyphiconglyphicon-arrow-down'></i>正式下载</button></div>"
-                },
-                {
-                    "src": "images/banner2.png",
-                    "title": "<div class='carousel-captionbannerText'><h3 class='text-left'>旅烨帮助民族企业与世界互联</h3><p class='text-left'>为您提供更好的网站后台管理系统</p><button class='btnbtn-primary'><i class='iconglyphiconglyphicon-arrow-down'></i>正式下载</button></div>"
-                },
-                {
-                    "src": "images/CMS_06.png",
-                    "title": "<div class='carousel-captionbannerText'><h3 class='text-left'>旅烨帮助民族企业与世界互联</h3><p class='text-left'>为您提供更好的网站后台管理系统</p><button class='btnbtn-primary'><i class='iconglyphiconglyphicon-arrow-down'></i>正式下载</button></div>"
-                }
-            ]
-        },
-        {
-            "part": "showcase",
-            "title": "案例展示"
-        },
-        {
-            "part": "dynamic",
-            "title": "动态"
-        }
-    ];
-}
 var SideBarComponent = (function (_super) {
     __extends(SideBarComponent, _super);
     function SideBarComponent(appService, route, router, dragulaService) {
@@ -62,7 +28,6 @@ var SideBarComponent = (function (_super) {
         this.router = router;
         this.dragulaService = dragulaService;
         this.text = "文本框";
-        this.optionGroups = getOption();
     }
     SideBarComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -108,14 +73,27 @@ var SideBarComponent = (function (_super) {
     SideBarComponent.prototype.onOut = function (args) {
         var e = args[0], el = args[1], container = args[2];
         console.log('onOut->e:', e, 'el:', el, container);
-        // do something
-        this.optionGroups = getOption();
     };
     SideBarComponent.prototype.dropPart = function (e) {
         e.target.style.postion = "relative";
         e.target.style.left = e.clientX;
         e.target.style.top = e.clientY;
-        this.optionGroups = getOption();
+    };
+    SideBarComponent.prototype.addMyInput = function (type) {
+        console.log('add myInput:', type);
+        this.appService.addPart(this.path, {
+            type: type,
+            part: 'input', name: '文本框', text: '文本框1', height: "46px", left: "275px",
+            position: "relative", title: "文本框", top: "-229px", width: "375px"
+        });
+    };
+    SideBarComponent.prototype.addMyImage = function (style) {
+        this.appService.addPart(this.path, {
+            part: 'my-image',
+            style: style,
+            title: "图片",
+            src: "http://img2.imgtn.bdimg.com/it/u=395920684,863299018&fm=21&gp=0.jpg"
+        });
     };
     __decorate([
         core_1.Input(), 

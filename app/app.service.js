@@ -68,6 +68,10 @@ var AppService = (function (_super) {
         console.log(path);
         this.getPage(path).parts.remove(part);
     };
+    AppService.prototype.addPart = function (path, part) {
+        console.log(path);
+        this.getPage(path).parts.unshift(part);
+    };
     AppService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

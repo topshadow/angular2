@@ -4,11 +4,11 @@ import {Base} from '../../../base';
 @Component({
     moduleId: module.id,
     selector: 'my-image',
-    templateUrl: './my-image.html'
+    templateUrl: './my-image.html',
+    styleUrls:['./style1.css','./style2.css']
 })
 export class MyImageComponent extends Base {
-    @Input()
-    myImage;
+    @Input() myImage;
     ngOnInit() {
         console.log('my-input', this.myImage);
     }

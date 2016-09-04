@@ -4,7 +4,7 @@ interface Animate {
     time: number;//事件
     times: number;
     delayeTime: number;//拖延时间
-
+    eventObj:any;//触发的函数,用于jquery.unbind(eventObj)
 }
 
 interface MyInput {

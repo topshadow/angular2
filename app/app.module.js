@@ -43,7 +43,7 @@ var AppModule = (function () {
                 ng2_dragula_1.Dragula, index_3.ClickRefershDirective, index_3.ClickAlertDirective,
                 index_3.FadeInDirective,
                 ng2_dragula_1.Dragula, index_3.ClickRefershDirective,
-                index_1.MyImageComponent, index_1.EditMyImageComponent,
+                index_1.MyImageComponent,
                 index_1.ImageChooseComponent,
                 index_2.default
             ],

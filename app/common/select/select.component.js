@@ -22,11 +22,17 @@ var SelectComponent = (function (_super) {
     function SelectComponent(router) {
         _super.call(this, router);
         this.router = router;
+        this.onSelected = new core_1.EventEmitter();
     }
-    SelectComponent.prototype.select = function (item) {
+    SelectComponent.prototype.ngOnInit = function () {
         var _this = this;
+        var item = this.items.find(function (item) { return item.value == _this.selectedItemValue; });
+        this.select(item);
+    };
+    SelectComponent.prototype.select = function (item) {
         this.selectedItemValue = item.value;
-        this.selectedItemName = this.items.find(function (item) { return item.value == _this.selectedItemValue; }).name;
+        this.selectedItemName = item.name;
+        this.onSelected.emit(item.value);
     };
     __decorate([
         core_1.Input(), 
@@ -36,6 +42,10 @@ var SelectComponent = (function (_super) {
         core_1.Input(), 
         __metadata('design:type', Object)
     ], SelectComponent.prototype, "selectedItemValue", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], SelectComponent.prototype, "onSelected", void 0);
     SelectComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

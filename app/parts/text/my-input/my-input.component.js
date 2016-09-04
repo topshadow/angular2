@@ -29,8 +29,9 @@ var MyInputComponent = (function (_super) {
             touchEvents: [{ name: "元素出现", value: "display" },
                 { name: "元素点击", value: 'click' },
                 { name: "鼠标悬浮", value: 'mouse-hover' }],
-            animates: [{ name: "无效果", value: "none" },
-                { name: "弹出", value: "popup" }
+            types: [{ name: "无效果", value: "none" },
+                { name: "弹出", value: "popup" },
+                { name: "中心放大", value: "center-big" }
             ]
         };
     }
@@ -75,14 +76,63 @@ var MyInputComponent = (function (_super) {
             type: 'center-big',
             time: 1,
             times: 1,
-            delayeTime: 1
+            delayeTime: 1,
         });
     };
-    MyInputComponent.prototype.playAnimates = function () { };
+    MyInputComponent.prototype.useAnimates = function () {
+        for (var _i = 0, _a = this.animates; _i < _a.length; _i++) {
+            var animate = _a[_i];
+            this.useAnimate(animate);
+        }
+    };
+    MyInputComponent.prototype.useAnimate = function (animate) {
+        var _this = this;
+        var oldEventObj = animate.eventObj;
+        switch (animate.touchEvent) {
+            case "click":
+                this.$(this.el.nativeElement).find('.myInput').click(function () { _this.playAniamte(animate); });
+                break;
+            case "display":
+                this.playAniamte(animate);
+                break;
+            case "mouse-hover":
+                this.$(this.el.nativeElement).find('.myInput').hover(function () { _this.playAniamte(animate); });
+                break;
+        }
+        return oldEventObj;
+    };
+    MyInputComponent.prototype.playAnimates = function () {
+        for (var _i = 0, _a = this.animates; _i < _a.length; _i++) {
+            var animate = _a[_i];
+            this.playAniamte(animate);
+        }
+    };
     MyInputComponent.prototype.playAniamte = function (animate) {
         switch (animate.type) {
             case "center-big":
+                //中心放大
+                this.$(this.el.nativeElement).find('.myInput').animate({
+                    opacity: 0.25,
+                    left: "+=50",
+                    height: "toggle"
+                }, 5000, function () {
+                    // Animation complete.
+                });
+                break;
+            case "popup":
+                //弹出
+                this.$(this.el.nativeElement).find('.myInput').animate();
+                break;
         }
+    };
+    MyInputComponent.prototype.selectAnimateTouchEvent = function (animate, event) {
+        animate.touchEvent = event;
+        console.log(event);
+        var oldEventObj = this.useAnimate(animate);
+        this.cancelEvent(oldEventObj);
+    };
+    MyInputComponent.prototype.cancelEvent = function (eventObj) {
+        this.$(this.el.nativeElement).find('.myInput').unbind(eventObj);
     };
     __decorate([
         core_1.Input(), 

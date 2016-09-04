@@ -46,7 +46,8 @@ var MyImageComponent = (function (_super) {
         core_1.Component({
             moduleId: module.id,
             selector: 'my-image',
-            templateUrl: './my-image.html'
+            templateUrl: './my-image.html',
+            styleUrls: ['./style1.css', './style2.css']
         }), 
         __metadata('design:paramtypes', [])
     ], MyImageComponent);

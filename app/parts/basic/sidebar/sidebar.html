@@ -1,24 +1,93 @@
-<section id="wqdpageLeft"  *ngIf="isEdit">
-	<div id="wqdpLeftD" *click-refersh>
+<section id="wqdpageLeft" *ngIf="isEdit">
+	<div id="wqdpLeftD" >
 
-		<div >
+		<div (click)="$(menuContent).toggle()">
 			添加部件<a class="btn btn-primary pull-right" role="button" data-toggle="collapse" href="#wqdpageLeft" aria-expanded="false"
 				aria-controls="collapseExample">x
 </a>
 
 		</div>
-
-		<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-			aria-controls="collapseExample">
+<div #menuContent>
+		<button class="btn btn-primary" type="button" (click)="$(textCollapse).collapse('toggle')">
   文字
 </button>
-		<div class="panel-collapse collapse in" id="collapseExample">
+		<div #textCollapse class="panel-collapse collapse in">
 			<div class="well">
 				<ul>
-					<li my-drag (onMyDragStop)="dropPart($evnent)" *ngFor="let part of optionGroups">{{part.part}}</li>
+					<li>
+						<h1 (click)="addMyInput('h1')">文本框1</h1>
+					</li>
+					<li>
+						<h2 (click)="addMyInput('h2')">文本框</h2>
+					</li>
+					<li>
+						<h3 (click)="addMyInput('h3')">文本框</h3>
+					</li>
+					<li>
+						<h4 (click)="addMyInput('h4')">文本框</h4>
+					</li>
+					<li>
+						<h5 (click)="addMyInput('h5')">文本框</h5>
+					</li>
+					<li>
+						<h6 (click)="addMyInput('h6')">文本框</h6>
+					</li>
 				</ul>
 			</div>
 		</div>
-	</div>
+		<button class="btn btn-primary btn-xs" (click)="$(imageCollapse).collapse('toggle')">图片</button>
+		<div class="row">
+			<div class="col-xs-3">
+			<ul class="nav nav-tabs" role="tablist" id="myTab">
+				<li role="presentation" class="active "><a href="#home" role="tab" data-toggle="tab">图片</a></li>
+				<li role="presentation"><a href="#profile" role="tab" data-toggle="tab">图册</a></li>
+				<li role="presentation"><a href="#messages" role="tab" data-toggle="tab">轮播图</a></li>
+				<li role="presentation"><a href="#settings" role="tab" data-toggle="tab">特殊</a></li>
+			</ul>
+			</div>
+			<div class="col-xs-9">
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="home">
+					<h1>图片</h1>
+					<div class="col-xs-6" (click)="addMyImage('style1')">样式1</div>
+					<div class="col-xs-6">样式2</div>
+					<div class="col-xs-6">样式3</div>
+					<div class="col-xs-6">样式4</div>
+					<div class="col-xs-6">样式5</div>
+					<div class="col-xs-6">样式6</div>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="profile">
+					<h1>图册</h1>
+					<div class="col-xs-6">样式1</div>
+					<div class="col-xs-6">样式2</div>
+					<div class="col-xs-6">样式3</div>
+					<div class="col-xs-6">样式4</div>
+					<div class="col-xs-6">样式5</div>
+					<div class="col-xs-6">样式6</div>		
 
+				</div>
+				<div role="tabpanel" class="tab-pane" id="messages">
+					<h1>轮播图</h1>
+					<div class="col-xs-6">样式1</div>
+					<div class="col-xs-6">样式2</div>
+					<div class="col-xs-6">样式3</div>
+					<div class="col-xs-6">样式4</div>
+					<div class="col-xs-6">样式5</div>
+					<div class="col-xs-6">样式6</div>		
+
+				</div>
+				<div role="tabpanel" class="tab-pane" id="settings">
+					<h1>特殊</h1>
+					<div class="col-xs-6">样式1</div>
+					<div class="col-xs-6">样式2</div>
+					<div class="col-xs-6">样式3</div>
+					<div class="col-xs-6">样式4</div>
+					<div class="col-xs-6">样式5</div>
+					<div class="col-xs-6">样式6</div>		
+					</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	</div>
 </section>
