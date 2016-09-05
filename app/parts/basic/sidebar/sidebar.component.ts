@@ -15,47 +15,21 @@ import {Base} from '../../../base';
 
 })
 export class SideBarComponent extends Base implements OnInit {
-    @Input()
-    parts;
+    @Input() parts;
     page;
     text = "文本框";
-
 
     constructor(
         private appService: AppService,
         private route: ActivatedRoute,
-        public router: Router,
-        private dragulaService: DragulaService
+        public router: Router
     ) {
         super(router);
 
     }
-    ngOnInit() {
-        this.dragulaService.setOptions('canDrag', {
-            removeOnSpill: true
-        });
-        this.dragulaService.drag.subscribe((value) => {
-            console.log(`drag: ${value[0]}`);
-            this.onDrag(value.slice(1));
-        });
-        this.dragulaService.drop.subscribe((value) => {
-            console.log(`drop: ${value[0]}`);
-            this.onDrop(value.slice(1));
-        });
-        this.dragulaService.over.subscribe((value) => {
-            console.log(`over: ${value[0]}`);
-            this.onOver(value.slice(1));
-        });
-        this.dragulaService.out.subscribe((value) => {
-            console.log(`out: ${value[0]}`);
-            this.onOut(value.slice(1));
-        });
-        this.route.params.subscribe(params => {
-            var path = params['path'];
-            this.page = this.appService.getPage(path);
-        })
-    }
 
+    ngOnInit() {
+    }
 
     onDrag(args) {
         let [e, el] = args;
@@ -63,26 +37,8 @@ export class SideBarComponent extends Base implements OnInit {
         // do something
     }
 
-    onDrop(args) {
-        let [e, el] = args;
-        console.log('onDrop->e:', e, 'el:', el);
-        // do something
-    }
-
-    onOver(args) {
-        let [e, el, container] = args;
-        console.log('onOver->e:', e, 'el:', el, 'container:', container);
-        // do something
-    }
-
-    onOut(args) {
-        let [e, el, container] = args;
-        console.log('onOut->e:', e, 'el:', el, container);
-    }
-
 
     dropPart(e) {
-
         e.target.style.postion = "relative";
         e.target.style.left = e.clientX;
         e.target.style.top = e.clientY;
@@ -104,6 +60,23 @@ export class SideBarComponent extends Base implements OnInit {
             title: "图片",
             src: "http://img2.imgtn.bdimg.com/it/u=395920684,863299018&fm=21&gp=0.jpg"
         })
+    }
+
+
+    saveWebsiteData() {
+        localStorage.setItem('websiteData', JSON.stringify(window['websiteData']));
+    }
+
+    clearWebsiteData() {
+        localStorage.setItem('websiteData', '');
+    }
+
+    addMyButton(style:string){
+         this.appService.addPart(this.path, {
+            style:style,
+            part: 'my-button', text: '按钮', height: "46px", left: "275px",
+            position: "relative", title: "按钮", top: "-229px", width: "375px"
+        });
     }
 }
 

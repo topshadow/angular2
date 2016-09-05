@@ -15,8 +15,8 @@ import {SignInComponent,
     BannerComponent, EditBannerComponent
     , ShowcaseComponent, EditShowCaseComponent,
     CustomComponent, TopBar, DynamicComponent, SideBarComponent,
-    MyInputComponent,
-    MyImageComponent, ImageChooseComponent
+    MyInputComponent,MyImageComponent,
+    MyButtonComponent
 } from './parts/index';
 import {PageComponent} from './page.component';
 import CommonDirectives from './common/index';
@@ -44,10 +44,9 @@ import {MyShowDirective} from './directive/my-show';
         AccordionDirective, MyInputComponent, HoverToolbarDirective,
         Dragula, ClickRefershDirective, ClickAlertDirective,
         FadeInDirective,
-
-        Dragula, ClickRefershDirective,
-        MyImageComponent,
-        ImageChooseComponent,
+        MyButtonComponent,
+        Dragula,
+MyImageComponent,
         CommonDirectives
     ],
     bootstrap: [AppComponent],

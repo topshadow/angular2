@@ -1,21 +1,14 @@
-<div  my-drag hover-toolbar [toolbar]="toolbar" (onMyDragStart)="dragStart($event)" resizable 
-(onMyDragStop)="changePostion($event)" 
-(onResizeStop)="resizeStop($event)" 
-[style.left]="myImage.left || '200px'" 
-[style.top]="myImage.top || '200px'" 
-[style.postion]="myImage.postion" 
-[style.width]="myImage.width || '100%'" 
-[style.height]="myImage.height || '300px'"  
-[class.editBorder]="isEdit" 
- >
-<div #toolbar hidden>
+<div my-drag hover-toolbar [toolbar]="toolbar" (onMyDragStart)="dragStart($event)" resizable (onMyDragStop)="changePostion($event)"
+  (onResizeStop)="resizeStop($event)" [style.left]="myImage.left || '200px'" [style.top]="myImage.top || '200px'" [style.postion]="myImage.postion"
+  [style.width]="myImage.width" [style.height]="myImage.height" [class.editBorder]="isEdit">
+  <div #toolbar hidden>
     <button class="btn btn-default btn-xs" (click)="$(myImageSettingModal).modal('toggle')">设置</button>
     <button class="btn btn-default btn-xs">层级</button>
     <button class="btn btn-default btn-xs">动画</button>
     <button class="btn btn-default btn-xs">删除</button>
     <button class="btn btn-default btn-xs">帮助</button>
-</div>
-<img src="{{myImage.src}}" class="img-responsive" [style.width]="'100%'">
+  </div>
+  <img src="{{myImage.src}}" class="img-responsive" [style.width]="'100%'" />
 
 </div>
 
@@ -43,4 +36,3 @@
     </div>
   </div>
 </div>
-

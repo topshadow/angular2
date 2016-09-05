@@ -22,4 +22,6 @@ __export(require('./vip/custom/custom.component'));
 __export(require('./text/my-input/my-input.component'));
 //image
 __export(require('./image/my-image/my-image.component'));
+//button
+__export(require('./button/my-button/my-button.component'));
 //# sourceMappingURL=index.js.map

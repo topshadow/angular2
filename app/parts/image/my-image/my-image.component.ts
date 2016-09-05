@@ -1,4 +1,5 @@
 import {Component,Input} from '@angular/core';
+import {Router} from '@angular/router'; 
 import {Base} from '../../../base';
 
 @Component({
@@ -9,6 +10,14 @@ import {Base} from '../../../base';
 })
 export class MyImageComponent extends Base {
     @Input() myImage;
+
+    constructor(public router:Router){
+        super(router);
+        this.myImage={};
+        this.myImage.width='100%';
+        this.myImage.height='300px';
+
+    }
     ngOnInit() {
         console.log('my-input', this.myImage);
     }

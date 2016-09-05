@@ -37,6 +37,13 @@
             "path": "index",
             "parts": [
                 {
+                    "part":"my-button",
+                    "text":"按钮",
+                    "width":"300px",
+                    "height":"60px",
+                    "position":"absolute"
+                },
+                {
                     "part":"my-image",
                     "title":"图片",
                     "src":"http://img2.imgtn.bdimg.com/it/u=395920684,863299018&fm=21&gp=0.jpg"

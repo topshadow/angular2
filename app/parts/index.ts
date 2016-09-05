@@ -27,3 +27,6 @@ export * from './text/my-input/my-input.component';
 
 //image
 export * from './image/my-image/my-image.component';
+
+//button
+export * from './button/my-button/my-button.component';

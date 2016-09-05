@@ -1,0 +1,47 @@
+<div hover-toolbar resizable [toolbar]="toolbar" my-drag (onMyDragStop)="changePosition($event)" (onMyDragStart)="dragStart($event)"
+    [style.position]="myButton.position" [style.width]="myButton.width" [style.height]="myButton.height" [style.left]="myButton.left"
+    [style.top]="myButton.top">
+    <div class="row" #toolbar hidden>
+        <button class="btn btn-default btn-xs" (click)="$(myModal).modal('toggle')">设置</button>
+        <button class="btn btn-default btn-xs">层级</button>
+        <button class="btn btn-default btn-xs">删除</button>
+        <button class="btn btn-default btn-xs">动画</button>
+        <button class="btn btn-default btn-xs">复制</button>
+        <button class="btn btn-default btn-xs">帮助</button>
+    </div>
+    <button class="btn  btn-block" [style.position]="'absolute'" [style.width]="myButton.width" [style.height]="myButton.height"
+        [style.position]="myButton.position" [style.color]="myButton.color" [style.backgroundColor]="myButton.bgColor">
+    {{myButton.text}}
+    </button>
+</div>
+
+<!-- Modal -->
+<div #myModal class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">动画</h4>
+            </div>
+            <div class="modal-body">
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active"><a href="#basic" data-toggle="tab">基础</a></li>
+                    <li><a href="#link" data-toggle="tab">链接</a></li>
+                    <li><a href="#other" data-toggle="tab">其它</a></li>
+                </ul>
+                <!--按钮设置面板-->
+                <div class="tab-content" id="">
+                <ul #myButtonStyle class="col-xs-9 tab-pane fade in active">
+                    <li>按钮文字:<input type="text" [(ngModel)]="myButton.text"> </li>
+                    <li>文字颜色:<input type="color" [(ngModel)]="myButton.color"> </li>
+                    <li>按钮颜色:<input type="color" [(ngModel)]="myButton.bgColor"> </li>
+                    <li>字体:</li>
+                </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+               
+            </div>
+        </div>
+    </div>
+</div>

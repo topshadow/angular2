@@ -16,47 +16,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var base_1 = require('../../../base');
-var MyImageComponent = (function (_super) {
-    __extends(MyImageComponent, _super);
-    function MyImageComponent(router) {
+var MyButtonComponent = (function (_super) {
+    __extends(MyButtonComponent, _super);
+    function MyButtonComponent(router) {
         _super.call(this, router);
         this.router = router;
-        this.myImage = {};
-        this.myImage.width = '100%';
-        this.myImage.height = '300px';
+        this.myButton = {
+            left: '300px',
+            top: '300px',
+            width: '300px',
+            height: '60px',
+            style: 'style1',
+            text: '按钮',
+            position: 'absolute',
+            part: 'my-button',
+            color: 'black',
+            bgColor: 'white'
+        };
     }
-    MyImageComponent.prototype.ngOnInit = function () {
-        console.log('my-input', this.myImage);
-    };
-    MyImageComponent.prototype.changePostion = function (e) {
+    MyButtonComponent.prototype.changePosition = function (e) {
         var left = window['$'](e.target).css('left');
         var top = window['$'](e.target).css('top');
         var position = window['$'](e.target).css('position');
-        console.log(left, top, position, this.myImage);
-        this.myImage.left = left;
-        this.myImage.top = top;
-        this.myImage.position = position;
+        console.log(left, top, position, this.myButton);
+        this.myButton.left = left;
+        this.myButton.top = top;
+        this.myButton.position = position;
     };
-    MyImageComponent.prototype.dragStart = function (e) {
+    MyButtonComponent.prototype.dragStart = function (e) {
+        console.log(e);
     };
-    MyImageComponent.prototype.resizeStop = function (e) {
-        this.myImage.width = e.target.style.width;
-        this.myImage.height = e.target.style.height;
+    MyButtonComponent.prototype.resizeStop = function (e) {
+        this.myButton.width = e.target.style.width;
+        this.myButton.height = e.target.style.height;
     };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
-    ], MyImageComponent.prototype, "myImage", void 0);
-    MyImageComponent = __decorate([
+    ], MyButtonComponent.prototype, "myButton", void 0);
+    MyButtonComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'my-image',
-            templateUrl: './my-image.html',
-            styleUrls: ['./style1.css', './style2.css']
+            selector: 'my-button',
+            templateUrl: './my-button.component.html'
         }), 
         __metadata('design:paramtypes', [router_1.Router])
-    ], MyImageComponent);
-    return MyImageComponent;
+    ], MyButtonComponent);
+    return MyButtonComponent;
 }(base_1.Base));
-exports.MyImageComponent = MyImageComponent;
-//# sourceMappingURL=my-image.component.js.map
+exports.MyButtonComponent = MyButtonComponent;
+//# sourceMappingURL=my-button.component.js.map
