@@ -8,6 +8,16 @@ interface MyButton{
     text:string;
     part:string;
     color:string;//字体颜色
-    bgColor:string;//按钮背景颜色
-
+    backgroundColor:string;//按钮背景颜色
+    borderColor:string;
+    
+    link:string;
+    useNewFrameOpen:boolean;
+    borderRadius:number;
+    borderWidth:number;
+    
+    hoverBorderColor:string;
+    hoverBackgroundColor:string;
+    hoverColor:string;
+    zIndex:number;
 }

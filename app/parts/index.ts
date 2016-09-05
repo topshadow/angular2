@@ -30,3 +30,8 @@ export * from './image/my-image/my-image.component';
 
 //button
 export * from './button/my-button/my-button.component';
+
+//my-icon
+
+export * from './icon/my-icon/my-icon.component';
+

@@ -1,0 +1,18 @@
+{
+                    "part": "banner",
+                    "title": "横幅",
+                    "images": [
+                        {
+                            "src": "http://10500322.s21i-10.faiusr.com/2/ABUIABACGAAg3sWuuwUo4620pgIwgA84vAU.jpg",
+                            "title": "<div class='carousel-captionbannerText'><h3 class="text-left">旅烨帮助民族企业与世界互联</h3><p class="text-left">为您提供更好的网站后台管理系统</p><button class="btnbtn-primary"><i class="iconglyphiconglyphicon-arrow-down"></i>正式下载</button></div>"
+                        },
+                        {
+                            "src": "images/banner2.png",
+                            "title": "<div class="carousel-captionbannerText"><h3 class="text-left">旅烨帮助民族企业与世界互联</h3><p class="text-left">为您提供更好的网站后台管理系统</p><button class="btnbtn-primary"><i class="iconglyphiconglyphicon-arrow-down"></i>正式下载</button></div>"
+                        },
+                        {
+                            "src": "images/CMS_06.png",
+                            "title": "<div class="carousel-captionbannerText"><h3 class="text-left">旅烨帮助民族企业与世界互联</h3><p class="text-left">为您提供更好的网站后台管理系统</p><button class="btnbtn-primary"><i class="iconglyphiconglyphicon-arrow-down"></i>正式下载</button></div>"
+                        }
+                    ]
+                }

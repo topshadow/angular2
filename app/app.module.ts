@@ -16,7 +16,7 @@ import {SignInComponent,
     , ShowcaseComponent, EditShowCaseComponent,
     CustomComponent, TopBar, DynamicComponent, SideBarComponent,
     MyInputComponent,MyImageComponent,
-    MyButtonComponent
+    MyButtonComponent,MyIconComponent
 } from './parts/index';
 import {PageComponent} from './page.component';
 import CommonDirectives from './common/index';
@@ -47,7 +47,7 @@ import {MyShowDirective} from './directive/my-show';
         MyButtonComponent,
         Dragula,
 MyImageComponent,
-        CommonDirectives
+        CommonDirectives,MyIconComponent
     ],
     bootstrap: [AppComponent],
 

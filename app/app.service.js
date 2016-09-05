@@ -13,6 +13,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+/// <reference path="./app.d.ts" />
 var core_1 = require('@angular/core');
 var base_1 = require('./base');
 var AppService = (function (_super) {
@@ -39,6 +40,9 @@ var AppService = (function (_super) {
             subMenu: []
         });
         window['pages'].push(page);
+    };
+    AppService.prototype.getMenuList = function () {
+        return this.getNavData().menuList;
     };
     AppService.prototype.deletePage = function (path) {
         var menu = window['nav'].menuList.find(function (menu) { return menu.path == path; });

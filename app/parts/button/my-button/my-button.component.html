@@ -3,14 +3,30 @@
     [style.top]="myButton.top">
     <div class="row" #toolbar hidden>
         <button class="btn btn-default btn-xs" (click)="$(myModal).modal('toggle')">设置</button>
-        <button class="btn btn-default btn-xs">层级</button>
-        <button class="btn btn-default btn-xs">删除</button>
-        <button class="btn btn-default btn-xs">动画</button>
-        <button class="btn btn-default btn-xs">复制</button>
-        <button class="btn btn-default btn-xs">帮助</button>
+           <button class="btn btn-default btn-xs dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    层级
+   <span class="caret"></span>
+  </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li class="btn btn-default btn-xs btn-block" (click)="upZIndex()">向上一层</li>
+            <li class="btn btn-default btn-xs btn-block" (click)="downZIndex()">向下一层</li>
+            <li class="btn btn-default btn-xs btn-block" (click)="upZIndex()">顶层</li>
+            <li class="btn btn-default btn-xs btn-block" (click)="downZIndex()">底层</li>
+        </ul>
+        <button class="btn btn-default btn-xs" (click)="deleteMe()">删除</button>
+        <button class="btn btn-default btn-xs" (click)="$(animateModal).modal('toggle')">动画</button>
+        <button class="btn btn-default btn-xs" (click)="copy()">复制</button>
+        <button class="btn btn-default btn-xs" >帮助</button>
     </div>
-    <button class="btn  btn-block" [style.position]="'absolute'" [style.width]="myButton.width" [style.height]="myButton.height"
-        [style.position]="myButton.position" [style.color]="myButton.color" [style.backgroundColor]="myButton.bgColor">
+    <!--myButton-->
+    <button class=" myButton btn  btn-block" [style.width]="myButton.width" [style.height]="myButton.height"
+        [style.position]="myButton.position" [style.color]="myButton.color" [style.backgroundColor]="myButton.backgroundColor"
+        [style.borderColor]="myButton.borderColor" [style.borderRadius]="myButton.borderRadius+'px'" 
+        [style.borderWidth]="myButton.width+'px'"  
+        [style.zIndex]="myButton.zIndex"         
+
+            
+        >
     {{myButton.text}}
     </button>
 </div>
@@ -21,27 +37,82 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">动画</h4>
+                <h4 class="modal-title" id="myModalLabel" >按钮设置</h4>
             </div>
             <div class="modal-body">
-                <ul id="myTab" class="nav nav-tabs">
+                <ul class="nav nav-tabs col-xs-3">
                     <li class="active"><a href="#basic" data-toggle="tab">基础</a></li>
                     <li><a href="#link" data-toggle="tab">链接</a></li>
                     <li><a href="#other" data-toggle="tab">其它</a></li>
                 </ul>
                 <!--按钮设置面板-->
-                <div class="tab-content" id="">
-                <ul #myButtonStyle class="col-xs-9 tab-pane fade in active">
-                    <li>按钮文字:<input type="text" [(ngModel)]="myButton.text"> </li>
-                    <li>文字颜色:<input type="color" [(ngModel)]="myButton.color"> </li>
-                    <li>按钮颜色:<input type="color" [(ngModel)]="myButton.bgColor"> </li>
-                    <li>字体:</li>
-                </ul>
+                <div class="tab-content" >
+                    <ul id="basic" class="col-xs-9 tab-pane fade in active">
+                        <li>按钮文字:<input type="text" [(ngModel)]="myButton.text"> </li>
+                        <li>文字颜色:<input type="color" [(ngModel)]="myButton.color"> </li>
+                        <li>按钮背景颜色:<input type="color" [(ngModel)]="myButton.backgroundColor"> </li>
+                        <li>字体:</li>
+                    </ul>
+
+                    <ul id="link" class="col-xs-9 tab-pane fade ">
+                        <li>站内链接:
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+		{{ selectedButtonLinkName ||  '默认'}} <span class="caret"></span>
+	</button>
+                                <ul class="dropdown-menu" role="menu">
+                                <li *ngFor="let menu of menuList" (click)="changeButtonLink(menu)" >{{menu.title}}</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>站外: http://<input type="text" #externalLinkInput>
+                        <button class="btn btn-default" (click)="{url:useExternalLink($(externalLinkInput).val())}">启用</button> </li>
+                        <button type="button" class="btn btn-info btn-lg" [class.active]="myButton.useNewFrameOpen"  (click)="toggleNewFrame()">新窗口打开</button>
+                        
+
+                    </ul>
+                    <div id="other" class="col-xs-9 tab-pane fade ">
+                        按钮半径: <input type="range" [(ngModel)]="myButton.borderRadius" min=0 max=50 step=1 >
+                        边框宽度:<input type="range" [(ngModel)]="myButton.borderWidth" min=0 max=10 step=1 >
+                        边框颜色:<input type="color" [(ngModel)]="myButton.borderColor">
+                        
+                        <div  (click)="$(mouseHoverPanel).collapse('toggle')">鼠标悬浮效果</div>
+                        <div #mouseHoverPanel class="panel-collapse collapse ">
+                        文字颜色<input type="color" [(ngModel)]="myButton.hoverColor">
+                        背景颜色<input type="color" [(ngModel)]="myButton.hoverBackgroundColor">
+                        边框颜色<input type="color" [(ngModel)]="myButton.hoverBorderColor">
+                        </div>
+
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-               
+                <div class="modal-footer">
+
+                </div>
             </div>
         </div>
     </div>
+</div>
+
+
+
+<!-- 模态框（Modal） -->
+<div #animateModal class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					设置按钮动画
+				</h4>
+			</div>
+			<div class="modal-body">
+				在这里添加一些文本
+			</div>
+			<div class="modal-footer">
+				
+			</div>
+		</div>
+	</div>
 </div>

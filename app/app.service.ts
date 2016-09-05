@@ -1,3 +1,4 @@
+/// <reference path="./app.d.ts" />
 import {Injectable} from '@angular/core';
 import {Page} from './model/page.model';
 
@@ -9,7 +10,7 @@ export class AppService extends Base{
         return window['websiteData'];
     }
 
-    getNavData() {
+    getNavData():Nav{
         return window['nav'];
     }
 
@@ -30,6 +31,9 @@ export class AppService extends Base{
             }
         );
         window['pages'].push(page);
+    }
+    getMenuList():Menu[]{
+        return this.getNavData().menuList;
     }
 
     deletePage(path: string) {
@@ -69,5 +73,7 @@ export class AppService extends Base{
         console.log(path);
         this.getPage(path).parts.unshift(part);
     }
+    
+    
 
 }

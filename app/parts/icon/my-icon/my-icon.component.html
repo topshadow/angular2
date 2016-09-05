@@ -1,0 +1,55 @@
+<div hover-toolbar resizable [toolbar]="toolbar" my-drag (onMyDragStop)="changePosition($event)" (onMyDragStart)="dragStart($event)"
+    [style.position]="myIcon.position" [style.width]="myIcon.width" [style.height]="myIcon.height" [style.left]="myIcon.left"
+    [style.top]="myIcon.top">
+    <div #toolbar>
+        <button class="btn btn-default btn-xs" (click)="$(settingsModal).modal('toggle')">设置</button>
+        <button class="btn btn-default btn-xs">层级</button>
+        <button class="btn btn-default btn-xs">删除</button>
+        <button class="btn btn-default btn-xs">动画</button>
+        <button class="btn btn-default btn-xs">复制</button>
+        <button class="btn btn-default btn-xs">帮助</button>
+    </div>
+    <i class="myIcon {{myIcon.icon}}" 
+    [style.width]="myIcon.width" [style.height]="myIcon.height" 
+    [style.color]="myIcon.color" [style.borderColor]="myIcon.borderColor" 
+    [style.borderWidth]="myIcon.borderWidth" 
+    >
+    </i>
+</div>
+
+
+
+
+<!-- 模态框（Modal） -->
+<div #settingsModal class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">设置图标</h4>
+            </div>
+            <div class="modal-body">
+                <!--my-icon table-->
+                <ul class="nav nav-tabs col-xs-3" >
+                    <li class="active"><a href="#basic" data-toggle="tab">基础</a></li>
+                    <li class=""><a href="#link" data-toggle="tab">链接</a>
+                </ul>
+                <div class="tab-content col-xs-9">
+	<div class="tab-pane active" id="basic">
+        <ul class="list-group">
+         <li class="list-group-item">图标颜色 <input type="color" [(ngModel)]="myIcon.color"> </li>
+         <li class="list-group-item">悬浮颜色 <input type="color" [(ngModel)]="myIcon.hoverColor"></li>
+         <li class="list-group-item">边框宽度 <input type="range" min=0 max=20 step=1 [ngModel]="myIcon.borderWidth" > </li>
+         <li class="list-group-item">边框颜色 <input type="color" [(ngModel)]="myIcon.borderColor"></li>
+        </ul>
+    </div>
+	<div class="tab-pane" id="link">链接面板</div>
+</div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal -->
+    </div>

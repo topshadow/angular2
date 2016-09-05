@@ -12,6 +12,7 @@ import {AppService} from './app.service';
     <ul  [dragula]='"dragpart"' [dragulaModel]="page.parts">
     <li *ngFor="let part of page.parts"  >
         <div [ngSwitch]="part.part"> 
+            <my-icon *ngSwitchCase="'my-icon'" [myIcon]="part"></my-icon>
             <my-button *ngSwitchCase="'my-button'" [myButton]="part"></my-button>
             <my-image *ngSwitchCase="'my-image'" [myImage]="part"></my-image>
             <my-input *ngSwitchCase="'input'" [myInput]="part"></my-input>
