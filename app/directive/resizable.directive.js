@@ -19,9 +19,20 @@ var ResizableDirective = (function () {
         var _this = this;
         window['$'](this.el.nativeElement).resizable({
             animate: true,
-            stop: function (e) { _this.onResizeStop.emit(e); }
+            stop: function (e) {
+                _this.resizeStop(e);
+                // this.onResizeStop.emit(e) 可以额外发射事件
+            }
         });
     };
+    ResizableDirective.prototype.resizeStop = function (e) {
+        this.part.width = e.target.style.width;
+        this.part.height = e.target.style.height;
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], ResizableDirective.prototype, "part", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)

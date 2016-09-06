@@ -16,15 +16,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /// <reference path="./my-input.d.ts" />
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var platform_browser_1 = require('@angular/platform-browser');
 var app_service_1 = require('../../../app.service');
 var base_1 = require('../../../base');
 var MyInputComponent = (function (_super) {
     __extends(MyInputComponent, _super);
-    function MyInputComponent(appService, router, el) {
+    function MyInputComponent(appService, router, el, sceurity) {
         _super.call(this, router);
         this.appService = appService;
         this.router = router;
         this.el = el;
+        this.sceurity = sceurity;
         this.optionAnimates = {
             touchEvents: [{ name: "元素出现", value: "display" },
                 { name: "元素点击", value: 'click' },
@@ -36,8 +38,22 @@ var MyInputComponent = (function (_super) {
         };
     }
     MyInputComponent.prototype.ngOnInit = function () {
-        console.log(this.myInput);
+        window['tinymce'].init({
+            selector: '.tinymceMyInput',
+            plugin: 'a_tinymce_plugin',
+            a_plugin_option: true,
+            a_configuration_option: 400
+        });
+        $(document).on('focusin', function (e) {
+            if ($(e.target).closest(".mce-window").length) {
+                e.stopImmediatePropagation();
+            }
+        });
+        // console.log(this.myInput);
         this.animates = this.myInput.animates;
+        console.log('my input innerHTML:', this.myInput.innerHTML);
+        var el = this.$(this.el.nativeElement).find('#myInput').html(this.myInput.innerHTML);
+        console.log(el);
     };
     MyInputComponent.prototype.changePostion = function (e) {
         var left = window['$'](e.target).css('left');
@@ -48,36 +64,13 @@ var MyInputComponent = (function (_super) {
         this.myInput.top = top;
         this.myInput.position = position;
     };
-    MyInputComponent.prototype.dragStart = function (e) {
-        console.log(e);
-    };
-    MyInputComponent.prototype.resizeStop = function (e) {
-        this.myInput.width = e.target.style.width;
-        this.myInput.height = e.target.style.height;
-    };
     MyInputComponent.prototype.upZIndex = function () {
         this.myInput.zIndex++;
     };
     MyInputComponent.prototype.downZIndex = function () {
         this.myInput.zIndex--;
     };
-    MyInputComponent.prototype.TopZIndex = function () {
-        this.myInput.zIndex = 9999;
-    };
-    MyInputComponent.prototype.bottomZIndex = function () {
-        this.myInput.zIndex = 0;
-    };
-    MyInputComponent.prototype.deleteMe = function () {
-        this.appService.deletePart(this.path, this.myInput);
-    };
     MyInputComponent.prototype.addAnimate = function () {
-        this.myInput.animates.push({
-            touchEvent: 'click',
-            type: 'center-big',
-            time: 1,
-            times: 1,
-            delayeTime: 1,
-        });
     };
     MyInputComponent.prototype.useAnimates = function () {
         for (var _i = 0, _a = this.animates; _i < _a.length; _i++) {
@@ -111,7 +104,7 @@ var MyInputComponent = (function (_super) {
         switch (animate.type) {
             case "center-big":
                 //中心放大
-                this.$(this.el.nativeElement).find('.myInput').animate({
+                this.$(this.el.nativeElement).find('#myInput').animate({
                     opacity: 0.25,
                     left: "+=50",
                     height: "toggle"
@@ -132,7 +125,11 @@ var MyInputComponent = (function (_super) {
         this.cancelEvent(oldEventObj);
     };
     MyInputComponent.prototype.cancelEvent = function (eventObj) {
-        this.$(this.el.nativeElement).find('.myInput').unbind(eventObj);
+        this.$(this.el.nativeElement).find('#myInput').unbind(eventObj);
+    };
+    MyInputComponent.prototype.saveMyInputContent = function (myInputText) {
+        this.$(this.el.nativeElement).find('#myInput').html(this.activeTinymceHTMLContent);
+        this.myInput.innerHTML = this.activeTinymceHTMLContent;
     };
     __decorate([
         core_1.Input(), 
@@ -142,9 +139,10 @@ var MyInputComponent = (function (_super) {
         core_1.Component({
             moduleId: module.id,
             selector: 'my-input',
-            templateUrl: "./my-input.html"
+            templateUrl: "./my-input.html",
+            viewProviders: [platform_browser_1.DomSanitizationService]
         }), 
-        __metadata('design:paramtypes', [app_service_1.AppService, router_1.Router, core_1.ElementRef])
+        __metadata('design:paramtypes', [app_service_1.AppService, router_1.Router, core_1.ElementRef, platform_browser_1.DomSanitizationService])
     ], MyInputComponent);
     return MyInputComponent;
 }(base_1.Base));

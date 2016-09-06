@@ -11,4 +11,6 @@ __export(require('./hover-toolbar.directive'));
 __export(require('./click-refersh.directive'));
 __export(require('./click-alert.directive'));
 __export(require('./fade-in.directive'));
+__export(require('./rotatable.directive'));
+__export(require('./auto-style.directive'));
 //# sourceMappingURL=index.js.map

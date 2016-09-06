@@ -17,25 +17,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var base_1 = require('../../../base');
+var app_service_1 = require('../../../app.service');
 var MyIconComponent = (function (_super) {
     __extends(MyIconComponent, _super);
-    function MyIconComponent(el, router) {
+    function MyIconComponent(appService, el, router) {
         _super.call(this, router);
+        this.appService = appService;
         this.el = el;
         this.router = router;
+        this.menuList = this.appService.getMenuList();
     }
-    MyIconComponent.prototype.mouseEnterStyle = function (e) {
-        this.$myIconEl.css({
+    MyIconComponent.prototype.mouseEnterStyle = function (el) {
+        console.log(el);
+        this.$(el).css({
             color: this.myIcon.hoverColor
         });
     };
-    MyIconComponent.prototype.mouseLeaveStyle = function (e) {
-        this.$myIconEl.css({
+    MyIconComponent.prototype.mouseLeaveStyle = function (el) {
+        this.$(el).css({
             color: this.myIcon.color
         });
     };
     MyIconComponent.prototype.ngOnInit = function () {
-        this.$myIconEl = this.$(this.el.nativeElement).find('.myIcon');
     };
     MyIconComponent.prototype.changePosition = function (e) {
         var left = window['$'](e.target).css('left');
@@ -53,29 +56,48 @@ var MyIconComponent = (function (_super) {
         this.myIcon.width = e.target.style.width;
         this.myIcon.height = e.target.style.height;
     };
+    MyIconComponent.prototype.changeIconLink = function (menu) {
+        this.myIcon.link = menu.path;
+        this.addIconLink(menu.path);
+        this.selectedIconLinkName = menu.title;
+        this.selectedIconLinkName = menu.title;
+    };
+    MyIconComponent.prototype.addIconLink = function (path) {
+        var _this = this;
+        path = path.indexOf('/') == 0 ? path : "/" + path;
+        this.$(this.el.nativeElement).find('.myIcon').unbind('click').click(function () {
+            _this.router.navigate([path]);
+        });
+    };
+    MyIconComponent.prototype.useExternalLink = function (externalLink) {
+        console.log(externalLink, this.myIcon.useNewFrameOpen);
+        if (!externalLink) {
+            return;
+        }
+        externalLink = externalLink.indexOf("http://") == 0 ? externalLink : "http://" + externalLink;
+        this.$(this.el.nativeElement).find('.myIcon').unbind('click').click(function () {
+            if (externalLink) {
+                window.open(externalLink);
+            }
+            else {
+                location.href = externalLink;
+            }
+        });
+    };
+    MyIconComponent.prototype.toggleNewFrame = function () {
+        this.myIcon.useNewFrameOpen = !this.myIcon.useNewFrameOpen;
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
     ], MyIconComponent.prototype, "myIcon", void 0);
-    __decorate([
-        core_1.HostListener('mouseenter', ['$event']), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', [Object]), 
-        __metadata('design:returntype', void 0)
-    ], MyIconComponent.prototype, "mouseEnterStyle", null);
-    __decorate([
-        core_1.HostListener('mouseleave', ['$event']), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', [Object]), 
-        __metadata('design:returntype', void 0)
-    ], MyIconComponent.prototype, "mouseLeaveStyle", null);
     MyIconComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-icon',
             templateUrl: './my-icon.component.html'
         }), 
-        __metadata('design:paramtypes', [core_1.ElementRef, router_1.Router])
+        __metadata('design:paramtypes', [app_service_1.AppService, core_1.ElementRef, router_1.Router])
     ], MyIconComponent);
     return MyIconComponent;
 }(base_1.Base));

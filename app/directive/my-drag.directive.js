@@ -19,11 +19,20 @@ var MyDragDirective = (function () {
     MyDragDirective.prototype.ngOnInit = function () {
         var _this = this;
         window['$'](this.el.nativeElement).draggable({
-            start: function (e) { _this.onMyDragStart.emit(e); },
-            drag: function (e) { _this.onMyDragHover.emit(e); },
-            stop: function (e) { _this.onMyDragStop.emit(e); }
+            start: function (e) { },
+            drag: function (e) { },
+            stop: function (e) { _this.changePostion(e); }
         });
     };
+    MyDragDirective.prototype.changePostion = function (e) {
+        this.part.left = e.target.style.left;
+        this.part.top = e.target.style.top;
+        this.part.position = e.target.style.position;
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], MyDragDirective.prototype, "part", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)

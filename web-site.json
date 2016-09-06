@@ -50,7 +50,8 @@
                     "backgroundColor":"white",
                     "hoverColor":"green",
                     "hoverBackgroundColor":"green",
-                    "hoverBorderColor":"green"
+                    "hoverBorderColor":"green",
+                    "useNewFrameOpen":false
                 },
                 {
                     "part": "my-button",
@@ -80,8 +81,16 @@
                 {
                     "part": "input",
                     "title": "文本框",
-                    "text": "text",
-                    "animates": []
+                    "type":"h1",
+                    "innerHTML": "text",
+                    "color":"white",
+                    "backgroundColor":"black",
+                    "animates": [],
+                    "left":"50%",
+                    "top":"200px",
+                    "position":"absolute",
+                    "width":"300px",
+                    "height":"60px"
                 },
                 {
                     "part": "showcase",

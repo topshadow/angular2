@@ -1,4 +1,4 @@
-import {Directive, ElementRef, OnInit, Output,EventEmitter} from '@angular/core';
+import {Directive, ElementRef, OnInit,Input, Output,EventEmitter} from '@angular/core';
 
 // Tinymce directive
 @Directive({
@@ -6,16 +6,24 @@ import {Directive, ElementRef, OnInit, Output,EventEmitter} from '@angular/core'
 })
 
 export class ResizableDirective implements OnInit {
+    @Input() part:Part;
 
     @Output() onResizeStop = new EventEmitter();
-    constructor(private el: ElementRef) {
-    }
+    constructor(private el: ElementRef) {}
 
     ngOnInit() {
         window['$'](this.el.nativeElement).resizable({
             animate:true,
-            stop: (e) => { this.onResizeStop.emit(e) }
+            stop: (e) => {  
+                this.resizeStop(e);
+                // this.onResizeStop.emit(e) 可以额外发射事件
+                }
         });
+    }
+
+    resizeStop(e){
+        this.part.width  = e.target.style.width;
+        this.part.height = e.target.style.height; 
     }
 
 }

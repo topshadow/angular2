@@ -1,17 +1,21 @@
 /// <reference path="./my-input.d.ts" />
 import {Component, Input, OnInit, HostListener, ElementRef} from '@angular/core';
 import {Router} from '@angular/router';
+import {DomSanitizationService} from '@angular/platform-browser';
+
 import {AppService} from '../../../app.service';
 import {Base} from '../../../base';
+
 
 
 @Component({
     moduleId: module.id,
     selector: 'my-input',
-    templateUrl: `./my-input.html`
+    templateUrl: `./my-input.html`,
+    viewProviders: [DomSanitizationService]
 })
 export class MyInputComponent extends Base implements OnInit {
-    @Input() myInput;
+    @Input() myInput: MyInput;
     animates;
     optionAnimates = {
         touchEvents: [{ name: "元素出现", value: "display" },
@@ -22,12 +26,28 @@ export class MyInputComponent extends Base implements OnInit {
             { name: "中心放大", value: "center-big" }
         ]
     };
-    constructor(private appService: AppService, public router: Router, public el: ElementRef) { super(router); 
-    }
+    constructor(private appService: AppService, public router: Router, public el: ElementRef, private sceurity: DomSanitizationService) { 
+        super(router);         
+}
 
     ngOnInit() {
-        console.log(this.myInput);
+        window['tinymce'].init({
+            selector: '.tinymceMyInput', // change this value according to your HTML
+            plugin: 'a_tinymce_plugin',
+            a_plugin_option: true,
+            a_configuration_option: 400
+        });
+        $(document).on('focusin', function (e) {
+            if ($(e.target).closest(".mce-window").length) {
+                e.stopImmediatePropagation();
+            }
+        });
+        // console.log(this.myInput);
         this.animates = this.myInput.animates;
+        console.log('my input innerHTML:',this.myInput.innerHTML);
+        var el =  this.$(this.el.nativeElement).find('#myInput').html(this.myInput.innerHTML);
+        console.log(el);
+      
     }
 
     changePostion(e) {
@@ -41,15 +61,6 @@ export class MyInputComponent extends Base implements OnInit {
     }
 
 
-    dragStart(e) {
-        console.log(e);
-    }
-
-    resizeStop(e) {
-        this.myInput.width = e.target.style.width;
-        this.myInput.height = e.target.style.height;
-    }
-
     upZIndex() {
         this.myInput.zIndex++;
     }
@@ -58,24 +69,8 @@ export class MyInputComponent extends Base implements OnInit {
         this.myInput.zIndex--;
     }
 
-    TopZIndex() {
-        this.myInput.zIndex = 9999;
-    }
-    bottomZIndex() {
-        this.myInput.zIndex = 0;
-    }
-    deleteMe() {
-        this.appService.deletePart(this.path, this.myInput);
-    }
-
     addAnimate() {
-        this.myInput.animates.push({
-            touchEvent: 'click',
-            type: 'center-big',
-            time: 1,
-            times: 1,
-            delayeTime: 1,
-        });
+
     }
 
     useAnimates() {
@@ -110,7 +105,7 @@ export class MyInputComponent extends Base implements OnInit {
         switch (animate.type) {
             case "center-big":
                 //中心放大
-                this.$(this.el.nativeElement).find('.myInput').animate({
+                this.$(this.el.nativeElement).find('#myInput').animate({
                     opacity: 0.25,
                     left: "+=50",
                     height: "toggle"
@@ -130,10 +125,14 @@ export class MyInputComponent extends Base implements OnInit {
         console.log(event)
         var oldEventObj = this.useAnimate(animate);
         this.cancelEvent(oldEventObj);
-    }    
-
-    cancelEvent(eventObj){
-        this.$(this.el.nativeElement).find('.myInput').unbind(eventObj);
     }
 
+    cancelEvent(eventObj) {
+        this.$(this.el.nativeElement).find('#myInput').unbind(eventObj);
+    }
+    saveMyInputContent(myInputText) {
+        this.$(this.el.nativeElement).find('#myInput').html(this.activeTinymceHTMLContent);
+        this.myInput.innerHTML=this.activeTinymceHTMLContent;
+    }
+    
 }

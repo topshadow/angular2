@@ -9,11 +9,9 @@
         <button class="btn btn-default btn-xs">复制</button>
         <button class="btn btn-default btn-xs">帮助</button>
     </div>
-    <i class="myIcon {{myIcon.icon}}" 
-    [style.width]="myIcon.width" [style.height]="myIcon.height" 
-    [style.color]="myIcon.color" [style.borderColor]="myIcon.borderColor" 
-    [style.borderWidth]="myIcon.borderWidth" 
-    >
+    <i #myIconDom (mouseenter)="mouseEnterStyle(myIconDom)" (mouseleave)="mouseLeaveStyle(myIconDom)" class="myIcon {{myIcon.icon}}"
+        [style.width]="myIcon.width" [style.height]="myIcon.height" [style.color]="myIcon.color" [style.borderColor]="myIcon.borderColor"
+        [style.borderWidth]="myIcon.borderWidth">
     </i>
 </div>
 
@@ -30,21 +28,43 @@
             </div>
             <div class="modal-body">
                 <!--my-icon table-->
-                <ul class="nav nav-tabs col-xs-3" >
+                <ul class="nav nav-tabs col-xs-3">
                     <li class="active"><a href="#basic" data-toggle="tab">基础</a></li>
                     <li class=""><a href="#link" data-toggle="tab">链接</a>
                 </ul>
                 <div class="tab-content col-xs-9">
-	<div class="tab-pane active" id="basic">
-        <ul class="list-group">
-         <li class="list-group-item">图标颜色 <input type="color" [(ngModel)]="myIcon.color"> </li>
-         <li class="list-group-item">悬浮颜色 <input type="color" [(ngModel)]="myIcon.hoverColor"></li>
-         <li class="list-group-item">边框宽度 <input type="range" min=0 max=20 step=1 [ngModel]="myIcon.borderWidth" > </li>
-         <li class="list-group-item">边框颜色 <input type="color" [(ngModel)]="myIcon.borderColor"></li>
-        </ul>
-    </div>
-	<div class="tab-pane" id="link">链接面板</div>
-</div>
+                    <div class="tab-pane active" id="basic">
+                        <ul class="list-group">
+                            <li class="list-group-item">图标颜色 <input type="color" [(ngModel)]="myIcon.color"> </li>
+                            <li class="list-group-item">悬浮颜色 <input type="color" [(ngModel)]="myIcon.hoverColor"></li>
+                            <li class="list-group-item">边框宽度 <input type="range" min=0 max=20 step=1 [ngModel]="myIcon.borderWidth"> </li>
+                            <li class="list-group-item">边框颜色 <input type="color" [(ngModel)]="myIcon.borderColor"></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="link">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                站内链接:
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+		{{ selectedIconLinkName ||  '默认'}} <span class="caret"></span>
+	</button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li *ngFor="let menu of menuList" (click)="changeIconLink(menu)">{{menu.title}}</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                站外链接:<input type="text" #externalLinkInput>
+                                <button class="btn btn-default" (click)="{url:useExternalLink($(externalLinkInput).val())}">启用</button> 
+                        <button type="button" class="btn btn-info btn-lg" [class.active]="myIcon?.useNewFrameOpen"  (click)="toggleNewFrame()" >新窗口打开</button>
+
+                        
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
                 <div class="modal-footer">
 
                 </div>

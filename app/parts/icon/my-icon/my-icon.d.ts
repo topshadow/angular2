@@ -10,5 +10,5 @@ interface MyIcon {
     borderWidth:number;
     link:string;
     position:string;
-
+    useNewFrameOpen:boolean;
 }

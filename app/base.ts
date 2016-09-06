@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 
+
+
 @Component({
     selector: "base",
     template: ''
@@ -19,6 +21,9 @@ export class Base {
         };
     }
 
+    showTinyMce() {
+    }
+
 
     get isEdit() {
         return window['isEdit']
@@ -29,10 +34,13 @@ export class Base {
     }
 
     get path() {
-        return this.router.url.indexOf('?') == -1?    
-        this.router.url.slice(this.router.url.indexOf('/') + 1):
-        this.router.url.slice(this.router.url.indexOf('/')+1, this.router.url.indexOf('?'));
-        }
+        return this.router.url.indexOf('?') == -1 ?
+            this.router.url.slice(this.router.url.indexOf('/') + 1) :
+            this.router.url.slice(this.router.url.indexOf('/') + 1, this.router.url.indexOf('?'));
+    }
+    get activeTinymceHTMLContent(){
+        return window['tinymce'].activeEditor.getContent({format:'html'})
+    }
 
 }
 

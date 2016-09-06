@@ -43,8 +43,8 @@ var AppModule = (function () {
                 ng2_dragula_1.Dragula, index_3.ClickRefershDirective, index_3.ClickAlertDirective,
                 index_3.FadeInDirective,
                 index_1.MyButtonComponent,
-                ng2_dragula_1.Dragula,
-                index_1.MyImageComponent,
+                ng2_dragula_1.Dragula, index_3.AutoStyleDirective,
+                index_1.MyImageComponent, index_3.RotatableDirective,
                 index_2.default, index_1.MyIconComponent
             ],
             bootstrap: [app_component_1.AppComponent],

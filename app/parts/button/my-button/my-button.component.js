@@ -17,7 +17,6 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var base_1 = require('../../../base');
 var app_service_1 = require('../../../app.service');
-var hover_color_directive_1 = require('./hover-color-directive/hover-color.directive');
 var MyButtonComponent = (function (_super) {
     __extends(MyButtonComponent, _super);
     function MyButtonComponent(el, appService, router) {
@@ -77,7 +76,6 @@ var MyButtonComponent = (function (_super) {
         var _this = this;
         path = path.indexOf('/') == 0 ? path : "/" + path;
         this.$myButtonEl.click(function () {
-            console.log(path);
             _this.router.navigate([path]);
         });
     };
@@ -159,7 +157,7 @@ var MyButtonComponent = (function (_super) {
             moduleId: module.id,
             selector: 'my-button',
             templateUrl: './my-button.component.html',
-            directives: [hover_color_directive_1.HoverColorDirective]
+            directives: []
         }), 
         __metadata('design:paramtypes', [core_1.ElementRef, app_service_1.AppService, router_1.Router])
     ], MyButtonComponent);

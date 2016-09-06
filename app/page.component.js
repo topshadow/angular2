@@ -35,8 +35,9 @@ var PageComponent = (function () {
     };
     PageComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'page',
-            template: "    \n    <sidebar></sidebar>\n    \n        <my-nav [nav]=\"nav\" ></my-nav>\n        \n    <ul  [dragula]='\"dragpart\"' [dragulaModel]=\"page.parts\">\n    <li *ngFor=\"let part of page.parts\"  >\n        <div [ngSwitch]=\"part.part\"> \n            <my-icon *ngSwitchCase=\"'my-icon'\" [myIcon]=\"part\"></my-icon>\n            <my-button *ngSwitchCase=\"'my-button'\" [myButton]=\"part\"></my-button>\n            <my-image *ngSwitchCase=\"'my-image'\" [myImage]=\"part\"></my-image>\n            <my-input *ngSwitchCase=\"'input'\" [myInput]=\"part\"></my-input>\n            <banner *ngSwitchCase=\"'banner'\"  [banner]=\"part\" ></banner>\n            <showcase *ngSwitchCase=\" 'showcase' \" [showcase]=\"part\"></showcase>\n            <dynamic *ngSwitchCase=\"'dynamic'\" [dynamic]=\"part\"></dynamic>\n        </div>\n\n    </li>\n  </ul>\n    "
+            templateUrl: './page.component.html'
         }), 
         __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, app_service_1.AppService])
     ], PageComponent);

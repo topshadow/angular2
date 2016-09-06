@@ -4,7 +4,7 @@ import {Directive, ElementRef, OnInit, Input, Output, EventEmitter} from '@angul
     selector: '[my-drag]'
 })
 export class MyDragDirective implements OnInit {
-
+    @Input() part:Part;
     constructor(private el: ElementRef) { }
 
     @Output() onMyDragStart = new EventEmitter();
@@ -13,10 +13,16 @@ export class MyDragDirective implements OnInit {
 
     ngOnInit() {
         window['$'](this.el.nativeElement).draggable({
-            start: (e) => { this.onMyDragStart.emit(e) },
-            drag: (e) => { this.onMyDragHover.emit(e) },
-            stop: (e) => { this.onMyDragStop.emit(e) }
+            start: (e) => { },
+            drag: (e) => {  },
+            stop: (e) => { this.changePostion(e) }
         });
+    }
+    
+    changePostion(e){
+        this.part.left = e.target.style.left;
+        this.part.top = e.target.style.top;
+        this.part.position = e.target.style.position;
     }
 
 }

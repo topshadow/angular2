@@ -23,6 +23,8 @@ var Base = (function () {
             }
         };
     };
+    Base.prototype.showTinyMce = function () {
+    };
     Object.defineProperty(Base.prototype, "isEdit", {
         get: function () {
             return window['isEdit'];
@@ -42,6 +44,13 @@ var Base = (function () {
             return this.router.url.indexOf('?') == -1 ?
                 this.router.url.slice(this.router.url.indexOf('/') + 1) :
                 this.router.url.slice(this.router.url.indexOf('/') + 1, this.router.url.indexOf('?'));
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Base.prototype, "activeTinymceHTMLContent", {
+        get: function () {
+            return window['tinymce'].activeEditor.getContent({ format: 'html' });
         },
         enumerable: true,
         configurable: true

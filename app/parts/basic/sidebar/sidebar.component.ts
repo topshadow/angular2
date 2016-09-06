@@ -48,8 +48,8 @@ export class SideBarComponent extends Base implements OnInit {
         console.log('add myInput:', type);
         this.appService.addPart(this.path, {
             type: type,
-            part: 'input', name: '文本框', text: '文本框1', height: "46px", left: "275px",
-            position: "relative", title: "文本框", top: "-229px", width: "375px"
+            part: 'input', name: '文本框', innerHTML: '文本框1', height: "46px", left: "275px",
+            position: "relative", title: "文本框", top: "229px", width: "375px"
         });
     }
 

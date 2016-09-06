@@ -3,13 +3,12 @@ import {Router} from '@angular/router';
 import {Base}  from '../../../base';
 import {AppService} from '../../../app.service';
 
-import {HoverColorDirective} from './hover-color-directive/hover-color.directive';
 
 @Component({
     moduleId: module.id,
     selector: 'my-button',
     templateUrl: './my-button.component.html',
-    directives:[HoverColorDirective]
+    directives:[]
 })
 export class MyButtonComponent extends Base {
     @Input() myButton: MyButton;
@@ -70,8 +69,9 @@ export class MyButtonComponent extends Base {
 
     addButtonLink(path: string) {
         path = path.indexOf('/') == 0 ? path : "/" + path;
+
         this.$myButtonEl.click(() => {
-            console.log(path);
+            
             this.router.navigate([path])
         });
     }
