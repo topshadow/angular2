@@ -64,14 +64,9 @@ var MyInputComponent = (function (_super) {
         this.myInput.top = top;
         this.myInput.position = position;
     };
-    MyInputComponent.prototype.upZIndex = function () {
-        this.myInput.zIndex++;
-    };
-    MyInputComponent.prototype.downZIndex = function () {
-        this.myInput.zIndex--;
-    };
-    MyInputComponent.prototype.addAnimate = function () {
-    };
+    MyInputComponent.prototype.upZIndex = function () { this.myInput.zIndex++; };
+    MyInputComponent.prototype.downZIndex = function () { this.myInput.zIndex--; };
+    MyInputComponent.prototype.addAnimate = function () { };
     MyInputComponent.prototype.useAnimates = function () {
         for (var _i = 0, _a = this.animates; _i < _a.length; _i++) {
             var animate = _a[_i];
@@ -130,6 +125,12 @@ var MyInputComponent = (function (_super) {
     MyInputComponent.prototype.saveMyInputContent = function (myInputText) {
         this.$(this.el.nativeElement).find('#myInput').html(this.activeTinymceHTMLContent);
         this.myInput.innerHTML = this.activeTinymceHTMLContent;
+    };
+    MyInputComponent.prototype.deleteMe = function () {
+        this.appService.deletePart(this.path, this.myInput);
+    };
+    MyInputComponent.prototype.copy = function () {
+        this.appService.addPart(this.path, this.myInput);
     };
     __decorate([
         core_1.Input(), 

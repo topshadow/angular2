@@ -46,9 +46,8 @@ export class MyIconComponent extends Base implements OnInit {
         this.myIcon.left = left;
         this.myIcon.top = top;
         this.myIcon.position = position;
+        
     }
-
-
     dragStart(e) {
         console.log(e);
     }

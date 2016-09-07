@@ -1,7 +1,7 @@
 
 <sidebar></sidebar>
 <my-nav [nav]="nav"></my-nav>
-<ul [dragula]='"dragpart"' [dragulaModel]="page.parts">
+<ul>
     <li *ngFor="let part of page.parts">
         <div [ngSwitch]="part.part">
             <my-icon *ngSwitchCase="'my-icon'" [myIcon]="part"></my-icon>

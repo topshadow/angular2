@@ -76,6 +76,10 @@
                 {
                     "part": "my-image",
                     "title": "图片",
+                    "width":"300px",
+                    "height":"60px",
+                    "position":"absolute",
+                    
                     "src": "http://img2.imgtn.bdimg.com/it/u=395920684,863299018&fm=21&gp=0.jpg"
                 },
                 {

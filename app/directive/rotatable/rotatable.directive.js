@@ -15,7 +15,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var base_1 = require('../base');
+var base_1 = require('../../base');
 var RotatableDirective = (function (_super) {
     __extends(RotatableDirective, _super);
     function RotatableDirective(router, el) {
@@ -25,6 +25,9 @@ var RotatableDirective = (function (_super) {
     }
     RotatableDirective.prototype.ngOnInit = function () {
         var _this = this;
+        if (Reflect.has(this.part, 'transform')) {
+            this.$(this.el.nativeElement).css('transform', this.part.transform);
+        }
         this.$(this.el.nativeElement).rotatable({
             start: function (e) { },
             rotate: function (e) { },
@@ -35,7 +38,6 @@ var RotatableDirective = (function (_super) {
         });
     };
     RotatableDirective.prototype.changeRotate = function (e) {
-        // console.log(this.part);
         this.part.transform = e.target.style.transform;
         this.part.transformOrigin = e.target.style.transformOrigin;
     };

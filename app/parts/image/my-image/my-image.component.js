@@ -21,12 +21,9 @@ var MyImageComponent = (function (_super) {
     function MyImageComponent(router) {
         _super.call(this, router);
         this.router = router;
-        this.myImage = {};
-        this.myImage.width = '100%';
-        this.myImage.height = '300px';
     }
     MyImageComponent.prototype.ngOnInit = function () {
-        console.log('my-input', this.myImage);
+        console.log('my-image', this.myImage);
     };
     MyImageComponent.prototype.changePostion = function (e) {
         var left = window['$'](e.target).css('left');
@@ -36,8 +33,6 @@ var MyImageComponent = (function (_super) {
         this.myImage.left = left;
         this.myImage.top = top;
         this.myImage.position = position;
-    };
-    MyImageComponent.prototype.dragStart = function (e) {
     };
     MyImageComponent.prototype.resizeStop = function (e) {
         this.myImage.width = e.target.style.width;

@@ -1,3 +1,4 @@
+
 interface Part {
     part: string;
     width:string;
@@ -8,6 +9,17 @@ interface Part {
     position:string;
     transformOrigin:string;
     transform:string;
+    color?:string;
+    borderColor?:string;
+    backgroundColor?:string;
+    hoverBackgroundColor?:string;
+    hoverColor?:string;
+    hoverBorderColor?:string;
+}
+
+interface CssKeyValuePair{
+    cssKey:string;
+    cssValue:string;
 }
 
 interface Page {

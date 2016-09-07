@@ -13,13 +13,11 @@ export class MyImageComponent extends Base {
 
     constructor(public router:Router){
         super(router);
-        this.myImage={};
-        this.myImage.width='100%';
-        this.myImage.height='300px';
+    
 
     }
     ngOnInit() {
-        console.log('my-input', this.myImage);
+        console.log('my-image', this.myImage);
     }
     changePostion(e) {
         var left = window['$'](e.target).css('left');
@@ -31,9 +29,7 @@ export class MyImageComponent extends Base {
         this.myImage.position = position;
     }
 
-    dragStart(e) {
-
-    }
+ 
 
     resizeStop(e) {
         this.myImage.width = e.target.style.width;

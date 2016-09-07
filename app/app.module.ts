@@ -24,10 +24,9 @@ import CommonDirectives from './common/index';
 import {AppService} from './app.service';
 
 import {ResizableDirective, MyDragDirective, EditorDirective, AccordionDirective,
-    HoverToolbarDirective, ClickRefershDirective,AutoStyleDirective,
-    ClickAlertDirective, FadeInDirective,RotatableDirective
+    HoverToolbarDirective,AutoStyleDirective, FadeInDirective,RotatableDirective,ClickToolbarDirective
 } from './directive/index';
-import {MyShowDirective} from './directive/my-show';
+
 
 
 
@@ -39,15 +38,15 @@ import {MyShowDirective} from './directive/my-show';
         BannerComponent, EditBannerComponent,
         ShowcaseComponent, EditShowCaseComponent,
         CustomComponent, TopBar, DynamicComponent,
-        MyShowDirective, PageComponent, SideBarComponent,
+         PageComponent, SideBarComponent,
         EditorDirective, ResizableDirective, MyDragDirective,
         AccordionDirective, MyInputComponent, HoverToolbarDirective,
-        Dragula, ClickRefershDirective, ClickAlertDirective,
+        Dragula, 
         FadeInDirective,
         MyButtonComponent,
         Dragula,AutoStyleDirective,
 MyImageComponent,RotatableDirective,
-        CommonDirectives,MyIconComponent
+        CommonDirectives,MyIconComponent,ClickToolbarDirective
     ],
     bootstrap: [AppComponent],
 

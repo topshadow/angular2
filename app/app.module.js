@@ -22,7 +22,6 @@ var page_component_1 = require('./page.component');
 var index_2 = require('./common/index');
 var app_service_1 = require('./app.service');
 var index_3 = require('./directive/index');
-var my_show_1 = require('./directive/my-show');
 var AppModule = (function () {
     function AppModule(viewContainerRef, templateRef) {
         this.viewContainerRef = viewContainerRef;
@@ -37,15 +36,15 @@ var AppModule = (function () {
                 index_1.BannerComponent, index_1.EditBannerComponent,
                 index_1.ShowcaseComponent, index_1.EditShowCaseComponent,
                 index_1.CustomComponent, index_1.TopBar, index_1.DynamicComponent,
-                my_show_1.MyShowDirective, page_component_1.PageComponent, index_1.SideBarComponent,
+                page_component_1.PageComponent, index_1.SideBarComponent,
                 index_3.EditorDirective, index_3.ResizableDirective, index_3.MyDragDirective,
                 index_3.AccordionDirective, index_1.MyInputComponent, index_3.HoverToolbarDirective,
-                ng2_dragula_1.Dragula, index_3.ClickRefershDirective, index_3.ClickAlertDirective,
+                ng2_dragula_1.Dragula,
                 index_3.FadeInDirective,
                 index_1.MyButtonComponent,
                 ng2_dragula_1.Dragula, index_3.AutoStyleDirective,
                 index_1.MyImageComponent, index_3.RotatableDirective,
-                index_2.default, index_1.MyIconComponent
+                index_2.default, index_1.MyIconComponent, index_3.ClickToolbarDirective
             ],
             bootstrap: [app_component_1.AppComponent],
             providers: [app_service_1.AppService, core_1.ViewContainerRef, core_1.TemplateRef, ng2_dragula_1.DragulaService],

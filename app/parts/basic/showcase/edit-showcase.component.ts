@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {EditorDirective} from '../../../directive/editor.directive';
+import {EditorDirective} from '../../../directive/editor/editor.directive';
 @Component({
     moduleId: module.id,
     selector: 'edit-showcase',

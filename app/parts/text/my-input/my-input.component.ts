@@ -61,17 +61,11 @@ export class MyInputComponent extends Base implements OnInit {
     }
 
 
-    upZIndex() {
-        this.myInput.zIndex++;
-    }
+    upZIndex() {this.myInput.zIndex++;}
 
-    downZIndex() {
-        this.myInput.zIndex--;
-    }
+    downZIndex() {this.myInput.zIndex--;}
 
-    addAnimate() {
-
-    }
+    addAnimate() {}
 
     useAnimates() {
         for (var animate of this.animates) {
@@ -134,5 +128,11 @@ export class MyInputComponent extends Base implements OnInit {
         this.$(this.el.nativeElement).find('#myInput').html(this.activeTinymceHTMLContent);
         this.myInput.innerHTML=this.activeTinymceHTMLContent;
     }
-    
+
+    deleteMe(){
+        this.appService.deletePart(this.path,this.myInput);
+    }
+    copy(){
+        this.appService.addPart(this.path,this.myInput);
+    }
 }

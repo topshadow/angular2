@@ -1,17 +1,14 @@
-<div hover-toolbar resizable [toolbar]="toolbar" my-drag (onMyDragStop)="changePosition($event)" (onMyDragStart)="dragStart($event)"
-    [style.position]="myIcon.position" [style.width]="myIcon.width" [style.height]="myIcon.height" [style.left]="myIcon.left"
-    [style.top]="myIcon.top">
+<div    resizable my-drag auto-style [part]="myIcon">
+   
     <div #toolbar>
         <button class="btn btn-default btn-xs" (click)="$(settingsModal).modal('toggle')">设置</button>
-        <button class="btn btn-default btn-xs">层级</button>
+        <button class="btn btn-default btn-xs" >层级</button>
         <button class="btn btn-default btn-xs">删除</button>
         <button class="btn btn-default btn-xs">动画</button>
         <button class="btn btn-default btn-xs">复制</button>
         <button class="btn btn-default btn-xs">帮助</button>
     </div>
-    <i #myIconDom (mouseenter)="mouseEnterStyle(myIconDom)" (mouseleave)="mouseLeaveStyle(myIconDom)" class="myIcon {{myIcon.icon}}"
-        [style.width]="myIcon.width" [style.height]="myIcon.height" [style.color]="myIcon.color" [style.borderColor]="myIcon.borderColor"
-        [style.borderWidth]="myIcon.borderWidth">
+    <i #myIconDom click-toolbar [toolbar]="toolbar" (mouseenter)="mouseEnterStyle(myIconDom)" (mouseleave)="mouseLeaveStyle(myIconDom)" class="myIcon {{myIcon.icon}}" > 
     </i>
 </div>
 
@@ -72,4 +69,5 @@
             <!-- /.modal-content -->
         </div>
         <!-- /.modal -->
+    </div>
     </div>
