@@ -26,17 +26,28 @@ export class MyInputComponent extends Base implements OnInit {
             { name: "中心放大", value: "center-big" }
         ]
     };
-    constructor(private appService: AppService, public router: Router, public el: ElementRef, private sceurity: DomSanitizationService) { 
-        super(router);         
-}
+    constructor(private appService: AppService, public router: Router, public el: ElementRef, private sceurity: DomSanitizationService) {
+        super(router);
+    }
 
     ngOnInit() {
         window['tinymce'].init({
             selector: '.tinymceMyInput', // change this value according to your HTML
-            plugin: 'a_tinymce_plugin',
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste imagetools"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+            imagetools_cors_hosts: ['www.tinymce.com', 'codepen.io'],
+            content_css: [
+                '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+                '//www.tinymce.com/css/codepen.min.css'
+            ],
             a_plugin_option: true,
             a_configuration_option: 400
         });
+
         $(document).on('focusin', function (e) {
             if ($(e.target).closest(".mce-window").length) {
                 e.stopImmediatePropagation();
@@ -44,10 +55,10 @@ export class MyInputComponent extends Base implements OnInit {
         });
         // console.log(this.myInput);
         this.animates = this.myInput.animates;
-        console.log('my input innerHTML:',this.myInput.innerHTML);
-        var el =  this.$(this.el.nativeElement).find('#myInput').html(this.myInput.innerHTML);
+        console.log('my input innerHTML:', this.myInput.innerHTML);
+        var el = this.$(this.el.nativeElement).find('#myInput').html(this.myInput.innerHTML);
         console.log(el);
-      
+
     }
 
     changePostion(e) {
@@ -61,11 +72,11 @@ export class MyInputComponent extends Base implements OnInit {
     }
 
 
-    upZIndex() {this.myInput.zIndex++;}
+    upZIndex() { this.myInput.zIndex++; }
 
-    downZIndex() {this.myInput.zIndex--;}
+    downZIndex() { this.myInput.zIndex--; }
 
-    addAnimate() {}
+    addAnimate() { }
 
     useAnimates() {
         for (var animate of this.animates) {
@@ -126,13 +137,13 @@ export class MyInputComponent extends Base implements OnInit {
     }
     saveMyInputContent(myInputText) {
         this.$(this.el.nativeElement).find('#myInput').html(this.activeTinymceHTMLContent);
-        this.myInput.innerHTML=this.activeTinymceHTMLContent;
+        this.myInput.innerHTML = this.activeTinymceHTMLContent;
     }
 
-    deleteMe(){
-        this.appService.deletePart(this.path,this.myInput);
+    deleteMe() {
+        this.appService.deletePart(this.path, this.myInput);
     }
-    copy(){
-        this.appService.addPart(this.path,this.myInput);
+    copy() {
+        this.appService.addPart(this.path, this.myInput);
     }
 }
