@@ -35,7 +35,10 @@
     "pages": [
         {
             "path": "index",
-            "parts": [
+            "parts": [{
+                "part":"shape"
+
+            },
                 {
                     "part":"my-icon",
                     "icon":"glyphicon glyphicon-plus",                    

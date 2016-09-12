@@ -1,0 +1,24 @@
+<section id="wqdpageLeft">
+	<div id="wqdpLeftD">
+		<ul class="">
+            <li>LOGO</li>
+			<li (click)="myInputPanel.show()">文字</li>
+			<li (click)="myImagePanel.show()">图片</li>
+			<li (click)="myButtonPanel.show()">按钮</li>
+			<li (click)="shapePanel.show()">图形</li>
+			<li>图标</li>
+			<li>社交</li>
+			<li>表单</li>
+			<li>控件</li>
+			<li data-type="CODE">代码</li>
+		</ul>
+	</div>
+</section>
+
+
+<ul >
+    <my-input-panel #myInputPanel ></my-input-panel>
+	<my-image-panel #myImagePanel></my-image-panel>
+	<my-button-panel #myButtonPanel></my-button-panel>
+	<shape-panel #shapePanel></shape-panel>
+</ul>

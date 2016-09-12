@@ -8,7 +8,8 @@ import {Base} from '../../../base';
 @Component({
   moduleId: module.id,
   selector: 'topbar',
-  templateUrl: './topbar.html',
+  templateUrl: './topbar2.html',
+  styleUrls:['./topbar.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TopBar extends Base{

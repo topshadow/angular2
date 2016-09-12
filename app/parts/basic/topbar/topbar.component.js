@@ -63,7 +63,8 @@ var TopBar = (function (_super) {
         core_1.Component({
             moduleId: module.id,
             selector: 'topbar',
-            templateUrl: './topbar.html',
+            templateUrl: './topbar2.html',
+            styleUrls: ['./topbar.css'],
             changeDetection: core_1.ChangeDetectionStrategy.OnPush
         }), 
         __metadata('design:paramtypes', [router_1.Router, app_service_1.AppService, router_1.ActivatedRoute])

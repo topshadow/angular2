@@ -1,10 +1,5 @@
-.editBorder{
-    border:2px solid blue;
-}
-
-
 .button1{
-        color: #75c55d;
+    color: #75c55d;
     border: 2px solid #75c55d;
     border-radius: 5px;
     background: #fff;

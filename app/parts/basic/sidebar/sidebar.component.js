@@ -18,6 +18,7 @@ var router_1 = require('@angular/router');
 var router_2 = require('@angular/router');
 var app_service_1 = require('../../../app.service');
 var base_1 = require('../../../base');
+var index_1 = require('./sidebar-panel/index');
 var SideBarComponent = (function (_super) {
     __extends(SideBarComponent, _super);
     function SideBarComponent(appService, route, router) {
@@ -25,7 +26,6 @@ var SideBarComponent = (function (_super) {
         this.appService = appService;
         this.route = route;
         this.router = router;
-        this.text = "文本框";
     }
     SideBarComponent.prototype.ngOnInit = function () {
     };
@@ -33,6 +33,13 @@ var SideBarComponent = (function (_super) {
         var e = args[0], el = args[1];
         console.log('onDrag->  e:', e, 'el:', el);
         // do something
+    };
+    SideBarComponent.prototype.show = function (type) {
+        switch (type) {
+            case 'input':
+                console.log('input');
+                break;
+        }
     };
     SideBarComponent.prototype.dropPart = function (e) {
         e.target.style.postion = "relative";
@@ -68,6 +75,7 @@ var SideBarComponent = (function (_super) {
             position: "relative", title: "按钮", top: "-229px", width: "375px"
         });
     };
+    SideBarComponent.ComponentTypes = [];
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
@@ -76,7 +84,8 @@ var SideBarComponent = (function (_super) {
         core_1.Component({
             moduleId: module.id,
             selector: 'sidebar',
-            templateUrl: "./sidebar.html",
+            templateUrl: "./sidebar2.html",
+            directives: [index_1.MyInputPanelComponent, index_1.MyImagePanelComponent, index_1.MyButtonPanelComponent, index_1.ShapePanelComponent],
             styleUrls: ['./sidebar.css'],
         }), 
         __metadata('design:paramtypes', [app_service_1.AppService, router_2.ActivatedRoute, router_1.Router])

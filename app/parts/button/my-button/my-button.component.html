@@ -1,4 +1,4 @@
-<div  rotatable my-drag resizable [part]="myButton" >
+<div  rotatable my-drag resizable [part]="myButton" [class.editBorder]="isEdit">
     <div class="row" #toolbar hidden>
         <button class="btn btn-default btn-xs" (click)="$(myModal).modal('toggle')">设置</button>
            <button class="btn btn-default btn-xs dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -17,12 +17,7 @@
         <button class="btn btn-default btn-xs" >帮助</button>
     </div>
     <!--myButton-->
-    <button click-toolbar [toolbar]="toolbar" class=" myButton btn  btn-block" [style.width]="myButton.width" [style.height]="myButton.height"
-        [style.position]="myButton.position" [style.color]="myButton.color" [style.backgroundColor]="myButton.backgroundColor"
-        [style.borderColor]="myButton.borderColor" [style.borderRadius]="myButton.borderRadius+'px'" 
-        [style.borderWidth]="myButton.width+'px'"  
-        [style.zIndex]="myButton.zIndex" 
-        >
+    <button click-toolbar [toolbar]="toolbar" [class]="myButton.class" >
     {{myButton.text}}
     </button>
 </div>

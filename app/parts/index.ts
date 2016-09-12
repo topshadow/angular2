@@ -35,3 +35,6 @@ export * from './button/my-button/my-button.component';
 
 export * from './icon/my-icon/my-icon.component';
 
+//shape
+export * from './shape/shape.component'; 
+

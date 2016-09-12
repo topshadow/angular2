@@ -26,4 +26,6 @@ __export(require('./image/my-image/my-image.component'));
 __export(require('./button/my-button/my-button.component'));
 //my-icon
 __export(require('./icon/my-icon/my-icon.component'));
+//shape
+__export(require('./shape/shape.component'));
 //# sourceMappingURL=index.js.map

@@ -1,3 +1,4 @@
+
 import {Component, OnInit, Input} from '@angular/core';
 import {Router} from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
@@ -5,19 +6,25 @@ import {AppService} from '../../../app.service';
 import {DragulaService} from 'ng2-dragula/ng2-dragula';
 import {Base} from '../../../base';
 
+import {MyImagePanelComponent,MyInputPanelComponent,MyButtonPanelComponent,ShapePanelComponent} from './sidebar-panel/index';
+
+
+
 
 
 @Component({
     moduleId: module.id,
     selector: 'sidebar',
-    templateUrl: `./sidebar.html`,
+    templateUrl: `./sidebar2.html`,
+    directives:[MyInputPanelComponent,MyImagePanelComponent,MyButtonPanelComponent,ShapePanelComponent],
     styleUrls: ['./sidebar.css'],
 
 })
 export class SideBarComponent extends Base implements OnInit {
     @Input() parts;
     page;
-    text = "文本框";
+    
+    static ComponentTypes=[]
 
     constructor(
         private appService: AppService,
@@ -36,7 +43,16 @@ export class SideBarComponent extends Base implements OnInit {
         console.log('onDrag->  e:', e, 'el:', el);
         // do something
     }
+    
+    show(type:string){
+        switch(type){
+            case 'input':
+            console.log('input')
+            break;
+            
+    }
 
+    }
 
     dropPart(e) {
         e.target.style.postion = "relative";
