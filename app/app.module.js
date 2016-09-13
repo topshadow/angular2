@@ -41,7 +41,7 @@ var AppModule = (function () {
                 index_3.AccordionDirective, index_1.MyInputComponent, index_3.HoverToolbarDirective,
                 ng2_dragula_1.Dragula,
                 index_3.FadeInDirective,
-                index_1.MyButtonComponent,
+                index_1.MyButtonComponent, index_1.CarouselComponent,
                 ng2_dragula_1.Dragula, index_3.AutoStyleDirective,
                 index_1.MyImageComponent, index_3.RotatableDirective,
                 index_2.default, index_1.MyIconComponent, index_3.ClickToolbarDirective, index_1.ShapeComponent

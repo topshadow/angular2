@@ -5,3 +5,6 @@ import {Router}  from '@angular/router';
     selector:'my-shape',
     templateUrl:'./my-shape.component.html'
 })
+export class MyShapeComponent{
+    
+}

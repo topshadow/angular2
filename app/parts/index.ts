@@ -25,8 +25,9 @@ export * from './vip/custom/custom.component';
 export * from './text/my-input/my-input.component';
 
 
-//image
+//my-image,carousel
 export * from './image/my-image/my-image.component';
+export * from './image/carousel/carousel.component';
 
 //button
 export * from './button/my-button/my-button.component';

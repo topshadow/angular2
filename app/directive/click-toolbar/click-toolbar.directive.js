@@ -24,6 +24,8 @@ var ClickToolbarDirective = (function (_super) {
         this.el = el;
     }
     ClickToolbarDirective.prototype.showToolbar = function (e) {
+        if (!window['isEdit'])
+            return false;
         var pageX = e.pageX, pageY = e.pageY;
         this.$(this.toolbar).css({ position: 'relative', left: screenX, top: screenY });
         this.$(this.toolbar).toggle();

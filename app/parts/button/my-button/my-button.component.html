@@ -1,4 +1,4 @@
-<div  rotatable my-drag resizable [part]="myButton" [class.editBorder]="isEdit">
+<div  rotatable my-drag resizable auto-style [part]="myButton" [class.editBorder]="isEdit">
     <div class="row" #toolbar hidden>
         <button class="btn btn-default btn-xs" (click)="$(myModal).modal('toggle')">设置</button>
            <button class="btn btn-default btn-xs dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

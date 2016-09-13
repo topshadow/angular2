@@ -1,4 +1,4 @@
-<div    resizable my-drag auto-style [part]="myIcon">
+<div    resizable my-drag auto-style [part]="myIcon" [class.editBorder]="isEdit">
    
     <div #toolbar>
         <button class="btn btn-default btn-xs" (click)="$(settingsModal).modal('toggle')">设置</button>

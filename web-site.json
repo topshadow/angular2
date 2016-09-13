@@ -35,26 +35,30 @@
     "pages": [
         {
             "path": "index",
-            "parts": [{
-                "part":"shape"
-
-            },
+            "parts": [
                 {
-                    "part":"my-icon",
-                    "icon":"glyphicon glyphicon-plus",                    
-                    "left":"50%",
-                    "top":"200px",
-                    "width":"300px",
-                    "height":"60px",
-                    "style":"style1",
-                    "position":"absolute",
-                    "color":"blue",
-                    "borderColor":"blue",
-                    "backgroundColor":"white",
-                    "hoverColor":"green",
-                    "hoverBackgroundColor":"green",
-                    "hoverBorderColor":"green",
-                    "useNewFrameOpen":false
+                    "part":"carousel",
+                    "data":""
+                },
+                {
+                    "part": "shape"
+                },
+                {
+                    "part": "my-icon",
+                    "icon": "glyphicon glyphicon-plus",
+                    "left": "50%",
+                    "top": "200px",
+                    "width": "300px",
+                    "height": "60px",
+                    "style": "style1",
+                    "position": "absolute",
+                    "color": "blue",
+                    "borderColor": "blue",
+                    "backgroundColor": "white",
+                    "hoverColor": "green",
+                    "hoverBackgroundColor": "green",
+                    "hoverBorderColor": "green",
+                    "useNewFrameOpen": false
                 },
                 {
                     "part": "my-button",
@@ -79,33 +83,24 @@
                 {
                     "part": "my-image",
                     "title": "图片",
-                    "width":"300px",
-                    "height":"60px",
-                    "position":"absolute",
-                    
+                    "width": "300px",
+                    "height": "60px",
+                    "position": "absolute",
                     "src": "http://img2.imgtn.bdimg.com/it/u=395920684,863299018&fm=21&gp=0.jpg"
                 },
                 {
                     "part": "input",
                     "title": "文本框",
-                    "type":"h1",
+                    "type": "h1",
                     "innerHTML": "text",
-                    "color":"white",
-                    "backgroundColor":"black",
+                    "color": "white",
+                    "backgroundColor": "black",
                     "animates": [],
-                    "left":"50%",
-                    "top":"200px",
-                    "position":"absolute",
-                    "width":"300px",
-                    "height":"60px"
-                },
-                {
-                    "part": "showcase",
-                    "title": "案例展示"
-                },
-                {
-                    "part": "dynamic",
-                    "title": "动态"
+                    "left": "50%",
+                    "top": "200px",
+                    "position": "absolute",
+                    "width": "300px",
+                    "height": "60px"
                 }
             ]
         },

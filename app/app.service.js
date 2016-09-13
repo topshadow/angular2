@@ -74,7 +74,7 @@ var AppService = (function (_super) {
     };
     AppService.prototype.addPart = function (path, part) {
         console.log(path);
-        this.getPage(path).parts.unshift(part);
+        this.getPage(path).parts.push(part);
     };
     AppService = __decorate([
         core_1.Injectable(), 

@@ -29,6 +29,9 @@ var Base = (function () {
         get: function () {
             return window['isEdit'];
         },
+        set: function (isEdit) {
+            window['isEdit'] = isEdit;
+        },
         enumerable: true,
         configurable: true
     });

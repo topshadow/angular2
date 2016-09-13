@@ -1,9 +1,17 @@
-<div my-drag  resizable  rotatable auto-style [part]="myImage" [class.editBorder]="isEdit" >
+<div my-drag resizable rotatable auto-style [part]="myImage" [class.editBorder]="isEdit" style="padding:20px">
   <div #toolbar hidden>
     <button class="btn btn-default btn-xs" (click)="$(myImageSettingModal).modal('toggle')">设置</button>
-    <button class="btn btn-default btn-xs" >层级</button>
+    <button class="btn btn-default btn-xs dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    层级
+   <span class="caret"></span></button>
+     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li class="btn btn-default btn-xs btn-block" (click)="upZIndex()">向上一层</li>
+            <li class="btn btn-default btn-xs btn-block" (click)="downZIndex()">向下一层</li>
+            <li class="btn btn-default btn-xs btn-block" (click)="topZIndex()">顶层</li>
+            <li class="btn btn-default btn-xs btn-block" (click)="bottomZIndex()">底层</li>
+        </ul>
     <button class="btn btn-default btn-xs">动画</button>
-    <button class="btn btn-default btn-xs">删除</button>
+    <button class="btn btn-default btn-xs" (click)="deleteMe()">删除</button>
     <button class="btn btn-default btn-xs">帮助</button>
   </div>
   <img click-toolbar [toolbar]="toolbar" src="{{myImage.src}}" class="img-responsive" [style.width]="'100%'" />
@@ -22,10 +30,8 @@
         <h4 class="modal-title" id="myModalLabel">图片编辑</h4>
       </div>
       <div class="modal-body">
-        <button class="btn btn-default btn-lg">我的图片</button>
-        <button class="btn btn-default btn-lg">平台图片</button>
-        <button class="btn btn-default btn-lg">图片编辑</button>
-        <button class="btn btn-default btn-lg">图片设置 </button>
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

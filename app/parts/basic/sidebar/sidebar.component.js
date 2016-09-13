@@ -15,24 +15,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var router_2 = require('@angular/router');
 var app_service_1 = require('../../../app.service');
 var base_1 = require('../../../base');
 var index_1 = require('./sidebar-panel/index');
 var SideBarComponent = (function (_super) {
     __extends(SideBarComponent, _super);
-    function SideBarComponent(appService, route, router) {
+    function SideBarComponent(appService, router, el) {
         _super.call(this, router);
         this.appService = appService;
-        this.route = route;
         this.router = router;
+        this.el = el;
     }
     SideBarComponent.prototype.ngOnInit = function () {
-    };
-    SideBarComponent.prototype.onDrag = function (args) {
-        var e = args[0], el = args[1];
-        console.log('onDrag->  e:', e, 'el:', el);
-        // do something
     };
     SideBarComponent.prototype.show = function (type) {
         switch (type) {
@@ -66,7 +60,7 @@ var SideBarComponent = (function (_super) {
         localStorage.setItem('websiteData', JSON.stringify(window['websiteData']));
     };
     SideBarComponent.prototype.clearWebsiteData = function () {
-        localStorage.setItem('websiteData', '');
+        localStorage.clear();
     };
     SideBarComponent.prototype.addMyButton = function (style) {
         this.appService.addPart(this.path, {
@@ -74,6 +68,32 @@ var SideBarComponent = (function (_super) {
             part: 'my-button', text: '按钮', height: "46px", left: "275px",
             position: "relative", title: "按钮", top: "-229px", width: "375px"
         });
+    };
+    SideBarComponent.prototype.preview = function () {
+        if (this.isEdit) {
+            this.isEdit = false;
+            this.$('.ui-rotatable-handle').hide();
+            this.$('.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se').hide();
+        }
+        else {
+            this.isEdit = true;
+            this.$('.ui-rotatable-handle').show();
+            this.$('.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se').show();
+        }
+    };
+    SideBarComponent.prototype.saveWebsite = function () {
+        localStorage.setItem('websiteData', window['websiteData']);
+    };
+    SideBarComponent.prototype.hideMenu = function () {
+        console.log('hidemenu');
+        this.$(this.el.nativeElement).find("#wqdpLeftD").css('height', '0');
+    };
+    SideBarComponent.prototype.showMenu = function () {
+        console.log('showmenu');
+        this.$(this.el.nativeElement).find('#wqdpLeftD').css('height', '100%');
+    };
+    SideBarComponent.prototype.toggleMenu = function (menuList) {
+        this.$(menuList).click(function () { console.log('show'); }, function () { console.log('hide'); });
     };
     SideBarComponent.ComponentTypes = [];
     __decorate([
@@ -85,10 +105,10 @@ var SideBarComponent = (function (_super) {
             moduleId: module.id,
             selector: 'sidebar',
             templateUrl: "./sidebar2.html",
-            directives: [index_1.MyInputPanelComponent, index_1.MyImagePanelComponent, index_1.MyButtonPanelComponent, index_1.ShapePanelComponent],
+            directives: [index_1.MyInputPanelComponent, index_1.MyImagePanelComponent, index_1.MyButtonPanelComponent, index_1.ShapePanelComponent, index_1.MyIconPanelComponent, index_1.CarouselPanelComponent],
             styleUrls: ['./sidebar.css'],
         }), 
-        __metadata('design:paramtypes', [app_service_1.AppService, router_2.ActivatedRoute, router_1.Router])
+        __metadata('design:paramtypes', [app_service_1.AppService, router_1.Router, core_1.ElementRef])
     ], SideBarComponent);
     return SideBarComponent;
 }(base_1.Base));

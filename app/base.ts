@@ -29,6 +29,10 @@ export class Base {
         return window['isEdit']
     }
 
+    set isEdit(isEdit:boolean){
+        window['isEdit']=isEdit;
+    }
+
     get $() {
         return window['$'];
     }

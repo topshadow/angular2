@@ -12,9 +12,9 @@ export class ClickToolbarDirective extends Base implements OnInit{
 
     @HostListener('click',['$event'])
     showToolbar(e){
-        
-         let {pageX,pageY} = e;
-         
+        if(!window['isEdit'])
+        return false;
+        let {pageX,pageY} = e;
         this.$(this.toolbar).css({position:'relative',left:screenX,top:screenY});
         this.$(this.toolbar).toggle();
     }

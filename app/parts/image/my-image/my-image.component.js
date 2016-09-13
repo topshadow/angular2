@@ -16,11 +16,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var base_1 = require('../../../base');
+var app_service_1 = require('../../../app.service');
+var MyImage = (function () {
+    function MyImage() {
+    }
+    return MyImage;
+}());
+exports.MyImage = MyImage;
 var MyImageComponent = (function (_super) {
     __extends(MyImageComponent, _super);
-    function MyImageComponent(router) {
+    function MyImageComponent(router, appService) {
         _super.call(this, router);
         this.router = router;
+        this.appService = appService;
     }
     MyImageComponent.prototype.ngOnInit = function () {
         console.log('my-image', this.myImage);
@@ -38,9 +46,24 @@ var MyImageComponent = (function (_super) {
         this.myImage.width = e.target.style.width;
         this.myImage.height = e.target.style.height;
     };
+    MyImageComponent.prototype.deleteMe = function () {
+        this.appService.deletePart(this.path, this.myImage);
+    };
+    MyImageComponent.prototype.upZIndex = function () {
+        this.myImage.zIndex++;
+    };
+    MyImageComponent.prototype.downZIndex = function () {
+        this.myImage.zIndex--;
+    };
+    MyImageComponent.prototype.topZIndex = function () {
+        this.myImage.zIndex = 0;
+    };
+    MyImageComponent.prototype.bottomZIndex = function () {
+        this.myImage.zIndex = 9999;
+    };
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', Object)
+        __metadata('design:type', MyImage)
     ], MyImageComponent.prototype, "myImage", void 0);
     MyImageComponent = __decorate([
         core_1.Component({
@@ -49,7 +72,7 @@ var MyImageComponent = (function (_super) {
             templateUrl: './my-image.html',
             styleUrls: ['./style1.css', './style2.css']
         }), 
-        __metadata('design:paramtypes', [router_1.Router])
+        __metadata('design:paramtypes', [router_1.Router, app_service_1.AppService])
     ], MyImageComponent);
     return MyImageComponent;
 }(base_1.Base));

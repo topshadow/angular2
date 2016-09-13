@@ -16,7 +16,7 @@ import {SignInComponent,
     , ShowcaseComponent, EditShowCaseComponent,
     CustomComponent, TopBar, DynamicComponent, SideBarComponent,
     MyInputComponent,MyImageComponent,
-    MyButtonComponent,MyIconComponent,ShapeComponent
+    MyButtonComponent,MyIconComponent,ShapeComponent,CarouselComponent
 } from './parts/index';
 import {PageComponent} from './page.component';
 import CommonDirectives from './common/index';
@@ -43,7 +43,7 @@ import {ResizableDirective, MyDragDirective, EditorDirective, AccordionDirective
         AccordionDirective, MyInputComponent, HoverToolbarDirective,
         Dragula, 
         FadeInDirective,
-        MyButtonComponent,
+        MyButtonComponent,CarouselComponent,
         Dragula,AutoStyleDirective,
 MyImageComponent,RotatableDirective,
         CommonDirectives,MyIconComponent,ClickToolbarDirective,ShapeComponent

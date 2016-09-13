@@ -20,8 +20,9 @@ __export(require('./basic/image-choose/image-choose.component'));
 __export(require('./vip/custom/custom.component'));
 //text
 __export(require('./text/my-input/my-input.component'));
-//image
+//my-image,carousel
 __export(require('./image/my-image/my-image.component'));
+__export(require('./image/carousel/carousel.component'));
 //button
 __export(require('./button/my-button/my-button.component'));
 //my-icon

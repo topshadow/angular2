@@ -14,9 +14,7 @@ export class PageComponent implements OnInit, OnDestroy {
     constructor(private router: Router, private route: ActivatedRoute, private appService: AppService) { }
 
     ngOnInit() {
-       
-
-
+    
         this.path = this.router.url.replace('/', '');
         this.route.params.subscribe(params => {
             this.path = params['path']; // (+) converts string 'id' to a number

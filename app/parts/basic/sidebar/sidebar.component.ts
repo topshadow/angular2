@@ -1,12 +1,12 @@
 
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input,ElementRef} from '@angular/core';
 import {Router} from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
 import {AppService} from '../../../app.service';
 import {DragulaService} from 'ng2-dragula/ng2-dragula';
 import {Base} from '../../../base';
 
-import {MyImagePanelComponent,MyInputPanelComponent,MyButtonPanelComponent,ShapePanelComponent} from './sidebar-panel/index';
+import {MyImagePanelComponent, MyInputPanelComponent, MyButtonPanelComponent, ShapePanelComponent, MyIconPanelComponent,CarouselPanelComponent} from './sidebar-panel/index';
 
 
 
@@ -16,20 +16,20 @@ import {MyImagePanelComponent,MyInputPanelComponent,MyButtonPanelComponent,Shape
     moduleId: module.id,
     selector: 'sidebar',
     templateUrl: `./sidebar2.html`,
-    directives:[MyInputPanelComponent,MyImagePanelComponent,MyButtonPanelComponent,ShapePanelComponent],
+    directives: [MyInputPanelComponent, MyImagePanelComponent, MyButtonPanelComponent, ShapePanelComponent, MyIconPanelComponent,CarouselPanelComponent],
     styleUrls: ['./sidebar.css'],
 
 })
 export class SideBarComponent extends Base implements OnInit {
     @Input() parts;
     page;
-    
-    static ComponentTypes=[]
+
+    static ComponentTypes = []
 
     constructor(
         private appService: AppService,
-        private route: ActivatedRoute,
-        public router: Router
+        public router: Router,
+        private el:ElementRef
     ) {
         super(router);
 
@@ -38,19 +38,14 @@ export class SideBarComponent extends Base implements OnInit {
     ngOnInit() {
     }
 
-    onDrag(args) {
-        let [e, el] = args;
-        console.log('onDrag->  e:', e, 'el:', el);
-        // do something
-    }
-    
-    show(type:string){
-        switch(type){
+  
+
+    show(type: string) {
+        switch (type) {
             case 'input':
-            console.log('input')
-            break;
-            
-    }
+                console.log('input')
+                break;
+        }
 
     }
 
@@ -75,7 +70,7 @@ export class SideBarComponent extends Base implements OnInit {
             style: style,
             title: "图片",
             src: "http://img2.imgtn.bdimg.com/it/u=395920684,863299018&fm=21&gp=0.jpg"
-        })
+        });
     }
 
 
@@ -84,15 +79,53 @@ export class SideBarComponent extends Base implements OnInit {
     }
 
     clearWebsiteData() {
-        localStorage.setItem('websiteData', '');
+        localStorage.clear();
     }
 
-    addMyButton(style:string){
-         this.appService.addPart(this.path, {
-            style:style,
+    addMyButton(style: string) {
+        this.appService.addPart(this.path, {
+            style: style,
             part: 'my-button', text: '按钮', height: "46px", left: "275px",
             position: "relative", title: "按钮", top: "-229px", width: "375px"
         });
     }
+
+    preview() {
+        if (this.isEdit) {
+            this.isEdit = false;
+            this.$('.ui-rotatable-handle').hide();
+            this.$('.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se').hide();
+            
+        } else {
+            this.isEdit = true;
+            this.$('.ui-rotatable-handle').show();
+            this.$('.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se').show();
+            
+        }
+    }
+
+    saveWebsite() {
+        localStorage.setItem('websiteData', window['websiteData']);
+    }
+
+    hideMenu(){
+        console.log('hidemenu');
+        this.$(this.el.nativeElement).find("#wqdpLeftD").css('height','0');
+
+    }
+    showMenu(){
+        console.log('showmenu');
+        this.$(this.el.nativeElement).find('#wqdpLeftD').css('height','100%');
+
+    }
+
+    toggleMenu(menuList){
+        this.$(menuList).click(
+          function(){console.log('show')},
+          function(){console.log('hide')}
+        );
+
+    }
+
 }
 

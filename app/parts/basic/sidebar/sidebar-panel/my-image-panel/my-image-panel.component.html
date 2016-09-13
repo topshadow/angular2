@@ -14,15 +14,39 @@
 				</h4>
 			</div>
 			<div class="modal-body" style="margin-bottom: 26px;">
-                <div class="row">
-				<div class="col-xs-3" style="border-right: 1px gray solid;">文字</div>
-                <div class="col-xs-9">
-                    <h1 (click)="addH1Input()">标题文字1</h1>
-                    <h2 (click)="addH2Input()">标题文字2</h2>
-                    <h3 (click)="addH3Input()">标题文字3</h3>
-                    <h4 (click)="addH4Input()">标题文字4</h4>
-                </div>
-                </div>
+                <ul id="myTab" class="nav nav-tabs">
+	<li class="active"><a href="#myImage" data-toggle="tab">我的图片</a></li>
+	<li><a href="#platformImage" data-toggle="tab">平台图片</a></li>
+  <li><a href="#editImage" data-toggle="tab">图片编辑</a></li>
+  <li><a href="#imageSetting" data-toggle="tab">图片设置</a></li>
+</ul>
+
+<div id="myTabContent" class="tab-content">
+
+	<div class="tab-pane fade in active" id="myImage">
+		<div class="row">
+			<div class="col-xs-6">
+	选择图片<input type="file" (change)="selectImage(imageInput)" #imageInput accept="image/*">
+			</div>
+			<div class="col-xs-6">
+	<img class="preview" hidden>
+			</div>
+		</div>
+
+
+<a class="btn btn-success" (click)="addMyImage()">添加</a><a class="btn btn-primary">取消</a>
+	</div>
+	<div class="tab-pane fade" id="platformImage">
+		
+	</div>
+
+	<div class="tab-pane fade" id="editImage">
+	
+	<div class="tab-pane fade" id="imageSetting">
+		
+	</div>
+</div>
+
 			</div>
 			
 		</div><!-- /.modal-content -->
