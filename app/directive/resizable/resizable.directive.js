@@ -18,7 +18,7 @@ var ResizableDirective = (function () {
     ResizableDirective.prototype.ngOnInit = function () {
         var _this = this;
         window['$'](this.el.nativeElement).resizable({
-            animate: true,
+            // animate:true,
             stop: function (e) {
                 _this.resizeStop(e);
                 // this.onResizeStop.emit(e) 可以额外发射事件

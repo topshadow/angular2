@@ -11,11 +11,11 @@ import {Dragula, DragulaService} from 'ng2-dragula/ng2-dragula';
 import {routing} from './app.routing';
 
 import {SignInComponent,
-    MyNavComponent, EditMyNavComponent,
+    MyNavComponent, 
     BannerComponent, EditBannerComponent
     , ShowcaseComponent, EditShowCaseComponent,
     CustomComponent, TopBar, DynamicComponent, SideBarComponent,
-    MyInputComponent,MyImageComponent,
+    MyInputComponent,MyImageComponent,RectangleComponent,
     MyButtonComponent,MyIconComponent,ShapeComponent,CarouselComponent
 } from './parts/index';
 import {PageComponent} from './page.component';
@@ -34,14 +34,14 @@ import {ResizableDirective, MyDragDirective, EditorDirective, AccordionDirective
     imports: [BrowserModule, RouterModule, routing, CommonModule, FormsModule, HttpModule],
     declarations: [
         AppComponent, SignInComponent,
-        MyNavComponent, EditMyNavComponent,
+        MyNavComponent,
         BannerComponent, EditBannerComponent,
         ShowcaseComponent, EditShowCaseComponent,
         CustomComponent, TopBar, DynamicComponent,
          PageComponent, SideBarComponent,
         EditorDirective, ResizableDirective, MyDragDirective,
         AccordionDirective, MyInputComponent, HoverToolbarDirective,
-        Dragula, 
+        Dragula, RectangleComponent,
         FadeInDirective,
         MyButtonComponent,CarouselComponent,
         Dragula,AutoStyleDirective,

@@ -146,4 +146,20 @@ export class MyInputComponent extends Base implements OnInit {
     copy() {
         this.appService.addPart(this.path, this.myInput);
     }
+
+    changeMyInputType(type:string){
+        this.myInput.type=type;
+    }
+    
+    changeMyInputColor(color:string){
+        this.myInput.color= color;
+    }
+    changeMyInputBackgroundColor(backgroundColor:string){
+        this.myInput.backgroundColor=backgroundColor;
+    }
+
+    hasBackgroundColor(value:boolean){
+    
+      value?this.myInput.backgroundColor="transparent":this.myInput.backgroundColor="white";
+    }
 }

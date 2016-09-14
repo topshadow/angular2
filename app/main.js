@@ -13,6 +13,7 @@ else {
         url: 'web-site.json',
         method: "GET",
         success: function (data) {
+            console.log(data);
             window['websiteData'] = data;
             window['nav'] = data.nav;
             window['pages'] = data.pages;

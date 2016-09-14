@@ -6,27 +6,27 @@
         "menuList": [
             {
                 "path": "index",
-                "title": "主页",
+                "title": "首页",
                 "subMenu": []
             },
             {
                 "path": "download",
-                "title": "下载",
+                "title": "产品展示",
                 "subMenu": []
             },
             {
                 "path": "showcase",
-                "title": "案例",
+                "title": "新闻动态",
                 "subMenu": []
             },
             {
                 "path": "template",
-                "title": "模板",
+                "title": "关于我们",
                 "subMenu": []
             },
             {
                 "path": "help",
-                "title": "帮助",
+                "title": "联系我们",
                 "subMenu": []
             }
         ]
@@ -36,15 +36,9 @@
         {
             "path": "index",
             "parts": [
-                
                 {
                     "part":"carousel",
                     "carouselImages":["images/template1/banner_01.png","images/template1/banner_02.png","images/template1/banner_02.png"]
-                },
-                {
-                    "part":"rectangle",
-                    "backgroundColor":"white",
-                    "position":"absolute"
                 },
                 {
                     "part": "shape"

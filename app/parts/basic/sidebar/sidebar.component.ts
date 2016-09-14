@@ -1,12 +1,12 @@
 
-import {Component, OnInit, Input,ElementRef} from '@angular/core';
+import {Component, OnInit, Input, ElementRef} from '@angular/core';
 import {Router} from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
 import {AppService} from '../../../app.service';
 import {DragulaService} from 'ng2-dragula/ng2-dragula';
 import {Base} from '../../../base';
 
-import {MyImagePanelComponent, MyInputPanelComponent, MyButtonPanelComponent, ShapePanelComponent, MyIconPanelComponent,CarouselPanelComponent} from './sidebar-panel/index';
+import {MyImagePanelComponent, MyInputPanelComponent, MyButtonPanelComponent, ShapePanelComponent, MyIconPanelComponent, CarouselPanelComponent} from './sidebar-panel/index';
 
 
 
@@ -16,7 +16,7 @@ import {MyImagePanelComponent, MyInputPanelComponent, MyButtonPanelComponent, Sh
     moduleId: module.id,
     selector: 'sidebar',
     templateUrl: `./sidebar2.html`,
-    directives: [MyInputPanelComponent, MyImagePanelComponent, MyButtonPanelComponent, ShapePanelComponent, MyIconPanelComponent,CarouselPanelComponent],
+    directives: [MyInputPanelComponent, MyImagePanelComponent, MyButtonPanelComponent, ShapePanelComponent, MyIconPanelComponent, CarouselPanelComponent],
     styleUrls: ['./sidebar.css'],
 
 })
@@ -29,7 +29,7 @@ export class SideBarComponent extends Base implements OnInit {
     constructor(
         private appService: AppService,
         public router: Router,
-        private el:ElementRef
+        private el: ElementRef
     ) {
         super(router);
 
@@ -38,7 +38,7 @@ export class SideBarComponent extends Base implements OnInit {
     ngOnInit() {
     }
 
-  
+
 
     show(type: string) {
         switch (type) {
@@ -91,38 +91,38 @@ export class SideBarComponent extends Base implements OnInit {
     }
 
     preview() {
-        if (this.isEdit) {
-            this.isEdit = false;
-            this.$('.ui-rotatable-handle').hide();
-            this.$('.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se').hide();
-            
-        } else {
-            this.isEdit = true;
-            this.$('.ui-rotatable-handle').show();
-            this.$('.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se').show();
-            
-        }
+        this.isEdit = false;
+        this.$('.my-toolbar').hide();
+        this.$('.ui-rotatable-handle').hide();
+        this.$('.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se').hide();
+    }
+
+    edit() {
+        this.isEdit = true;
+        this.$('.ui-rotatable-handle').show();
+        this.$('.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se').show();
+
     }
 
     saveWebsite() {
         localStorage.setItem('websiteData', window['websiteData']);
     }
 
-    hideMenu(){
+    hideMenu() {
         console.log('hidemenu');
-        this.$(this.el.nativeElement).find("#wqdpLeftD").css('height','0');
+        this.$(this.el.nativeElement).find("#wqdpLeftD").css('height', '0');
 
     }
-    showMenu(){
+    showMenu() {
         console.log('showmenu');
-        this.$(this.el.nativeElement).find('#wqdpLeftD').css('height','100%');
+        this.$(this.el.nativeElement).find('#wqdpLeftD').css('height', '100%');
 
     }
 
-    toggleMenu(menuList){
+    toggleMenu(menuList) {
         this.$(menuList).click(
-          function(){console.log('show')},
-          function(){console.log('hide')}
+            function () { console.log('show') },
+            function () { console.log('hide') }
         );
 
     }

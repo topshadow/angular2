@@ -1,0 +1,10 @@
+.style1   li.active a{
+    border-bottom: blue 1px solid;
+    border-radius: 0px;
+    color:blue;
+    background-color: white;
+}
+
+.style1  li a{
+    color:black
+}

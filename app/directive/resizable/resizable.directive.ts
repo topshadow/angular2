@@ -13,7 +13,7 @@ export class ResizableDirective implements OnInit {
 
     ngOnInit() {
         window['$'](this.el.nativeElement).resizable({
-            animate:true,
+            // animate:true,
             stop: (e) => {  
                 this.resizeStop(e);
                 // this.onResizeStop.emit(e) 可以额外发射事件

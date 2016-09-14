@@ -1,5 +1,5 @@
 <div my-drag resizable rotatable auto-style [part]="myImage" [class.editBorder]="isEdit" style="padding:20px">
-  <div #toolbar hidden>
+  <div #toolbar hidden class="my-toolbar">
     <button class="btn btn-default btn-xs" (click)="$(myImageSettingModal).modal('toggle')">设置</button>
     <button class="btn btn-default btn-xs dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     层级

@@ -14,6 +14,7 @@ if (websiteData) {
         url: 'web-site.json',
         method:"GET",
         success: function (data): void {
+            console.log(data);
             window['websiteData'] = data;
             window['nav'] = data.nav;
             window['pages'] = data.pages;

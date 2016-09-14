@@ -70,16 +70,15 @@ var SideBarComponent = (function (_super) {
         });
     };
     SideBarComponent.prototype.preview = function () {
-        if (this.isEdit) {
-            this.isEdit = false;
-            this.$('.ui-rotatable-handle').hide();
-            this.$('.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se').hide();
-        }
-        else {
-            this.isEdit = true;
-            this.$('.ui-rotatable-handle').show();
-            this.$('.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se').show();
-        }
+        this.isEdit = false;
+        this.$('.my-toolbar').hide();
+        this.$('.ui-rotatable-handle').hide();
+        this.$('.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se').hide();
+    };
+    SideBarComponent.prototype.edit = function () {
+        this.isEdit = true;
+        this.$('.ui-rotatable-handle').show();
+        this.$('.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se').show();
     };
     SideBarComponent.prototype.saveWebsite = function () {
         localStorage.setItem('websiteData', window['websiteData']);

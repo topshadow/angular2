@@ -142,6 +142,18 @@ var MyInputComponent = (function (_super) {
     MyInputComponent.prototype.copy = function () {
         this.appService.addPart(this.path, this.myInput);
     };
+    MyInputComponent.prototype.changeMyInputType = function (type) {
+        this.myInput.type = type;
+    };
+    MyInputComponent.prototype.changeMyInputColor = function (color) {
+        this.myInput.color = color;
+    };
+    MyInputComponent.prototype.changeMyInputBackgroundColor = function (backgroundColor) {
+        this.myInput.backgroundColor = backgroundColor;
+    };
+    MyInputComponent.prototype.hasBackgroundColor = function (value) {
+        value ? this.myInput.backgroundColor = "transparent" : this.myInput.backgroundColor = "white";
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)

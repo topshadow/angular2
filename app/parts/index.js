@@ -5,8 +5,7 @@ function __export(m) {
 //sign
 __export(require('./sign/sign-in/sign-in.component'));
 //basic
-__export(require('./basic/my-nav/my-nav.component'));
-__export(require('./basic/my-nav/edit-my-nav.component'));
+__export(require('./tool/my-nav/my-nav.component'));
 __export(require('./basic/ckeditor/ckeditor'));
 __export(require('./basic/sidebar/sidebar.component'));
 __export(require('./basic/banner/banner.component'));
@@ -29,4 +28,6 @@ __export(require('./button/my-button/my-button.component'));
 __export(require('./icon/my-icon/my-icon.component'));
 //shape
 __export(require('./shape/shape.component'));
+//container
+__export(require('./container/rectangle/rectangle.component'));
 //# sourceMappingURL=index.js.map

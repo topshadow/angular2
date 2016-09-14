@@ -1,0 +1,11 @@
+<div #toolbar hidden class="my-toolbar">
+  <button class="btn-default btn-xs">设置</button>
+  <button class="btn-default btn-xs">层级</button>
+  <button class="btn-default btn-xs">删除</button>
+  <button class="btn-default btn-xs">复制</button>
+  <button class="btn-default btn-xs">帮助</button>
+  <button class="btn-default btn-xs">旋转</button>
+</div>
+<ul  click-toolbar [toolbar]="toolbar"   rotatable my-drag resizable auto-style  [class.editBorder]="isEdit" [part]="nav" class="nav nav-pills style1">
+	<li *ngFor="let menu of nav.menuList" [class.active]="path==menu.path"><a [routerLink]="'/'+menu.path">{{menu.title}}</a></li>
+</ul>

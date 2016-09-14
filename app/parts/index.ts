@@ -4,8 +4,8 @@ export * from './sign/sign-in/sign-in.component';
 
 
 //basic
-export * from './basic/my-nav/my-nav.component';
-export * from './basic/my-nav/edit-my-nav.component';
+export * from './tool/my-nav/my-nav.component';
+
 export * from  './basic/ckeditor/ckeditor';
 export * from  './basic/sidebar/sidebar.component';
 export * from './basic/banner/banner.component';
@@ -39,3 +39,6 @@ export * from './icon/my-icon/my-icon.component';
 //shape
 export * from './shape/shape.component'; 
 
+
+//container
+export * from './container/rectangle/rectangle.component';

@@ -3,9 +3,14 @@
 		<button class="btn btn-info btn-xs fa-5x" (click)="toggleMenu(menuList)"> <i class="fa fa-cog fa-spin"></i></button>
 		<ul class="" #menuList>
             
+			<li>
+			<button class="btn btn-default btn-xs" (click)="preview()">预览</button>
+			<button class="btn btn-default btn-xs" (click)="edit()">编辑</button>
+				  </li>
 			<li><button class="btn btn-default btn-xs" (click)="saveWebsiteData()">保存</button>
-			<button class="btn btn-default btn-xs" (click)="preview()">预览</button></li>
-			<li><button class="btn btn-default btn-xs" (click)="clearWebsiteData()">清除</button></li>
+			
+			<button class="btn btn-default btn-xs" (click)="clearWebsiteData()">清除</button></li>
+			
 			<li (click)="myInputPanel.show()">文字</li>
 			<li (click)="myImagePanel.show()">图片</li>
 			<li (click)="carouselPanel.show()">轮播</li>

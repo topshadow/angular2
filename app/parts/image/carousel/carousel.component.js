@@ -24,11 +24,27 @@ var Carousel = (function () {
 }());
 var CarouselComponent = (function (_super) {
     __extends(CarouselComponent, _super);
-    function CarouselComponent(router, appService) {
+    function CarouselComponent(router, appService, el) {
         _super.call(this, router);
         this.router = router;
         this.appService = appService;
+        this.el = el;
     }
+    CarouselComponent.prototype.carouselTo = function (num) {
+        this.$(this.el.nativeElement).find('.carousel').carousel(num);
+    };
+    CarouselComponent.prototype.ngOnInit = function () {
+        this.$(this.el.nativeElement).find('.carousel').carousel({ interval: 2000 });
+    };
+    CarouselComponent.prototype.deleteCarouselImage = function (num) {
+        this.$(this.carousel.carouselImages.splice(num, 1));
+    };
+    CarouselComponent.prototype.addCarouselImage = function (file) {
+        var _this = this;
+        var reader = new FileReader();
+        reader.onload = function (event) { _this.carousel.carouselImages.push(event.target['result']); };
+        reader.readAsDataURL(file);
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Carousel)
@@ -39,7 +55,7 @@ var CarouselComponent = (function (_super) {
             selector: 'carousel',
             templateUrl: './carousel.component.html'
         }), 
-        __metadata('design:paramtypes', [router_1.Router, app_service_1.AppService])
+        __metadata('design:paramtypes', [router_1.Router, app_service_1.AppService, core_1.ElementRef])
     ], CarouselComponent);
     return CarouselComponent;
 }(base_1.Base));

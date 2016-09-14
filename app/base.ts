@@ -45,6 +45,8 @@ export class Base {
     get activeTinymceHTMLContent(){
         return window['tinymce'].activeEditor.getContent({format:'html'})
     }
+    
 
 }
+
 

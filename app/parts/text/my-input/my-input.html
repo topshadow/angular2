@@ -1,6 +1,12 @@
-<div auto-style rotatable resizable my-drag [part]="myInput" [class.editBorder]="isEdit">
-    <div #toolbar hidden>
+<div  rotatable resizable my-drag [part]="myInput" [class.editBorder]="isEdit"
+ [style.width]="myInput.width" [style.height]="myInput.height" [style.position]="myInput.position" 
+ [style.left]="myInput.left" [style.top]="myInput.top" 
+
+> 
+
+    <div #toolbar hidden class="my-toolbar">
         <a class="btn btn-default btn-xs" (click)="$(myInputContentModal).modal('toggle');$(myInput).hide()">设置内容</a>
+        <a class="btn btn-default btn-xs" (click)="$(myInputStyleModal).modal('toggle');">设置样式</a>
         <button class="btn btn-default btn-xs dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     层级
    <span class="caret"></span>
@@ -22,7 +28,9 @@
         <textarea [(ngModel)]="myInput.text" style="width:100%;height:30px"></textarea>
     </div>
     <!--文字-->
-    <div click-toolbar [toolbar]="toolbar" id="myInput" class="{{myInput.type}}" #myInputText [style.zIndex]="myInput.zIndex"></div>
+    <div click-toolbar [toolbar]="toolbar" id="myInput" class="{{myInput.type}}" #myInputText [style.zIndex]="myInput.zIndex"
+     [style.color]="myInput.color"  [style.backgroundColor]="myInput.backgroundColor" 
+    ></div>
 </div>
 
 
@@ -74,6 +82,60 @@
 
 
 <!-- 模态框（Modal） -->
+<div class="modal fade" #myInputStyleModal tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+                <h4 class="modal-title" id="myModalLabel">
+                    编辑文字
+                </h4>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    <li class="dropdown list-group-item">
+                        字体大小<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{myInput.type}}
+                    <b class="caret"></b>
+                </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <h1 (click)="changeMyInputType('h1')">标题1</h1>
+                            </li>
+                            <li>
+                                <h2 (click)="changeMyInputType('h2')">标题2</h2>
+                            </li>
+                            <li>
+                                <h3 (click)="changeMyInputType('h3')">标题3</h3>
+                            </li>
+                            <li>
+                                <h4 (click)="changeMyInputType('h4')">标题4</h4>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                      字体颜色: <input type="color" (change)="changeMyInputColor(colorInput.value)" #colorInput>
+                      
+                    </li>
+                    <li class="list-group-item">
+                        背景颜色: <input type="color" (change)="changeMyInputBackgroundColor(backgroundColor.value)" value="{{myInput.backgroundColor}}" #backgroundColor>背景透明<input type="checkbox" (change)="hasBackgroundColor(hasBackgroundColorCheckbox.value)" #hasBackgroundColorCheckbox>
+                    </li>
+                    <li class="list-group-item"></li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <!--<button class="btn btn-primary btn-lg" (click)="">保存</button>-->
+                <button class="btn btn-info btn-lg" data-dismiss="modal" aria-hidden="true">取消</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+</div>
+
+<!-- 模态框（Modal） -->
 <div class="modal fade" #myInputContentModal tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -91,7 +153,7 @@
 
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary btn-lg" (click)="saveMyInputContent(myInputText);$(myInputContentModal).modal('hide');">保存</button>
+                <button class="btn btn-primary btn-lg" (click)="saveMyInputContent(myInputText);$(myInputContentModal).modal('hide');$('toolbar').hide()">保存</button>
                 <button class="btn btn-info btn-lg" data-dismiss="modal" aria-hidden="true">取消</button>
             </div>
         </div>
