@@ -45,6 +45,7 @@
     "tslint": "^3.14.0",
     "typescript": "^1.8.10",
     "upyun": "^2.0.4",
+    "uuid": "^2.0.2",
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
