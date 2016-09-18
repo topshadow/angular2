@@ -42,7 +42,7 @@ var MyImagePanelComponent = (function (_super) {
         reader.onload = function (event) {
             //this.selectImageSrc=event.target['result'];this.$(this.el.nativeElement).find('.preview').attr('src', this.selectImageSrc).show();
             _this.appService.uploadImage(event.target['result'], function (src) {
-                alert(src);
+                _this.selectImageSrc = src;
                 _this.$(_this.el.nativeElement).find('.preview').attr('src', src).show();
             });
         };

@@ -12,7 +12,7 @@ export class AppComponent implements OnInit{
     constructor(){}
     
     ngOnInit(){
-       this.title= window['nav'].title;
+       
     }
 
     

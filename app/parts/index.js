@@ -4,6 +4,7 @@ function __export(m) {
 }
 //sign
 __export(require('./sign/sign-in/sign-in.component'));
+__export(require('./sign/sign-up/sign-up.component'));
 //basic
 __export(require('./tool/my-nav/my-nav.component'));
 __export(require('./basic/ckeditor/ckeditor'));

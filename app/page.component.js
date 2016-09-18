@@ -19,6 +19,11 @@ var PageComponent = (function () {
     }
     PageComponent.prototype.ngOnInit = function () {
         var _this = this;
+        var user = this.appService.userService.user;
+        // console.log(user);
+        this.appService.setWebsiteData(user.websiteData);
+        this.appService.setNavData(user.websiteData['nav']);
+        this.appService.setPagesData(user.websiteData['pages']);
         this.path = this.router.url.replace('/', '');
         this.route.params.subscribe(function (params) {
             _this.path = params['path']; // (+) converts string 'id' to a number

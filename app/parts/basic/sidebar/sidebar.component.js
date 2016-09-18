@@ -57,7 +57,7 @@ var SideBarComponent = (function (_super) {
         });
     };
     SideBarComponent.prototype.saveWebsiteData = function () {
-        localStorage.setItem('websiteData', JSON.stringify(window['websiteData']));
+        this.appService.userService.setWebsiteData(window['websiteData']);
     };
     SideBarComponent.prototype.clearWebsiteData = function () {
         localStorage.clear();
@@ -81,7 +81,8 @@ var SideBarComponent = (function (_super) {
         this.$('.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se').show();
     };
     SideBarComponent.prototype.saveWebsite = function () {
-        localStorage.setItem('websiteData', window['websiteData']);
+        this.appService.userService.websiteData = window['websiteData'];
+        // localStorage.setItem('websiteData', window['websiteData']);
     };
     SideBarComponent.prototype.hideMenu = function () {
         console.log('hidemenu');

@@ -75,7 +75,7 @@ export class SideBarComponent extends Base implements OnInit {
 
 
     saveWebsiteData() {
-        localStorage.setItem('websiteData', JSON.stringify(window['websiteData']));
+        this.appService.userService.setWebsiteData(window['websiteData']);
     }
 
     clearWebsiteData() {
@@ -105,18 +105,18 @@ export class SideBarComponent extends Base implements OnInit {
     }
 
     saveWebsite() {
-        localStorage.setItem('websiteData', window['websiteData']);
+        this.appService.userService.websiteData=window['websiteData'];
+        // localStorage.setItem('websiteData', window['websiteData']);
     }
 
     hideMenu() {
         console.log('hidemenu');
         this.$(this.el.nativeElement).find("#wqdpLeftD").css('height', '0');
-
     }
+
     showMenu() {
         console.log('showmenu');
         this.$(this.el.nativeElement).find('#wqdpLeftD').css('height', '100%');
-
     }
 
     toggleMenu(menuList) {
@@ -124,7 +124,6 @@ export class SideBarComponent extends Base implements OnInit {
             function () { console.log('show') },
             function () { console.log('hide') }
         );
-
     }
 
 }

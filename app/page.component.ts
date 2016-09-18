@@ -14,6 +14,11 @@ export class PageComponent implements OnInit, OnDestroy {
     constructor(private router: Router, private route: ActivatedRoute, private appService: AppService) { }
 
     ngOnInit() {
+        var user =this.appService.userService.user;
+        // console.log(user);
+        this.appService.setWebsiteData(user.websiteData);
+        this.appService.setNavData(user.websiteData['nav']);
+        this.appService.setPagesData(user.websiteData['pages']);
     
         this.path = this.router.url.replace('/', '');
         this.route.params.subscribe(params => {

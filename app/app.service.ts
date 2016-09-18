@@ -1,16 +1,38 @@
 /// <reference path="./app.d.ts" />
 import {Injectable} from '@angular/core';
 import {Page} from './model/page.model';
+import {UserService} from './user.service';
 
 import {Base} from './base';
 
 @Injectable()
-export class AppService extends Base{
+export class AppService {
+    static _userService: UserService =new UserService;
+    constructor() {}
+
+    get userService() {
+            return AppService._userService;
+    }
+
     getWebsiteData() {
         return window['websiteData'];
     }
 
-    getNavData():Nav{
+    /**
+     * 将数据更新到windows对象上
+     */
+    setWebsiteData(websiteData){
+       
+            window['websiteData']=websiteData;
+    }
+    setNavData(nav){
+        window['nav']=nav;
+    }
+    setPagesData(pagesData){
+        window['pages']=pagesData;
+    }
+
+    getNavData(): Nav {
         return window['nav'];
     }
 
@@ -32,7 +54,7 @@ export class AppService extends Base{
         );
         window['pages'].push(page);
     }
-    getMenuList():Menu[]{
+    getMenuList(): Menu[] {
         return this.getNavData().menuList;
     }
 
@@ -55,45 +77,45 @@ export class AppService extends Base{
     downPage(path: string) {
         var menu = window['nav'].menuList.find(menu => menu.path == path);
         var index = window['nav'].menuList.indexOf(menu);
-        var afterElement = window['nav'].menuList[index +1];
+        var afterElement = window['nav'].menuList[index + 1];
         window['nav'].menuList[index] = afterElement;
-        window['nav'].menuList[index+1] = menu;
+        window['nav'].menuList[index + 1] = menu;
     }
 
-    saveNavStyle(style:string){
-        window['nav'].selectedStyle=style;
+    saveNavStyle(style: string) {
+        window['nav'].selectedStyle = style;
     }
 
-    deletePart(path:string,part:Object){
+    deletePart(path: string, part: Object) {
         console.log(path);
-            this.getPage(path).parts.remove(part);
+        this.getPage(path).parts.remove(part);
     }
 
-    addPart(path:string,part:Object){
+    addPart(path: string, part: Object) {
         console.log(path);
         this.getPage(path).parts.push(part);
     }
 
-    uploadImage(file:string,callback:(src:string)=>void  ):string{
-            window['$'].ajax({
-                method:'POST',
-                url:'/upload',
-                data:{
-                    data:file
-                },
-                success:(rtn)=>{
-                    // if(rtn.state!=1 || rtn.issuccess==false){
-                        // throw new Error(rtn.msg);
-                    // }
-                    
-                    callback(rtn.url);
-                }
-            })
+    uploadImage(file: string, callback: (src: string) => void): string {
+        window['$'].ajax({
+            method: 'POST',
+            url: '/upload',
+            data: {
+                data: file
+            },
+            success: (rtn) => {
+                // if(rtn.state!=1 || rtn.issuccess==false){
+                // throw new Error(rtn.msg);
+                // }
 
-    return '';
+                callback(rtn.url);
+            }
+        });
+
+        return '';
 
     }
-    
-    
+
+
 
 }

@@ -34,16 +34,15 @@ export class MyImagePanelComponent extends Base {
 
     selectImage(inputElement) {
         var file = inputElement.files[0];
-       var reader = new FileReader();
-       reader.onload=(event)=>{
-           //this.selectImageSrc=event.target['result'];this.$(this.el.nativeElement).find('.preview').attr('src', this.selectImageSrc).show();
-        this.appService.uploadImage(event.target['result'],(src)=>{
-            alert(src);
-            
-                    this.$(this.el.nativeElement).find('.preview').attr('src',src).show();
-        })    
-}
-       reader.readAsDataURL(file);
+        var reader = new FileReader();
+        reader.onload = (event) => {
+            //this.selectImageSrc=event.target['result'];this.$(this.el.nativeElement).find('.preview').attr('src', this.selectImageSrc).show();
+            this.appService.uploadImage(event.target['result'], (src) => {
+                this.selectImageSrc=src;
+                this.$(this.el.nativeElement).find('.preview').attr('src', src).show();
+            })
+        }
+        reader.readAsDataURL(file);
     }
 
     addMyImage() {
@@ -57,9 +56,9 @@ export class MyImagePanelComponent extends Base {
             "position": "absolute",
             src: ""
         }
-        image.src=this.selectImageSrc;
+        image.src = this.selectImageSrc;
         this.appService.addPart(this.path, image)
     }
 
-    
+
 }

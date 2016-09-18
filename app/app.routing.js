@@ -5,12 +5,15 @@ var page_component_1 = require('./page.component');
 var appRoutes = [
     {
         path: "",
-        redirectTo: "/index",
+        redirectTo: "/sign-in",
         pathMatch: 'full'
     },
     {
         path: "sign-in",
         component: index_1.SignInComponent
+    }, {
+        path: "sign-up",
+        component: index_1.SignUpComponent
     },
     {
         path: ':path',

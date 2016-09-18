@@ -13,7 +13,6 @@ var AppComponent = (function () {
     function AppComponent() {
     }
     AppComponent.prototype.ngOnInit = function () {
-        this.title = window['nav'].title;
     };
     AppComponent = __decorate([
         core_1.Component({

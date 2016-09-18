@@ -1,6 +1,6 @@
 //sign
 export * from './sign/sign-in/sign-in.component';
-
+export * from './sign/sign-up/sign-up.component';
 
 
 //basic

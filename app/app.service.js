@@ -1,9 +1,4 @@
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -15,14 +10,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 /// <reference path="./app.d.ts" />
 var core_1 = require('@angular/core');
-var base_1 = require('./base');
-var AppService = (function (_super) {
-    __extends(AppService, _super);
+var user_service_1 = require('./user.service');
+var AppService = (function () {
     function AppService() {
-        _super.apply(this, arguments);
     }
+    Object.defineProperty(AppService.prototype, "userService", {
+        get: function () {
+            return AppService._userService;
+        },
+        enumerable: true,
+        configurable: true
+    });
     AppService.prototype.getWebsiteData = function () {
         return window['websiteData'];
+    };
+    /**
+     * 将数据更新到windows对象上
+     */
+    AppService.prototype.setWebsiteData = function (websiteData) {
+        window['websiteData'] = websiteData;
+    };
+    AppService.prototype.setNavData = function (nav) {
+        window['nav'] = nav;
+    };
+    AppService.prototype.setPagesData = function (pagesData) {
+        window['pages'] = pagesData;
     };
     AppService.prototype.getNavData = function () {
         return window['nav'];
@@ -92,11 +104,12 @@ var AppService = (function (_super) {
         });
         return '';
     };
+    AppService._userService = new user_service_1.UserService;
     AppService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])
     ], AppService);
     return AppService;
-}(base_1.Base));
+}());
 exports.AppService = AppService;
 //# sourceMappingURL=app.service.js.map
