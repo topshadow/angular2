@@ -76,6 +76,22 @@ var AppService = (function (_super) {
         console.log(path);
         this.getPage(path).parts.push(part);
     };
+    AppService.prototype.uploadImage = function (file, callback) {
+        window['$'].ajax({
+            method: 'POST',
+            url: '/upload',
+            data: {
+                data: file
+            },
+            success: function (rtn) {
+                // if(rtn.state!=1 || rtn.issuccess==false){
+                // throw new Error(rtn.msg);
+                // }
+                callback(rtn.url);
+            }
+        });
+        return '';
+    };
     AppService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

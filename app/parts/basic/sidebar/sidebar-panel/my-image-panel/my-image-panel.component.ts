@@ -35,7 +35,14 @@ export class MyImagePanelComponent extends Base {
     selectImage(inputElement) {
         var file = inputElement.files[0];
        var reader = new FileReader();
-       reader.onload=(event)=>{this.selectImageSrc=event.target['result'];this.$(this.el.nativeElement).find('.preview').attr('src', this.selectImageSrc).show();}
+       reader.onload=(event)=>{
+           //this.selectImageSrc=event.target['result'];this.$(this.el.nativeElement).find('.preview').attr('src', this.selectImageSrc).show();
+        this.appService.uploadImage(event.target['result'],(src)=>{
+            alert(src);
+            
+                    this.$(this.el.nativeElement).find('.preview').attr('src',src).show();
+        })    
+}
        reader.readAsDataURL(file);
     }
 

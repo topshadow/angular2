@@ -73,6 +73,26 @@ export class AppService extends Base{
         console.log(path);
         this.getPage(path).parts.push(part);
     }
+
+    uploadImage(file:string,callback:(src:string)=>void  ):string{
+            window['$'].ajax({
+                method:'POST',
+                url:'/upload',
+                data:{
+                    data:file
+                },
+                success:(rtn)=>{
+                    // if(rtn.state!=1 || rtn.issuccess==false){
+                        // throw new Error(rtn.msg);
+                    // }
+                    
+                    callback(rtn.url);
+                }
+            })
+
+    return '';
+
+    }
     
     
 
