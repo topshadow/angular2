@@ -21,7 +21,7 @@ export class RectangleComponent extends Base implements OnInit{
 
     constructor(router:Router,public el:ElementRef){super(router)}
     ngOnInit(){}
-    
-    
 
+    
+    
 }
