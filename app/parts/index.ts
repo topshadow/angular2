@@ -5,6 +5,8 @@ export * from './sign/sign-up/sign-up.component';
 
 //basic
 export * from './tool/my-nav/my-nav.component';
+export * from './basic/sidebar/sidebar-panel/index';
+
 
 export * from  './basic/ckeditor/ckeditor';
 export * from  './basic/sidebar/sidebar.component';

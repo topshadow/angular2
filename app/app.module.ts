@@ -15,7 +15,9 @@ import {SignInComponent,
     , ShowcaseComponent, EditShowCaseComponent,
     CustomComponent, TopBar, DynamicComponent, SideBarComponent,
     MyInputComponent,MyImageComponent,RectangleComponent,
-    MyButtonComponent,MyIconComponent,ShapeComponent,CarouselComponent
+    MyButtonComponent,MyIconComponent,ShapeComponent,CarouselComponent,
+    MyImagePanelComponent,MyIconPanelComponent,MyButtonPanelComponent,MyInputPanelComponent,ContainerPanelComponent,ShapePanelComponent,CarouselPanelComponent
+
 } from './parts/index';
 import {PageComponent} from './page.component';
 import CommonDirectives from './common/index';
@@ -45,7 +47,9 @@ import {ResizableDirective, MyDragDirective, EditorDirective, AccordionDirective
         MyButtonComponent,CarouselComponent,
         AutoStyleDirective,
 MyImageComponent,RotatableDirective,
-        CommonDirectives,MyIconComponent,ClickToolbarDirective,ShapeComponent
+        CommonDirectives,MyIconComponent,ClickToolbarDirective,ShapeComponent,
+        MyImagePanelComponent,MyIconPanelComponent,MyButtonPanelComponent,MyInputPanelComponent,ContainerPanelComponent,ShapePanelComponent,CarouselPanelComponent
+    
     ],
     bootstrap: [AppComponent],
 

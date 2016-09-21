@@ -43,7 +43,8 @@ var AppModule = (function () {
                 index_1.MyButtonComponent, index_1.CarouselComponent,
                 index_3.AutoStyleDirective,
                 index_1.MyImageComponent, index_3.RotatableDirective,
-                index_2.default, index_1.MyIconComponent, index_3.ClickToolbarDirective, index_1.ShapeComponent
+                index_2.default, index_1.MyIconComponent, index_3.ClickToolbarDirective, index_1.ShapeComponent,
+                index_1.MyImagePanelComponent, index_1.MyIconPanelComponent, index_1.MyButtonPanelComponent, index_1.MyInputPanelComponent, index_1.ContainerPanelComponent, index_1.ShapePanelComponent, index_1.CarouselPanelComponent
             ],
             bootstrap: [app_component_1.AppComponent],
             providers: [app_service_1.AppService, core_1.ViewContainerRef, core_1.TemplateRef],

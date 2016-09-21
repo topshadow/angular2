@@ -7,6 +7,7 @@ __export(require('./sign/sign-in/sign-in.component'));
 __export(require('./sign/sign-up/sign-up.component'));
 //basic
 __export(require('./tool/my-nav/my-nav.component'));
+__export(require('./basic/sidebar/sidebar-panel/index'));
 __export(require('./basic/ckeditor/ckeditor'));
 __export(require('./basic/sidebar/sidebar.component'));
 __export(require('./basic/banner/banner.component'));
