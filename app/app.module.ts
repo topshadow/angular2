@@ -40,16 +40,16 @@ import {ResizableDirective, MyDragDirective, EditorDirective, AccordionDirective
          PageComponent, SideBarComponent,
         EditorDirective, ResizableDirective, MyDragDirective,
         AccordionDirective, MyInputComponent, HoverToolbarDirective,
-        Dragula, RectangleComponent,
+        RectangleComponent,
         FadeInDirective,
         MyButtonComponent,CarouselComponent,
-        Dragula,AutoStyleDirective,
+        AutoStyleDirective,
 MyImageComponent,RotatableDirective,
         CommonDirectives,MyIconComponent,ClickToolbarDirective,ShapeComponent
     ],
     bootstrap: [AppComponent],
 
-    providers: [AppService, ViewContainerRef, TemplateRef, DragulaService],
+    providers: [AppService, ViewContainerRef, TemplateRef],
 
 })
 export class AppModule {

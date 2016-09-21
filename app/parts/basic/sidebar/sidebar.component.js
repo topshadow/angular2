@@ -23,7 +23,6 @@ var SideBarComponent = (function (_super) {
     function SideBarComponent(appService, router, el) {
         _super.call(this, router);
         this.appService = appService;
-        this.router = router;
         this.el = el;
     }
     SideBarComponent.prototype.ngOnInit = function () {

@@ -3,7 +3,7 @@ import {Component, OnInit, Input, ElementRef} from '@angular/core';
 import {Router} from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
 import {AppService} from '../../../app.service';
-import {DragulaService} from 'ng2-dragula/ng2-dragula';
+
 import {Base} from '../../../base';
 
 import {MyImagePanelComponent, MyInputPanelComponent, MyButtonPanelComponent, ShapePanelComponent, MyIconPanelComponent, CarouselPanelComponent, ContainerPanelComponent} from './sidebar-panel/index';
@@ -28,7 +28,7 @@ export class SideBarComponent extends Base implements OnInit {
 
     constructor(
         private appService: AppService,
-        public router: Router,
+         router: Router,
         private el: ElementRef
     ) {
         super(router);
@@ -116,7 +116,7 @@ export class SideBarComponent extends Base implements OnInit {
     }
 
  
-=
+
 
     hideMenu(menuList) {
         this.$("#wqdpageLeft").hide();

@@ -15,7 +15,6 @@ var router_1 = require('@angular/router');
 var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
-var ng2_dragula_1 = require('ng2-dragula/ng2-dragula');
 var app_routing_1 = require('./app.routing');
 var index_1 = require('./parts/index');
 var page_component_1 = require('./page.component');
@@ -39,15 +38,15 @@ var AppModule = (function () {
                 page_component_1.PageComponent, index_1.SideBarComponent,
                 index_3.EditorDirective, index_3.ResizableDirective, index_3.MyDragDirective,
                 index_3.AccordionDirective, index_1.MyInputComponent, index_3.HoverToolbarDirective,
-                ng2_dragula_1.Dragula, index_1.RectangleComponent,
+                index_1.RectangleComponent,
                 index_3.FadeInDirective,
                 index_1.MyButtonComponent, index_1.CarouselComponent,
-                ng2_dragula_1.Dragula, index_3.AutoStyleDirective,
+                index_3.AutoStyleDirective,
                 index_1.MyImageComponent, index_3.RotatableDirective,
                 index_2.default, index_1.MyIconComponent, index_3.ClickToolbarDirective, index_1.ShapeComponent
             ],
             bootstrap: [app_component_1.AppComponent],
-            providers: [app_service_1.AppService, core_1.ViewContainerRef, core_1.TemplateRef, ng2_dragula_1.DragulaService],
+            providers: [app_service_1.AppService, core_1.ViewContainerRef, core_1.TemplateRef],
         }), 
         __metadata('design:paramtypes', [core_1.ViewContainerRef, core_1.TemplateRef])
     ], AppModule);
