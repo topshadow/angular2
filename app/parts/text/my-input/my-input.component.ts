@@ -1,7 +1,6 @@
 /// <reference path="./my-input.d.ts" />
 import {Component, Input, OnInit, HostListener, ElementRef} from '@angular/core';
 import {Router} from '@angular/router';
-import {DomSanitizationService} from '@angular/platform-browser';
 
 import {AppService} from '../../../app.service';
 import {Base} from '../../../base';
@@ -12,7 +11,7 @@ import {Base} from '../../../base';
     moduleId: module.id,
     selector: 'my-input',
     templateUrl: `./my-input.html`,
-    viewProviders: [DomSanitizationService]
+    viewProviders: []
 })
 export class MyInputComponent extends Base implements OnInit {
     @Input() myInput: MyInput;
