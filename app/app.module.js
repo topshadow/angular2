@@ -30,7 +30,7 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, router_1.RouterModule, app_routing_1.routing, common_1.CommonModule, forms_1.FormsModule, http_1.HttpModule],
             declarations: [
-                app_component_1.AppComponent, index_1.SignInComponent,
+                app_component_1.AppComponent, index_1.SignInComponent, index_1.SignUpComponent,
                 index_1.MyNavComponent,
                 index_1.BannerComponent, index_1.EditBannerComponent,
                 index_1.ShowcaseComponent, index_1.EditShowCaseComponent,
