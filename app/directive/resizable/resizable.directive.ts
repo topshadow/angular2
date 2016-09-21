@@ -12,6 +12,7 @@ export class ResizableDirective implements OnInit {
     constructor(private el: ElementRef) {}
 
     ngOnInit() {
+        if(!window['isEdit'])return false;
         window['$'](this.el.nativeElement).resizable({
             // animate:true,
             stop: (e) => {  

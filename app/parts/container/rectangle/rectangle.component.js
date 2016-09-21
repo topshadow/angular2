@@ -16,6 +16,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var base_1 = require('../../../base');
+var app_service_1 = require('../../../app.service');
 var Rectangle = (function () {
     function Rectangle() {
     }
@@ -23,22 +24,52 @@ var Rectangle = (function () {
 }());
 var RectangleComponent = (function (_super) {
     __extends(RectangleComponent, _super);
-    function RectangleComponent(router, el) {
+    function RectangleComponent(router, el, appService) {
         _super.call(this, router);
         this.el = el;
+        this.appService = appService;
     }
-    RectangleComponent.prototype.ngOnInit = function () { };
+    RectangleComponent.prototype.showProperty = function (event) {
+    };
+    RectangleComponent.prototype.ngOnInit = function () {
+        this.$('.tooltip-show').tooltip('show');
+    };
+    RectangleComponent.prototype.upZIndex = function () {
+        this.rectangle.zIndex++;
+    };
+    RectangleComponent.prototype.downZIndex = function () {
+        this.rectangle.zIndex--;
+    };
+    RectangleComponent.prototype.topZIndex = function () {
+        this.rectangle.zIndex = 10;
+    };
+    RectangleComponent.prototype.bottomZIndex = function () {
+        this.rectangle.zIndex = 0;
+    };
+    RectangleComponent.prototype.deleteMe = function () {
+        this.appService.deletePart(this.path, this.rectangle);
+    };
+    RectangleComponent.prototype.changeBackgroundColor = function (backgroundColor) {
+        this.rectangle.backgroundColor = backgroundColor;
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Rectangle)
     ], RectangleComponent.prototype, "rectangle", void 0);
+    __decorate([
+        core_1.HostListener('mouseover', ['$event']), 
+        __metadata('design:type', Function), 
+        __metadata('design:paramtypes', [Object]), 
+        __metadata('design:returntype', void 0)
+    ], RectangleComponent.prototype, "showProperty", null);
     RectangleComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'rectangle',
-            templateUrl: './rectangle.component.html'
+            templateUrl: './rectangle.component.html',
+            styleUrls: ['./rectangle.component.css']
         }), 
-        __metadata('design:paramtypes', [router_1.Router, core_1.ElementRef])
+        __metadata('design:paramtypes', [router_1.Router, core_1.ElementRef, app_service_1.AppService])
     ], RectangleComponent);
     return RectangleComponent;
 }(base_1.Base));

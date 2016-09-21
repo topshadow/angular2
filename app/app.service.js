@@ -81,8 +81,8 @@ var AppService = (function () {
         window['nav'].selectedStyle = style;
     };
     AppService.prototype.deletePart = function (path, part) {
-        console.log(path);
-        this.getPage(path).parts.remove(part);
+        var index = this.getPage(path).parts.indexOf(part);
+        this.getPage(path).parts.splice(index, 1);
     };
     AppService.prototype.addPart = function (path, part) {
         console.log(path);

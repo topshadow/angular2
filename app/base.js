@@ -13,16 +13,7 @@ var router_1 = require('@angular/router');
 var Base = (function () {
     function Base(router) {
         this.router = router;
-        this.arrayProtoType();
     }
-    Base.prototype.arrayProtoType = function () {
-        Array.prototype.remove = function (val) {
-            var index = this.indexOf(val);
-            if (index > -1) {
-                this.splice(index, 1);
-            }
-        };
-    };
     Base.prototype.showTinyMce = function () {
     };
     Object.defineProperty(Base.prototype, "isEdit", {
@@ -44,9 +35,9 @@ var Base = (function () {
     });
     Object.defineProperty(Base.prototype, "path", {
         get: function () {
-            return this.router.url.indexOf('?') == -1 ?
+            return this.router.url.indexOf(';') == -1 ?
                 this.router.url.slice(this.router.url.indexOf('/') + 1) :
-                this.router.url.slice(this.router.url.indexOf('/') + 1, this.router.url.indexOf('?'));
+                this.router.url.slice(this.router.url.indexOf('/') + 1, this.router.url.indexOf(';'));
         },
         enumerable: true,
         configurable: true

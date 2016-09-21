@@ -27,6 +27,12 @@ var SideBarComponent = (function (_super) {
         this.el = el;
     }
     SideBarComponent.prototype.ngOnInit = function () {
+        if (window['isEdit']) {
+            this.$(this.el.nativeElement).show();
+        }
+        else {
+            this.$(this.el.nativeElement).hide();
+        }
     };
     SideBarComponent.prototype.show = function (type) {
         switch (type) {
@@ -84,16 +90,12 @@ var SideBarComponent = (function (_super) {
         this.appService.userService.websiteData = window['websiteData'];
         // localStorage.setItem('websiteData', window['websiteData']);
     };
-    SideBarComponent.prototype.hideMenu = function () {
-        console.log('hidemenu');
-        this.$(this.el.nativeElement).find("#wqdpLeftD").css('height', '0');
+    SideBarComponent.prototype.hideMenu = function (menuList) {
+        this.$("#wqdpageLeft").hide();
+        // this.$()
     };
     SideBarComponent.prototype.showMenu = function () {
-        console.log('showmenu');
-        this.$(this.el.nativeElement).find('#wqdpLeftD').css('height', '100%');
-    };
-    SideBarComponent.prototype.toggleMenu = function (menuList) {
-        this.$(menuList).click(function () { console.log('show'); }, function () { console.log('hide'); });
+        this.$("#wqdpageLeft").show();
     };
     SideBarComponent.ComponentTypes = [];
     __decorate([
@@ -105,7 +107,7 @@ var SideBarComponent = (function (_super) {
             moduleId: module.id,
             selector: 'sidebar',
             templateUrl: "./sidebar2.html",
-            directives: [index_1.MyInputPanelComponent, index_1.MyImagePanelComponent, index_1.MyButtonPanelComponent, index_1.ShapePanelComponent, index_1.MyIconPanelComponent, index_1.CarouselPanelComponent],
+            directives: [index_1.MyInputPanelComponent, index_1.MyImagePanelComponent, index_1.MyButtonPanelComponent, index_1.ShapePanelComponent, index_1.MyIconPanelComponent, index_1.CarouselPanelComponent, index_1.ContainerPanelComponent],
             styleUrls: ['./sidebar.css'],
         }), 
         __metadata('design:paramtypes', [app_service_1.AppService, router_1.Router, core_1.ElementRef])

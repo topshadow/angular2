@@ -31,8 +31,9 @@ var PageComponent = (function () {
             _this.nav = _this.appService.getNavData();
             console.log(params);
         });
-        this.route.queryParams.subscribe(function (params) {
-            window['isEdit'] = params['isEdit'] || params['isEdit'] == 'true' ? true : false;
+        this.route.params.subscribe(function (params) {
+            console.log('compare :', params);
+            window['isEdit'] = params['isEdit'] == 'true' ? true : false;
         });
     };
     PageComponent.prototype.ngOnDestroy = function () {

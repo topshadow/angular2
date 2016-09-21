@@ -25,6 +25,8 @@ var RotatableDirective = (function (_super) {
     }
     RotatableDirective.prototype.ngOnInit = function () {
         var _this = this;
+        if (!window['isEdit'])
+            return;
         if (Reflect.has(this.part, 'transform')) {
             this.$(this.el.nativeElement).css('transform', this.part.transform);
         }

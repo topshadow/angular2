@@ -1,4 +1,4 @@
-<div  rotatable resizable my-drag [part]="myInput" [class.editBorder]="isEdit"
+<div  rotatable resizable my-drag [part]="myInput" [class.editBorder]="isEdit" [style.zIndex]="myInput.zIndex" 
  [style.width]="myInput.width" [style.height]="myInput.height" [style.position]="myInput.position" 
  [style.left]="myInput.left" [style.top]="myInput.top" 
 
@@ -21,6 +21,7 @@
         <button (click)="$(myModal).modal('show')">添加动画</button>
         <a class="btn btn-default btn-xs" (click)="copy()"> 复制</a>
         <a class="btn btn-default btn-xs" (click)="help()">帮助</a>
+        <button class="btn btn-default btn-xs"  data-toggle="tooltip" title="{{myInput | json}}">属性</button>
     </div>
 
     <div #editMyInput hidden style="position:absolute;">

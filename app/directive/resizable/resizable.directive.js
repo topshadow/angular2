@@ -17,6 +17,8 @@ var ResizableDirective = (function () {
     }
     ResizableDirective.prototype.ngOnInit = function () {
         var _this = this;
+        if (!window['isEdit'])
+            return false;
         window['$'](this.el.nativeElement).resizable({
             // animate:true,
             stop: function (e) {

@@ -90,6 +90,8 @@ export class MyIconComponent extends Base implements OnInit {
     toggleNewFrame() {
         this.myIcon.useNewFrameOpen = !this.myIcon.useNewFrameOpen;
     }
-
+    deleteMe(){
+        this.appService.deletePart(this.path,this.myIcon);
+    }
 
 }

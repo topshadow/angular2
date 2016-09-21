@@ -74,8 +74,24 @@ var MyInputComponent = (function (_super) {
         this.myInput.top = top;
         this.myInput.position = position;
     };
-    MyInputComponent.prototype.upZIndex = function () { this.myInput.zIndex++; };
-    MyInputComponent.prototype.downZIndex = function () { this.myInput.zIndex--; };
+    MyInputComponent.prototype.upZIndex = function () {
+        if (!this.myInput.zIndex) {
+            this.myInput.zIndex = 0;
+        }
+        this.myInput.zIndex++;
+    };
+    MyInputComponent.prototype.downZIndex = function () {
+        if (!this.myInput.zIndex) {
+            this.myInput.zIndex = 0;
+        }
+        this.myInput.zIndex--;
+    };
+    MyInputComponent.prototype.topZIndex = function () {
+        this.myInput.zIndex = 10;
+    };
+    MyInputComponent.prototype.bottomZIndex = function () {
+        this.myInput.zIndex = 0;
+    };
     MyInputComponent.prototype.addAnimate = function () { };
     MyInputComponent.prototype.useAnimates = function () {
         for (var _i = 0, _a = this.animates; _i < _a.length; _i++) {

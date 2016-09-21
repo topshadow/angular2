@@ -1,20 +1,22 @@
-<div my-drag resizable rotatable auto-style [part]="myImage" [class.editBorder]="isEdit" style="padding:20px">
+<div my-drag resizable rotatable auto-style [style.zIndex]="myImage.zIndex" [part]="myImage" [class.editBorder]="isEdit" style="padding:20px">
   <div #toolbar hidden class="my-toolbar">
     <button class="btn btn-default btn-xs" (click)="$(myImageSettingModal).modal('toggle')">设置</button>
     <button class="btn btn-default btn-xs dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     层级
    <span class="caret"></span></button>
-     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-            <li class="btn btn-default btn-xs btn-block" (click)="upZIndex()">向上一层</li>
-            <li class="btn btn-default btn-xs btn-block" (click)="downZIndex()">向下一层</li>
-            <li class="btn btn-default btn-xs btn-block" (click)="topZIndex()">顶层</li>
-            <li class="btn btn-default btn-xs btn-block" (click)="bottomZIndex()">底层</li>
-        </ul>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+      <li class="btn btn-default btn-xs btn-block" (click)="upZIndex()">向上一层</li>
+      <li class="btn btn-default btn-xs btn-block" (click)="downZIndex()">向下一层</li>
+      <li class="btn btn-default btn-xs btn-block" (click)="topZIndex()">顶层</li>
+      <li class="btn btn-default btn-xs btn-block" (click)="bottomZIndex()">底层</li>
+    </ul>
     <button class="btn btn-default btn-xs">动画</button>
     <button class="btn btn-default btn-xs" (click)="deleteMe()">删除</button>
     <button class="btn btn-default btn-xs">帮助</button>
+    <button class="btn btn-default btn-xs" data-toggle="tooltip" title="{{myImage | json}}">属性</button>
+
   </div>
-  <img click-toolbar [toolbar]="toolbar" src="{{myImage.src}}" class="img-responsive" [style.width]="'100%'" />
+  <img click-toolbar [style.zIndex]="myImage.zIndex" [toolbar]="toolbar" src="{{myImage.src}}" class="img-responsive" [style.width]="'100%'" />
 
 </div>
 

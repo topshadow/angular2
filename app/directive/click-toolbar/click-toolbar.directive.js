@@ -30,8 +30,14 @@ var ClickToolbarDirective = (function (_super) {
         this.$(this.toolbar).css({ position: 'relative', left: screenX, top: screenY });
         this.$(this.toolbar).toggle();
     };
+    /**
+     * 编辑模式下显示toolbar,预览模式下不显示
+     */
     ClickToolbarDirective.prototype.ngOnInit = function () {
         var _this = this;
+        if (!window['isEdit']) {
+            this.$(toolbar).hide();
+        }
         this.$('document').click(function () { return _this.$(_this.toolbar).hide(); });
     };
     __decorate([

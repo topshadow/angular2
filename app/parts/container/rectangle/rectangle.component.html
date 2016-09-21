@@ -1,16 +1,26 @@
+<div auto-style my-drag resizable rotatable [class.editBorder]="isEdit" [style.zIndex]="rectangle.zIndex" [part]="rectangle">
+	<div class="my-toolbar" #toolbar>
+		<button class="btn btn-default btn-xs" (click)="$(settingModal).modal('toggle')">设置</button>
+		<button class="btn btn-default btn-xs dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    层级
+   <span class="caret"></span></button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+			<li class="btn btn-default btn-xs btn-block" (click)="upZIndex()">向上一层</li>
+			<li class="btn btn-default btn-xs btn-block" (click)="downZIndex()">向下一层</li>
+			<li class="btn btn-default btn-xs btn-block" (click)="topZIndex()">顶层</li>
+			<li class="btn btn-default btn-xs btn-block" (click)="bottomZIndex()">底层</li>
+		</ul>
+		<button class="btn btn-default btn-xs" (click)="deleteMe()">删除</button>
+		<button class="btn btn-default btn-xs">复制</button>
+		<button class="btn btn-default btn-xs">帮助</button>
+		<button class="btn btn-default btn-xs">旋转</button>
+		<button class="btn btn-default btn-xs" data-toggle="tooltip" title="{{rectangle | json}}">属性</button>
 
-<div class="my-toolbar">
-    <button class="btn btn-default btn-xs" (click)="$(settingModal).modal('toggle')">设置</button>
-    <button class="btn btn-default btn-xs" >层级</button>
-    <button class="btn btn-default btn-xs">删除</button>
-    <button class="btn btn-default btn-xs">复制</button>
-    <button class="btn btn-default btn-xs">帮助</button>
-    <button class="btn btn-default btn-xs">旋转</button>
-    
+	</div>
+	<div [style.zIndex]="rectangle.zIndex" [style.backgroundColor]="rectangle.backgroundColor" [style.width]="rectangle.width"
+		[style.height]="rectangle.height" click-toolbar [toolbar]="toolbar"></div>
+
 </div>
-<div class="well" auto-style my-drag resizable rotatable [part]="rectangle" click-toolbar toolbar="toolbar"></div>
-
-
 
 
 
@@ -24,11 +34,11 @@
 					&times;
 				</button>
 				<h4 class="modal-title" id="myModalLabel">
-					模态框（Modal）标题
+					设置矩形
 				</h4>
 			</div>
 			<div class="modal-body">
-				<div class=""></div>
+				<input type="color" (change)="changeBackgroundColor(backgroundColorInput.value)" #backgroundColorInput>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
@@ -37,6 +47,8 @@
 					提交更改
 				</button>
 			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal -->
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal -->
 </div>

@@ -12,8 +12,7 @@ export class ClickToolbarDirective extends Base implements OnInit{
 
     @HostListener('click',['$event'])
     showToolbar(e){
-        if(!window['isEdit'])
-        return false;
+        if(!window['isEdit']) return false;
         let {pageX,pageY} = e;
         this.$(this.toolbar).css({position:'relative',left:screenX,top:screenY});
         this.$(this.toolbar).toggle();
@@ -23,7 +22,14 @@ export class ClickToolbarDirective extends Base implements OnInit{
         super(router);
     }
 
+/**
+ * 编辑模式下显示toolbar,预览模式下不显示
+ */
     ngOnInit(){
+        if(!window['isEdit']){
+            this.$(toolbar).hide();
+        }
+
         this.$('document').click(()=>this.$(this.toolbar).hide());
     }
 

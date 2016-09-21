@@ -72,9 +72,24 @@ export class MyInputComponent extends Base implements OnInit {
     }
 
 
-    upZIndex() { this.myInput.zIndex++; }
+    upZIndex() {
+        if(!this.myInput.zIndex){
+            this.myInput.zIndex=0;
+        }
+         this.myInput.zIndex++; }
 
-    downZIndex() { this.myInput.zIndex--; }
+    downZIndex() {
+        if(!this.myInput.zIndex){
+            this.myInput.zIndex=0;
+        }
+         this.myInput.zIndex--; }
+
+    topZIndex(){
+        this.myInput.zIndex=10;
+    }
+    bottomZIndex(){
+        this.myInput.zIndex=0;
+    }
 
     addAnimate() { }
 

@@ -87,8 +87,8 @@ export class AppService {
     }
 
     deletePart(path: string, part: Object) {
-        console.log(path);
-        this.getPage(path).parts.remove(part);
+        var index = this.getPage(path).parts.indexOf(part);
+        this.getPage(path).parts.splice(index,1);
     }
 
     addPart(path: string, part: Object) {

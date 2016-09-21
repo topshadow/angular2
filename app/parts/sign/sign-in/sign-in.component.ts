@@ -1,6 +1,7 @@
 import {Component, OnInit, ElementRef} from '@angular/core';
 import {Router} from '@angular/router';
 
+import {Base} from  '../../../base';
 import {AppService} from '../../../app.service';
 
 
@@ -12,11 +13,11 @@ import {AppService} from '../../../app.service';
     viewProviders: [],
     styleUrls: ['./sign-in.css']
 })
-export class SignInComponent implements OnInit {
+export class SignInComponent extends Base implements OnInit {
     username:string='';
     password:string='';
     autoSignIn:boolean=false;
-    constructor(private el: ElementRef, private appService: AppService, private router: Router) { }
+    constructor(private el: ElementRef, private appService: AppService,  router: Router) {super(router) }
     ngOnInit() { 
         //如果有缓存用户名,和自动登录标志,则自动登录
             this.username= localStorage.getItem('username')?localStorage.getItem('username'):'';
@@ -53,9 +54,10 @@ export class SignInComponent implements OnInit {
                     localStorage.setItem('password',this.password);
                     localStorage.setItem('autoSignIn',this.autoSignIn.toString());
                     rtn.user = JSON.parse(rtn.user);
-                    
-                    this.router.navigate(['index']);
                     this.appService.userService.user = rtn.user;
+                    //弹出对话框,选择编辑模式登陆还是预览模式登陆
+                    this.$(this.el.nativeElement).find('.modal').modal('toggle');
+
                 } else {
                     alert(rtn.msg)
                 }
@@ -63,6 +65,16 @@ export class SignInComponent implements OnInit {
 
         })
     }
+
+    editLogin(){
+        this.router.navigate(['/index',{isEdit:true}]);
+        
+    }
+
+    previewLogin(){
+        this.router.navigate(['/index']);
+    }
+
 
     toSignUp() {
         this.router.navigate(['sign-up']);

@@ -87,6 +87,9 @@ var MyIconComponent = (function (_super) {
     MyIconComponent.prototype.toggleNewFrame = function () {
         this.myIcon.useNewFrameOpen = !this.myIcon.useNewFrameOpen;
     };
+    MyIconComponent.prototype.deleteMe = function () {
+        this.appService.deletePart(this.path, this.myIcon);
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)

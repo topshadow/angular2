@@ -14,6 +14,8 @@ export class RotatableDirective extends Base implements OnInit {
     }
 
     ngOnInit() {
+            if(!window['isEdit']) return;
+
         if(Reflect.has(this.part,'transform')){
                 this.$(this.el.nativeElement).css('transform',this.part.transform);
                 

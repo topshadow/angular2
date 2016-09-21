@@ -1,4 +1,9 @@
 "use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,12 +15,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var base_1 = require('../../../base');
 var app_service_1 = require('../../../app.service');
-var SignInComponent = (function () {
+var SignInComponent = (function (_super) {
+    __extends(SignInComponent, _super);
     function SignInComponent(el, appService, router) {
+        _super.call(this, router);
         this.el = el;
         this.appService = appService;
-        this.router = router;
         this.username = '';
         this.password = '';
         this.autoSignIn = false;
@@ -54,14 +61,21 @@ var SignInComponent = (function () {
                     localStorage.setItem('password', _this.password);
                     localStorage.setItem('autoSignIn', _this.autoSignIn.toString());
                     rtn.user = JSON.parse(rtn.user);
-                    _this.router.navigate(['index']);
                     _this.appService.userService.user = rtn.user;
+                    //弹出对话框,选择编辑模式登陆还是预览模式登陆
+                    _this.$(_this.el.nativeElement).find('.modal').modal('toggle');
                 }
                 else {
                     alert(rtn.msg);
                 }
             }
         });
+    };
+    SignInComponent.prototype.editLogin = function () {
+        this.router.navigate(['/index', { isEdit: true }]);
+    };
+    SignInComponent.prototype.previewLogin = function () {
+        this.router.navigate(['/index']);
     };
     SignInComponent.prototype.toSignUp = function () {
         this.router.navigate(['sign-up']);
@@ -77,6 +91,6 @@ var SignInComponent = (function () {
         __metadata('design:paramtypes', [core_1.ElementRef, app_service_1.AppService, router_1.Router])
     ], SignInComponent);
     return SignInComponent;
-}());
+}(base_1.Base));
 exports.SignInComponent = SignInComponent;
 //# sourceMappingURL=sign-in.component.js.map

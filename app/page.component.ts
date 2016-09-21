@@ -27,8 +27,9 @@ export class PageComponent implements OnInit, OnDestroy {
             this.nav = this.appService.getNavData();
             console.log(params);
         });
-        this.route.queryParams.subscribe(params => {
-            window['isEdit'] = params['isEdit'] || params['isEdit'] == 'true' ? true : false;
+        this.route.params.subscribe(params => {
+            console.log('compare :',params);
+            window['isEdit'] =  params['isEdit'] == 'true' ? true : false;
         })
     }
     

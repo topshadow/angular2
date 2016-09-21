@@ -1,18 +1,18 @@
-import {Component,Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {Base} from '../../../base';
 import {AppService} from '../../../app.service';
 
-export class MyImage{
-    src:string;
-    title:string;
-    left:string;
-    top:string;
-    width:string;
-    height:string;
-    position:string;
-    zIndex:number;
+export class MyImage {
+    src: string;
+    title: string;
+    left: string;
+    top: string;
+    width: string;
+    height: string;
+    position: string;
+    zIndex: number;
 }
 
 
@@ -20,16 +20,16 @@ export class MyImage{
     moduleId: module.id,
     selector: 'my-image',
     templateUrl: './my-image.html',
-    styleUrls:['./style1.css','./style2.css']
+    styleUrls: ['./style1.css', './style2.css']
 })
 export class MyImageComponent extends Base {
-    @Input() myImage:MyImage;
+    @Input() myImage: MyImage;
 
-    constructor(public router:Router,public appService:AppService){
+    constructor(public router: Router, public appService: AppService) {
         super(router);
     }
     ngOnInit() {
-        console.log('my-image', this.myImage);
+        this.$('.tooltip-show').tooltip('show');
     }
     changePostion(e) {
         var left = window['$'](e.target).css('left');
@@ -45,23 +45,23 @@ export class MyImageComponent extends Base {
         this.myImage.width = e.target.style.width;
         this.myImage.height = e.target.style.height;
     }
-    
-    deleteMe(){
-        this.appService.deletePart(this.path,this.myImage);
+
+    deleteMe() {
+        this.appService.deletePart(this.path, this.myImage);
     }
-    
-    upZIndex(){
+
+    upZIndex() {
         this.myImage.zIndex++;
     }
-    downZIndex(){
+    downZIndex() {
         this.myImage.zIndex--;
     }
 
-    topZIndex(){
-        this.myImage.zIndex=0;
+    topZIndex() {
+        this.myImage.zIndex = 0;
     }
-    bottomZIndex(){
-        this.myImage.zIndex=9999;
+    bottomZIndex() {
+        this.myImage.zIndex = 9999;
     }
-    
+
 }

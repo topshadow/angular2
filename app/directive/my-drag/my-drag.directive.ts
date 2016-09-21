@@ -12,6 +12,7 @@ export class MyDragDirective implements OnInit {
     @Output() onMyDragStop = new EventEmitter();
 
     ngOnInit() {
+        if(!window['isEdit'])return ;
         window['$'](this.el.nativeElement).draggable({
             start: (e) => { },
             drag: (e) => {  },

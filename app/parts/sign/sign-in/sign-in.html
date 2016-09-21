@@ -9,8 +9,32 @@
             <input type="checkbox"  [attr.checked]="autoSignIn==true?checked:none" (click)='toggleAutoSignIn()'> 记住我
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" (click)="signIn()">登录</button>
-		<button class="btn btn-lg btn-primary btn-block" (click)="toSignUp()">注册</button>
+        <button class="btn btn-lg btn-primary btn-block" (click)="signIn();">登录</button>
+		<button class="btn btn-lg btn-primary btn-block" (click)="toSignUp();">注册</button>
       </div>
 
     </div> <!-- /container -->
+    
+    <!-- 模态框（Modal） -->
+<div class="modal fade" #loginModal  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					登陆成功
+				</h4>
+			</div>
+			<div class="modal-body">
+				<button class="btn btn-primary" (click)="editLogin();$(loginModal).modal('toggle')">编辑模式</button><button class="btn btn-info" (click)="previewLogin();$(loginModal).modal('toggle')">预览模式</button>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>

@@ -6,7 +6,7 @@ import {AppService} from '../../../app.service';
 import {DragulaService} from 'ng2-dragula/ng2-dragula';
 import {Base} from '../../../base';
 
-import {MyImagePanelComponent, MyInputPanelComponent, MyButtonPanelComponent, ShapePanelComponent, MyIconPanelComponent, CarouselPanelComponent} from './sidebar-panel/index';
+import {MyImagePanelComponent, MyInputPanelComponent, MyButtonPanelComponent, ShapePanelComponent, MyIconPanelComponent, CarouselPanelComponent, ContainerPanelComponent} from './sidebar-panel/index';
 
 
 
@@ -16,7 +16,7 @@ import {MyImagePanelComponent, MyInputPanelComponent, MyButtonPanelComponent, Sh
     moduleId: module.id,
     selector: 'sidebar',
     templateUrl: `./sidebar2.html`,
-    directives: [MyInputPanelComponent, MyImagePanelComponent, MyButtonPanelComponent, ShapePanelComponent, MyIconPanelComponent, CarouselPanelComponent],
+    directives: [MyInputPanelComponent, MyImagePanelComponent, MyButtonPanelComponent, ShapePanelComponent, MyIconPanelComponent, CarouselPanelComponent, ContainerPanelComponent],
     styleUrls: ['./sidebar.css'],
 
 })
@@ -36,6 +36,12 @@ export class SideBarComponent extends Base implements OnInit {
     }
 
     ngOnInit() {
+        if (window['isEdit']) {
+            this.$(this.el.nativeElement).show()
+        } else {
+            this.$(this.el.nativeElement).hide();
+        }
+
     }
 
 
@@ -105,25 +111,19 @@ export class SideBarComponent extends Base implements OnInit {
     }
 
     saveWebsite() {
-        this.appService.userService.websiteData=window['websiteData'];
+        this.appService.userService.websiteData = window['websiteData'];
         // localStorage.setItem('websiteData', window['websiteData']);
     }
 
-    hideMenu() {
-        console.log('hidemenu');
-        this.$(this.el.nativeElement).find("#wqdpLeftD").css('height', '0');
-    }
+ 
+=
 
-    showMenu() {
-        console.log('showmenu');
-        this.$(this.el.nativeElement).find('#wqdpLeftD').css('height', '100%');
+    hideMenu(menuList) {
+        this.$("#wqdpageLeft").hide();
+        // this.$()
     }
-
-    toggleMenu(menuList) {
-        this.$(menuList).click(
-            function () { console.log('show') },
-            function () { console.log('hide') }
-        );
+    showMenu(){
+        this.$("#wqdpageLeft").show();
     }
 
 }

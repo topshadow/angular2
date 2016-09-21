@@ -18,6 +18,8 @@ var MyDragDirective = (function () {
     }
     MyDragDirective.prototype.ngOnInit = function () {
         var _this = this;
+        if (!window['isEdit'])
+            return;
         window['$'](this.el.nativeElement).draggable({
             start: function (e) { },
             drag: function (e) { },

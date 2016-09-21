@@ -31,7 +31,7 @@ var MyImageComponent = (function (_super) {
         this.appService = appService;
     }
     MyImageComponent.prototype.ngOnInit = function () {
-        console.log('my-image', this.myImage);
+        this.$('.tooltip-show').tooltip('show');
     };
     MyImageComponent.prototype.changePostion = function (e) {
         var left = window['$'](e.target).css('left');
