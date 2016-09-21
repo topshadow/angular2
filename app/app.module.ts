@@ -6,7 +6,6 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
-import {Dragula, DragulaService} from 'ng2-dragula/ng2-dragula';
 
 import {routing} from './app.routing';
 
