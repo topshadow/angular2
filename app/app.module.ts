@@ -10,14 +10,15 @@ import {HttpModule} from '@angular/http';
 import {routing} from './app.routing';
 
 import {SignInComponent,
-    MyNavComponent, 
+    MyNavComponent,
     BannerComponent, EditBannerComponent
     , ShowcaseComponent, EditShowCaseComponent,
     CustomComponent, TopBar, DynamicComponent, SideBarComponent,
-    MyInputComponent,MyImageComponent,RectangleComponent,
-    MyButtonComponent,MyIconComponent,ShapeComponent,CarouselComponent,
-    MyImagePanelComponent,MyIconPanelComponent,MyButtonPanelComponent,MyInputPanelComponent,ContainerPanelComponent,ShapePanelComponent,CarouselPanelComponent
-
+    MyInputComponent, MyImageComponent, RectangleComponent,
+    MyButtonComponent, MyIconComponent, ShapeComponent, CarouselComponent,
+    MyImagePanelComponent, MyIconPanelComponent,
+     MyButtonPanelComponent, MyInputPanelComponent, ContainerPanelComponent, ShapePanelComponent, CarouselPanelComponent,
+     SignUpComponent
 } from './parts/index';
 import {PageComponent} from './page.component';
 import CommonDirectives from './common/index';
@@ -25,7 +26,7 @@ import CommonDirectives from './common/index';
 import {AppService} from './app.service';
 
 import {ResizableDirective, MyDragDirective, EditorDirective, AccordionDirective,
-    HoverToolbarDirective,AutoStyleDirective, FadeInDirective,RotatableDirective,ClickToolbarDirective
+    HoverToolbarDirective, AutoStyleDirective, FadeInDirective, RotatableDirective, ClickToolbarDirective
 } from './directive/index';
 
 
@@ -34,22 +35,22 @@ import {ResizableDirective, MyDragDirective, EditorDirective, AccordionDirective
 @NgModule({
     imports: [BrowserModule, RouterModule, routing, CommonModule, FormsModule, HttpModule],
     declarations: [
-        AppComponent, SignInComponent,
+        AppComponent, SignInComponent,SignUpComponent,
         MyNavComponent,
         BannerComponent, EditBannerComponent,
         ShowcaseComponent, EditShowCaseComponent,
         CustomComponent, TopBar, DynamicComponent,
-         PageComponent, SideBarComponent,
+        PageComponent, SideBarComponent,
         EditorDirective, ResizableDirective, MyDragDirective,
         AccordionDirective, MyInputComponent, HoverToolbarDirective,
         RectangleComponent,
         FadeInDirective,
-        MyButtonComponent,CarouselComponent,
+        MyButtonComponent, CarouselComponent,
         AutoStyleDirective,
-MyImageComponent,RotatableDirective,
-        CommonDirectives,MyIconComponent,ClickToolbarDirective,ShapeComponent,
-        MyImagePanelComponent,MyIconPanelComponent,MyButtonPanelComponent,MyInputPanelComponent,ContainerPanelComponent,ShapePanelComponent,CarouselPanelComponent
-    
+        MyImageComponent, RotatableDirective,
+        CommonDirectives, MyIconComponent, ClickToolbarDirective, ShapeComponent,
+        MyImagePanelComponent, MyIconPanelComponent, MyButtonPanelComponent, MyInputPanelComponent, ContainerPanelComponent, ShapePanelComponent, CarouselPanelComponent
+
     ],
     bootstrap: [AppComponent],
 
