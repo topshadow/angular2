@@ -16,17 +16,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /// <reference path="./my-input.d.ts" />
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var platform_browser_1 = require('@angular/platform-browser');
 var app_service_1 = require('../../../app.service');
 var base_1 = require('../../../base');
 var MyInputComponent = (function (_super) {
     __extends(MyInputComponent, _super);
-    function MyInputComponent(appService, router, el, sceurity) {
+    function MyInputComponent(appService, router, el) {
         _super.call(this, router);
         this.appService = appService;
         this.router = router;
         this.el = el;
-        this.sceurity = sceurity;
         this.optionAnimates = {
             touchEvents: [{ name: "元素出现", value: "display" },
                 { name: "元素点击", value: 'click' },
@@ -179,9 +177,9 @@ var MyInputComponent = (function (_super) {
             moduleId: module.id,
             selector: 'my-input',
             templateUrl: "./my-input.html",
-            viewProviders: [platform_browser_1.DomSanitizationService]
+            viewProviders: []
         }), 
-        __metadata('design:paramtypes', [app_service_1.AppService, router_1.Router, core_1.ElementRef, platform_browser_1.DomSanitizationService])
+        __metadata('design:paramtypes', [app_service_1.AppService, router_1.Router, core_1.ElementRef])
     ], MyInputComponent);
     return MyInputComponent;
 }(base_1.Base));

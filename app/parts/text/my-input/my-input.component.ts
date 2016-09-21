@@ -25,7 +25,7 @@ export class MyInputComponent extends Base implements OnInit {
             { name: "中心放大", value: "center-big" }
         ]
     };
-    constructor(private appService: AppService, public router: Router, public el: ElementRef, private sceurity: DomSanitizationService) {
+    constructor(private appService: AppService, public router: Router, public el: ElementRef) {
         super(router);
     }
 
