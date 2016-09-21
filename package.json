@@ -2,6 +2,7 @@
   "name": "angular2-quickstart",
   "version": "1.0.0",
   "engines": {
+    "node":"6.2.0",
     "npm": "3.10.0"
   },
   "scripts": {
